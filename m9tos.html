@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>M9 Systems – Terms of Service</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --bg:#000;
+  --sidebar:#1c1c1e;
+  --panel:#1c1c1e;
+  --divider:#2c2c2e;
+  --text:#f2f2f7;
+  --sub:#a1a1a6;
+  --accent:#0a84ff;
+  --warn:#ff9f0a;
+  --bot:#ffd60a; /* iOS system yellow */
+}
+
+* { box-sizing:border-box; }
+
+body {
+  margin:0;
+  background:var(--bg);
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text",Arial,sans-serif;
+  color:var(--text);
+}
+
+.bot-name {
+  font-weight:700;
+  color:var(--bot);
+}
+
+.app {
+  display:flex;
+  height:100vh;
+  max-width:980px;
+  margin:0 auto;
+}
+
+/* Sidebar */
+.sidebar {
+  width:280px;
+  background:var(--sidebar);
+  border-right:1px solid var(--divider);
+  padding:12px 0;
+}
+
+.sidebar h1 {
+  font-size:18px;
+  font-weight:600;
+  padding:12px 16px;
+}
+
+.tab {
+  padding:12px 16px;
+  cursor:pointer;
+  font-size:15px;
+}
+
+.tab:hover {
+  background:#2a2a2c;
+}
+
+.tab.active {
+  background:var(--accent);
+  color:#fff;
+}
+
+/* Content */
+.content {
+  flex:1;
+  padding:20px;
+  overflow-y:auto;
+}
+
+.section { display:none; }
+.section.active { display:block; }
+
+.card {
+  background:var(--panel);
+  border-radius:14px;
+  padding:18px;
+  margin-bottom:22px;
+}
+
+.card h2 {
+  margin-top:0;
+  font-size:20px;
+}
+
+.card h3 {
+  margin:18px 0 8px;
+  font-size:16px;
+}
+
+.card ul {
+  padding-left:18px;
+}
+
+.card li {
+  margin-bottom:6px;
+}
+
+.note {
+  font-size:13px;
+  color:var(--sub);
+  margin-top:8px;
+}
+
+.warning {
+  color:var(--warn);
+  font-weight:500;
+}
+
+/* Mobile */
+@media (max-width:720px) {
+  .app { flex-direction:column; }
+  .sidebar {
+    width:100%;
+    display:flex;
+    overflow-x:auto;
+    border-right:none;
+    border-bottom:1px solid var(--divider);
+  }
+  .tab { white-space:nowrap; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+  <h1>M9 Systems</h1>
+  <div class="tab active" onclick="show('overview')">Overview</div>
+  <div class="tab" onclick="show('bots')">Bots & AI</div>
+  <div class="tab" onclick="show('relay')">Chat Relaying</div>
+  <div class="tab" onclick="show('points')">Point System</div>
+  <div class="tab" onclick="show('earning')">Earning Points</div>
+  <div class="tab" onclick="show('games')">Games & Gambling</div>
+  <div class="tab" onclick="show('rewards')">Rewards & RWV</div>
+  <div class="tab" onclick="show('limits')">What This Is Not</div>
+</div>
+
+<!-- CONTENT -->
+<div class="content">
+
+<!-- OVERVIEW -->
+<div id="overview" class="section active">
+  <div class="card">
+    <h2>System Overview</h2>
+    <p>
+      M9 Systems are a collection of <strong>custom-built automation, loyalty,
+      and entertainment systems</strong> used on this channel.
+    </p>
+    <ul>
+      <li>All systems are provided for entertainment and community engagement</li>
+      <li>No system represents real money, banking, or stored value</li>
+      <li>Participation is voluntary</li>
+      <li>Systems may change, pause, or be removed at any time</li>
+    </ul>
+  </div>
+</div>
+
+<!-- BOTS -->
+<div id="bots" class="section">
+  <div class="card">
+    <h2>Bots, Automation & AI</h2>
+
+    <h3>Bot Identity</h3>
+    <ul>
+      <li>
+        This channel uses a custom automated bot named
+        <span class="bot-name">M9_BOT</span>
+      </li>
+      <li>
+        <span class="bot-name">M9_BOT</span> is a system-controlled account and
+        is not a human user
+      </li>
+    </ul>
+
+    <h3>Bot Capabilities</h3>
+    <ul>
+      <li>
+        <span class="bot-name">M9_BOT</span> may post messages, respond to chat,
+        and process commands
+      </li>
+      <li>
+        <span class="bot-name">M9_BOT</span> may run games, track points, and
+        manage reward systems
+      </li>
+      <li>
+        <span class="bot-name">M9_BOT</span> may initiate messages during idle
+        periods
+      </li>
+    </ul>
+
+    <h3>AI Behavior</h3>
+    <ul>
+      <li>
+        <span class="bot-name">M9_BOT</span> may use AI-assisted logic to generate
+        responses
+      </li>
+      <li>AI behavior is restricted, moderated, and safety-guarded</li>
+      <li>
+        <span class="bot-name">M9_BOT</span> does not impersonate users,
+        moderators, or staff
+      </li>
+      <li>
+        <span class="bot-name">M9_BOT</span> may refuse, deflect, or disengage
+        from certain topics
+      </li>
+    </ul>
+
+    <div class="note">
+      Messages sent by <span class="bot-name">M9_BOT</span> represent automated
+      system behavior and not human intent or advice.
+    </div>
+  </div>
+</div>
+
+<!-- RELAY -->
+<div id="relay" class="section">
+  <div class="card">
+    <h2>Chat Relaying & Cross-Platform Messages</h2>
+
+    <h3>Relayed Messages</h3>
+    <ul>
+      <li>
+        Messages from external platforms may be relayed into chat by
+        <span class="bot-name">M9_BOT</span>
+      </li>
+      <li>
+        All relayed messages are posted by
+        <span class="bot-name">M9_BOT</span>, not by real Twitch users
+      </li>
+      <li>Relayed messages are clearly formatted as quoted or external content</li>
+    </ul>
+
+    <h3>Visual Overlays</h3>
+    <ul>
+      <li>External usernames may appear visually in overlays</li>
+      <li>Overlay presentation is visual-only</li>
+      <li>Twitch chat remains the authoritative source of authorship</li>
+    </ul>
+
+    <div class="note">
+      <span class="bot-name">M9_BOT</span> is the only account posting relayed
+      messages into Twitch chat.
+    </div>
+  </div>
+</div>
+
+<!-- POINT SYSTEM -->
+<div id="points" class="section">
+  <div class="card">
+    <h2>Point System</h2>
+
+    <h3>Nature of Points</h3>
+    <ul>
+      <li>Points are fictional and server-side</li>
+      <li>Points are not real money or currency</li>
+      <li>Points are non-transferable</li>
+      <li>Points cannot be purchased</li>
+    </ul>
+
+    <h3>Point Usage</h3>
+    <ul>
+      <li>Points may be spent in games</li>
+      <li>Points may be lost through gameplay</li>
+      <li>
+        <strong>
+          Points are deducted for reward redemptions and sound spams,
+          but not upon a giveaway win
+        </strong>
+      </li>
+    </ul>
+
+    <div class="note">
+      Points themselves have no monetary value, but may be used to request
+      digital rewards at the channel’s discretion.
+    </div>
+  </div>
+</div>
+
+<!-- EARNING -->
+<div id="earning" class="section">
+  <div class="card">
+    <h2>Earning Points</h2>
+
+    <ul>
+      <li>Chat activity and engagement</li>
+      <li>Daily reward commands</li>
+      <li>True first-time follows only</li>
+      <li>Channel subscriptions (perk-based)</li>
+      <li>Special events or promotions</li>
+    </ul>
+
+    <h3>Safeguards</h3>
+    <ul>
+      <li>Re-follows do not grant points</li>
+      <li>Existing balances are not affected by re-follows</li>
+      <li>Suspicious or abusive behavior may be logged</li>
+    </ul>
+
+    <div class="note">
+      Subscriptions provide Twitch-native benefits first.
+      Points are a bonus perk, not a purchase.
+    </div>
+  </div>
+</div>
+
+<!-- GAMES -->
+<div id="games" class="section">
+  <div class="card">
+    <h2>Games & Gambling</h2>
+
+    <h3>Gameplay</h3>
+    <ul>
+      <li>Participation is optional</li>
+      <li>Games use fictional points only</li>
+      <li>Some games may involve chance-based outcomes</li>
+    </ul>
+
+    <h3>Loss & Risk</h3>
+    <ul>
+      <li>Users may lose points</li>
+      <li>Losing points does not mean losing money</li>
+      <li>No deposits or purchases are required</li>
+    </ul>
+
+    <div class="note">
+      Points can always be re-earned through normal participation.
+    </div>
+  </div>
+</div>
+
+<!-- REWARDS -->
+<div id="rewards" class="section">
+  <div class="card">
+    <h2>Rewards & Real-World Digital Value</h2>
+
+    <h3>Reward Types</h3>
+    <ul>
+      <li>Digital game skins or cosmetics</li>
+      <li>Digital gift cards</li>
+      <li>Digital game copies or licenses</li>
+    </ul>
+
+    <h3>Redemption Process</h3>
+    <ul>
+      <li>Redemption is user-initiated</li>
+      <li>Points are deducted upon approved redemption</li>
+      <li>Rewards are not guaranteed</li>
+      <li>Fulfillment may be manual</li>
+      <li>Trade URLs or account details may be required</li>
+    </ul>
+
+    <div class="warning">
+      Rewards are prizes or giveaways — not cash-outs,
+      withdrawals, or winnings.
+    </div>
+  </div>
+</div>
+
+<!-- LIMITS -->
+<div id="limits" class="section">
+  <div class="card">
+    <h2>What This System Is Not</h2>
+
+    <ul>
+      <li>No buying points</li>
+      <li>No Bits-to-points conversion</li>
+      <li>No deposits</li>
+      <li>No withdrawals</li>
+      <li>No guaranteed financial outcomes</li>
+    </ul>
+  </div>
+</div>
+
+</div>
+</div>
+
+<script>
+function show(id){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
+
+</body>
+</html>
