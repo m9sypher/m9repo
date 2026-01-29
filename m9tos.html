@@ -27,6 +27,37 @@ body {
   color:var(--text);
 }
 
+/* ─── GAME SECTION VISUALS ───────────────────────────── */
+
+.game-block {
+  padding-top: 18px;
+  margin-top: 18px;
+  border-top: 1px solid var(--divider);
+}
+
+.code-box {
+  background: #0d0d0f;
+  border: 1px solid #2c2c2e;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin: 10px 0 12px;
+  overflow-x: auto;
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+/* JS-style coloring */
+.code-box .kw { color:#ff7ab2; }     /* keywords */
+.code-box .fn { color:#7dd3fc; }     /* functions */
+.code-box .num { color:#ffd60a; }    /* numbers */
+.code-box .str { color:#a7f3d0; }    /* strings */
+.code-box .op  { color:#c7c7cc; }    /* operators */
+.code-box .cm  { color:#6e6e73; }    /* comments */
+.code-box .id  { color:#f2f2f7; }    /* identifiers */
+.code-box .hl  { color:#ff9f0a; }    /* hidden/xxxxxx */
+
+  
 .bot-name {
   font-weight:700;
   color:var(--bot);
@@ -235,125 +266,171 @@ body {
 
     <h3>Game Logic & Outcome Determination</h3>
 
-    <ul>
-      <li>
-        <strong>Upgrader</strong><br>
-        Users wager points to attempt upgrading an item tier.
+    <!-- UPGRADER -->
+    <div class="game-block">
+      <strong>Upgrader</strong>
+      <p>Users wager points to attempt upgrading an item tier.</p>
+
+      <em>Outcome Logic (Simplified Code Representation):</em>
+
+      <div class="code-box">
+        <span class="kw">const</span> <span class="id">roll</span>
+        <span class="op">=</span>
+        <span class="fn">Math.random</span><span class="op">()</span>;
+
         <br><br>
-        <em>Outcome Logic (Simplified Code Representation):</em><br>
-<pre><code>
-const roll = Math.random();
 
-if (roll &lt;= upgradeChance) {
-  result = "SUCCESS";
-} else {
-  result = "FAIL";
-}
+        <span class="kw">if</span>
+        <span class="op">(</span><span class="id">roll</span>
+        <span class="op">&lt;=</span> <span class="id">upgradeChance</span><span class="op">)</span>
+        <span class="op">{</span><br>
+        &nbsp;&nbsp;<span class="id">result</span>
+        <span class="op">=</span>
+        <span class="str">"SUCCESS"</span>;<br>
+        <span class="op">}</span>
+        <span class="kw">else</span>
+        <span class="op">{</span><br>
+        &nbsp;&nbsp;<span class="id">result</span>
+        <span class="op">=</span>
+        <span class="str">"FAIL"</span>;<br>
+        <span class="op">}</span>
 
-upgradeChance = baseChance
-              - tierModifier
-              - xxxxxx
-              + xxxxxx;
-</code></pre>
+        <br><br>
+
+        <span class="id">upgradeChance</span>
+        <span class="op">=</span>
+        <span class="id">baseChance</span><br>
+        &nbsp;&nbsp;<span class="op">-</span> <span class="id">tierModifier</span><br>
+        &nbsp;&nbsp;<span class="op">-</span> <span class="hl">xxxxxx</span><br>
+        &nbsp;&nbsp;<span class="op">+</span> <span class="hl">xxxxxx</span>;
+      </div>
+
+      <div class="note">
         Upgrade chance decreases as tier difficulty increases.
         Certain modifiers are intentionally hidden to prevent exploitation.
-      </li>
+      </div>
+    </div>
 
-      <li>
-        <strong>Coinflip</strong><br>
-        A two-outcome chance-based game.
+    <!-- COINFLIP -->
+    <div class="game-block">
+      <strong>Coinflip</strong>
+      <p>A two-outcome chance-based game.</p>
+
+      <div class="code-box">
+        <span class="kw">const</span> <span class="id">result</span>
+        <span class="op">=</span>
+        <span class="fn">Math.random</span><span class="op">()</span>
+        <span class="op">&lt;</span> <span class="num">0.5</span>
+        <span class="op">?</span>
+        <span class="str">"HEADS"</span>
+        <span class="op">:</span>
+        <span class="str">"TAILS"</span>;
+
         <br><br>
-        <em>Outcome Logic:</em><br>
-<pre><code>
-const result = Math.random() &lt; 0.5 ? "HEADS" : "TAILS";
 
-if (userChoice === result) {
-  win = true;
-}
-</code></pre>
-      </li>
+        <span class="kw">if</span>
+        <span class="op">(</span><span class="id">userChoice</span>
+        <span class="op">===</span>
+        <span class="id">result</span><span class="op">)</span>
+        <span class="op">{</span><br>
+        &nbsp;&nbsp;<span class="id">win</span>
+        <span class="op">=</span> <span class="kw">true</span>;<br>
+        <span class="op">}</span>
+      </div>
+    </div>
 
-      <li>
-        <strong>Slots</strong><br>
-        A reel-style randomized game with symbol combinations.
-        <br><br>
-        <em>Outcome Logic:</em><br>
-<pre><code>
-const reels = spinReels();
-const symbols = reels.map(r => r[xxxxxx]);
+    <!-- SLOTS -->
+    <div class="game-block">
+      <strong>Slots</strong>
+      <p>A reel-style randomized game with symbol combinations.</p>
 
-payout = evaluateMatches(symbols, payoutTable);
-</code></pre>
+      <div class="code-box">
+        <span class="kw">const</span> <span class="id">reels</span>
+        <span class="op">=</span>
+        <span class="fn">spinReels</span><span class="op">()</span>;<br>
+
+        <span class="kw">const</span> <span class="id">symbols</span>
+        <span class="op">=</span>
+        <span class="id">reels</span>
+        <span class="op">.</span><span class="fn">map</span><span class="op">(</span>
+        <span class="id">r</span>
+        <span class="op">=&gt;</span>
+        <span class="id">r</span><span class="op">[</span><span class="hl">xxxxxx</span><span class="op">]</span>
+        <span class="op">)</span>;<br><br>
+
+        <span class="id">payout</span>
+        <span class="op">=</span>
+        <span class="fn">evaluateMatches</span><span class="op">(</span>
+        <span class="id">symbols</span>,
+        <span class="id">payoutTable</span>
+        <span class="op">)</span>;
+      </div>
+
+      <div class="note">
         Symbol weights and reel composition are partially hidden.
-      </li>
+      </div>
+    </div>
 
-      <li>
-        <strong>Poker</strong><br>
-        A card-based game using standard poker rankings.
-        <br><br>
-        <em>Outcome Logic:</em><br>
-<pre><code>
-const handStrength = evaluateHand(playerHand);
-const dealerStrength = evaluateHand(dealerHand);
+    <!-- POKER -->
+    <div class="game-block">
+      <strong>Poker</strong>
+      <p>A card-based game using standard poker rankings.</p>
 
-result = compareHands(handStrength, dealerStrength);
-</code></pre>
+      <div class="code-box">
+        <span class="kw">const</span> <span class="id">handStrength</span>
+        <span class="op">=</span>
+        <span class="fn">evaluateHand</span><span class="op">(</span><span class="id">playerHand</span><span class="op">)</span>;<br>
+
+        <span class="kw">const</span> <span class="id">dealerStrength</span>
+        <span class="op">=</span>
+        <span class="fn">evaluateHand</span><span class="op">(</span><span class="id">dealerHand</span><span class="op">)</span>;<br><br>
+
+        <span class="id">result</span>
+        <span class="op">=</span>
+        <span class="fn">compareHands</span><span class="op">(</span>
+        <span class="id">handStrength</span>,
+        <span class="id">dealerStrength</span>
+        <span class="op">)</span>;
+      </div>
+
+      <div class="note">
         Card shuffling and draw order are randomized and protected.
-      </li>
+      </div>
+    </div>
 
-      <li>
-        <strong>Case</strong><br>
-        A virtual case-opening experience with weighted loot outcomes.
-        <br><br>
-        <em>Outcome Logic:</em><br>
-<pre><code>
-const roll = Math.random();
+    <!-- CASE -->
+    <div class="game-block">
+      <strong>Case</strong>
+      <p>A virtual case-opening experience with weighted loot outcomes.</p>
 
-item = lootTable.find(entry =>
-  roll &lt;= entry.weight + xxxxxx
-);
-</code></pre>
-        Loot weights and adjustment logic are partially hidden.
-      </li>
+      <div class="code-box">
+        <span class="kw">const</span> <span class="id">roll</span>
+        <span class="op">=</span>
+        <span class="fn">Math.random</span><span class="op">()</span>;<br><br>
 
-      <li>
-        <strong>Blackjack</strong><br>
-        A turn-based card game following traditional blackjack rules.
-        <br><br>
-        <em>Outcome Logic:</em><br>
-<pre><code>
-playerValue = calculateHand(playerCards);
-dealerValue = calculateHand(dealerCards);
-
-while (dealerValue &lt; 17) {
-  dealerCards.push(drawCard());
-  dealerValue = calculateHand(dealerCards);
-}
-
-result = compare(playerValue, dealerValue);
-</code></pre>
-        Dealer behavior follows fixed rules; deck composition and shuffle
-        logic include protected elements.
-      </li>
-    </ul>
-
-    <h3>General Rules</h3>
-    <ul>
-      <li>Participation is optional</li>
-      <li>All outcomes follow predefined logic and randomness</li>
-      <li>Users may lose points through gameplay</li>
-      <li>Losing points does not represent losing money</li>
-      <li>No purchases or deposits are required</li>
-    </ul>
+        <span class="id">item</span>
+        <span class="op">=</span>
+        <span class="id">lootTable</span>
+        <span class="op">.</span><span class="fn">find</span><span class="op">(</span>
+        <span class="id">entry</span>
+        <span class="op">=&gt;</span>
+        <span class="id">roll</span>
+        <span class="op">&lt;=</span>
+        <span class="id">entry</span><span class="op">.</span><span class="id">weight</span>
+        <span class="op">+</span>
+        <span class="hl">xxxxxx</span>
+        <span class="op">)</span>;
+      </div>
+    </div>
 
     <div class="note">
-      Code examples above are illustrative representations. Certain values,
-      modifiers, weights, and logic paths are intentionally redacted
-      (<code>xxxxxx</code>) to protect system integrity and prevent abuse.
-      Exact mechanics may change without notice.
+      Code samples are illustrative. Certain values, weights, and modifiers
+      (<code>xxxxxx</code>) are intentionally hidden to preserve system integrity
+      and prevent abuse.
     </div>
   </div>
 </div>
+
 
 
 
@@ -443,4 +520,5 @@ function show(id){
 
 </body>
 </html>
+
 
