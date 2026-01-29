@@ -311,6 +311,78 @@ body {
       </div>
     </div>
 
+<!-- BLACKJACK -->
+<div class="game-block">
+  <strong>Blackjack</strong>
+  <p>
+    A turn-based card game based on traditional blackjack rules, played using
+    fictional points only.
+  </p>
+
+  <em>Outcome Logic (Simplified Code Representation):</em>
+
+  <div class="code-box">
+    <span class="kw">function</span> <span class="fn">handValue</span><span class="op">(</span><span class="id">hand</span><span class="op">)</span>
+    <span class="op">{</span><br>
+    &nbsp;&nbsp;<span class="kw">let</span> <span class="id">total</span>
+    <span class="op">=</span> <span class="num">0</span>;<br>
+    &nbsp;&nbsp;<span class="kw">let</span> <span class="id">aces</span>
+    <span class="op">=</span> <span class="num">0</span>;<br><br>
+
+    &nbsp;&nbsp;<span class="kw">for</span> <span class="op">(</span><span class="kw">const</span> <span class="id">card</span> <span class="kw">of</span> <span class="id">hand</span><span class="op">)</span>
+    <span class="op">{</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="cm">// face cards = 10, aces flexible</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="id">total</span>
+    <span class="op">+=</span>
+    <span class="hl">xxxxxx</span>;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="id">aces</span>
+    <span class="op">+=</span>
+    <span class="hl">xxxxxx</span>;<br>
+    &nbsp;&nbsp;<span class="op">}</span><br><br>
+
+    &nbsp;&nbsp;<span class="kw">while</span>
+    <span class="op">(</span><span class="id">total</span>
+    <span class="op">&gt;</span> <span class="num">21</span>
+    <span class="op">&amp;&amp;</span> <span class="id">aces</span>
+    <span class="op">&gt;</span> <span class="num">0</span><span class="op">)</span>
+    <span class="op">{</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="id">total</span>
+    <span class="op">-=</span> <span class="num">10</span>;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="id">aces</span><span class="op">--</span>;<br>
+    &nbsp;&nbsp;<span class="op">}</span><br><br>
+
+    &nbsp;&nbsp;<span class="kw">return</span> <span class="id">total</span>;<br>
+    <span class="op">}</span>
+
+    <br><br>
+
+    <span class="cm">// dealer draw logic</span><br>
+    <span class="kw">while</span>
+    <span class="op">(</span><span class="id">dealerValue</span>
+    <span class="op">&lt;</span> <span class="num">17</span><span class="op">)</span>
+    <span class="op">{</span><br>
+    &nbsp;&nbsp;<span class="id">dealerHand</span>
+    <span class="op">.</span><span class="fn">push</span><span class="op">(</span><span class="fn">drawCard</span><span class="op">()</span><span class="op">)</span>;<br>
+    &nbsp;&nbsp;<span class="id">dealerValue</span>
+    <span class="op">=</span> <span class="fn">handValue</span><span class="op">(</span><span class="id">dealerHand</span><span class="op">)</span>;<br>
+    <span class="op">}</span><br><br>
+
+    <span class="id">result</span>
+    <span class="op">=</span>
+    <span class="fn">compare</span><span class="op">(</span>
+    <span class="id">playerValue</span>,
+    <span class="id">dealerValue</span>
+    <span class="op">)</span>;
+  </div>
+
+  <div class="note">
+    Dealer behavior follows fixed rules.
+    Deck composition, shuffle timing, and draw order include protected logic
+    (<code>xxxxxx</code>) to prevent manipulation.
+  </div>
+</div>
+
+    
     <!-- COINFLIP -->
     <div class="game-block">
       <strong>Coinflip</strong>
@@ -520,5 +592,6 @@ function show(id){
 
 </body>
 </html>
+
 
 
