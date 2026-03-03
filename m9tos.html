@@ -345,6 +345,43 @@ body {
       </div>
     </div>
 
+<!-- HAND OF FATE (RPS) -->
+<div class="game-block">
+  <strong>Hand Of Fate (RPS)</strong>
+  <p>A progressive Rock–Paper–Scissors duel where each win builds your multiplier. Cash out before fate turns.</p>
+
+  <div class="code-box">
+    <span class="kw">const</span> <span class="id">serverMove</span>
+    <span class="op">=</span>
+    <span class="fn">getSmartServerMove</span><span class="op">(</span>
+    <span class="id">gameState</span>,
+    <span class="id">playerMove</span>
+    <span class="op">)</span>;<br><br>
+
+    <span class="kw">if</span> <span class="op">(</span>
+    <span class="fn">isTie</span><span class="op">(</span><span class="id">playerMove</span>, <span class="id">serverMove</span><span class="op">)</span>
+    <span class="op">)</span> {<br>
+    &nbsp;&nbsp;<span class="fn">advanceRound</span><span class="op">(</span><span class="id">gameState</span><span class="op">)</span>;<br>
+    }<br><br>
+
+    <span class="kw">if</span> <span class="op">(</span>
+    <span class="fn">playerWins</span><span class="op">(</span><span class="id">playerMove</span>, <span class="id">serverMove</span><span class="op">)</span>
+    <span class="op">)</span> {<br>
+    &nbsp;&nbsp;<span class="id">multiplier</span>
+    <span class="op">+=</span>
+    <span class="fn">getRandomIncrease</span><span class="op">(</span><span class="id">bet</span><span class="op">)</span>;<br>
+    }<br><br>
+
+    <span class="kw">else</span> {<br>
+    &nbsp;&nbsp;<span class="fn">endGame</span><span class="op">(</span><span class="str">"loss"</span><span class="op">)</span>;<br>
+    }
+  </div>
+
+  <div class="note">
+    Server move weights, adaptive memory logic, and pressure scaling are dynamically calculated and partially obfuscated (xxxxxx) to prevent pattern exploitation.
+  </div>
+</div>
+    
 <!-- BLACKJACK -->
 <div class="game-block">
   <strong>Blackjack</strong>
@@ -673,6 +710,7 @@ function show(id){
 
 </body>
 </html>
+
 
 
 
