@@ -57,7 +57,6 @@ body {
 .code-box .id  { color:#f2f2f7; }    /* identifiers */
 .code-box .hl  { color:#ff9f0a; }    /* hidden/xxxxxx */
 
-  
 .bot-name {
   font-weight:700;
   color:var(--bot);
@@ -70,11 +69,15 @@ body {
   margin:0 auto;
 }
 
+/* ─── SIDEBAR ───────────────────────────── */
 .sidebar {
   width:280px;
   background:var(--sidebar);
   border-right:1px solid var(--divider);
   padding:12px 0;
+  display:flex;
+  flex-direction:column;
+  flex-shrink:0;
 }
 
 .sidebar h1 {
@@ -141,16 +144,46 @@ body {
   font-weight:500;
 }
 
+/* ─── MOBILE ───────────────────────────── */
 @media (max-width:720px) {
   .app { flex-direction:column; }
+
   .sidebar {
     width:100%;
     display:flex;
+    flex-direction:row;
     overflow-x:auto;
     border-right:none;
     border-bottom:1px solid var(--divider);
+    position:relative;
+    scrollbar-width: thin; /* Firefox */
   }
-  .tab { white-space:nowrap; }
+
+  .sidebar::-webkit-scrollbar {
+    height:6px;
+  }
+
+  .sidebar::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius:3px;
+  }
+
+  .tab {
+    flex:0 0 auto;      /* prevent shrinking */
+    min-width:120px;    /* touchable */
+    text-align:center;
+    white-space:nowrap;
+  }
+
+  /* subtle gradient to hint scrollable content */
+  .sidebar::after {
+    content:'';
+    position:absolute;
+    top:0; right:0; bottom:0;
+    width:30px;
+    pointer-events:none;
+    background: linear-gradient(to left, var(--sidebar), transparent);
+  }
 }
 </style>
 </head>
@@ -564,6 +597,53 @@ body {
   </div>
 </div>
 
+<div class="tab" onclick="show('giveaways')">Giveaway Terms</div>
+
+<div id="giveaways" class="section">
+  <div class="card">
+    <h2>Giveaway Terms & Rules</h2>
+
+    <p>
+      M9 Systems occasionally runs giveaways to reward community engagement.
+      Participation is optional and strictly subject to the following terms:
+    </p>
+
+    <h3>Eligibility & Entry</h3>
+    <ul>
+      <li>Only users actively participating in the channel may enter.</li>
+      <li>To claim a prize, entrants must have a minimum of <strong>30 minutes watch time</strong>.</li>
+      <li>Users may enter using the designated giveaway command in chat (e.g., <code>!giveaway</code>).</li>
+      <li>Bot accounts, multi-accounts, or automated scripts are prohibited.</li>
+      <li>Channel moderators and staff may enter at the discretion of the streamer.</li>
+    </ul>
+
+    <h3>Winner Selection & Verification</h3>
+    <ul>
+      <li>Winners are chosen at random from the pool of valid entrants.</li>
+      <li>The bot will automatically run <code>!check</code> on the selected winner to verify watch time.</li>
+      <li>Failure to meet watch time requirements results in disqualification and re-selection of a new winner.</li>
+      <li>Winners will be notified in chat or via platform DM depending on giveaway type.</li>
+    </ul>
+
+    <h3>Claiming Your Prize</h3>
+    <ul>
+      <li>To claim a prize, follow the instructions provided in chat or via bot message.</li>
+      <li>Verification may include confirming your username, watch time, or other engagement metrics.</li>
+      <li>Prizes not claimed within the specified time window may be forfeited.</li>
+      <li>Each user can win only once per giveaway unless explicitly stated otherwise.</li>
+    </ul>
+
+    <div class="note">
+      Use <code>!check YourNameHere</code> at any time to verify your current watch time.
+      Compliance ensures fair participation and prevents abuse.
+    </div>
+
+    <div class="warning" style="margin-top:12px">
+      All giveaways are for entertainment purposes only. Participation does not constitute
+      a financial transaction or guarantee of prize.
+    </div>
+  </div>
+</div>
 
 <div id="limits" class="section">
   <div class="card">
@@ -592,6 +672,7 @@ function show(id){
 
 </body>
 </html>
+
 
 
 
