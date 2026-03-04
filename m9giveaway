@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>M9 Systems – Giveaway Terms</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --bg:#000;
+  --panel:#1c1c1e;
+  --divider:#2c2c2e;
+  --text:#f2f2f7;
+  --sub:#a1a1a6;
+  --accent:#0a84ff;
+  --warn:#ff9f0a;
+}
+
+body {
+  margin:0;
+  background:var(--bg);
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text",Arial,sans-serif;
+  color:var(--text);
+  line-height:1.6;
+}
+
+.container {
+  max-width:820px;
+  margin:0 auto;
+  padding:28px;
+}
+
+h1 { font-size:30px; margin-bottom:20px; }
+h2 { font-size:24px; margin-top:24px; }
+h3 { font-size:18px; margin-top:18px; }
+
+.card {
+  background:var(--panel);
+  border-radius:14px;
+  padding:24px;
+  margin-bottom:24px;
+  border:1px solid var(--divider);
+}
+
+ul {
+  padding-left:20px;
+  margin:10px 0;
+}
+
+li {
+  margin-bottom:10px;
+}
+
+.note {
+  font-size:13px;
+  color:var(--sub);
+  margin-top:12px;
+}
+
+.warning {
+  color:var(--warn);
+  font-weight:600;
+  margin-top:16px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>M9 Systems – Giveaway Terms & Participation Rules</h1>
+
+  <div class="card">
+    <h2>Purpose & Intent</h2>
+    <p>
+      M9 Systems conducts giveaways solely to reward **active, engaged community members**.
+      These giveaways are strictly for entertainment, channel support, and engagement purposes.
+      Any attempt to bypass or manipulate the system will result in **immediate disqualification**.
+    </p>
+    <p>
+      By participating, you explicitly agree that eligibility is determined by **watch time, engagement, and compliance** with the rules outlined herein. We maintain the authority to **deny, revoke, or void any entries** at our discretion.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>Eligibility & Watch Time Tracking</h2>
+    <ul>
+      <li>Only users **actively participating in the channel** are eligible to enter giveaways.</li>
+      <li>To claim a prize, a user must have **at least 30 minutes of verified watch time**.</li>
+      <li>Watch time is **tracked and stored securely on our server** and accumulates under the following conditions:</li>
+      <ul>
+        <li>When the stream is **online/up**.</li>
+        <li>When the stream volume is **≥1%**.</li>
+        <li>When the user sends messages in chat, even if the stream volume is muted, **within a 5-minute window** per message batch.</li>
+      </ul>
+      <li>All three triggers above are **independent but cumulative**. For example:</li>
+      <ul>
+        <li>If the stream is up and the volume is ≥1%, watch time updates automatically.</li>
+        <li>If the stream is up but volume is 0% and the user is actively typing messages, watch time still updates based on chat activity.</li>
+        <li>If the stream is up, volume is ≥1%, and the user is also sending messages, watch time updates as a combination of all valid triggers.</li>
+      </ul>
+      <li>Bot accounts, multi-accounts, or automated scripts are strictly prohibited.</li>
+      <li>Channel moderators or staff may participate **at the discretion of the streamer**, but they are not exempt from watch time rules.</li>
+    </ul>
+
+    <div class="note">
+      Watch time tracking ensures that giveaways reward **real, engaged viewership**, not passive or artificially inflated activity.
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Entry & Participation</h2>
+    <ul>
+      <li>Entries must be submitted using the official chat command, e.g., <code>!giveaway</code>.</li>
+      <li>Only one entry per user is allowed per giveaway unless explicitly stated otherwise.</li>
+      <li>Users must remain compliant with chat rules and channel guidelines during the giveaway period.</li>
+      <li>Entry does not guarantee eligibility if watch time or activity requirements are not met.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Winner Selection & Verification</h2>
+    <ul>
+      <li>Winners are selected **randomly** from the pool of eligible participants.</li>
+      <li>The system automatically verifies watch time and engagement via <code>!check</code> or internal server metrics.</li>
+      <li>Entries failing to meet minimum requirements will be **disqualified**, and a new winner will be chosen.</li>
+      <li>Winners are notified through chat or platform DMs depending on the type of giveaway.</li>
+      <li>All decisions regarding eligibility, selection, and verification are **final and non-negotiable**.</li>
+    </ul>
+    <div class="note">
+      Users are encouraged to verify their watch time regularly using <code>!check YourNameHere</code> to ensure compliance.
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Claiming Your Prize</h2>
+    <ul>
+      <li>Follow the instructions provided by the bot or streamer to claim your prize.</li>
+      <li>Verification may include confirming your username, total watch time, engagement, or other metrics.</li>
+      <li>Failure to respond or complete verification within the specified window may result in forfeiture of the prize.</li>
+      <li>Each user may only win once per giveaway unless explicitly stated otherwise.</li>
+    </ul>
+  </div>
+
+  <div class="card warning">
+    <strong>Important:</strong> All giveaways are for **entertainment purposes only**. Participation does not constitute a financial transaction, investment, or guarantee of any prize. Any attempt to manipulate watch time or engagement data will result in **permanent disqualification**.
+  </div>
+</div>
+
+</body>
+</html>
