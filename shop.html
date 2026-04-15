@@ -5,683 +5,745 @@
 <title>M9 Systems – Item Shop</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <style>
-* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-
+/* ═══════════════════════════════════════════════
+   TOKENS
+═══════════════════════════════════════════════ */
 :root {
-  --bg: #f2f2f7;
-  --cell-bg: #ffffff;
-  --separator: rgba(60,60,67,0.18);
-  --label: #000000;
-  --secondary: rgba(60,60,67,0.6);
-  --tertiary: rgba(60,60,67,0.3);
-  --accent: #007aff;
-  --green: #34c759;
-  --orange: #ff9500;
-  --red: #ff3b30;
-  --purple: #af52de;
-  --teal: #5ac8fa;
-  --gold: #f4b400;
-  --status-height: 44px;
-  --nav-height: 44px;
-  --filter-height: 48px;
+  --bg:         #f2f2f7;
+  --cell-bg:    #ffffff;
+  --sep:        rgba(60,60,67,0.18);
+  --label:      #000000;
+  --secondary:  rgba(60,60,67,0.6);
+  --tertiary:   rgba(60,60,67,0.3);
+  --accent:     #007aff;
+  --green:      #34c759;
+  --orange:     #ff9500;
+  --red:        #ff3b30;
+  --purple:     #af52de;
+  --teal:       #5ac8fa;
+  --gold:       #f4b400;
+  --sidebar-w:  220px;
+  --detail-w:   320px;
 }
 
-html, body {
-  background: var(--bg);
-  font-family: -apple-system, 'Helvetica Neue', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{background:var(--bg);font-family:-apple-system,'Helvetica Neue',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;height:100%}
+
+/* Toast */
+.toast{
+  position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(20px);
+  background:rgba(0,0,0,0.82);color:#fff;font-size:14px;font-weight:500;
+  padding:10px 20px;border-radius:20px;z-index:999;opacity:0;
+  transition:opacity .2s,transform .2s;white-space:nowrap;pointer-events:none;
+}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* ═══════════════════════════════════════════════
+   MOBILE SHELL (default)
+═══════════════════════════════════════════════ */
+.mobile-shell{display:block}
+.desktop-shell{display:none}
+
+/* Status bar */
+.status-bar{
+  position:fixed;top:0;left:0;right:0;height:44px;
+  background:rgba(242,242,247,0.94);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 20px;z-index:100;border-bottom:.5px solid var(--sep);
+}
+.status-time{font-size:15px;font-weight:600;color:var(--label);letter-spacing:-.3px;min-width:40px}
+.status-brand{font-size:13px;font-weight:600;color:var(--label);letter-spacing:-.2px}
+.status-icons{display:flex;align-items:center;gap:5px;min-width:40px;justify-content:flex-end}
+
+/* Nav bar */
+.nav-bar{
+  position:fixed;top:44px;left:0;right:0;height:44px;
+  background:rgba(242,242,247,0.94);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom:.5px solid var(--sep);display:flex;align-items:center;justify-content:center;z-index:99;
+}
+.nav-title{font-size:17px;font-weight:600;color:var(--label);letter-spacing:-.4px}
+.nav-back{position:absolute;left:12px;display:flex;align-items:center;gap:3px;color:var(--accent);font-size:17px;cursor:pointer}
+.nav-back svg{width:10px;height:18px;fill:none;stroke:var(--accent);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.nav-count{position:absolute;right:16px;font-size:13px;color:var(--secondary)}
+
+/* Filter bar */
+.filter-bar{
+  position:fixed;top:88px;left:0;right:0;height:48px;
+  background:rgba(242,242,247,0.94);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom:.5px solid var(--sep);z-index:98;
+  display:flex;align-items:center;padding:0 12px;gap:8px;
+  overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;
+}
+.filter-bar::-webkit-scrollbar{display:none}
+.filter-pill{
+  flex-shrink:0;height:28px;padding:0 14px;border-radius:14px;
+  font-size:13px;font-weight:500;border:none;cursor:pointer;
+  transition:all .15s;background:rgba(60,60,67,.1);color:var(--label);white-space:nowrap;
+}
+.filter-pill.active{background:var(--accent);color:#fff}
+
+/* Mobile content */
+.m-content{padding-top:148px;padding-bottom:48px}
+
+/* Profile block */
+.profile-block{
+  margin:16px 16px 0;background:var(--cell-bg);border-radius:12px;
+  padding:14px 16px;display:flex;align-items:center;gap:14px;
+}
+.profile-avatar{
+  width:48px;height:48px;border-radius:50%;
+  background:linear-gradient(135deg,#007aff,#5ac8fa);
+  display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;
+}
+.profile-name{font-size:18px;font-weight:600;letter-spacing:-.3px;color:var(--label)}
+.profile-sub{font-size:12px;color:var(--secondary);margin-top:2px}
+
+/* Search */
+.search-wrap{margin:12px 16px 0}
+.search-inner{
+  display:flex;align-items:center;background:rgba(120,120,128,.12);
+  border-radius:10px;padding:7px 12px;gap:8px;
+}
+.search-inner input{flex:1;border:none;background:transparent;font-size:15px;color:var(--label);outline:none}
+.search-inner input::placeholder{color:var(--secondary)}
+
+/* Section header */
+.section-header{
+  font-size:13px;font-weight:600;color:var(--secondary);
+  text-transform:uppercase;letter-spacing:.4px;padding:18px 16px 8px;
 }
 
-/* ─── STATUS BAR ─────────────────────────────── */
-.status-bar {
-  position: fixed; top: 0; left: 0; right: 0;
-  height: var(--status-height);
-  background: rgba(242,242,247,0.94);
-  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 0 20px; z-index: 100;
-  border-bottom: 0.5px solid var(--separator);
-}
-.status-time { font-size: 15px; font-weight: 600; color: var(--label); letter-spacing: -0.3px; min-width: 40px; }
-.status-brand { font-size: 13px; font-weight: 600; color: var(--label); letter-spacing: -0.2px; }
-.status-icons { display: flex; align-items: center; gap: 5px; min-width: 40px; justify-content: flex-end; }
+/* Card grid */
+.card-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 12px}
 
-/* ─── NAV BAR ────────────────────────────────── */
-.nav-bar {
-  position: fixed; top: var(--status-height); left: 0; right: 0;
-  height: var(--nav-height);
-  background: rgba(242,242,247,0.94);
-  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-  border-bottom: 0.5px solid var(--separator);
-  display: flex; align-items: center; justify-content: center;
-  z-index: 99;
+/* Item card */
+.item-card{
+  background:var(--cell-bg);border-radius:14px;overflow:hidden;
+  box-shadow:0 1px 3px rgba(0,0,0,.07);cursor:pointer;
+  transition:transform .12s,box-shadow .12s;position:relative;
 }
-.nav-title { font-size: 17px; font-weight: 600; color: var(--label); letter-spacing: -0.4px; }
-.nav-back {
-  position: absolute; left: 12px;
-  display: flex; align-items: center; gap: 3px;
-  color: var(--accent); font-size: 17px; cursor: pointer;
-}
-.nav-back svg { width: 10px; height: 18px; fill: none; stroke: var(--accent); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
-.nav-count {
-  position: absolute; right: 16px;
-  font-size: 13px; color: var(--secondary);
-}
+.item-card:active{transform:scale(.97);box-shadow:0 0 1px rgba(0,0,0,.08)}
 
-/* ─── FILTER BAR ─────────────────────────────── */
-.filter-bar {
-  position: fixed;
-  top: calc(var(--status-height) + var(--nav-height));
-  left: 0; right: 0;
-  height: var(--filter-height);
-  background: rgba(242,242,247,0.94);
-  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-  border-bottom: 0.5px solid var(--separator);
-  z-index: 98;
-  display: flex; align-items: center;
-  padding: 0 12px; gap: 8px;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-}
-.filter-bar::-webkit-scrollbar { display: none; }
+.item-img-wrap{width:100%;aspect-ratio:330/192;background:#f0f0f5;overflow:hidden;position:relative}
+.item-img-wrap img{width:100%;height:100%;object-fit:cover;display:block}
+.img-placeholder{width:100%;height:100%;display:none;align-items:center;justify-content:center;font-size:28px;color:var(--tertiary)}
 
-.filter-pill {
-  flex-shrink: 0;
-  height: 28px;
-  padding: 0 14px;
-  border-radius: 14px;
-  font-size: 13px;
-  font-weight: 500;
-  border: none;
-  cursor: pointer;
-  transition: all 0.15s;
-  background: rgba(60,60,67,0.1);
-  color: var(--label);
-  white-space: nowrap;
+.stock-badge{
+  position:absolute;top:6px;right:6px;
+  background:var(--green);color:#fff;font-size:9px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.5px;padding:2px 6px;border-radius:5px;
 }
-.filter-pill.active {
-  background: var(--accent);
-  color: #fff;
-}
+.stock-badge.game{background:var(--purple)}
+.stock-badge.st  {background:var(--orange)}
 
-/* ─── SEARCH ─────────────────────────────────── */
-.search-wrap {
-  margin: 12px 16px 0;
+.item-body{padding:9px 10px 10px}
+.item-name{
+  font-size:12.5px;font-weight:600;color:var(--label);line-height:1.3;
+  letter-spacing:-.1px;margin-bottom:5px;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:32px;
 }
-.search-inner {
-  display: flex; align-items: center;
-  background: rgba(120,120,128,0.12);
-  border-radius: 10px;
-  padding: 7px 12px; gap: 8px;
+.item-footer{display:flex;align-items:center;justify-content:space-between;gap:6px}
+.item-price{font-size:15px;font-weight:700;color:var(--label);letter-spacing:-.3px}
+.buy-btn{
+  background:var(--accent);color:#fff;border:none;border-radius:7px;
+  padding:5px 10px;font-size:12px;font-weight:600;cursor:pointer;white-space:nowrap;
+  flex-shrink:0;transition:background .1s,transform .1s;
 }
-.search-inner svg { flex-shrink: 0; opacity: 0.4; }
-.search-inner input {
-  flex: 1; border: none; background: transparent;
-  font-size: 15px; color: var(--label);
-  outline: none;
-}
-.search-inner input::placeholder { color: var(--secondary); }
+.buy-btn:active{background:#0062cc;transform:scale(.95)}
 
-/* ─── CONTENT ────────────────────────────────── */
-.content {
-  padding-top: calc(var(--status-height) + var(--nav-height) + var(--filter-height));
-  padding-bottom: 48px;
+/* Empty */
+.empty-state{text-align:center;padding:60px 24px;color:var(--secondary);font-size:15px;display:none}
+.empty-state .emoji{font-size:40px;margin-bottom:10px}
+
+/* Mobile Modal */
+.modal-overlay{
+  position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:200;
+  display:flex;align-items:flex-end;opacity:0;pointer-events:none;transition:opacity .22s;
+}
+.modal-overlay.open{opacity:1;pointer-events:all}
+.modal-sheet{
+  width:100%;background:var(--cell-bg);border-radius:18px 18px 0 0;padding:0 0 40px;
+  transform:translateY(100%);transition:transform .28s cubic-bezier(.34,1.1,.64,1);
+}
+.modal-overlay.open .modal-sheet{transform:translateY(0)}
+.modal-handle{width:36px;height:4px;background:var(--sep);border-radius:2px;margin:10px auto 14px}
+.modal-img-wrap{width:100%;aspect-ratio:330/192;background:#f0f0f5;overflow:hidden}
+.modal-img-wrap img{width:100%;height:100%;object-fit:cover}
+.modal-body{padding:16px 20px 0}
+.modal-name{font-size:18px;font-weight:700;color:var(--label);letter-spacing:-.4px;margin-bottom:4px}
+.modal-hash{font-size:12px;color:var(--secondary);margin-bottom:14px;line-height:1.4}
+.modal-row{display:flex;align-items:center;justify-content:space-between;padding:11px 0;border-top:.5px solid var(--sep)}
+.modal-row-label{font-size:15px;color:var(--secondary)}
+.modal-row-value{font-size:15px;font-weight:600;color:var(--label)}
+.modal-row-value.green {color:var(--green)}
+.modal-row-value.orange{color:var(--orange)}
+.modal-cmd-row{
+  margin-top:14px;background:rgba(0,122,255,.07);border-radius:10px;
+  padding:12px 14px;display:flex;align-items:center;justify-content:space-between;gap:12px;
+}
+.modal-cmd-label{font-size:12px;color:var(--secondary);margin-bottom:3px}
+.modal-cmd-code{font-family:'SF Mono',Menlo,monospace;font-size:17px;font-weight:700;color:var(--accent);letter-spacing:-.2px}
+.modal-copy-btn{
+  background:var(--accent);color:#fff;border:none;border-radius:8px;
+  padding:8px 16px;font-size:14px;font-weight:600;cursor:pointer;flex-shrink:0;
+  transition:background .1s,transform .1s;
+}
+.modal-copy-btn:active{background:#0062cc;transform:scale(.95)}
+.modal-close-btn{
+  display:block;width:calc(100% - 40px);margin:16px 20px 0;
+  background:rgba(60,60,67,.1);color:var(--label);border:none;
+  border-radius:12px;padding:14px;font-size:16px;font-weight:600;cursor:pointer;
 }
 
-/* ─── SECTION HEADER ─────────────────────────── */
-.section-header {
-  font-size: 13px; font-weight: 600;
-  color: var(--secondary);
-  text-transform: uppercase;
-  letter-spacing: 0.4px;
-  padding: 18px 16px 8px;
+/* ═══════════════════════════════════════════════
+   DESKTOP SHELL (≥ 768px)
+═══════════════════════════════════════════════ */
+@media(min-width:768px){
+  .mobile-shell{display:none}
+  .desktop-shell{display:flex;height:100vh;overflow:hidden}
+
+  /* Sidebar */
+  .d-sidebar{
+    width:var(--sidebar-w);flex-shrink:0;
+    background:rgba(242,242,247,0.97);
+    border-right:.5px solid var(--sep);
+    display:flex;flex-direction:column;overflow:hidden;
+  }
+  .d-logo{padding:22px 18px 16px;border-bottom:.5px solid var(--sep)}
+  .d-logo-icon{
+    width:40px;height:40px;border-radius:11px;
+    background:linear-gradient(135deg,#007aff,#5ac8fa);
+    display:flex;align-items:center;justify-content:center;font-size:19px;margin-bottom:9px;
+  }
+  .d-logo-name{font-size:15px;font-weight:700;color:var(--label);letter-spacing:-.3px}
+  .d-logo-sub{font-size:11px;color:var(--secondary);margin-top:2px}
+
+  .d-nav{padding:8px 8px;flex:1;overflow-y:auto;scrollbar-width:none}
+  .d-nav::-webkit-scrollbar{display:none}
+  .d-nav-label{
+    font-size:10px;font-weight:700;color:var(--tertiary);
+    text-transform:uppercase;letter-spacing:.8px;padding:14px 10px 6px;
+  }
+  .d-nav-item{
+    display:flex;align-items:center;gap:9px;padding:7px 10px;border-radius:8px;
+    cursor:pointer;font-size:13.5px;font-weight:500;color:var(--secondary);
+    transition:background .12s,color .12s;user-select:none;
+  }
+  .d-nav-item:hover{background:rgba(0,0,0,.04);color:var(--label)}
+  .d-nav-item.active{background:var(--accent);color:#fff}
+  .d-nav-item.active .d-nav-icon{background:rgba(255,255,255,.2)!important}
+  .d-nav-icon{
+    width:24px;height:24px;border-radius:6px;
+    display:flex;align-items:center;justify-content:center;
+    font-size:13px;flex-shrink:0;background:rgba(60,60,67,.08);transition:background .12s;
+  }
+  .d-nav-count{margin-left:auto;font-size:11px;font-weight:600;opacity:.55}
+  .d-sidebar-footer{
+    padding:12px 14px;border-top:.5px solid var(--sep);
+    font-size:11px;color:var(--tertiary);line-height:1.5;
+  }
+
+  /* Main */
+  .d-main{flex:1;display:flex;flex-direction:column;min-width:0;overflow:hidden}
+
+  .d-topbar{
+    height:54px;flex-shrink:0;
+    background:rgba(242,242,247,0.97);border-bottom:.5px solid var(--sep);
+    display:flex;align-items:center;padding:0 18px;gap:12px;
+  }
+  .d-topbar-title{font-size:17px;font-weight:700;color:var(--label);letter-spacing:-.4px;margin-right:auto}
+  .d-topbar-count{font-size:12px;color:var(--secondary);white-space:nowrap}
+  .d-search-wrap{
+    display:flex;align-items:center;background:rgba(120,120,128,.12);
+    border-radius:9px;padding:6px 12px;gap:8px;width:260px;
+  }
+  .d-search-wrap input{flex:1;border:none;background:transparent;font-size:14px;color:var(--label);outline:none}
+  .d-search-wrap input::placeholder{color:var(--secondary)}
+
+  /* Body */
+  .d-body{flex:1;display:flex;overflow:hidden}
+
+  /* Grid */
+  .d-grid-wrap{
+    flex:1;overflow-y:auto;padding:14px 14px 40px;min-width:0;
+    scrollbar-width:thin;scrollbar-color:var(--sep) transparent;
+  }
+  .d-grid-wrap::-webkit-scrollbar{width:5px}
+  .d-grid-wrap::-webkit-scrollbar-thumb{background:var(--sep);border-radius:3px}
+
+  .d-section-label{
+    font-size:11px;font-weight:700;color:var(--secondary);
+    text-transform:uppercase;letter-spacing:.6px;padding:10px 2px 8px;
+  }
+  .d-card-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
+    gap:10px;margin-bottom:6px;
+  }
+
+  /* Desktop card */
+  .d-card{
+    background:var(--cell-bg);border-radius:12px;overflow:hidden;cursor:pointer;
+    box-shadow:0 1px 4px rgba(0,0,0,.07);
+    transition:transform .14s,box-shadow .14s;
+    outline:2px solid transparent;outline-offset:-2px;
+  }
+  .d-card:hover{transform:translateY(-2px);box-shadow:0 5px 16px rgba(0,0,0,.11)}
+  .d-card.selected{outline-color:var(--accent)}
+  .d-card-img{width:100%;aspect-ratio:330/192;background:#f0f0f5;overflow:hidden;position:relative}
+  .d-card-img img{width:100%;height:100%;object-fit:cover;display:block}
+  .d-card-body{padding:8px 10px 10px}
+  .d-card-name{
+    font-size:11.5px;font-weight:600;color:var(--label);line-height:1.3;margin-bottom:4px;
+    display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:28px;
+  }
+  .d-card-price{font-size:13px;font-weight:700;color:var(--label)}
+
+  /* Detail panel */
+  .d-detail{
+    width:var(--detail-w);flex-shrink:0;
+    border-left:.5px solid var(--sep);background:var(--cell-bg);
+    overflow-y:auto;display:flex;flex-direction:column;
+    scrollbar-width:thin;scrollbar-color:var(--sep) transparent;
+  }
+  .d-detail.empty{align-items:center;justify-content:center}
+  .d-detail-placeholder{display:flex;flex-direction:column;align-items:center;gap:10px;padding:32px}
+  .d-detail-placeholder .ph-icon{font-size:40px;opacity:.3}
+  .d-detail-placeholder p{font-size:13px;color:var(--secondary);line-height:1.5;text-align:center;max-width:180px}
+
+  .d-detail-img{width:100%;aspect-ratio:330/192;background:#f0f0f5;overflow:hidden;flex-shrink:0}
+  .d-detail-img img{width:100%;height:100%;object-fit:cover;display:block}
+  .d-detail-body{padding:16px 18px 0;flex:1}
+  .d-detail-name{font-size:16px;font-weight:700;color:var(--label);letter-spacing:-.4px;margin-bottom:3px}
+  .d-detail-hash{font-size:11.5px;color:var(--secondary);margin-bottom:14px;line-height:1.4}
+  .d-detail-row{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:10px 0;border-top:.5px solid var(--sep);
+  }
+  .d-detail-row-label{font-size:13px;color:var(--secondary)}
+  .d-detail-row-value{font-size:13px;font-weight:600;color:var(--label)}
+  .d-detail-row-value.green {color:var(--green)}
+  .d-detail-row-value.orange{color:var(--orange)}
+
+  .d-cmd-block{
+    margin:14px 18px 18px;background:rgba(0,122,255,.07);
+    border-radius:10px;padding:14px;
+  }
+  .d-cmd-label{font-size:10px;font-weight:700;color:var(--secondary);text-transform:uppercase;letter-spacing:.4px;margin-bottom:4px}
+  .d-cmd-code{font-family:'SF Mono',Menlo,monospace;font-size:17px;font-weight:700;color:var(--accent);letter-spacing:-.2px;margin-bottom:12px}
+  .d-copy-btn{
+    width:100%;background:var(--accent);color:#fff;border:none;
+    border-radius:9px;padding:11px;font-size:14px;font-weight:600;
+    cursor:pointer;transition:background .12s,transform .1s;
+  }
+  .d-copy-btn:hover{background:#006ae0}
+  .d-copy-btn:active{transform:scale(.98)}
+  .d-copy-btn.copied{background:var(--green)}
 }
 
-/* ─── CARD GRID ──────────────────────────────── */
-.card-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  padding: 0 12px;
+@media(min-width:1200px){
+  :root{--detail-w:360px;--sidebar-w:240px}
+  .d-card-grid{grid-template-columns:repeat(auto-fill,minmax(175px,1fr))}
 }
-
-/* ─── ITEM CARD ──────────────────────────────── */
-.item-card {
-  background: var(--cell-bg);
-  border-radius: 14px;
-  overflow: hidden;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.07);
-  cursor: pointer;
-  transition: transform 0.12s, box-shadow 0.12s;
-  position: relative;
-}
-.item-card:active {
-  transform: scale(0.97);
-  box-shadow: 0 0px 1px rgba(0,0,0,0.08);
-}
-
-.item-img-wrap {
-  width: 100%;
-  aspect-ratio: 330/192;
-  background: #f0f0f5;
-  overflow: hidden;
-  position: relative;
-}
-.item-img-wrap img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  display: block;
-}
-.item-img-wrap .img-placeholder {
-  width: 100%; height: 100%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 28px; color: var(--tertiary);
-}
-
-/* "IN STOCK" badge on image */
-.stock-badge {
-  position: absolute; top: 6px; right: 6px;
-  background: var(--green);
-  color: #fff; font-size: 9px; font-weight: 700;
-  text-transform: uppercase; letter-spacing: 0.5px;
-  padding: 2px 6px; border-radius: 5px;
-}
-.stock-badge.game { background: var(--purple); }
-.stock-badge.stattrak { background: var(--orange); }
-
-.item-body {
-  padding: 9px 10px 10px;
-}
-.item-name {
-  font-size: 12.5px;
-  font-weight: 600;
-  color: var(--label);
-  line-height: 1.3;
-  letter-spacing: -0.1px;
-  margin-bottom: 5px;
-  /* clamp to 2 lines */
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  min-height: 32px;
-}
-.item-footer {
-  display: flex; align-items: center; justify-content: space-between;
-  gap: 6px;
-}
-.item-price {
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--label);
-  letter-spacing: -0.3px;
-}
-.item-price .coin { font-size: 13px; }
-
-.buy-btn {
-  background: var(--accent);
-  color: #fff;
-  border: none;
-  border-radius: 7px;
-  padding: 5px 10px;
-  font-size: 12px;
-  font-weight: 600;
-  cursor: pointer;
-  white-space: nowrap;
-  flex-shrink: 0;
-  transition: background 0.1s, transform 0.1s;
-}
-.buy-btn:active { background: #0062cc; transform: scale(0.95); }
-
-/* ─── EMPTY STATE ────────────────────────────── */
-.empty-state {
-  text-align: center;
-  padding: 60px 24px;
-  color: var(--secondary);
-  font-size: 15px;
-  display: none;
-}
-.empty-state .emoji { font-size: 40px; margin-bottom: 10px; }
-
-/* ─── TOAST ──────────────────────────────────── */
-.toast {
-  position: fixed;
-  bottom: 30px; left: 50%; transform: translateX(-50%) translateY(20px);
-  background: rgba(0,0,0,0.82);
-  color: #fff;
-  font-size: 14px; font-weight: 500;
-  padding: 10px 20px;
-  border-radius: 20px;
-  z-index: 999;
-  opacity: 0;
-  transition: opacity 0.2s, transform 0.2s;
-  white-space: nowrap;
-  pointer-events: none;
-}
-.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
-
-/* ─── MODAL ──────────────────────────────────── */
-.modal-overlay {
-  position: fixed; inset: 0;
-  background: rgba(0,0,0,0.45);
-  z-index: 200;
-  display: flex; align-items: flex-end;
-  opacity: 0; pointer-events: none;
-  transition: opacity 0.22s;
-}
-.modal-overlay.open { opacity: 1; pointer-events: all; }
-
-.modal-sheet {
-  width: 100%;
-  background: var(--cell-bg);
-  border-radius: 18px 18px 0 0;
-  padding: 0 0 40px;
-  transform: translateY(100%);
-  transition: transform 0.28s cubic-bezier(0.34,1.1,0.64,1);
-}
-.modal-overlay.open .modal-sheet { transform: translateY(0); }
-
-.modal-handle {
-  width: 36px; height: 4px;
-  background: var(--separator);
-  border-radius: 2px;
-  margin: 10px auto 14px;
-}
-
-.modal-img-wrap {
-  width: 100%;
-  aspect-ratio: 330/192;
-  background: #f0f0f5;
-  overflow: hidden;
-}
-.modal-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
-
-.modal-body { padding: 16px 20px 0; }
-.modal-name {
-  font-size: 18px; font-weight: 700;
-  color: var(--label); letter-spacing: -0.4px;
-  margin-bottom: 4px;
-}
-.modal-hash {
-  font-size: 12px; color: var(--secondary);
-  margin-bottom: 14px; line-height: 1.4;
-}
-
-.modal-row {
-  display: flex; align-items: center;
-  justify-content: space-between;
-  padding: 11px 0;
-  border-top: 0.5px solid var(--separator);
-}
-.modal-row-label { font-size: 15px; color: var(--secondary); }
-.modal-row-value { font-size: 15px; font-weight: 600; color: var(--label); }
-.modal-row-value.green { color: var(--green); }
-.modal-row-value.orange { color: var(--orange); }
-
-.modal-cmd-row {
-  margin-top: 14px;
-  background: rgba(0,122,255,0.07);
-  border-radius: 10px;
-  padding: 12px 14px;
-  display: flex; align-items: center; justify-content: space-between; gap: 12px;
-}
-.modal-cmd-label { font-size: 12px; color: var(--secondary); margin-bottom: 3px; }
-.modal-cmd-code {
-  font-family: 'SF Mono', Menlo, monospace;
-  font-size: 17px; font-weight: 700;
-  color: var(--accent); letter-spacing: -0.2px;
-}
-.modal-copy-btn {
-  background: var(--accent); color: #fff; border: none;
-  border-radius: 8px; padding: 8px 16px;
-  font-size: 14px; font-weight: 600;
-  cursor: pointer; flex-shrink: 0;
-  transition: background 0.1s, transform 0.1s;
-}
-.modal-copy-btn:active { background: #0062cc; transform: scale(0.95); }
-
-.modal-close-btn {
-  display: block; width: calc(100% - 40px);
-  margin: 16px 20px 0;
-  background: rgba(60,60,67,0.1);
-  color: var(--label); border: none;
-  border-radius: 12px; padding: 14px;
-  font-size: 16px; font-weight: 600;
-  cursor: pointer;
-}
-
-/* ─── PROFILE BLOCK ──────────────────────────── */
-.profile-block {
-  margin: 16px 16px 0;
-  background: var(--cell-bg);
-  border-radius: 12px;
-  padding: 14px 16px;
-  display: flex; align-items: center; gap: 14px;
-}
-.profile-avatar {
-  width: 48px; height: 48px; border-radius: 50%;
-  background: linear-gradient(135deg, #007aff, #5ac8fa);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 22px; flex-shrink: 0;
-}
-.profile-name { font-size: 18px; font-weight: 600; letter-spacing: -0.3px; color: var(--label); }
-.profile-sub { font-size: 12px; color: var(--secondary); margin-top: 2px; }
 </style>
 </head>
 <body>
 
-<!-- Status Bar -->
-<div class="status-bar">
-  <div class="status-time" id="clock">9:41</div>
-  <div class="status-brand">M9Systems</div>
-  <div class="status-icons">
-    <svg width="16" height="11" viewBox="0 0 16 11" fill="rgba(0,0,0,0.85)">
-      <rect x="0" y="3.5" width="2.5" height="7.5" rx="0.8"/>
-      <rect x="3.5" y="2" width="2.5" height="9" rx="0.8"/>
-      <rect x="7" y="0.5" width="2.5" height="10.5" rx="0.8"/>
-      <rect x="10.5" y="0" width="2.5" height="11" rx="0.8" opacity="0.3"/>
-    </svg>
-    <svg width="15" height="11" viewBox="0 0 15 11" fill="none">
-      <path d="M7.5 9.5a1.2 1.2 0 1 1 0-2.4 1.2 1.2 0 0 1 0 2.4z" fill="rgba(0,0,0,0.85)"/>
-      <path d="M4.5 7a4.2 4.2 0 0 1 6 0" stroke="rgba(0,0,0,0.85)" stroke-width="1.4" stroke-linecap="round"/>
-      <path d="M1.8 4.5A8 8 0 0 1 13.2 4.5" stroke="rgba(0,0,0,0.5)" stroke-width="1.4" stroke-linecap="round"/>
-    </svg>
-    <svg width="25" height="12" viewBox="0 0 25 12">
-      <rect x="0.5" y="0.5" width="21" height="11" rx="3.5" fill="none" stroke="rgba(0,0,0,0.35)" stroke-width="1"/>
-      <rect x="22" y="3.5" width="2.5" height="5" rx="1.2" fill="rgba(0,0,0,0.4)"/>
-      <rect x="2" y="2" width="16" height="8" rx="2.5" fill="rgba(0,0,0,0.85)"/>
-    </svg>
-  </div>
-</div>
+<!-- ══════════════ MOBILE SHELL ══════════════ -->
+<div class="mobile-shell">
 
-<!-- Nav Bar -->
-<div class="nav-bar">
-  <div class="nav-back">
-    <svg viewBox="0 0 10 18"><polyline points="9,1 1,9 9,17"/></svg>
-    Home
-  </div>
-  <div class="nav-title">Item Shop</div>
-  <div class="nav-count" id="navCount"></div>
-</div>
-
-<!-- Filter Bar -->
-<div class="filter-bar" id="filterBar"></div>
-
-<div class="content">
-  <!-- Profile -->
-  <div class="profile-block">
-    <div class="profile-avatar">🛒</div>
-    <div>
-      <div class="profile-name">M9 Systems Shop</div>
-      <div class="profile-sub">Tap any item to see the buy command</div>
-    </div>
-  </div>
-
-  <!-- Search -->
-  <div class="search-wrap">
-    <div class="search-inner">
-      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-        <circle cx="6" cy="6" r="4.5" stroke="#000" stroke-width="1.5"/>
-        <path d="M9.5 9.5L12.5 12.5" stroke="#000" stroke-width="1.5" stroke-linecap="round"/>
+  <div class="status-bar">
+    <div class="status-time" id="m-clock">9:41</div>
+    <div class="status-brand">M9Systems</div>
+    <div class="status-icons">
+      <svg width="16" height="11" viewBox="0 0 16 11" fill="rgba(0,0,0,0.85)">
+        <rect x="0" y="3.5" width="2.5" height="7.5" rx="0.8"/>
+        <rect x="3.5" y="2" width="2.5" height="9" rx="0.8"/>
+        <rect x="7" y="0.5" width="2.5" height="10.5" rx="0.8"/>
+        <rect x="10.5" y="0" width="2.5" height="11" rx="0.8" opacity="0.3"/>
       </svg>
-      <input type="text" id="searchInput" placeholder="Search items…" autocomplete="off" autocorrect="off" spellcheck="false">
+      <svg width="15" height="11" viewBox="0 0 15 11" fill="none">
+        <path d="M7.5 9.5a1.2 1.2 0 1 1 0-2.4 1.2 1.2 0 0 1 0 2.4z" fill="rgba(0,0,0,0.85)"/>
+        <path d="M4.5 7a4.2 4.2 0 0 1 6 0" stroke="rgba(0,0,0,0.85)" stroke-width="1.4" stroke-linecap="round"/>
+        <path d="M1.8 4.5A8 8 0 0 1 13.2 4.5" stroke="rgba(0,0,0,0.5)" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+      <svg width="25" height="12" viewBox="0 0 25 12">
+        <rect x="0.5" y="0.5" width="21" height="11" rx="3.5" fill="none" stroke="rgba(0,0,0,0.35)" stroke-width="1"/>
+        <rect x="22" y="3.5" width="2.5" height="5" rx="1.2" fill="rgba(0,0,0,0.4)"/>
+        <rect x="2" y="2" width="16" height="8" rx="2.5" fill="rgba(0,0,0,0.85)"/>
+      </svg>
     </div>
   </div>
 
-  <!-- Grid will be injected here -->
-  <div id="shopContent"></div>
-
-  <div class="empty-state" id="emptyState">
-    <div class="emoji">🔍</div>
-    No items match your search
+  <div class="nav-bar">
+    <div class="nav-back">
+      <svg viewBox="0 0 10 18"><polyline points="9,1 1,9 9,17"/></svg>
+      Home
+    </div>
+    <div class="nav-title">Item Shop</div>
+    <div class="nav-count" id="m-count"></div>
   </div>
-</div>
 
-<!-- Toast -->
+  <div class="filter-bar" id="m-filters"></div>
+
+  <div class="m-content">
+    <div class="profile-block">
+      <div class="profile-avatar">🛒</div>
+      <div>
+        <div class="profile-name">M9 Systems Shop</div>
+        <div class="profile-sub">Tap any item to see the buy command</div>
+      </div>
+    </div>
+
+    <div class="search-wrap">
+      <div class="search-inner">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <circle cx="6" cy="6" r="4.5" stroke="#000" stroke-width="1.5"/>
+          <path d="M9.5 9.5L12.5 12.5" stroke="#000" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <input type="text" id="m-search" placeholder="Search items…" autocomplete="off" autocorrect="off" spellcheck="false">
+      </div>
+    </div>
+
+    <div id="m-shop"></div>
+    <div class="empty-state" id="m-empty"><div class="emoji">🔍</div>No items match your search</div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal-overlay" id="m-modal" onclick="mCloseModal(event)">
+    <div class="modal-sheet">
+      <div class="modal-handle"></div>
+      <div class="modal-img-wrap"><img id="m-modal-img" src="" alt=""></div>
+      <div class="modal-body">
+        <div class="modal-name"  id="m-modal-name"></div>
+        <div class="modal-hash"  id="m-modal-hash"></div>
+        <div class="modal-row">
+          <span class="modal-row-label">Price</span>
+          <span class="modal-row-value" id="m-modal-price"></span>
+        </div>
+        <div class="modal-row" id="m-modal-markup-row">
+          <span class="modal-row-label">Markup</span>
+          <span class="modal-row-value" id="m-modal-markup"></span>
+        </div>
+        <div class="modal-row" id="m-modal-trade-row" style="display:none">
+          <span class="modal-row-label">Tradable After</span>
+          <span class="modal-row-value orange" id="m-modal-trade"></span>
+        </div>
+        <div class="modal-cmd-row">
+          <div>
+            <div class="modal-cmd-label">Type in chat to buy</div>
+            <div class="modal-cmd-code" id="m-modal-cmd"></div>
+          </div>
+          <button class="modal-copy-btn" id="m-modal-copy">Copy</button>
+        </div>
+      </div>
+      <button class="modal-close-btn" onclick="mCloseModalDirect()">Close</button>
+    </div>
+  </div>
+
+</div><!-- /mobile-shell -->
+
+
+<!-- ══════════════ DESKTOP SHELL ══════════════ -->
+<div class="desktop-shell">
+
+  <!-- Sidebar -->
+  <aside class="d-sidebar">
+    <div class="d-logo">
+      <div class="d-logo-icon">🛒</div>
+      <div class="d-logo-name">M9 Systems</div>
+      <div class="d-logo-sub">Item Shop</div>
+    </div>
+    <nav class="d-nav" id="d-nav"></nav>
+    <div class="d-sidebar-footer">All prices in 🪙 coins<br>Click any item to copy its command</div>
+  </aside>
+
+  <!-- Main -->
+  <div class="d-main">
+    <div class="d-topbar">
+      <div class="d-topbar-title" id="d-title">All Items</div>
+      <div class="d-topbar-count" id="d-count"></div>
+      <div class="d-search-wrap">
+        <svg width="13" height="13" viewBox="0 0 14 14" fill="none" style="opacity:.4;flex-shrink:0">
+          <circle cx="6" cy="6" r="4.5" stroke="#000" stroke-width="1.5"/>
+          <path d="M9.5 9.5L12.5 12.5" stroke="#000" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <input type="text" id="d-search" placeholder="Search items…" autocomplete="off" autocorrect="off" spellcheck="false">
+      </div>
+    </div>
+
+    <div class="d-body">
+      <div class="d-grid-wrap" id="d-grid"></div>
+      <div class="d-detail empty" id="d-detail">
+        <div class="d-detail-placeholder">
+          <div class="ph-icon">👈</div>
+          <p>Select an item to view details and copy the buy command</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /desktop-shell -->
+
 <div class="toast" id="toast"></div>
 
-<!-- Modal -->
-<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
-  <div class="modal-sheet" id="modalSheet">
-    <div class="modal-handle"></div>
-    <div class="modal-img-wrap">
-      <img id="modalImg" src="" alt="">
-    </div>
-    <div class="modal-body">
-      <div class="modal-name" id="modalName"></div>
-      <div class="modal-hash" id="modalHash"></div>
-      <div class="modal-row">
-        <span class="modal-row-label">Price</span>
-        <span class="modal-row-value" id="modalPrice"></span>
-      </div>
-      <div class="modal-row" id="modalMarkupRow">
-        <span class="modal-row-label">Markup</span>
-        <span class="modal-row-value" id="modalMarkup"></span>
-      </div>
-      <div class="modal-row" id="modalTradableRow" style="display:none">
-        <span class="modal-row-label">Tradable After</span>
-        <span class="modal-row-value orange" id="modalTradable"></span>
-      </div>
-      <div class="modal-cmd-row">
-        <div>
-          <div class="modal-cmd-label">Type in chat to buy</div>
-          <div class="modal-cmd-code" id="modalCmd"></div>
-        </div>
-        <button class="modal-copy-btn" id="modalCopyBtn">Copy</button>
-      </div>
-    </div>
-    <button class="modal-close-btn" onclick="closeModalDirect()">Close</button>
-  </div>
-</div>
-
 <script>
-// ── Clock ──────────────────────────────────────
-function updateClock() {
-  const now = new Date();
-  let h = now.getHours() % 12 || 12;
-  let m = String(now.getMinutes()).padStart(2,'0');
-  document.getElementById('clock').textContent = `${h}:${m}`;
-}
-updateClock();
-setInterval(updateClock, 15000);
-
-// ── State ──────────────────────────────────────
+/* ── Shared ─────────────────────────────────── */
 let allItems = [];
-let activeFilter = 'All';
-let searchQuery = '';
+let mFilter = 'All', dFilter = 'All';
+let mSearch = '',    dSearch = '';
+let dSelected = null;
 
-// ── Category detection ─────────────────────────
+const CATS = ['All','Games','Skins','Stickers','Charms','Music Kits'];
+const CAT_ICONS = {All:'🛍️',Games:'🎮',Skins:'🔫',Stickers:'🎨',Charms:'🪄','Music Kits':'🎵'};
+const CAT_ORDER = ['Games','Skins','Stickers','Charms','Music Kits'];
+
 function getCategory(item) {
   if (item.isgame === 1) return 'Games';
   const n = item.skinName.toLowerCase();
-  if (n.includes('sticker')) return 'Stickers';
-  if (n.includes('charm')) return 'Charms';
+  if (n.includes('sticker'))   return 'Stickers';
+  if (n.includes('charm'))     return 'Charms';
   if (n.includes('music kit')) return 'Music Kits';
   return 'Skins';
 }
 
-// ── Price formatting ───────────────────────────
 function fmtPrice(p) {
-  return '🪙 ' + p.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  return '🪙 ' + p.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
 }
 
-// ── Badge ──────────────────────────────────────
-function getBadge(item) {
+function badge(item) {
   if (item.isgame === 1) return `<div class="stock-badge game">Game</div>`;
-  if (item.skinName.toLowerCase().includes('stattrak')) return `<div class="stock-badge stattrak">StatTrak™</div>`;
+  if (item.skinName.toLowerCase().includes('stattrak')) return `<div class="stock-badge st">StatTrak™</div>`;
   return `<div class="stock-badge">In Stock</div>`;
 }
 
-// ── Render ─────────────────────────────────────
-function render() {
-  const query = searchQuery.toLowerCase();
-  const filtered = allItems.filter(item => {
-    const catMatch = activeFilter === 'All' || getCategory(item) === activeFilter;
-    const searchMatch = !query || item.skinName.toLowerCase().includes(query) || item.buyCmd.toLowerCase().includes(query);
-    return catMatch && searchMatch;
-  });
-
-  document.getElementById('navCount').textContent = filtered.length + ' items';
-
-  // Group by category
-  const groups = {};
-  filtered.forEach(item => {
-    const cat = getCategory(item);
-    if (!groups[cat]) groups[cat] = [];
-    groups[cat].push(item);
-  });
-
-  const container = document.getElementById('shopContent');
-  const empty = document.getElementById('emptyState');
-
-  if (filtered.length === 0) {
-    container.innerHTML = '';
-    empty.style.display = 'block';
-    return;
-  }
-  empty.style.display = 'none';
-
-  const catOrder = ['Games','Skins','Stickers','Charms','Music Kits'];
-  let html = '';
-
-  catOrder.forEach(cat => {
-    if (!groups[cat]) return;
-    html += `<div class="section-header">${cat} <span style="font-weight:400;text-transform:none;letter-spacing:0;font-size:12px;color:var(--tertiary)">${groups[cat].length}</span></div>`;
-    html += `<div class="card-grid">`;
-    groups[cat].forEach((item, idx) => {
-      const globalIdx = allItems.indexOf(item);
-      html += `
-        <div class="item-card" onclick="openModal(${globalIdx})">
-          <div class="item-img-wrap">
-            <img src="${item.imageUrl}" alt="${item.skinName}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-            <div class="img-placeholder" style="display:none">🎮</div>
-            ${getBadge(item)}
-          </div>
-          <div class="item-body">
-            <div class="item-name">${item.skinName}</div>
-            <div class="item-footer">
-              <div class="item-price">${fmtPrice(item.price)}</div>
-              <button class="buy-btn" onclick="event.stopPropagation();copyCmd('${item.buyCmd}')">Copy</button>
-            </div>
-          </div>
-        </div>`;
-    });
-    html += `</div>`;
-  });
-
-  container.innerHTML = html;
-}
-
-// ── Filters ────────────────────────────────────
-function buildFilters() {
-  const cats = ['All', 'Games', 'Skins', 'Stickers', 'Charms', 'Music Kits'];
-  const bar = document.getElementById('filterBar');
-  cats.forEach(cat => {
-    const btn = document.createElement('button');
-    btn.className = 'filter-pill' + (cat === 'All' ? ' active' : '');
-    btn.textContent = cat;
-    btn.onclick = () => {
-      activeFilter = cat;
-      document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
-      btn.classList.add('active');
-      render();
-    };
-    bar.appendChild(btn);
+function filtered(filter, search) {
+  const q = search.toLowerCase();
+  return allItems.filter(i => {
+    const c = filter === 'All' || getCategory(i) === filter;
+    const s = !q || i.skinName.toLowerCase().includes(q) || i.buyCmd.toLowerCase().includes(q);
+    return c && s;
   });
 }
 
-// ── Search ─────────────────────────────────────
-document.getElementById('searchInput').addEventListener('input', e => {
-  searchQuery = e.target.value;
-  render();
-});
+function grouped(items) {
+  const g = {};
+  items.forEach(i => { const c = getCategory(i); if (!g[c]) g[c]=[]; g[c].push(i); });
+  return g;
+}
 
-// ── Toast ──────────────────────────────────────
 function showToast(msg) {
   const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.add('show');
-  clearTimeout(t._timer);
-  t._timer = setTimeout(() => t.classList.remove('show'), 2000);
+  t.textContent = msg; t.classList.add('show');
+  clearTimeout(t._t); t._t = setTimeout(()=>t.classList.remove('show'), 2000);
 }
 
-// ── Copy command ───────────────────────────────
-function copyCmd(cmd) {
-  navigator.clipboard.writeText(cmd).then(() => {
+function copyCmd(cmd, btn) {
+  navigator.clipboard.writeText(cmd).then(()=>{
     showToast('✓  Copied ' + cmd);
-  }).catch(() => {
-    showToast(cmd);
+    if (btn) {
+      const orig = btn.textContent;
+      btn.textContent = 'Copied!'; btn.classList.add('copied');
+      setTimeout(()=>{btn.textContent=orig;btn.classList.remove('copied');},1500);
+    }
+  }).catch(()=>showToast(cmd));
+}
+
+/* ── Mobile ─────────────────────────────────── */
+function mBuildFilters() {
+  const bar = document.getElementById('m-filters');
+  CATS.forEach(cat => {
+    const b = document.createElement('button');
+    b.className = 'filter-pill' + (cat==='All'?' active':'');
+    b.textContent = cat;
+    b.onclick = () => {
+      mFilter = cat;
+      bar.querySelectorAll('.filter-pill').forEach(p=>p.classList.remove('active'));
+      b.classList.add('active');
+      mRender();
+    };
+    bar.appendChild(b);
   });
 }
 
-// ── Modal ──────────────────────────────────────
-let currentCmd = '';
+function mRender() {
+  const items = filtered(mFilter, mSearch);
+  document.getElementById('m-count').textContent = items.length + ' items';
+  const el = document.getElementById('m-shop');
+  const empty = document.getElementById('m-empty');
+  if (!items.length) { el.innerHTML=''; empty.style.display='block'; return; }
+  empty.style.display = 'none';
+  const g = grouped(items);
+  let html = '';
+  CAT_ORDER.forEach(cat => {
+    if (!g[cat]) return;
+    html += `<div class="section-header">${cat} <span style="font-weight:400;text-transform:none;letter-spacing:0;font-size:12px;color:var(--tertiary)">${g[cat].length}</span></div><div class="card-grid">`;
+    g[cat].forEach(item => {
+      const idx = allItems.indexOf(item);
+      html += `<div class="item-card" onclick="mOpenModal(${idx})">
+        <div class="item-img-wrap">
+          <img src="${item.imageUrl}" alt="${item.skinName}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="img-placeholder">🎮</div>
+          ${badge(item)}
+        </div>
+        <div class="item-body">
+          <div class="item-name">${item.skinName}</div>
+          <div class="item-footer">
+            <div class="item-price">${fmtPrice(item.price)}</div>
+            <button class="buy-btn" onclick="event.stopPropagation();copyCmd('${item.buyCmd}')">Copy</button>
+          </div>
+        </div>
+      </div>`;
+    });
+    html += '</div>';
+  });
+  el.innerHTML = html;
+}
 
-function openModal(idx) {
+function mOpenModal(idx) {
   const item = allItems[idx];
-  currentCmd = item.buyCmd;
+  document.getElementById('m-modal-img').src = item.imageUrl;
+  document.getElementById('m-modal-name').textContent = item.skinName;
+  document.getElementById('m-modal-hash').textContent = item.marketHashName !== item.skinName ? item.marketHashName : '';
+  document.getElementById('m-modal-price').textContent = fmtPrice(item.price);
 
-  document.getElementById('modalImg').src = item.imageUrl;
-  document.getElementById('modalName').textContent = item.skinName;
-  document.getElementById('modalHash').textContent = item.marketHashName !== item.skinName ? item.marketHashName : '';
-  document.getElementById('modalPrice').textContent = fmtPrice(item.price);
-
-  const markupRow = document.getElementById('modalMarkupRow');
-  const markupVal = document.getElementById('modalMarkup');
+  const mRow = document.getElementById('m-modal-markup-row');
+  const mVal = document.getElementById('m-modal-markup');
   if (item.markupPercent !== 0) {
-    markupRow.style.display = 'flex';
-    const sign = item.markupPercent > 0 ? '+' : '';
-    markupVal.textContent = sign + item.markupPercent + '%';
-    markupVal.className = 'modal-row-value ' + (item.markupPercent > 0 ? 'orange' : 'green');
-  } else {
-    markupRow.style.display = 'none';
-  }
+    mRow.style.display='flex';
+    mVal.textContent = (item.markupPercent>0?'+':'') + item.markupPercent + '%';
+    mVal.className = 'modal-row-value ' + (item.markupPercent>0?'orange':'green');
+  } else { mRow.style.display='none'; }
 
-  const tradRow = document.getElementById('modalTradableRow');
-  if (item.tradableDate) {
-    tradRow.style.display = 'flex';
-    document.getElementById('modalTradable').textContent = item.tradableDate;
-  } else {
-    tradRow.style.display = 'none';
-  }
+  const tRow = document.getElementById('m-modal-trade-row');
+  if (item.tradableDate) { tRow.style.display='flex'; document.getElementById('m-modal-trade').textContent=item.tradableDate; }
+  else { tRow.style.display='none'; }
 
-  document.getElementById('modalCmd').textContent = item.buyCmd;
-  document.getElementById('modalCopyBtn').onclick = () => {
-    copyCmd(item.buyCmd);
-    closeModalDirect();
-  };
-
-  document.getElementById('modalOverlay').classList.add('open');
+  document.getElementById('m-modal-cmd').textContent = item.buyCmd;
+  document.getElementById('m-modal-copy').onclick = ()=>{ copyCmd(item.buyCmd); mCloseModalDirect(); };
+  document.getElementById('m-modal').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
+function mCloseModal(e) { if (e.target===document.getElementById('m-modal')) mCloseModalDirect(); }
+function mCloseModalDirect() { document.getElementById('m-modal').classList.remove('open'); document.body.style.overflow=''; }
 
-function closeModal(e) {
-  if (e.target === document.getElementById('modalOverlay')) closeModalDirect();
+/* ── Desktop ─────────────────────────────────── */
+function dBuildNav() {
+  const nav = document.getElementById('d-nav');
+  const lbl = document.createElement('div');
+  lbl.className='d-nav-label'; lbl.textContent='Categories'; nav.appendChild(lbl);
+
+  CATS.forEach(cat => {
+    const cnt = cat==='All' ? allItems.length : allItems.filter(i=>getCategory(i)===cat).length;
+    if (cnt===0 && cat!=='All') return;
+    const el = document.createElement('div');
+    el.className = 'd-nav-item'+(cat==='All'?' active':'');
+    el.innerHTML = `<div class="d-nav-icon">${CAT_ICONS[cat]}</div>${cat}<span class="d-nav-count">${cnt}</span>`;
+    el.onclick = () => {
+      dFilter = cat;
+      nav.querySelectorAll('.d-nav-item').forEach(x=>x.classList.remove('active'));
+      el.classList.add('active');
+      document.getElementById('d-title').textContent = cat==='All'?'All Items':cat;
+      dSelected = null;
+      document.getElementById('d-detail').classList.add('empty');
+      document.getElementById('d-detail').innerHTML = `<div class="d-detail-placeholder"><div class="ph-icon">👈</div><p>Select an item to view details and copy the buy command</p></div>`;
+      dRender();
+    };
+    nav.appendChild(el);
+  });
 }
 
-function closeModalDirect() {
-  document.getElementById('modalOverlay').classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-// ── Load ───────────────────────────────────────
-fetch('items.json')
-  .then(r => r.json())
-  .then(data => {
-    allItems = data;
-    buildFilters();
-    render();
-  })
-  .catch(() => {
-    // Fallback: show a note if running locally
-    document.getElementById('shopContent').innerHTML = `
-      <div style="padding:40px 24px;text-align:center;color:var(--secondary);font-size:14px;line-height:1.6">
-        <div style="font-size:36px;margin-bottom:12px">📂</div>
-        <strong style="color:var(--label)">items.json not found</strong><br>
-        Place <code style="background:rgba(0,122,255,0.1);color:var(--accent);padding:1px 6px;border-radius:4px">items.json</code> in the same folder as this file.
+function dRender() {
+  const items = filtered(dFilter, dSearch);
+  document.getElementById('d-count').textContent = items.length + ' items';
+  const grid = document.getElementById('d-grid');
+  if (!items.length) {
+    grid.innerHTML = `<div style="padding:60px 24px;text-align:center;color:var(--secondary)"><div style="font-size:36px;margin-bottom:10px">🔍</div>No items found</div>`;
+    return;
+  }
+  const g = grouped(items);
+  let html = '';
+  CAT_ORDER.forEach(cat => {
+    if (!g[cat]) return;
+    html += `<div class="d-section-label">${cat} · ${g[cat].length}</div><div class="d-card-grid">`;
+    g[cat].forEach(item => {
+      const idx = allItems.indexOf(item);
+      html += `<div class="d-card${dSelected===idx?' selected':''}" onclick="dSelect(${idx})">
+        <div class="d-card-img">
+          <img src="${item.imageUrl}" alt="${item.skinName}" loading="lazy" onerror="this.style.display='none'">
+          ${badge(item)}
+        </div>
+        <div class="d-card-body">
+          <div class="d-card-name">${item.skinName}</div>
+          <div class="d-card-price">${fmtPrice(item.price)}</div>
+        </div>
       </div>`;
+    });
+    html += '</div>';
+  });
+  grid.innerHTML = html;
+}
+
+function dSelect(idx) {
+  dSelected = idx;
+  dRender();
+  const item = allItems[idx];
+  const panel = document.getElementById('d-detail');
+  panel.classList.remove('empty');
+
+  let markupHtml = '';
+  if (item.markupPercent !== 0) {
+    const sign = item.markupPercent>0?'+':'';
+    const cls  = item.markupPercent>0?'orange':'green';
+    markupHtml = `<div class="d-detail-row"><span class="d-detail-row-label">Markup</span><span class="d-detail-row-value ${cls}">${sign}${item.markupPercent}%</span></div>`;
+  }
+  const tradeHtml = item.tradableDate
+    ? `<div class="d-detail-row"><span class="d-detail-row-label">Tradable After</span><span class="d-detail-row-value orange">${item.tradableDate}</span></div>` : '';
+  const hashLine = item.marketHashName !== item.skinName
+    ? `<div class="d-detail-hash">${item.marketHashName}</div>` : '<div style="margin-bottom:14px"></div>';
+
+  panel.innerHTML = `
+    <div class="d-detail-img"><img src="${item.imageUrl}" alt="${item.skinName}"></div>
+    <div class="d-detail-body">
+      <div class="d-detail-name">${item.skinName}</div>
+      ${hashLine}
+      <div class="d-detail-row"><span class="d-detail-row-label">Price</span><span class="d-detail-row-value">${fmtPrice(item.price)}</span></div>
+      ${markupHtml}${tradeHtml}
+      <div class="d-detail-row"><span class="d-detail-row-label">Market Activity</span><span class="d-detail-row-value">${item.marketActivity}%</span></div>
+      <div class="d-detail-row"><span class="d-detail-row-label">Last Cached</span><span class="d-detail-row-value" style="font-size:12px">${item.cachedAt}</span></div>
+    </div>
+    <div class="d-cmd-block">
+      <div class="d-cmd-label">Buy Command</div>
+      <div class="d-cmd-code">${item.buyCmd}</div>
+      <button class="d-copy-btn" id="d-copy-btn" onclick="copyCmd('${item.buyCmd}',this)">Copy Command</button>
+    </div>`;
+}
+
+/* ── Clock ───────────────────────────────────── */
+function tick() {
+  const now = new Date();
+  let h = now.getHours()%12||12, m = String(now.getMinutes()).padStart(2,'0');
+  const el = document.getElementById('m-clock');
+  if (el) el.textContent = `${h}:${m}`;
+}
+tick(); setInterval(tick,15000);
+
+/* ── Search wiring ───────────────────────────── */
+document.getElementById('m-search').addEventListener('input',e=>{mSearch=e.target.value;mRender();});
+document.getElementById('d-search').addEventListener('input',e=>{dSearch=e.target.value;dRender();});
+
+/* ── Load ────────────────────────────────────── */
+fetch('items.json')
+  .then(r=>r.json())
+  .then(data=>{
+    allItems = data;
+    mBuildFilters(); mRender();
+    dBuildNav();     dRender();
+  })
+  .catch(()=>{
+    const err = `<div style="padding:40px 24px;text-align:center;color:var(--secondary);font-size:14px;line-height:1.6"><div style="font-size:36px;margin-bottom:12px">📂</div><strong style="color:var(--label)">items.json not found</strong><br>Place <code style="background:rgba(0,122,255,.1);color:var(--accent);padding:1px 6px;border-radius:4px">items.json</code> in the same folder.</div>`;
+    document.getElementById('m-shop').innerHTML = err;
+    document.getElementById('d-grid').innerHTML = err;
   });
 </script>
 </body>
