@@ -770,7 +770,7 @@ function setRefreshSpinning(spinning) {
 
 function loadItems(forceRefresh) {
   setRefreshSpinning(true);
-  const url = 'items.json?t=' + (forceRefresh ? Date.now() : 0);
+  const url = 'items.json?t=' + Date.now();
   fetch(url)
     .then(r => r.json())
     .then(data => {
