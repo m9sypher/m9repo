@@ -5,9 +5,6 @@
 <title>M9 Systems – Item Shop</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <style>
-/* ═══════════════════════════════════════════════
-   TOKENS
-═══════════════════════════════════════════════ */
 :root {
   --bg:         #f2f2f7;
   --cell-bg:    #ffffff;
@@ -38,9 +35,17 @@ html,body{background:var(--bg);font-family:-apple-system,'Helvetica Neue',sans-s
 }
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
-/* ═══════════════════════════════════════════════
-   MOBILE SHELL (default)
-═══════════════════════════════════════════════ */
+/* ── Update Notice Banner ── */
+.update-notice{
+  background:rgba(255,149,0,0.1);border-top:.5px solid rgba(255,149,0,0.35);
+  padding:8px 16px;display:flex;align-items:center;gap:8px;
+  font-size:11.5px;color:var(--secondary);line-height:1.4;
+  flex-wrap:wrap;justify-content:center;text-align:center;
+}
+.update-notice strong{color:var(--orange);font-weight:600}
+.update-notice span{opacity:.7}
+
+/* ── Mobile Shell ── */
 .mobile-shell{display:block}
 .desktop-shell{display:none}
 
@@ -64,11 +69,23 @@ html,body{background:var(--bg);font-family:-apple-system,'Helvetica Neue',sans-s
 .nav-title{font-size:17px;font-weight:600;color:var(--label);letter-spacing:-.4px}
 .nav-back{position:absolute;left:12px;display:flex;align-items:center;gap:3px;color:var(--accent);font-size:17px;cursor:pointer}
 .nav-back svg{width:10px;height:18px;fill:none;stroke:var(--accent);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
-.nav-count{position:absolute;right:16px;font-size:13px;color:var(--secondary)}
+.nav-right{position:absolute;right:12px;display:flex;align-items:center;gap:8px}
+
+/* Refresh button */
+.refresh-btn{
+  background:none;border:none;cursor:pointer;padding:4px;
+  color:var(--accent);font-size:14px;font-weight:600;
+  display:flex;align-items:center;gap:4px;border-radius:6px;
+  transition:opacity .15s;
+}
+.refresh-btn:active{opacity:.5}
+.refresh-btn svg{width:16px;height:16px;flex-shrink:0}
+.refresh-btn.spinning svg{animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
 
 /* Filter bar */
 .filter-bar{
-  position:fixed;top:88px;left:0;right:0;height:48px;
+  position:fixed;top:88px;left:0;right:0;height:44px;
   background:rgba(242,242,247,0.94);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
   border-bottom:.5px solid var(--sep);z-index:98;
   display:flex;align-items:center;padding:0 12px;gap:8px;
@@ -82,8 +99,26 @@ html,body{background:var(--bg);font-family:-apple-system,'Helvetica Neue',sans-s
 }
 .filter-pill.active{background:var(--accent);color:#fff}
 
+/* Sort bar */
+.sort-bar{
+  position:fixed;top:132px;left:0;right:0;height:40px;
+  background:rgba(242,242,247,0.94);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom:.5px solid var(--sep);z-index:97;
+  display:flex;align-items:center;padding:0 12px;gap:8px;overflow-x:auto;
+  -webkit-overflow-scrolling:touch;scrollbar-width:none;
+}
+.sort-bar::-webkit-scrollbar{display:none}
+.sort-pill{
+  flex-shrink:0;height:26px;padding:0 12px;border-radius:13px;
+  font-size:12px;font-weight:500;border:none;cursor:pointer;
+  background:rgba(60,60,67,.08);color:var(--secondary);white-space:nowrap;
+  display:flex;align-items:center;gap:4px;transition:all .15s;
+}
+.sort-pill.active{background:rgba(0,122,255,.12);color:var(--accent)}
+.sort-pill .arrow{font-size:11px}
+
 /* Mobile content */
-.m-content{padding-top:148px;padding-bottom:48px}
+.m-content{padding-top:184px;padding-bottom:60px}
 
 /* Profile block */
 .profile-block{
@@ -112,6 +147,34 @@ html,body{background:var(--bg);font-family:-apple-system,'Helvetica Neue',sans-s
   font-size:13px;font-weight:600;color:var(--secondary);
   text-transform:uppercase;letter-spacing:.4px;padding:18px 16px 8px;
 }
+
+/* ── All-items marquee strip ── */
+.marquee-section{padding:12px 0 0}
+.marquee-label{font-size:13px;font-weight:600;color:var(--secondary);text-transform:uppercase;letter-spacing:.4px;padding:6px 16px 10px}
+.marquee-outer{overflow:hidden;width:100%;position:relative}
+.marquee-outer::before,.marquee-outer::after{
+  content:'';position:absolute;top:0;bottom:0;width:28px;z-index:2;pointer-events:none;
+}
+.marquee-outer::before{left:0;background:linear-gradient(to right,var(--bg),transparent)}
+.marquee-outer::after{right:0;background:linear-gradient(to left,var(--bg),transparent)}
+.marquee-track{
+  display:flex;gap:10px;animation:marquee 38s linear infinite;
+  width:max-content;padding:0 10px 4px;
+}
+.marquee-track:hover{animation-play-state:paused}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.marquee-card{
+  flex-shrink:0;width:130px;background:var(--cell-bg);border-radius:12px;
+  overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.07);cursor:pointer;
+  transition:transform .12s;
+}
+.marquee-card:active{transform:scale(.96)}
+.marquee-img{width:100%;aspect-ratio:330/192;background:#f0f0f5;overflow:hidden}
+.marquee-img img{width:100%;height:100%;object-fit:cover;display:block}
+.marquee-body{padding:6px 8px 8px}
+.marquee-name{font-size:10.5px;font-weight:600;color:var(--label);line-height:1.3;
+  display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden;}
+.marquee-price{font-size:11px;font-weight:700;color:var(--accent);margin-top:2px}
 
 /* Card grid */
 .card-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 12px}
@@ -155,6 +218,15 @@ html,body{background:var(--bg);font-family:-apple-system,'Helvetica Neue',sans-s
 .empty-state{text-align:center;padding:60px 24px;color:var(--secondary);font-size:15px;display:none}
 .empty-state .emoji{font-size:40px;margin-bottom:10px}
 
+/* Mobile notice at bottom */
+.m-update-notice{
+  margin:20px 16px 0;background:rgba(255,149,0,.08);border:.5px solid rgba(255,149,0,.3);
+  border-radius:12px;padding:12px 14px;display:flex;align-items:flex-start;gap:10px;
+}
+.m-update-icon{font-size:16px;flex-shrink:0;margin-top:1px}
+.m-update-text{font-size:12px;color:var(--secondary);line-height:1.5}
+.m-update-text strong{color:var(--orange);font-weight:600}
+
 /* Mobile Modal */
 .modal-overlay{
   position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:200;
@@ -196,7 +268,7 @@ html,body{background:var(--bg);font-family:-apple-system,'Helvetica Neue',sans-s
 }
 
 /* ═══════════════════════════════════════════════
-   DESKTOP SHELL (≥ 768px)
+   DESKTOP SHELL
 ═══════════════════════════════════════════════ */
 @media(min-width:768px){
   .mobile-shell{display:none}
@@ -255,10 +327,66 @@ html,body{background:var(--bg);font-family:-apple-system,'Helvetica Neue',sans-s
   .d-topbar-count{font-size:12px;color:var(--secondary);white-space:nowrap}
   .d-search-wrap{
     display:flex;align-items:center;background:rgba(120,120,128,.12);
-    border-radius:9px;padding:6px 12px;gap:8px;width:260px;
+    border-radius:9px;padding:6px 12px;gap:8px;width:220px;
   }
   .d-search-wrap input{flex:1;border:none;background:transparent;font-size:14px;color:var(--label);outline:none}
   .d-search-wrap input::placeholder{color:var(--secondary)}
+
+  /* Desktop refresh */
+  .d-refresh-btn{
+    background:none;border:.5px solid var(--sep);border-radius:8px;cursor:pointer;
+    padding:6px 12px;color:var(--accent);font-size:12.5px;font-weight:600;
+    display:flex;align-items:center;gap:5px;transition:background .12s;white-space:nowrap;flex-shrink:0;
+  }
+  .d-refresh-btn:hover{background:rgba(0,122,255,.07)}
+  .d-refresh-btn:active{transform:scale(.97)}
+  .d-refresh-btn svg{width:13px;height:13px;flex-shrink:0}
+  .d-refresh-btn.spinning svg{animation:spin .7s linear infinite}
+
+  /* Sort toolbar */
+  .d-sort-bar{
+    height:40px;flex-shrink:0;
+    background:rgba(242,242,247,0.97);border-bottom:.5px solid var(--sep);
+    display:flex;align-items:center;padding:0 14px;gap:6px;overflow-x:auto;scrollbar-width:none;
+  }
+  .d-sort-bar::-webkit-scrollbar{display:none}
+  .d-sort-label{font-size:11px;font-weight:600;color:var(--tertiary);text-transform:uppercase;letter-spacing:.5px;margin-right:4px;white-space:nowrap}
+  .d-sort-pill{
+    height:24px;padding:0 10px;border-radius:12px;
+    font-size:11.5px;font-weight:500;border:none;cursor:pointer;
+    background:rgba(60,60,67,.08);color:var(--secondary);white-space:nowrap;
+    display:flex;align-items:center;gap:3px;transition:all .12s;flex-shrink:0;
+  }
+  .d-sort-pill.active{background:rgba(0,122,255,.12);color:var(--accent)}
+  .d-sort-pill .arrow{font-size:10px}
+
+  /* ── Desktop All-page marquee ── */
+  .d-marquee-section{padding:14px 14px 0}
+  .d-marquee-label{font-size:11px;font-weight:700;color:var(--secondary);text-transform:uppercase;letter-spacing:.6px;margin-bottom:10px}
+  .d-marquee-outer{overflow:hidden;position:relative;border-radius:10px}
+  .d-marquee-outer::before,.d-marquee-outer::after{
+    content:'';position:absolute;top:0;bottom:0;width:40px;z-index:2;pointer-events:none;
+  }
+  .d-marquee-outer::before{left:0;background:linear-gradient(to right,var(--bg),transparent)}
+  .d-marquee-outer::after{right:0;background:linear-gradient(to left,var(--bg),transparent)}
+  .d-marquee-track{
+    display:flex;gap:10px;animation:marquee 42s linear infinite;
+    width:max-content;padding:0 8px 4px;
+  }
+  .d-marquee-track:hover{animation-play-state:paused}
+  .d-marquee-card{
+    flex-shrink:0;width:150px;background:var(--cell-bg);border-radius:10px;
+    overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.07);cursor:pointer;
+    transition:transform .12s,box-shadow .12s;
+  }
+  .d-marquee-card:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.1)}
+  .d-marquee-img{width:100%;aspect-ratio:330/192;background:#f0f0f5;overflow:hidden}
+  .d-marquee-img img{width:100%;height:100%;object-fit:cover;display:block}
+  .d-marquee-body{padding:6px 8px 8px}
+  .d-marquee-name{font-size:10px;font-weight:600;color:var(--label);line-height:1.3;
+    display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden;}
+  .d-marquee-price{font-size:10.5px;font-weight:700;color:var(--accent);margin-top:2px}
+  .d-marquee-sep{border-bottom:.5px solid var(--sep);margin:12px 14px 0}
 
   /* Body */
   .d-body{flex:1;display:flex;overflow:hidden}
@@ -339,6 +467,15 @@ html,body{background:var(--bg);font-family:-apple-system,'Helvetica Neue',sans-s
   .d-copy-btn:hover{background:#006ae0}
   .d-copy-btn:active{transform:scale(.98)}
   .d-copy-btn.copied{background:var(--green)}
+
+  /* Desktop update notice */
+  .d-update-notice{
+    padding:7px 18px;border-top:.5px solid rgba(255,149,0,.25);
+    background:rgba(255,149,0,.06);
+    font-size:11px;color:var(--secondary);line-height:1.4;
+    display:flex;align-items:center;gap:6px;flex-shrink:0;
+  }
+  .d-update-notice strong{color:var(--orange);font-weight:600}
 }
 
 @media(min-width:1200px){
@@ -381,10 +518,20 @@ html,body{background:var(--bg);font-family:-apple-system,'Helvetica Neue',sans-s
       Home
     </div>
     <div class="nav-title">Item Shop</div>
-    <div class="nav-count" id="m-count"></div>
+    <div class="nav-right">
+      <span class="nav-count" id="m-count"></span>
+      <button class="refresh-btn" id="m-refresh-btn" onclick="loadItems(true)" title="Refresh items">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M13.5 2.5A6.5 6.5 0 1 1 8 1.5"/>
+          <polyline points="8,1.5 11,4.5 8,7.5"/>
+        </svg>
+      </button>
+    </div>
   </div>
 
   <div class="filter-bar" id="m-filters"></div>
+
+  <div class="sort-bar" id="m-sort-bar"></div>
 
   <div class="m-content">
     <div class="profile-block">
@@ -407,6 +554,14 @@ html,body{background:var(--bg);font-family:-apple-system,'Helvetica Neue',sans-s
 
     <div id="m-shop"></div>
     <div class="empty-state" id="m-empty"><div class="emoji">🔍</div>No items match your search</div>
+
+    <!-- Mobile update notice -->
+    <div class="m-update-notice">
+      <div class="m-update-icon">⚠️</div>
+      <div class="m-update-text">
+        <strong>Prices do not update automatically.</strong> Changes are pushed by <strong>M9Sypher</strong> when the shop is updated. Use the refresh button to load the latest prices.
+      </div>
+    </div>
   </div>
 
   <!-- Modal -->
@@ -470,7 +625,17 @@ html,body{background:var(--bg);font-family:-apple-system,'Helvetica Neue',sans-s
         </svg>
         <input type="text" id="d-search" placeholder="Search items…" autocomplete="off" autocorrect="off" spellcheck="false">
       </div>
+      <button class="d-refresh-btn" id="d-refresh-btn" onclick="loadItems(true)" title="Refresh items">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M13.5 2.5A6.5 6.5 0 1 1 8 1.5"/>
+          <polyline points="8,1.5 11,4.5 8,7.5"/>
+        </svg>
+        Refresh
+      </button>
     </div>
+
+    <!-- Sort bar desktop -->
+    <div class="d-sort-bar" id="d-sort-bar"></div>
 
     <div class="d-body">
       <div class="d-grid-wrap" id="d-grid"></div>
@@ -481,6 +646,12 @@ html,body{background:var(--bg);font-family:-apple-system,'Helvetica Neue',sans-s
         </div>
       </div>
     </div>
+
+    <!-- Desktop update notice -->
+    <div class="d-update-notice">
+      <span>⚠️</span>
+      <span><strong>Prices do not update automatically.</strong> Changes are pushed by <strong>M9Sypher</strong> when the shop is updated. Use the Refresh button above to load the latest data.</span>
+    </div>
   </div>
 
 </div><!-- /desktop-shell -->
@@ -488,16 +659,25 @@ html,body{background:var(--bg);font-family:-apple-system,'Helvetica Neue',sans-s
 <div class="toast" id="toast"></div>
 
 <script>
-/* ── Shared ─────────────────────────────────── */
+/* ── State ─────────────────────────────────── */
 let allItems = [];
 let mFilter = 'All', dFilter = 'All';
 let mSearch = '',    dSearch = '';
 let dSelected = null;
+let mSort = 'name-asc', dSort = 'name-asc';
 
 const CATS = ['All','Games','Skins','Stickers','Charms','Music Kits'];
 const CAT_ICONS = {All:'🛍️',Games:'🎮',Skins:'🔫',Stickers:'🎨',Charms:'🪄','Music Kits':'🎵'};
 const CAT_ORDER = ['Games','Skins','Stickers','Charms','Music Kits'];
 
+const SORTS = [
+  {key:'name-asc',   label:'A → Z',     arrow:'↑'},
+  {key:'name-desc',  label:'Z → A',     arrow:'↓'},
+  {key:'price-asc',  label:'Price ↑',   arrow:''},
+  {key:'price-desc', label:'Price ↓',   arrow:''},
+];
+
+/* ── Helpers ─────────────────────────────────── */
 function getCategory(item) {
   if (item.isgame === 1) return 'Games';
   const n = item.skinName.toLowerCase();
@@ -526,6 +706,15 @@ function filtered(filter, search) {
   });
 }
 
+function sorted(items, sortKey) {
+  const arr = [...items];
+  if (sortKey === 'name-asc')   arr.sort((a,b)=>a.skinName.localeCompare(b.skinName));
+  if (sortKey === 'name-desc')  arr.sort((a,b)=>b.skinName.localeCompare(a.skinName));
+  if (sortKey === 'price-asc')  arr.sort((a,b)=>a.price - b.price);
+  if (sortKey === 'price-desc') arr.sort((a,b)=>b.price - a.price);
+  return arr;
+}
+
 function grouped(items) {
   const g = {};
   items.forEach(i => { const c = getCategory(i); if (!g[c]) g[c]=[]; g[c].push(i); });
@@ -549,12 +738,63 @@ function copyCmd(cmd, btn) {
   }).catch(()=>showToast(cmd));
 }
 
+/* ── Marquee builder ─────────────────────────── */
+function buildMarqueeHtml(items, cardClass, imgClass, bodyClass, nameClass, priceClass, clickPrefix) {
+  if (!items.length) return '';
+  // Duplicate for seamless loop
+  const pool = [...items, ...items];
+  let html = '';
+  pool.forEach(item => {
+    const idx = allItems.indexOf(item) !== -1 ? allItems.indexOf(item) : allItems.indexOf(items[0]);
+    const realIdx = allItems.indexOf(item);
+    html += `<div class="${cardClass}" onclick="${clickPrefix}(${realIdx >= 0 ? realIdx : 0})">
+      <div class="${imgClass}">
+        <img src="${item.imageUrl}" alt="${item.skinName}" loading="lazy" onerror="this.style.display='none'">
+      </div>
+      <div class="${bodyClass}">
+        <div class="${nameClass}">${item.skinName}</div>
+        <div class="${priceClass}">${fmtPrice(item.price)}</div>
+      </div>
+    </div>`;
+  });
+  return html;
+}
+
+/* ── Load / Refresh ─────────────────────────── */
+function setRefreshSpinning(spinning) {
+  const mb = document.getElementById('m-refresh-btn');
+  const db = document.getElementById('d-refresh-btn');
+  if (mb) mb.classList.toggle('spinning', spinning);
+  if (db) db.classList.toggle('spinning', spinning);
+}
+
+function loadItems(forceRefresh) {
+  setRefreshSpinning(true);
+  const url = 'items.json?t=' + (forceRefresh ? Date.now() : 0);
+  fetch(url)
+    .then(r => r.json())
+    .then(data => {
+      allItems = data;
+      setRefreshSpinning(false);
+      if (forceRefresh) showToast('✓  Shop refreshed');
+      mBuildFilters(); mBuildSortBar(); mRender();
+      dBuildNav();     dBuildSortBar(); dRender();
+    })
+    .catch(() => {
+      setRefreshSpinning(false);
+      const err = `<div style="padding:40px 24px;text-align:center;color:var(--secondary);font-size:14px;line-height:1.6"><div style="font-size:36px;margin-bottom:12px">📂</div><strong style="color:var(--label)">items.json not found</strong><br>Place <code style="background:rgba(0,122,255,.1);color:var(--accent);padding:1px 6px;border-radius:4px">items.json</code> in the same folder.</div>`;
+      document.getElementById('m-shop').innerHTML = err;
+      document.getElementById('d-grid').innerHTML = err;
+    });
+}
+
 /* ── Mobile ─────────────────────────────────── */
 function mBuildFilters() {
   const bar = document.getElementById('m-filters');
+  bar.innerHTML = '';
   CATS.forEach(cat => {
     const b = document.createElement('button');
-    b.className = 'filter-pill' + (cat==='All'?' active':'');
+    b.className = 'filter-pill' + (cat === mFilter ? ' active' : '');
     b.textContent = cat;
     b.onclick = () => {
       mFilter = cat;
@@ -566,15 +806,47 @@ function mBuildFilters() {
   });
 }
 
+function mBuildSortBar() {
+  const bar = document.getElementById('m-sort-bar');
+  bar.innerHTML = '';
+  SORTS.forEach(s => {
+    const b = document.createElement('button');
+    b.className = 'sort-pill' + (s.key === mSort ? ' active' : '');
+    b.innerHTML = s.label + (s.arrow ? ` <span class="arrow">${s.arrow}</span>` : '');
+    b.onclick = () => {
+      mSort = s.key;
+      bar.querySelectorAll('.sort-pill').forEach(p=>p.classList.remove('active'));
+      b.classList.add('active');
+      mRender();
+    };
+    bar.appendChild(b);
+  });
+}
+
 function mRender() {
-  const items = filtered(mFilter, mSearch);
+  const items = sorted(filtered(mFilter, mSearch), mSort);
   document.getElementById('m-count').textContent = items.length + ' items';
   const el = document.getElementById('m-shop');
   const empty = document.getElementById('m-empty');
   if (!items.length) { el.innerHTML=''; empty.style.display='block'; return; }
   empty.style.display = 'none';
-  const g = grouped(items);
+
   let html = '';
+
+  // On "All" with no search: show marquee scroll strip first
+  if (mFilter === 'All' && !mSearch) {
+    const marqueeItems = [...allItems].sort(()=>Math.random()-.5).slice(0, Math.min(allItems.length, 20));
+    html += `<div class="marquee-section">
+      <div class="marquee-label">All Items</div>
+      <div class="marquee-outer">
+        <div class="marquee-track">
+          ${buildMarqueeHtml(marqueeItems,'marquee-card','marquee-img','marquee-body','marquee-name','marquee-price','mOpenModal')}
+        </div>
+      </div>
+    </div>`;
+  }
+
+  const g = grouped(items);
   CAT_ORDER.forEach(cat => {
     if (!g[cat]) return;
     html += `<div class="section-header">${cat} <span style="font-weight:400;text-transform:none;letter-spacing:0;font-size:12px;color:var(--tertiary)">${g[cat].length}</span></div><div class="card-grid">`;
@@ -602,6 +874,7 @@ function mRender() {
 
 function mOpenModal(idx) {
   const item = allItems[idx];
+  if (!item) return;
   document.getElementById('m-modal-img').src = item.imageUrl;
   document.getElementById('m-modal-name').textContent = item.skinName;
   document.getElementById('m-modal-hash').textContent = item.marketHashName !== item.skinName ? item.marketHashName : '';
@@ -630,6 +903,7 @@ function mCloseModalDirect() { document.getElementById('m-modal').classList.remo
 /* ── Desktop ─────────────────────────────────── */
 function dBuildNav() {
   const nav = document.getElementById('d-nav');
+  nav.innerHTML = '';
   const lbl = document.createElement('div');
   lbl.className='d-nav-label'; lbl.textContent='Categories'; nav.appendChild(lbl);
 
@@ -637,7 +911,7 @@ function dBuildNav() {
     const cnt = cat==='All' ? allItems.length : allItems.filter(i=>getCategory(i)===cat).length;
     if (cnt===0 && cat!=='All') return;
     const el = document.createElement('div');
-    el.className = 'd-nav-item'+(cat==='All'?' active':'');
+    el.className = 'd-nav-item'+(cat===dFilter?' active':'');
     el.innerHTML = `<div class="d-nav-icon">${CAT_ICONS[cat]}</div>${cat}<span class="d-nav-count">${cnt}</span>`;
     el.onclick = () => {
       dFilter = cat;
@@ -653,16 +927,51 @@ function dBuildNav() {
   });
 }
 
+function dBuildSortBar() {
+  const bar = document.getElementById('d-sort-bar');
+  bar.innerHTML = '';
+  const lbl = document.createElement('span');
+  lbl.className = 'd-sort-label'; lbl.textContent = 'Sort:'; bar.appendChild(lbl);
+  SORTS.forEach(s => {
+    const b = document.createElement('button');
+    b.className = 'd-sort-pill' + (s.key === dSort ? ' active' : '');
+    b.textContent = s.label;
+    b.onclick = () => {
+      dSort = s.key;
+      bar.querySelectorAll('.d-sort-pill').forEach(p=>p.classList.remove('active'));
+      b.classList.add('active');
+      dRender();
+    };
+    bar.appendChild(b);
+  });
+}
+
 function dRender() {
-  const items = filtered(dFilter, dSearch);
+  const items = sorted(filtered(dFilter, dSearch), dSort);
   document.getElementById('d-count').textContent = items.length + ' items';
   const grid = document.getElementById('d-grid');
   if (!items.length) {
     grid.innerHTML = `<div style="padding:60px 24px;text-align:center;color:var(--secondary)"><div style="font-size:36px;margin-bottom:10px">🔍</div>No items found</div>`;
     return;
   }
-  const g = grouped(items);
+
   let html = '';
+
+  // Marquee on All tab with no search
+  if (dFilter === 'All' && !dSearch) {
+    const marqueeItems = [...allItems].sort(()=>Math.random()-.5).slice(0, Math.min(allItems.length, 24));
+    html += `<div class="d-marquee-section">
+      <div class="d-marquee-label">Scrolling Preview</div>
+      <div class="d-marquee-outer">
+        <div class="d-marquee-track">
+          ${buildMarqueeHtml(marqueeItems,'d-marquee-card','d-marquee-img','d-marquee-body','d-marquee-name','d-marquee-price','dSelect')}
+        </div>
+      </div>
+    </div>
+    <div class="d-marquee-sep"></div>`;
+  }
+
+  const g = grouped(items);
   CAT_ORDER.forEach(cat => {
     if (!g[cat]) return;
     html += `<div class="d-section-label">${cat} · ${g[cat].length}</div><div class="d-card-grid">`;
@@ -688,6 +997,7 @@ function dSelect(idx) {
   dSelected = idx;
   dRender();
   const item = allItems[idx];
+  if (!item) return;
   const panel = document.getElementById('d-detail');
   panel.classList.remove('empty');
 
@@ -732,19 +1042,8 @@ tick(); setInterval(tick,15000);
 document.getElementById('m-search').addEventListener('input',e=>{mSearch=e.target.value;mRender();});
 document.getElementById('d-search').addEventListener('input',e=>{dSearch=e.target.value;dRender();});
 
-/* ── Load ────────────────────────────────────── */
-fetch('items.json')
-  .then(r=>r.json())
-  .then(data=>{
-    allItems = data;
-    mBuildFilters(); mRender();
-    dBuildNav();     dRender();
-  })
-  .catch(()=>{
-    const err = `<div style="padding:40px 24px;text-align:center;color:var(--secondary);font-size:14px;line-height:1.6"><div style="font-size:36px;margin-bottom:12px">📂</div><strong style="color:var(--label)">items.json not found</strong><br>Place <code style="background:rgba(0,122,255,.1);color:var(--accent);padding:1px 6px;border-radius:4px">items.json</code> in the same folder.</div>`;
-    document.getElementById('m-shop').innerHTML = err;
-    document.getElementById('d-grid').innerHTML = err;
-  });
+/* ── Initial load ────────────────────────────── */
+loadItems(false);
 </script>
 </body>
 </html>
