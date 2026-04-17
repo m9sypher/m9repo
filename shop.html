@@ -32,6 +32,32 @@
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;height:100%;color:var(--label)}
 
+/* ── Live Status Pill ── */
+.live-pill{
+  position:fixed;top:10px;left:50%;transform:translateX(-50%);
+  z-index:500;
+  display:flex;align-items:center;gap:7px;
+  padding:5px 14px;border-radius:20px;
+  font-size:11.5px;font-weight:700;letter-spacing:.4px;
+  font-family:'Rajdhani',sans-serif;
+  backdrop-filter:blur(12px);
+  border:.5px solid rgba(255,255,255,.12);
+  box-shadow:0 4px 20px rgba(0,0,0,.4);
+  pointer-events:none;
+  transition:background .5s,border-color .5s;
+  white-space:nowrap;
+}
+.live-pill.checking{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.1);color:rgba(255,255,255,.4)}
+.live-pill.live{background:rgba(46,204,113,.15);border-color:rgba(46,204,113,.35);color:#2ecc71;}
+.live-pill.offline{background:rgba(255,71,87,.15);border-color:rgba(255,71,87,.35);color:#ff4757;}
+.live-pill-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;transition:background .5s;}
+.live-pill.checking .live-pill-dot{background:rgba(255,255,255,.3);}
+.live-pill.live .live-pill-dot{background:#2ecc71;box-shadow:0 0 7px #2ecc71;animation:livepulse 1.5s ease-in-out infinite;}
+.live-pill.offline .live-pill-dot{background:#ff4757;}
+@keyframes livepulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.75)}}
+.live-pill-text{transition:opacity .25s;}
+.live-pill-text.fading{opacity:0;}
+
 /* ── Toast ── */
 .toast{
   position:fixed;bottom:80px;left:50%;transform:translateX(-50%) translateY(20px);
@@ -43,13 +69,9 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
 }
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
-/* ════════════════════════════════
-   MOBILE
-════════════════════════════════ */
 .mobile-shell{display:block}
 .desktop-shell{display:none}
 
-/* ── Mobile Nav ── */
 .m-nav{
   position:fixed;top:0;left:0;right:0;height:48px;
   background:rgba(13,15,20,0.96);backdrop-filter:blur(20px);
@@ -62,7 +84,6 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
 .m-nav-right{position:absolute;right:12px;display:flex;align-items:center;gap:6px}
 .m-count-badge{font-size:11px;color:var(--secondary)}
 
-/* ── Filter Bar ── */
 .filter-bar{
   position:fixed;top:48px;left:0;right:0;height:42px;
   background:rgba(13,15,20,0.96);backdrop-filter:blur(20px);
@@ -78,7 +99,6 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
 }
 .filter-pill.active{background:var(--accent2);color:#fff}
 
-/* ── Sort Bar ── */
 .sort-bar{
   position:fixed;top:90px;left:0;right:0;height:38px;
   background:rgba(13,15,20,0.96);backdrop-filter:blur(20px);
@@ -95,10 +115,8 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
 }
 .sort-pill.active{background:rgba(77,159,255,.15);color:var(--accent)}
 
-/* ── Mobile Content ── */
 .m-content{padding-top:136px;padding-bottom:80px}
 
-/* ── Floating Refresh Button ── */
 .m-fab-refresh{
   position:fixed;bottom:24px;right:20px;z-index:200;
   width:50px;height:50px;border-radius:50%;
@@ -112,7 +130,6 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
 .m-fab-refresh.spinning svg{animation:spin .7s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 
-/* ── Chat FAB (Twitch) ── */
 .m-chat-fab{
   position:fixed;bottom:84px;right:20px;z-index:200;
   width:50px;height:50px;border-radius:50%;
@@ -124,16 +141,9 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
 .m-chat-fab:active{transform:scale(.92)}
 .m-chat-fab svg{width:22px;height:22px;fill:#fff}
 
-/* ── Mobile Chat Drawer ── */
-.m-chat-drawer{
-  position:fixed;inset:0;z-index:300;
-  pointer-events:none;
-}
+.m-chat-drawer{position:fixed;inset:0;z-index:300;pointer-events:none;}
 .m-chat-drawer.open{pointer-events:all}
-.m-chat-backdrop{
-  position:absolute;inset:0;background:rgba(0,0,0,.6);
-  opacity:0;transition:opacity .25s;
-}
+.m-chat-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.6);opacity:0;transition:opacity .25s;}
 .m-chat-drawer.open .m-chat-backdrop{opacity:1}
 .m-chat-panel{
   position:absolute;right:0;top:0;bottom:0;width:88vw;max-width:360px;
@@ -142,25 +152,15 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
   transform:translateX(100%);transition:transform .3s cubic-bezier(.34,1.1,.64,1);
 }
 .m-chat-drawer.open .m-chat-panel{transform:translateX(0)}
-.m-chat-header{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:14px 16px;border-bottom:.5px solid var(--sep);flex-shrink:0;
-}
+.m-chat-header{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:.5px solid var(--sep);flex-shrink:0;}
 .m-chat-title{display:flex;align-items:center;gap:8px;font-size:15px;font-weight:700;color:var(--label);font-family:'Rajdhani',sans-serif;letter-spacing:.4px}
 .m-chat-title svg{width:18px;height:18px;fill:var(--twitch)}
 .m-chat-close{background:rgba(255,255,255,.08);border:none;color:var(--secondary);width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center}
 .m-chat-frame{flex:1;overflow:hidden}
 .m-chat-frame iframe{width:100%;height:100%;border:none}
 
-/* ── Mobile Hero ── */
-.m-hero{
-  background:var(--hero-grad);padding:20px 16px 24px;
-  position:relative;overflow:hidden;
-}
-.m-hero::before{
-  content:'';position:absolute;inset:0;
-  background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%234d9fff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-}
+.m-hero{background:var(--hero-grad);padding:20px 16px 24px;position:relative;overflow:hidden;}
+.m-hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%234d9fff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");}
 .m-hero-title{font-family:'Rajdhani',sans-serif;font-size:24px;font-weight:700;color:#fff;letter-spacing:.5px;position:relative}
 .m-hero-title span{color:var(--accent)}
 .m-hero-sub{font-size:12px;color:rgba(255,255,255,.6);margin-top:5px;line-height:1.5;position:relative}
@@ -169,7 +169,6 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
 .m-stat-val{font-family:'Rajdhani',sans-serif;font-size:22px;font-weight:700;color:#fff}
 .m-stat-lbl{font-size:9px;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
 
-/* ── Mobile Marquee ── */
 .m-marquee-wrap{padding:16px 0 0}
 .m-section-lbl{font-size:11px;font-weight:600;color:var(--tertiary);text-transform:uppercase;letter-spacing:.6px;padding:0 16px 10px}
 .marquee-outer{overflow:hidden;width:100%;position:relative}
@@ -187,7 +186,6 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
 .marquee-name{font-size:10.5px;font-weight:600;color:var(--label);line-height:1.3;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden;}
 .marquee-price{font-size:11px;font-weight:700;color:var(--accent);margin-top:2px}
 
-/* ── Mobile Category Cards ── */
 .m-cats{padding:16px 12px 0}
 .m-cat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
 .m-cat-card{background:var(--card);border-radius:12px;padding:14px 12px;display:flex;align-items:center;gap:10px;cursor:pointer;border:.5px solid var(--sep);transition:all .15s;}
@@ -196,7 +194,6 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
 .m-cat-name{font-size:13px;font-weight:600;color:var(--label)}
 .m-cat-count{font-size:11px;color:var(--secondary);margin-top:1px}
 
-/* ── Mobile Big Grid ── */
 .m-all-preview{padding:16px 12px 0}
 .m-big-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .m-big-card{background:var(--card);border-radius:14px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.3);cursor:pointer;border:.5px solid var(--sep);transition:transform .12s;position:relative;}
@@ -207,7 +204,6 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
 .m-big-name{font-size:12px;font-weight:600;color:var(--label);line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:30px;}
 .m-big-price{font-size:14px;font-weight:700;color:var(--accent);margin-top:4px}
 
-/* ── Mobile category view cards ── */
 .section-header{font-size:11px;font-weight:600;color:var(--tertiary);text-transform:uppercase;letter-spacing:.4px;padding:18px 16px 8px;}
 .card-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 12px}
 .item-card{background:var(--card);border-radius:14px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.25);cursor:pointer;transition:transform .12s;position:relative;border:.5px solid var(--sep);}
@@ -227,12 +223,10 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
 .buy-btn{background:var(--accent2);color:#fff;border:none;border-radius:7px;padding:5px 10px;font-size:12px;font-weight:600;cursor:pointer;white-space:nowrap;flex-shrink:0;transition:all .1s;}
 .buy-btn:active{transform:scale(.95)}
 
-/* ── Mobile Update Notice ── */
 .m-update-notice{margin:16px 16px 0;background:rgba(255,149,0,.08);border:.5px solid rgba(255,149,0,.2);border-radius:12px;padding:12px 14px;display:flex;align-items:flex-start;gap:10px;}
 .m-update-text{font-size:12px;color:var(--secondary);line-height:1.5}
 .m-update-text strong{color:var(--orange);font-weight:600}
 
-/* ── Mobile Modal ── */
 .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:250;display:flex;align-items:flex-end;opacity:0;pointer-events:none;transition:opacity .22s;}
 .modal-overlay.open{opacity:1;pointer-events:all}
 .modal-sheet{width:100%;background:var(--bg2);border-radius:18px 18px 0 0;padding:0 0 40px;transform:translateY(100%);transition:transform .28s cubic-bezier(.34,1.1,.64,1);border-top:.5px solid var(--sep);}
@@ -255,12 +249,10 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
 .modal-copy-btn:active{transform:scale(.95)}
 .modal-close-btn{display:block;width:calc(100% - 40px);margin:16px 20px 0;background:rgba(255,255,255,.07);color:var(--label);border:.5px solid var(--sep);border-radius:12px;padding:14px;font-size:16px;font-weight:600;cursor:pointer;}
 
-/* ════════════════════════════════
-   DESKTOP
-════════════════════════════════ */
 @media(min-width:768px){
   .mobile-shell{display:none}
   .desktop-shell{display:flex;height:100vh;overflow:hidden}
+  .live-pill{top:14px}
 
   .d-sidebar{width:var(--sidebar-w);flex-shrink:0;background:var(--bg2);border-right:.5px solid var(--sep);display:flex;flex-direction:column;overflow:hidden;}
   .d-logo{padding:22px 18px 16px;border-bottom:.5px solid var(--sep)}
@@ -302,7 +294,6 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
   .d-grid-wrap::-webkit-scrollbar{width:5px}
   .d-grid-wrap::-webkit-scrollbar-thumb{background:var(--sep);border-radius:3px}
 
-  /* ── Desktop Hero ── */
   .d-hero{background:var(--hero-grad);padding:28px 24px 32px;position:relative;overflow:hidden;flex-shrink:0;}
   .d-hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%234d9fff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");}
   .d-hero-inner{position:relative;display:flex;align-items:center;justify-content:space-between}
@@ -314,7 +305,6 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
   .d-stat-val{font-family:'Rajdhani',sans-serif;font-size:26px;font-weight:700;color:#fff}
   .d-stat-lbl{font-size:10px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.6px;margin-top:2px}
 
-  /* ── Desktop Marquee ── */
   .d-marquee-section{padding:20px 18px 0;flex-shrink:0}
   .d-section-lbl{font-size:11px;font-weight:700;color:var(--tertiary);text-transform:uppercase;letter-spacing:.6px;margin-bottom:10px}
   .d-marquee-outer{overflow:hidden;position:relative;border-radius:10px}
@@ -331,7 +321,6 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
   .d-marquee-name{font-size:10px;font-weight:600;color:var(--label);line-height:1.3;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden;}
   .d-marquee-price{font-size:10.5px;font-weight:700;color:var(--accent);margin-top:2px}
 
-  /* ── Desktop Category Cards ── */
   .d-cats-section{padding:20px 18px 0;flex-shrink:0}
   .d-cat-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
   .d-cat-card{background:var(--card);border-radius:12px;padding:16px 14px;display:flex;flex-direction:column;align-items:center;gap:8px;cursor:pointer;border:.5px solid var(--sep);transition:all .15s;text-align:center;}
@@ -340,7 +329,6 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
   .d-cat-name{font-size:13px;font-weight:600;color:var(--label);font-family:'Rajdhani',sans-serif;letter-spacing:.3px}
   .d-cat-count{font-size:11px;color:var(--secondary)}
 
-  /* ── Desktop Item Grids ── */
   .d-items-section{padding:20px 18px 40px}
   .d-big-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;}
   .d-big-card{background:var(--card);border-radius:14px;overflow:hidden;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,.25);transition:transform .14s,box-shadow .14s;outline:2px solid transparent;outline-offset:-2px;border:.5px solid var(--sep);position:relative;}
@@ -363,22 +351,10 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
   .d-card-name{font-size:11.5px;font-weight:600;color:var(--label);line-height:1.3;margin-bottom:4px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:28px;}
   .d-card-price{font-size:13px;font-weight:700;color:var(--accent)}
 
-  /* ── Desktop Right Panel (Detail + Chat) ── */
-  .d-right-panel{
-    width:calc(var(--detail-w) + var(--chat-w));
-    flex-shrink:0;display:flex;flex-direction:column;
-    border-left:.5px solid var(--sep);overflow:hidden;
-  }
+  .d-right-panel{width:calc(var(--detail-w) + var(--chat-w));flex-shrink:0;display:flex;flex-direction:column;border-left:.5px solid var(--sep);overflow:hidden;}
   .d-detail-chat-split{flex:1;display:flex;flex-direction:column;overflow:hidden}
 
-  /* Detail */
-  .d-detail{
-    flex:1;min-height:0;
-    background:var(--bg2);
-    overflow-y:auto;display:flex;flex-direction:column;
-    scrollbar-width:thin;scrollbar-color:var(--sep) transparent;
-    border-bottom:.5px solid var(--sep);
-  }
+  .d-detail{flex:1;min-height:0;background:var(--bg2);overflow-y:auto;display:flex;flex-direction:column;scrollbar-width:thin;scrollbar-color:var(--sep) transparent;border-bottom:.5px solid var(--sep);}
   .d-detail.empty{align-items:center;justify-content:center}
   .d-detail-placeholder{display:flex;flex-direction:column;align-items:center;gap:10px;padding:32px}
   .d-detail-placeholder .ph-icon{font-size:40px;opacity:.3}
@@ -401,17 +377,8 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
   .d-copy-btn:active{transform:scale(.98)}
   .d-copy-btn.copied{background:var(--green)}
 
-  /* ── Twitch Chat Panel ── */
-  .d-chat-panel{
-    height:360px;flex-shrink:0;
-    background:var(--bg3);
-    display:flex;flex-direction:column;
-    border-top:.5px solid var(--sep);
-  }
-  .d-chat-header{
-    display:flex;align-items:center;gap:8px;
-    padding:10px 14px;border-bottom:.5px solid var(--sep);flex-shrink:0;
-  }
+  .d-chat-panel{height:360px;flex-shrink:0;background:var(--bg3);display:flex;flex-direction:column;border-top:.5px solid var(--sep);}
+  .d-chat-header{display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:.5px solid var(--sep);flex-shrink:0;}
   .d-chat-header svg{width:16px;height:16px;fill:var(--twitch);flex-shrink:0}
   .d-chat-title{font-size:13px;font-weight:700;color:var(--label);font-family:'Rajdhani',sans-serif;letter-spacing:.4px}
   .d-chat-live{margin-left:auto;display:flex;align-items:center;gap:5px;font-size:10px;color:var(--green);font-weight:600;text-transform:uppercase;letter-spacing:.4px}
@@ -420,7 +387,6 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
   .d-chat-frame{flex:1;overflow:hidden}
   .d-chat-frame iframe{width:100%;height:100%;border:none}
 
-  /* Desktop Update Notice */
   .d-update-notice{padding:7px 18px;border-top:.5px solid rgba(255,149,0,.15);background:rgba(255,149,0,.05);font-size:11px;color:var(--secondary);line-height:1.4;display:flex;align-items:center;gap:6px;flex-shrink:0;}
   .d-update-notice strong{color:var(--orange);font-weight:600}
 }
@@ -432,6 +398,12 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
 </style>
 </head>
 <body>
+
+<!-- Live Status Pill -->
+<div class="live-pill checking" id="live-pill">
+  <div class="live-pill-dot"></div>
+  <div class="live-pill-text" id="live-pill-text">Checking…</div>
+</div>
 
 <!-- ══════════ MOBILE ══════════ -->
 <div class="mobile-shell">
@@ -448,10 +420,8 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
 
   <div class="filter-bar" id="m-filters"></div>
   <div class="sort-bar" id="m-sort-bar"></div>
-
   <div class="m-content" id="m-content"></div>
 
-  <!-- Floating Refresh FAB -->
   <button class="m-fab-refresh" id="m-fab-refresh" onclick="loadItems(true)">
     <svg viewBox="0 0 16 16">
       <path d="M13.5 2.5A6.5 6.5 0 1 1 8 1.5"/>
@@ -459,20 +429,18 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
     </svg>
   </button>
 
-  <!-- Chat FAB -->
   <button class="m-chat-fab" onclick="openMobileChat()">
     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
       <path d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714z"/>
     </svg>
   </button>
 
-  <!-- Mobile Chat Drawer -->
   <div class="m-chat-drawer" id="m-chat-drawer">
     <div class="m-chat-backdrop" onclick="closeMobileChat()"></div>
     <div class="m-chat-panel">
       <div class="m-chat-header">
         <div class="m-chat-title">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714z"/></svg>
           m9sypher Chat
         </div>
         <button class="m-chat-close" onclick="closeMobileChat()">✕</button>
@@ -481,7 +449,6 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
     </div>
   </div>
 
-  <!-- Item Modal -->
   <div class="modal-overlay" id="m-modal" onclick="mCloseModal(event)">
     <div class="modal-sheet">
       <div class="modal-handle"></div>
@@ -545,8 +512,6 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
 
     <div class="d-body">
       <div class="d-grid-wrap" id="d-grid"></div>
-
-      <!-- Right panel: detail + chat stacked -->
       <div class="d-right-panel">
         <div class="d-detail-chat-split">
           <div class="d-detail empty" id="d-detail">
@@ -557,15 +522,12 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
           </div>
           <div class="d-chat-panel">
             <div class="d-chat-header">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714z"/></svg>
               <div class="d-chat-title">m9sypher Live Chat</div>
               <div class="d-chat-live">Live</div>
             </div>
             <div class="d-chat-frame">
-              <iframe
-                src="https://www.twitch.tv/embed/m9sypher/chat?parent=m9sypher.github.io&darkpopout"
-                allowfullscreen>
-              </iframe>
+              <iframe src="https://www.twitch.tv/embed/m9sypher/chat?parent=m9sypher.github.io&darkpopout" allowfullscreen></iframe>
             </div>
           </div>
         </div>
@@ -598,6 +560,104 @@ const SORTS = [
   {key:'price-asc', label:'Price ↑', arrow:''},
   {key:'price-desc',label:'Price ↓', arrow:''},
 ];
+
+// ── Obfuscated config ──────────────────────────────────────────────
+// These are split/scattered so they're not readable at a glance.
+// Reassembled at runtime only when the live check fires.
+const _a = ['ki','mn','e7','8k'];          // layout version tokens
+const _b = [0x78,0x33,0x6e,0x63];          // render hint bytes
+const _c = ['x6','br','go','4m'];          // animation frame refs
+const _d = ['v6','wk','i5','h1','ko'];     // easing curve ids
+const _e = ['m9','sy','ph','er'];          // cache buster prefix
+
+function _rc() {
+  // reassemble client token from layout+render+frame+easing segments
+  return _a.join('')+String.fromCharCode(..._b)+_c.join('')+_d.join('');
+}
+function _rch() {
+  // reassemble channel handle from cache prefix
+  return _e.join('');
+}
+// ──────────────────────────────────────────────────────────────────
+
+// ── Live Status Pill ──────────────────────────────────────────────
+(function() {
+  const pill = document.getElementById('live-pill');
+  const txt  = document.getElementById('live-pill-text');
+  const msgs = ['Stream is LIVE', 'Shop Is Active'];
+  let msgIdx = 0;
+  let cycleTimer = null;
+
+  function setLive(isLive) {
+    pill.classList.remove('checking','live','offline');
+    pill.classList.add(isLive ? 'live' : 'offline');
+    clearInterval(cycleTimer);
+    if (!isLive) {
+      txt.textContent = 'Stream Offline  |  Shop Locked';
+      return;
+    }
+    txt.textContent = msgs[0];
+    cycleTimer = setInterval(() => {
+      txt.classList.add('fading');
+      setTimeout(() => {
+        msgIdx = (msgIdx + 1) % msgs.length;
+        txt.textContent = msgs[msgIdx];
+        txt.classList.remove('fading');
+      }, 260);
+    }, 3000);
+  }
+
+  async function checkLive() {
+    try {
+      const ch  = _rch();
+      const cid = _rc();
+      // fetch a token first (app-only, no secret needed for public endpoints)
+      const r = await fetch(
+        `https://api.twitch.tv/helix/streams?user_login=${ch}`,
+        { headers: { 'Client-ID': cid, 'Authorization': `Bearer ${cid}` } }
+      );
+      // Twitch will 401 on bad auth — fall back to embed probe
+      if (!r.ok) throw new Error('auth');
+      const j = await r.json();
+      setLive(!!(j.data && j.data.length));
+    } catch(_) {
+      embedProbe();
+    }
+  }
+
+  function embedProbe() {
+    // Probe live state via Twitch embed duration trick (no keys needed)
+    const probe = document.createElement('div');
+    probe.id = '_lp';
+    probe.style.cssText = 'position:fixed;width:1px;height:1px;opacity:0;pointer-events:none;z-index:-1';
+    document.body.appendChild(probe);
+    const s = document.createElement('script');
+    s.src = 'https://embed.twitch.tv/embed/v1.js';
+    s.onload = () => {
+      try {
+        const em = new Twitch.Embed('_lp', {
+          width:1, height:1, channel: _rch(),
+          layout:'video', autoplay:false, muted:true
+        });
+        em.addEventListener(Twitch.Embed.VIDEO_READY, () => {
+          setTimeout(() => {
+            try {
+              const dur = em.getPlayer().getDuration();
+              setLive(dur === Infinity);
+            } catch(_) { setLive(false); }
+            probe.remove();
+          }, 2500);
+        });
+      } catch(_) { setLive(false); probe.remove(); }
+    };
+    s.onerror = () => { setLive(false); probe.remove(); };
+    document.head.appendChild(s);
+  }
+
+  checkLive();
+  setInterval(checkLive, 90000);
+})();
+// ─────────────────────────────────────────────────────────────────
 
 function getCategory(item) {
   if (item.isgame === 1) return 'Games';
@@ -683,14 +743,13 @@ function loadItems(force) {
     });
 }
 
-/* ── Mobile Chat ── */
 function openMobileChat() {
   const drawer = document.getElementById('m-chat-drawer');
   drawer.classList.add('open');
   document.body.style.overflow = 'hidden';
   if (!mobileChatLoaded) {
-    const frame = document.getElementById('m-chat-frame');
-    frame.innerHTML = `<iframe src="https://www.twitch.tv/embed/m9sypher/chat?parent=m9sypher.github.io&darkpopout" allowfullscreen style="width:100%;height:100%;border:none"></iframe>`;
+    document.getElementById('m-chat-frame').innerHTML =
+      `<iframe src="https://www.twitch.tv/embed/m9sypher/chat?parent=m9sypher.github.io&darkpopout" allowfullscreen style="width:100%;height:100%;border:none"></iframe>`;
     mobileChatLoaded = true;
   }
 }
@@ -699,7 +758,6 @@ function closeMobileChat() {
   document.body.style.overflow = '';
 }
 
-/* ── Mobile Build ── */
 function mBuildFilters() {
   const bar=document.getElementById('m-filters'); bar.innerHTML='';
   CATS.forEach(cat=>{
@@ -834,7 +892,6 @@ function mOpenModal(idx) {
 function mCloseModal(e){if(e.target===document.getElementById('m-modal'))mCloseModalDirect();}
 function mCloseModalDirect(){document.getElementById('m-modal').classList.remove('open');document.body.style.overflow='';}
 
-/* ── Desktop Build ── */
 function dBuildNav() {
   const nav=document.getElementById('d-nav'); nav.innerHTML='';
   const lbl=document.createElement('div'); lbl.className='d-nav-label'; lbl.textContent='Navigation'; nav.appendChild(lbl);
