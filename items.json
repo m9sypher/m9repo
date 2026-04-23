@@ -855,5 +855,19 @@
     "marketActivity": 72,
     "lockAPIscrape": 1776770609789,
     "isgame": 0
+  },
+  {
+    "skinName": "Sticker | Tamara (Holo)",
+    "marketHashName": "Sticker | Tamara (Holo)",
+    "price": 254.1138,
+    "buyCmd": "!tamara1",
+    "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjNqoO26H9ml29Zfn_1XiDgnwk5fy_B1T4P6hJqJvePPDXj_Jkr51seI4Sn_qwR9-tjiHyN2ocX3EOA4mWcNxF-EK50Gm0oqwz4iWKok/330x192?allow_animated=1",
+    "markupPercent": 112,
+    "markupLock": true,
+    "cachedAt": "02/04/26 12:24 PM",
+    "popularityIndex": 0,
+    "marketActivity": 72,
+    "lockAPIscrape": 1776770609789,
+    "isgame": 0
   }
 ]
