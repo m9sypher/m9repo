@@ -827,5 +827,19 @@
     "marketActivity": 100,
     "lockAPIscrape": 1777162619955,
     "isgame": 0
+  },
+  {
+    "skinName": "Enforcer | Phoenix",
+    "marketHashName": "Enforcer | Phoenix",
+    "price": 236.5122,
+    "buyCmd": "!enforcer1",
+    "imageUrl": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIa-2lmxU-LR0dnuNm6E8Vl45Iv181z1fgn8oYbo8idV5uqRfqV_KfGdGmHexbZ3tLM9G3jhzRt-5WqEydaqdS-QPAMjX8NxFLRY5hftx9XkNOm35xue1dyPr1iSWw/330x192?allow_animated=1",
+    "markupPercent": -35,
+    "markupLock": true,
+    "cachedAt": "02/04/26 12:16 PM",
+    "popularityIndex": 0,
+    "marketActivity": 76,
+    "lockAPIscrape": 1776770621412,
+    "isgame": 0
   }
 ]
