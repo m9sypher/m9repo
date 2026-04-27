@@ -813,5 +813,19 @@
     "marketActivity": 100,
     "lockAPIscrape": 1777251547980,
     "isgame": 0
+  },
+  {
+    "skinName": "Desert Eagle | Tilted (MW)",
+    "marketHashName": "Desert Eagle | Tilted (Minimal Wear)",
+    "price": 13.0052,
+    "buyCmd": "!deag1",
+    "imageUrl": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL1m5fn8Sdk7OeRZ7JoMuCSHXSvwP9jsd5tSii0mRgYvzSCkpu3cH-UOgV2D8RyQrMKsRW-mtWyPunr4VeNjIhMmX6ojigY7y9v5ehUA71lpPMO4MWI5A/330x192?allow_animated=1",
+    "markupPercent": -18,
+    "markupLock": true,
+    "cachedAt": "02/04/26 12:16 PM",
+    "popularityIndex": 0,
+    "marketActivity": 100,
+    "lockAPIscrape": 1776770623255,
+    "isgame": 0
   }
 ]
