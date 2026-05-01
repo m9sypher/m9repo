@@ -241,6 +241,7 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
 .modal-row-label{font-size:15px;color:var(--secondary)}
 .modal-row-value{font-size:15px;font-weight:600;color:var(--label)}
 .modal-row-value.green{color:var(--green)}
+.modal-row-value.red{color:var(--red)}
 .modal-row-value.orange{color:var(--orange)}
 .modal-cmd-row{margin-top:14px;background:rgba(77,159,255,.08);border-radius:10px;padding:12px 14px;display:flex;align-items:center;justify-content:space-between;gap:12px;border:.5px solid rgba(77,159,255,.2);}
 .modal-cmd-label{font-size:12px;color:var(--secondary);margin-bottom:3px}
@@ -331,7 +332,7 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
 
   .d-items-section{padding:20px 18px 40px}
   .d-big-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;}
-  .d-big-card{background:var(--card);border-radius:14px;overflow:hidden;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,.25);transition:transform .14s,box-shadow .14s;outline:2px solid transparent;outline-offset:-2px;border:.5px solid var(--sep);position:relative;}
+  .d-big-card{background:var(--card);border-radius:14px;overflow:hidden;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,.25);transition:transform .14px,box-shadow .14s;outline:2px solid transparent;outline-offset:-2px;border:.5px solid var(--sep);position:relative;}
   .d-big-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.4);border-color:rgba(77,159,255,.2)}
   .d-big-card.selected{outline-color:var(--accent)}
   .d-big-img{width:100%;aspect-ratio:4/3;background:var(--bg3);overflow:hidden;position:relative}
@@ -368,6 +369,7 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
   .d-detail-row-label{font-size:13px;color:var(--secondary)}
   .d-detail-row-value{font-size:13px;font-weight:600;color:var(--label)}
   .d-detail-row-value.green{color:var(--green)}
+  .d-detail-row-value.red{color:var(--red)}
   .d-detail-row-value.orange{color:var(--orange)}
   .d-cmd-block{margin:14px 18px 18px;background:rgba(77,159,255,.08);border-radius:10px;padding:14px;border:.5px solid rgba(77,159,255,.2);}
   .d-cmd-label{font-size:10px;font-weight:700;color:var(--secondary);text-transform:uppercase;letter-spacing:.4px;margin-bottom:4px}
@@ -462,6 +464,7 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
         <div class="modal-hash" id="m-modal-hash"></div>
         <div class="modal-row"><span class="modal-row-label">Price</span><span class="modal-row-value" id="m-modal-price"></span></div>
         <div class="modal-row" id="m-modal-markup-row"><span class="modal-row-label">Markup</span><span class="modal-row-value" id="m-modal-markup"></span></div>
+        <div class="modal-row" id="m-modal-diff-row" style="display:none"><span class="modal-row-label">Difference</span><span class="modal-row-value" id="m-modal-diff"></span></div>
         <div class="modal-row" id="m-modal-trade-row" style="display:none"><span class="modal-row-label">Tradable After</span><span class="modal-row-value orange" id="m-modal-trade"></span></div>
         <div class="modal-cmd-row">
           <div>
@@ -562,20 +565,16 @@ const SORTS = [
 ];
 
 // ── Obfuscated config ──────────────────────────────────────────────
-// These are split/scattered so they're not readable at a glance.
-// Reassembled at runtime only when the live check fires.
-const _a = ['ki','mn','e7','8k'];          // layout version tokens
-const _b = [0x78,0x33,0x6e,0x63];          // render hint bytes
-const _c = ['x6','br','go','4m'];          // animation frame refs
-const _d = ['v6','wk','i5','h1','ko'];     // easing curve ids
-const _e = ['m9','sy','ph','er'];          // cache buster prefix
+const _a = ['ki','mn','e7','8k'];
+const _b = [0x78,0x33,0x6e,0x63];
+const _c = ['x6','br','go','4m'];
+const _d = ['v6','wk','i5','h1','ko'];
+const _e = ['m9','sy','ph','er'];
 
 function _rc() {
-  // reassemble client token from layout+render+frame+easing segments
   return _a.join('')+String.fromCharCode(..._b)+_c.join('')+_d.join('');
 }
 function _rch() {
-  // reassemble channel handle from cache prefix
   return _e.join('');
 }
 // ──────────────────────────────────────────────────────────────────
@@ -611,12 +610,10 @@ function _rch() {
     try {
       const ch  = _rch();
       const cid = _rc();
-      // fetch a token first (app-only, no secret needed for public endpoints)
       const r = await fetch(
         `https://api.twitch.tv/helix/streams?user_login=${ch}`,
         { headers: { 'Client-ID': cid, 'Authorization': `Bearer ${cid}` } }
       );
-      // Twitch will 401 on bad auth — fall back to embed probe
       if (!r.ok) throw new Error('auth');
       const j = await r.json();
       setLive(!!(j.data && j.data.length));
@@ -626,7 +623,6 @@ function _rch() {
   }
 
   function embedProbe() {
-    // Probe live state via Twitch embed duration trick (no keys needed)
     const probe = document.createElement('div');
     probe.id = '_lp';
     probe.style.cssText = 'position:fixed;width:1px;height:1px;opacity:0;pointer-events:none;z-index:-1';
@@ -881,6 +877,14 @@ function mOpenModal(idx) {
   const mv=document.getElementById('m-modal-markup');
   if(item.markupPercent!==0){mr.style.display='flex';mv.textContent=(item.markupPercent>0?'+':'')+item.markupPercent+'%';mv.className='modal-row-value '+(item.markupPercent>0?'orange':'green');}
   else{mr.style.display='none';}
+  const dr=document.getElementById('m-modal-diff-row');
+  const dv=document.getElementById('m-modal-diff');
+  if(item.difference && item.difference !== '0'){
+    dr.style.display='flex';
+    const isPos=item.difference.startsWith('+');
+    dv.textContent='🪙 '+item.difference;
+    dv.className='modal-row-value '+(isPos?'red':'green');
+  } else { dr.style.display='none'; }
   const tr=document.getElementById('m-modal-trade-row');
   if(item.tradableDate){tr.style.display='flex';document.getElementById('m-modal-trade').textContent=item.tradableDate;}
   else{tr.style.display='none';}
@@ -1014,6 +1018,12 @@ function dSelect(idx) {
   const panel=document.getElementById('d-detail'); panel.classList.remove('empty');
   let markupHtml='';
   if(item.markupPercent!==0){const sign=item.markupPercent>0?'+':'';const cls=item.markupPercent>0?'orange':'green';markupHtml=`<div class="d-detail-row"><span class="d-detail-row-label">Markup</span><span class="d-detail-row-value ${cls}">${sign}${item.markupPercent}%</span></div>`;}
+  let diffHtml='';
+  if(item.difference && item.difference !== '0'){
+    const isDiffPos=item.difference.startsWith('+');
+    const diffCls=isDiffPos?'red':'green';
+    diffHtml=`<div class="d-detail-row"><span class="d-detail-row-label">Difference</span><span class="d-detail-row-value ${diffCls}">🪙 ${item.difference}</span></div>`;
+  }
   const tradeHtml=item.tradableDate?`<div class="d-detail-row"><span class="d-detail-row-label">Tradable After</span><span class="d-detail-row-value orange">${item.tradableDate}</span></div>`:'';
   const hashLine=item.marketHashName!==item.skinName?`<div class="d-detail-hash">${item.marketHashName}</div>`:'<div style="margin-bottom:14px"></div>';
   const overlay=item.tradableDate?`<div class="trade-overlay"></div><div class="trade-pill">🔒 Not Tradable<br>${item.tradableDate}</div>`:'';
@@ -1023,7 +1033,7 @@ function dSelect(idx) {
       <div class="d-detail-name">${item.skinName}</div>
       ${hashLine}
       <div class="d-detail-row"><span class="d-detail-row-label">Price</span><span class="d-detail-row-value">${fmtPrice(item.price)}</span></div>
-      ${markupHtml}${tradeHtml}
+      ${markupHtml}${diffHtml}${tradeHtml}
       <div class="d-detail-row"><span class="d-detail-row-label">Market Activity</span><span class="d-detail-row-value">${item.marketActivity}%</span></div>
     </div>
     <div class="d-cmd-block">
