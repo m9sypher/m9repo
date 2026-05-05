@@ -898,5 +898,21 @@
     "lockAPIscrape": 1777950993585,
     "isgame": 0,
     "difference": "+7.1825"
+  },
+  {
+    "skinName": "Garry's Mod",
+    "marketHashName": "Garry's Mod",
+    "appId": 4000,
+    "price": 608.1563,
+    "buyCmd": "!gmod1",
+    "imageUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4000/header.jpg?t=1776868682",
+    "markupPercent": 275,
+    "markupLock": false,
+    "cachedAt": "05/04/26, 08:12 PM",
+    "popularityIndex": 0,
+    "marketActivity": 100,
+    "lockAPIscrape": 1777951063377,
+    "isgame": 1,
+    "difference": "+308.1663"
   }
 ]
