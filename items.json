@@ -899,5 +899,20 @@
     "lockAPIscrape": 1777951063377,
     "isgame": 1,
     "difference": "+308.1663"
+  },
+  {
+    "skinName": "StatTrak™ AK-47 | Cartel (FT)",
+    "marketHashName": "StatTrak™ AK-47 | Cartel (Field-Tested)",
+    "price": 2721.3225,
+    "buyCmd": "!akcartel1",
+    "imageUrl": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwlcK3wiNK0POlPPNSI_GBGmKc_uNztOh8QmewwEV1t2SDzdyoIn2Xb1cnCZt5RecL5EbulN3mM-vk4gbZjN5HxH-tkGoXuaUxbvmq/330x192?allow_animated=1",
+    "markupPercent": 30,
+    "markupLock": true,
+    "cachedAt": "05/04/26, 08:11 PM",
+    "popularityIndex": 0,
+    "marketActivity": 44,
+    "lockAPIscrape": 1777950993585,
+    "isgame": 0,
+    "difference": "+7.1825"
   }
 ]
