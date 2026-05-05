@@ -310,21 +310,6 @@
     "difference": "+0.65"
   },
   {
-    "skinName": "P90 | Elite Build (MW)",
-    "marketHashName": "P90 | Elite Build (Minimal Wear)",
-    "price": 58.0125,
-    "buyCmd": "!p90elite1",
-    "imageUrl": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLhx8bf_jdk_6v-V6lsM-SWHH6vzedxuPUnHyi1xE9xsGiDmdqpdnmRPwcgDZslRuAM40Trx93nNevj7gOPjdlGzzK-0H27CoeJJQ/330x192?allow_animated=1",
-    "markupPercent": 75,
-    "markupLock": true,
-    "cachedAt": "05/04/26, 08:16 PM",
-    "popularityIndex": 0,
-    "marketActivity": 86,
-    "lockAPIscrape": 1777951297059,
-    "isgame": 0,
-    "difference": "-1.1375"
-  },
-  {
     "skinName": "AK-47 | Crossfade (FN)",
     "marketHashName": "AK-47 | Crossfade (Factory New)",
     "price": 373.1,
