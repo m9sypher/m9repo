@@ -493,7 +493,7 @@
     "skinName": "Carry The Glass",
     "marketHashName": "Carry The Glass",
     "appId": 3263320,
-    "price": 283.8063,
+    "price": 608.1563,
     "buyCmd": "!carryglass1",
     "imageUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3263320/e73515ea166913132353f23817c9709c24d691f4/header.jpg?t=1771068318",
     "markupPercent": 275,
@@ -501,9 +501,9 @@
     "cachedAt": "05/04/26, 08:11 PM",
     "popularityIndex": 0,
     "marketActivity": 100,
-    "lockAPIscrape": 1777950959815,
+    "lockAPIscrape": 1777951017666,
     "isgame": 1,
-    "difference": "-16.1837"
+    "difference": "+324.35"
   },
   {
     "skinName": "Garry's Mod",
@@ -517,7 +517,7 @@
     "cachedAt": "05/04/26, 08:11 PM",
     "popularityIndex": 0,
     "marketActivity": 100,
-    "lockAPIscrape": 1777950959815,
+    "lockAPIscrape": 1777951017666,
     "isgame": 1,
     "difference": "+308.1663"
   },
@@ -525,17 +525,17 @@
     "skinName": "Super Battle Golf",
     "marketHashName": "Super Battle Golf",
     "appId": 4069520,
-    "price": 454.4313,
+    "price": 973.7813,
     "buyCmd": "!battlegolf1",
     "imageUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4069520/60b052f108998c01fed147d07578a2aed9bcd4ee/header.jpg?t=1772103787",
     "markupPercent": 275,
     "markupLock": false,
-    "cachedAt": "05/04/26, 08:11 PM",
+    "cachedAt": "05/04/26, 08:12 PM",
     "popularityIndex": 0,
     "marketActivity": 100,
-    "lockAPIscrape": 1777950959815,
+    "lockAPIscrape": 1777951017666,
     "isgame": 1,
-    "difference": "-195.5587"
+    "difference": "+519.35"
   },
   {
     "skinName": "StatTrak™ Desert Eagle | Corinthian (FT)",
