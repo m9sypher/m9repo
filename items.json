@@ -902,20 +902,5 @@
     "lockAPIscrape": 1778027264432,
     "isgame": 0,
     "difference": "-0.325"
-  },
-  {
-    "skinName": "Music Kit | Killer Mike, MICHAEL",
-    "marketHashName": "Music Kit | Killer Mike, MICHAEL",
-    "price": 673.4,
-    "buyCmd": "!killermike1",
-    "imageUrl": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIijyEKzb_3d19nuPnKb6VNn-Y7_72a3EFOinMW0ricLvPP8Mf00dPaXXzXJx7wj6OMxTCqwx0l_52qAy9-qInnDcEZ-XUn9CHoQ/330x192?allow_animated=1",
-    "markupPercent": 0,
-    "markupLock": false,
-    "cachedAt": "05/05/26, 05:22 PM",
-    "popularityIndex": 0,
-    "marketActivity": 52,
-    "lockAPIscrape": 1778027264432,
-    "isgame": 0,
-    "difference": "+8.125"
   }
 ]
