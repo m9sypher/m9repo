@@ -253,21 +253,6 @@
     "difference": "-0.65"
   },
   {
-    "skinName": "R8 Revolver | Amber Fade (FN)",
-    "marketHashName": "R8 Revolver | Amber Fade (Factory New)",
-    "price": 137.15,
-    "buyCmd": "!r8amber",
-    "imageUrl": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLjm4Dv8TRe_c2vaZtrIfSWMWqV1e96vOhqcDu2gxIrpTiXpYPwJiPTcAIpDJckF-9cuhfqltDuZujgs1DZj4hDy338jnhM73xusOcKVaos-qPJz1aW9R0yRq8/330x192?allow_animated=1",
-    "markupPercent": 0,
-    "markupLock": false,
-    "cachedAt": "05/08/26, 01:27 PM",
-    "popularityIndex": 0,
-    "marketActivity": 87,
-    "lockAPIscrape": 1778272320980,
-    "isgame": 0,
-    "difference": "+3.25"
-  },
-  {
     "skinName": "StatTrak™ XM1014 | Red Python (FT)",
     "marketHashName": "StatTrak™ XM1014 | Red Python (Field-Tested)",
     "price": 82.5988,
