@@ -268,21 +268,6 @@
     "difference": "+3.25"
   },
   {
-    "skinName": "USP-S | Tropical Breeze (FT)",
-    "marketHashName": "USP-S | Tropical Breeze (Field-Tested)",
-    "price": 23.075,
-    "buyCmd": "!tropical1",
-    "imageUrl": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLkjYbf7itX6vytbbZSM_-WMXOCzv5_s-BlcCS2kRQyvnOEy4v6dnzDZ1IgWJFyFu4K5hLqktLuN-jrtASK3o1HxCr_iClO530-_a9cBiau7NtK/330x192?allow_animated=1",
-    "markupPercent": 0,
-    "markupLock": false,
-    "cachedAt": "05/06/26, 09:00 PM",
-    "popularityIndex": 0,
-    "marketActivity": 100,
-    "lockAPIscrape": 1778126732643,
-    "isgame": 0,
-    "difference": "+0.325"
-  },
-  {
     "skinName": "StatTrak™ XM1014 | Red Python (FT)",
     "marketHashName": "StatTrak™ XM1014 | Red Python (Field-Tested)",
     "price": 80.9413,
