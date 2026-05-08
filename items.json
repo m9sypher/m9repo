@@ -388,21 +388,6 @@
     "difference": "-3.7204"
   },
   {
-    "skinName": "Enforcer | Phoenix",
-    "marketHashName": "Enforcer | Phoenix",
-    "price": 229.84,
-    "buyCmd": "!enforcer1",
-    "imageUrl": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIa-2lmxU-LR0dnuNm6E8Vl45Iv181z1fgn8oYbo8idV5uqRfqV_KfGdGmHexbZ3tLM9G3jhzRt-5WqEydaqdS-QPAMjX8NxFLRY5hftx9XkNOm35xue1dyPr1iSWw/330x192?allow_animated=1",
-    "markupPercent": -35,
-    "markupLock": true,
-    "cachedAt": "05/06/26, 09:00 PM",
-    "popularityIndex": 0,
-    "marketActivity": 76,
-    "lockAPIscrape": 1778126732643,
-    "isgame": 0,
-    "difference": "-1.0562"
-  },
-  {
     "skinName": "'Two Times' McCoy | USAF TACP",
     "marketHashName": "'Two Times' McCoy | USAF TACP",
     "price": 631.9983,
