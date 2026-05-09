@@ -23,6 +23,7 @@
   --red:        #ff4757;
   --purple:     #9c6cff;
   --twitch:     #9147ff;
+  --gold:       #f5c542;
   --sidebar-w:  220px;
   --detail-w:   340px;
   --chat-w:     300px;
@@ -35,17 +36,12 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
 /* ── Live Status Pill ── */
 .live-pill{
   position:fixed;top:10px;left:50%;transform:translateX(-50%);
-  z-index:500;
-  display:flex;align-items:center;gap:7px;
+  z-index:500;display:flex;align-items:center;gap:7px;
   padding:5px 14px;border-radius:20px;
   font-size:11.5px;font-weight:700;letter-spacing:.4px;
-  font-family:'Rajdhani',sans-serif;
-  backdrop-filter:blur(12px);
-  border:.5px solid rgba(255,255,255,.12);
-  box-shadow:0 4px 20px rgba(0,0,0,.4);
-  pointer-events:none;
-  transition:background .5s,border-color .5s;
-  white-space:nowrap;
+  font-family:'Rajdhani',sans-serif;backdrop-filter:blur(12px);
+  border:.5px solid rgba(255,255,255,.12);box-shadow:0 4px 20px rgba(0,0,0,.4);
+  pointer-events:none;transition:background .5s,border-color .5s;white-space:nowrap;
 }
 .live-pill.checking{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.1);color:rgba(255,255,255,.4)}
 .live-pill.live{background:rgba(46,204,113,.15);border-color:rgba(46,204,113,.35);color:#2ecc71;}
@@ -62,8 +58,7 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
 .toast{
   position:fixed;bottom:80px;left:50%;transform:translateX(-50%) translateY(20px);
   background:rgba(255,255,255,0.1);backdrop-filter:blur(20px);
-  border:.5px solid rgba(255,255,255,0.15);
-  color:#fff;font-size:14px;font-weight:500;
+  border:.5px solid rgba(255,255,255,0.15);color:#fff;font-size:14px;font-weight:500;
   padding:10px 20px;border-radius:20px;z-index:999;opacity:0;
   transition:opacity .2s,transform .2s;white-space:nowrap;pointer-events:none;
 }
@@ -72,6 +67,7 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
 .mobile-shell{display:block}
 .desktop-shell{display:none}
 
+/* ── Mobile Nav ── */
 .m-nav{
   position:fixed;top:0;left:0;right:0;height:48px;
   background:rgba(13,15,20,0.96);backdrop-filter:blur(20px);
@@ -83,6 +79,17 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
 .m-nav-left svg{width:10px;height:18px;fill:none;stroke:var(--accent);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
 .m-nav-right{position:absolute;right:12px;display:flex;align-items:center;gap:6px}
 .m-count-badge{font-size:11px;color:var(--secondary)}
+
+/* ── Mobile Tab Bar ── */
+.m-tab-bar{
+  position:fixed;bottom:0;left:0;right:0;height:60px;
+  background:rgba(13,15,20,0.97);backdrop-filter:blur(20px);
+  border-top:.5px solid var(--sep);z-index:150;display:flex;align-items:stretch;
+}
+.m-tab{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;cursor:pointer;transition:all .15s;color:var(--secondary);}
+.m-tab.active{color:var(--accent)}
+.m-tab-icon{font-size:20px;line-height:1}
+.m-tab-label{font-size:9.5px;font-weight:600;letter-spacing:.3px;font-family:'Rajdhani',sans-serif;text-transform:uppercase}
 
 .filter-bar{
   position:fixed;top:48px;left:0;right:0;height:42px;
@@ -115,29 +122,27 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
 }
 .sort-pill.active{background:rgba(77,159,255,.15);color:var(--accent)}
 
-.m-content{padding-top:136px;padding-bottom:80px}
+.m-content{padding-top:136px;padding-bottom:72px}
 
 .m-fab-refresh{
-  position:fixed;bottom:24px;right:20px;z-index:200;
-  width:50px;height:50px;border-radius:50%;
-  background:var(--accent2);border:none;cursor:pointer;
+  position:fixed;bottom:70px;right:20px;z-index:200;
+  width:50px;height:50px;border-radius:50%;background:var(--accent2);border:none;cursor:pointer;
   display:flex;align-items:center;justify-content:center;
-  box-shadow:0 4px 20px rgba(41,121,255,.5);
-  transition:transform .15s,box-shadow .15s;
+  box-shadow:0 4px 20px rgba(41,121,255,.5);transition:transform .15s,box-shadow .15s,opacity .2s;
 }
+.m-fab-refresh.hidden{opacity:0;pointer-events:none}
 .m-fab-refresh:active{transform:scale(.92);box-shadow:0 2px 10px rgba(41,121,255,.4)}
 .m-fab-refresh svg{width:20px;height:20px;flex-shrink:0;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .m-fab-refresh.spinning svg{animation:spin .7s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 
 .m-chat-fab{
-  position:fixed;bottom:84px;right:20px;z-index:200;
-  width:50px;height:50px;border-radius:50%;
-  background:var(--twitch);border:none;cursor:pointer;
+  position:fixed;bottom:130px;right:20px;z-index:200;
+  width:50px;height:50px;border-radius:50%;background:var(--twitch);border:none;cursor:pointer;
   display:flex;align-items:center;justify-content:center;
-  box-shadow:0 4px 20px rgba(145,71,255,.5);
-  transition:transform .15s,box-shadow .15s;
+  box-shadow:0 4px 20px rgba(145,71,255,.5);transition:transform .15s,box-shadow .15s,opacity .2s;
 }
+.m-chat-fab.hidden{opacity:0;pointer-events:none}
 .m-chat-fab:active{transform:scale(.92)}
 .m-chat-fab svg{width:22px;height:22px;fill:#fff}
 
@@ -147,8 +152,7 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
 .m-chat-drawer.open .m-chat-backdrop{opacity:1}
 .m-chat-panel{
   position:absolute;right:0;top:0;bottom:0;width:88vw;max-width:360px;
-  background:var(--bg2);border-left:.5px solid var(--sep);
-  display:flex;flex-direction:column;
+  background:var(--bg2);border-left:.5px solid var(--sep);display:flex;flex-direction:column;
   transform:translateX(100%);transition:transform .3s cubic-bezier(.34,1.1,.64,1);
 }
 .m-chat-drawer.open .m-chat-panel{transform:translateX(0)}
@@ -227,6 +231,40 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
 .m-update-text{font-size:12px;color:var(--secondary);line-height:1.5}
 .m-update-text strong{color:var(--orange);font-weight:600}
 
+/* ── Mobile Affiliates ── */
+.m-affiliates-page{padding:60px 12px 80px;display:none}
+.m-affiliates-page.active{display:block}
+.m-aff-hero{background:linear-gradient(135deg,#150d24 0%,#0d1a2e 55%,#15200d 100%);border-radius:16px;padding:20px;margin-bottom:18px;position:relative;overflow:hidden;border:.5px solid rgba(245,197,66,.15);}
+.m-aff-hero::before{content:'';position:absolute;inset:0;opacity:.4;background:url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23f5c542' fill-opacity='0.06'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");}
+.m-aff-hero-title{font-family:'Rajdhani',sans-serif;font-size:22px;font-weight:700;color:#fff;letter-spacing:.5px;position:relative}
+.m-aff-hero-title span{color:var(--gold)}
+.m-aff-hero-sub{font-size:12px;color:rgba(255,255,255,.5);margin-top:6px;line-height:1.6;position:relative}
+
+.m-aff-section-title{font-size:10px;font-weight:700;color:var(--tertiary);text-transform:uppercase;letter-spacing:.7px;margin-bottom:10px;margin-top:4px}
+.m-aff-card{background:var(--card);border-radius:14px;overflow:hidden;border:.5px solid var(--sep);margin-bottom:10px;}
+.m-aff-card-header{display:flex;align-items:center;gap:12px;padding:14px 14px 10px}
+.m-aff-logo{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+.m-aff-info{flex:1;min-width:0}
+.m-aff-name{font-size:14px;font-weight:700;color:var(--label);font-family:'Rajdhani',sans-serif;letter-spacing:.3px}
+.m-aff-desc{font-size:11px;color:var(--secondary);margin-top:2px;line-height:1.4}
+.m-aff-code-row{display:flex;align-items:center;gap:10px;padding:0 14px 14px}
+.m-aff-code-box{flex:1;background:rgba(255,255,255,.05);border-radius:8px;padding:8px 11px;border:.5px solid var(--sep)}
+.m-aff-code-label{font-size:9px;font-weight:700;color:var(--tertiary);text-transform:uppercase;letter-spacing:.5px;margin-bottom:2px}
+.m-aff-code-val{font-size:12.5px;font-weight:700;color:var(--accent);font-family:'Rajdhani',sans-serif}
+.m-aff-visit-btn{background:linear-gradient(135deg,var(--gold),#d4a800);color:#000;border:none;border-radius:8px;padding:9px 14px;font-size:12px;font-weight:700;cursor:pointer;flex-shrink:0;font-family:'Rajdhani',sans-serif;letter-spacing:.3px;transition:all .12s}
+.m-aff-visit-btn:active{transform:scale(.95)}
+
+.m-cases-section{margin-top:4px}
+.m-case-card{background:var(--card);border-radius:14px;overflow:hidden;border:.5px solid var(--sep);margin-bottom:10px;display:flex;align-items:center;text-decoration:none;cursor:pointer;transition:transform .12s;}
+.m-case-card:active{transform:scale(.98)}
+.m-case-thumb{width:80px;height:64px;background:linear-gradient(135deg,#0d1829,#1e1040);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:26px}
+.m-case-info{flex:1;padding:11px 12px}
+.m-case-name{font-size:13px;font-weight:700;color:var(--label);font-family:'Rajdhani',sans-serif;letter-spacing:.3px;line-height:1.3}
+.m-case-sub{font-size:11px;color:var(--secondary);margin-top:2px}
+.m-case-badge{background:rgba(145,71,255,.2);color:var(--purple);font-size:9px;font-weight:700;padding:2px 7px;border-radius:4px;display:inline-block;margin-top:5px;letter-spacing:.3px}
+.m-case-arrow{padding-right:14px;color:var(--tertiary);font-size:18px;flex-shrink:0}
+
+/* ── Modal ── */
 .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:250;display:flex;align-items:flex-end;opacity:0;pointer-events:none;transition:opacity .22s;}
 .modal-overlay.open{opacity:1;pointer-events:all}
 .modal-sheet{width:100%;background:var(--bg2);border-radius:18px 18px 0 0;padding:0 0 40px;transform:translateY(100%);transition:transform .28s cubic-bezier(.34,1.1,.64,1);border-top:.5px solid var(--sep);}
@@ -250,6 +288,7 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
 .modal-copy-btn:active{transform:scale(.95)}
 .modal-close-btn{display:block;width:calc(100% - 40px);margin:16px 20px 0;background:rgba(255,255,255,.07);color:var(--label);border:.5px solid var(--sep);border-radius:12px;padding:14px;font-size:16px;font-weight:600;cursor:pointer;}
 
+/* ══════════ DESKTOP ══════════ */
 @media(min-width:768px){
   .mobile-shell{display:none}
   .desktop-shell{display:flex;height:100vh;overflow:hidden}
@@ -267,6 +306,7 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
   .d-nav-item:hover{background:rgba(255,255,255,.05);color:var(--label)}
   .d-nav-item.active{background:var(--accent2);color:#fff}
   .d-nav-item.active .d-nav-icon{background:rgba(255,255,255,.2)!important}
+  .d-nav-item.aff-item.active{background:linear-gradient(135deg,#4a3800,#2a2000);color:var(--gold);border:.5px solid rgba(245,197,66,.25);}
   .d-nav-icon{width:24px;height:24px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;background:rgba(255,255,255,.06);transition:background .12s;}
   .d-nav-count{margin-left:auto;font-size:11px;font-weight:600;opacity:.4}
   .d-sidebar-footer{padding:12px 14px;border-top:.5px solid var(--sep);font-size:11px;color:var(--tertiary);line-height:1.5;}
@@ -278,14 +318,17 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
   .d-search-wrap{display:flex;align-items:center;background:rgba(255,255,255,.06);border-radius:9px;padding:6px 12px;gap:8px;width:220px;border:.5px solid var(--sep);}
   .d-search-wrap input{flex:1;border:none;background:transparent;font-size:14px;color:var(--label);outline:none}
   .d-search-wrap input::placeholder{color:var(--secondary)}
+  .d-search-wrap.hidden{display:none}
   .d-refresh-btn{background:none;border:.5px solid var(--sep);border-radius:8px;cursor:pointer;padding:6px 12px;color:var(--accent);font-size:12.5px;font-weight:600;display:flex;align-items:center;gap:5px;transition:all .12s;white-space:nowrap;flex-shrink:0;}
   .d-refresh-btn:hover{background:rgba(77,159,255,.1)}
   .d-refresh-btn:active{transform:scale(.97)}
   .d-refresh-btn svg{width:13px;height:13px;flex-shrink:0}
   .d-refresh-btn.spinning svg{animation:spin .7s linear infinite}
+  .d-refresh-btn.hidden{display:none}
 
   .d-sort-bar{height:40px;flex-shrink:0;background:var(--bg2);border-bottom:.5px solid var(--sep);display:flex;align-items:center;padding:0 14px;gap:6px;overflow-x:auto;scrollbar-width:none;}
   .d-sort-bar::-webkit-scrollbar{display:none}
+  .d-sort-bar.hidden{display:none}
   .d-sort-label{font-size:11px;font-weight:600;color:var(--tertiary);text-transform:uppercase;letter-spacing:.5px;margin-right:4px;white-space:nowrap}
   .d-sort-pill{height:24px;padding:0 10px;border-radius:12px;font-size:11.5px;font-weight:500;border:none;cursor:pointer;background:rgba(255,255,255,.05);color:var(--secondary);white-space:nowrap;display:flex;align-items:center;gap:3px;transition:all .12s;flex-shrink:0;}
   .d-sort-pill.active{background:rgba(77,159,255,.15);color:var(--accent)}
@@ -332,7 +375,7 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
 
   .d-items-section{padding:20px 18px 40px}
   .d-big-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;}
-  .d-big-card{background:var(--card);border-radius:14px;overflow:hidden;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,.25);transition:transform .14px,box-shadow .14s;outline:2px solid transparent;outline-offset:-2px;border:.5px solid var(--sep);position:relative;}
+  .d-big-card{background:var(--card);border-radius:14px;overflow:hidden;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,.25);transition:transform .14s,box-shadow .14s;outline:2px solid transparent;outline-offset:-2px;border:.5px solid var(--sep);position:relative;}
   .d-big-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.4);border-color:rgba(77,159,255,.2)}
   .d-big-card.selected{outline-color:var(--accent)}
   .d-big-img{width:100%;aspect-ratio:4/3;background:var(--bg3);overflow:hidden;position:relative}
@@ -391,6 +434,48 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
 
   .d-update-notice{padding:7px 18px;border-top:.5px solid rgba(255,149,0,.15);background:rgba(255,149,0,.05);font-size:11px;color:var(--secondary);line-height:1.4;display:flex;align-items:center;gap:6px;flex-shrink:0;}
   .d-update-notice strong{color:var(--orange);font-weight:600}
+  .d-update-notice.hidden{display:none}
+
+  /* ── Desktop Affiliates ── */
+  .d-affiliates-wrap{display:none;flex:1;overflow-y:auto;flex-direction:column;padding:28px;gap:22px;scrollbar-width:thin;scrollbar-color:var(--sep) transparent;}
+  .d-affiliates-wrap::-webkit-scrollbar{width:5px}
+  .d-affiliates-wrap::-webkit-scrollbar-thumb{background:var(--sep);border-radius:3px}
+  .d-affiliates-wrap.active{display:flex}
+
+  .d-aff-hero{background:linear-gradient(135deg,#150d24 0%,#0d1a2e 55%,#15200d 100%);border-radius:16px;padding:28px;position:relative;overflow:hidden;border:.5px solid rgba(245,197,66,.15);}
+  .d-aff-hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23f5c542' fill-opacity='0.04'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");}
+  .d-aff-hero-inner{position:relative}
+  .d-aff-hero-title{font-family:'Rajdhani',sans-serif;font-size:30px;font-weight:700;color:#fff;letter-spacing:.5px}
+  .d-aff-hero-title span{color:var(--gold)}
+  .d-aff-hero-sub{font-size:13px;color:rgba(255,255,255,.5);margin-top:6px;line-height:1.6;max-width:520px}
+
+  .d-aff-section-title{font-size:11px;font-weight:700;color:var(--tertiary);text-transform:uppercase;letter-spacing:.7px;margin-bottom:12px}
+  .d-aff-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px}
+  .d-aff-card{background:var(--card);border-radius:14px;border:.5px solid var(--sep);overflow:hidden;transition:all .15s;}
+  .d-aff-card:hover{border-color:rgba(245,197,66,.2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.3)}
+  .d-aff-card-header{display:flex;align-items:center;gap:14px;padding:18px 18px 12px}
+  .d-aff-logo{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
+  .d-aff-info{flex:1}
+  .d-aff-name{font-size:15px;font-weight:700;color:var(--label);font-family:'Rajdhani',sans-serif;letter-spacing:.3px}
+  .d-aff-desc{font-size:12px;color:var(--secondary);margin-top:3px;line-height:1.4}
+  .d-aff-code-row{display:flex;align-items:center;gap:10px;padding:0 18px 18px}
+  .d-aff-code-box{flex:1;background:rgba(255,255,255,.05);border-radius:9px;padding:10px 13px;border:.5px solid var(--sep)}
+  .d-aff-code-label{font-size:9px;font-weight:700;color:var(--tertiary);text-transform:uppercase;letter-spacing:.5px;margin-bottom:3px}
+  .d-aff-code-val{font-size:14px;font-weight:700;color:var(--accent);font-family:'Rajdhani',sans-serif}
+  .d-aff-visit-btn{background:linear-gradient(135deg,var(--gold),#c99000);color:#000;border:none;border-radius:9px;padding:10px 18px;font-size:13px;font-weight:700;cursor:pointer;flex-shrink:0;font-family:'Rajdhani',sans-serif;letter-spacing:.3px;transition:all .12s;white-space:nowrap}
+  .d-aff-visit-btn:hover{box-shadow:0 4px 16px rgba(245,197,66,.3);transform:scale(1.03)}
+  .d-aff-visit-btn:active{transform:scale(.97)}
+
+  /* Desktop Cases */
+  .d-cases-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+  .d-case-card{background:var(--card);border-radius:14px;overflow:hidden;border:.5px solid var(--sep);text-decoration:none;display:block;cursor:pointer;transition:all .15s;}
+  .d-case-card:hover{border-color:rgba(145,71,255,.35);transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.35)}
+  .d-case-thumb{width:100%;aspect-ratio:16/7;background:linear-gradient(135deg,#0d1829,#1e1040);display:flex;align-items:center;justify-content:center;font-size:44px;position:relative;overflow:hidden}
+  .d-case-thumb::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.5),transparent)}
+  .d-case-body{padding:13px}
+  .d-case-name{font-size:14px;font-weight:700;color:var(--label);font-family:'Rajdhani',sans-serif;letter-spacing:.3px;margin-bottom:3px}
+  .d-case-sub{font-size:11.5px;color:var(--secondary)}
+  .d-case-link{font-size:11px;color:var(--purple);margin-top:8px;display:flex;align-items:center;gap:4px;font-weight:600}
 }
 
 @media(min-width:1200px){
@@ -414,7 +499,7 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
       <svg viewBox="0 0 10 18"><polyline points="9,1 1,9 9,17"/></svg>
       Home
     </div>
-    <div class="m-nav-title">ITEM SHOP</div>
+    <div class="m-nav-title" id="m-nav-title">ITEM SHOP</div>
     <div class="m-nav-right">
       <span class="m-count-badge" id="m-count"></span>
     </div>
@@ -422,21 +507,123 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
 
   <div class="filter-bar" id="m-filters"></div>
   <div class="sort-bar" id="m-sort-bar"></div>
+
+  <!-- Shop content -->
   <div class="m-content" id="m-content"></div>
 
+  <!-- Affiliates content -->
+  <div class="m-affiliates-page" id="m-affiliates-page">
+    <div class="m-aff-hero">
+      <div class="m-aff-hero-title">🤝 M9 <span>Affiliates</span></div>
+      <div class="m-aff-hero-sub">Use these referral links &amp; codes to get deposit bonuses on M9's partner platforms. Support the stream!</div>
+    </div>
+
+    <div class="m-aff-section-title">Skin Trading &amp;  Partners</div>
+
+    <div class="m-aff-card">
+      <div class="m-aff-card-header">
+        <div class="m-aff-logo" style="background:linear-gradient(135deg,#0d2e1a,#1a3a2e)">🔄</div>
+        <div class="m-aff-info">
+          <div class="m-aff-name">SkinSwap</div>
+          <div class="m-aff-desc">Trade CS2 skins instantly — bonus on first swap via M9's link</div>
+        </div>
+      </div>
+      <div class="m-aff-code-row">
+        <div class="m-aff-code-box">
+          <div class="m-aff-code-label">Referral Link</div>
+          <div class="m-aff-code-val">skinswap.com/r/them9</div>
+        </div>
+        <button class="m-aff-visit-btn" onclick="window.open('https://skinswap.com/r/them9','_blank')">Visit →</button>
+      </div>
+    </div>
+
+    <div class="m-aff-card">
+      <div class="m-aff-card-header">
+        <div class="m-aff-logo" style="background:linear-gradient(135deg,#0d0d2e,#1a1a3a)">⚡</div>
+        <div class="m-aff-info">
+          <div class="m-aff-name">Clash.gg</div>
+          <div class="m-aff-desc">CS2 cases, battles &amp; coin flip — enter code at deposit</div>
+        </div>
+      </div>
+      <div class="m-aff-code-row">
+        <div class="m-aff-code-box">
+          <div class="m-aff-code-label">Affiliate Code</div>
+          <div class="m-aff-code-val">THEM9</div>
+        </div>
+        <button class="m-aff-visit-btn" onclick="window.open('https://clash.gg/r/THEM9','_blank')">Visit →</button>
+      </div>
+    </div>
+
+    <div class="m-aff-card">
+      <div class="m-aff-card-header">
+        <div class="m-aff-logo" style="background:linear-gradient(135deg,#0d1a2e,#1a2a3a)">🌧️</div>
+        <div class="m-aff-info">
+          <div class="m-aff-name">Rain.gg</div>
+          <div class="m-aff-desc">CS2  platform — referral link for deposit bonus</div>
+        </div>
+      </div>
+      <div class="m-aff-code-row">
+        <div class="m-aff-code-box">
+          <div class="m-aff-code-label">Referral Link</div>
+          <div class="m-aff-code-val">rain.gg/r/wjPLxmLWGZ</div>
+        </div>
+        <button class="m-aff-visit-btn" onclick="window.open('https://rain.gg/r/wjPLxmLWGZ','_blank')">Visit →</button>
+      </div>
+    </div>
+
+    <div class="m-aff-section-title" style="margin-top:10px">My Clash.gg Cases</div>
+    <div class="m-cases-section">
+      <a class="m-case-card" href="https://clash.gg/casescs2/Noodles-50-50" target="_blank">
+        <div class="m-case-thumb">📦</div>
+        <div class="m-case-info">
+          <div class="m-case-name">Noodles 50-50</div>
+          <div class="m-case-sub">50/50 split loot case</div>
+          <div class="m-case-badge">clash.gg</div>
+        </div>
+        <div class="m-case-arrow">›</div>
+      </a>
+      <a class="m-case-card" href="https://clash.gg/casescs2/Noodles-50-50-(V2)" target="_blank">
+        <div class="m-case-thumb">📦</div>
+        <div class="m-case-info">
+          <div class="m-case-name">Noodles 50-50 (V2)</div>
+          <div class="m-case-sub">Updated with new items</div>
+          <div class="m-case-badge">clash.gg</div>
+        </div>
+        <div class="m-case-arrow">›</div>
+      </a>
+      <a class="m-case-card" href="https://clash.gg/casescs2/Noodles-50-50-Loaded" target="_blank">
+        <div class="m-case-thumb">💥</div>
+        <div class="m-case-info">
+          <div class="m-case-name">Noodles 50-50 Loaded</div>
+          <div class="m-case-sub">High-value loaded version</div>
+          <div class="m-case-badge">clash.gg</div>
+        </div>
+        <div class="m-case-arrow">›</div>
+      </a>
+      <a class="m-case-card" href="https://clash.gg/casescs2/Noodles-50-50-Agent" target="_blank">
+        <div class="m-case-thumb">🕵️</div>
+        <div class="m-case-info">
+          <div class="m-case-name">Noodles 50-50 Agent</div>
+          <div class="m-case-sub">Agent skins focused case</div>
+          <div class="m-case-badge">clash.gg</div>
+        </div>
+        <div class="m-case-arrow">›</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- FABs -->
   <button class="m-fab-refresh" id="m-fab-refresh" onclick="loadItems(true)">
     <svg viewBox="0 0 16 16">
       <path d="M13.5 2.5A6.5 6.5 0 1 1 8 1.5"/>
       <polyline points="8,1.5 11,4.5 8,7.5"/>
     </svg>
   </button>
-
-  <button class="m-chat-fab" onclick="openMobileChat()">
-    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714z"/>
-    </svg>
+  <button class="m-chat-fab" id="m-chat-fab" onclick="openMobileChat()">
+    <svg viewBox="0 0 24 24"><path d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714z"/></svg>
   </button>
 
+  <!-- Chat Drawer -->
   <div class="m-chat-drawer" id="m-chat-drawer">
     <div class="m-chat-backdrop" onclick="closeMobileChat()"></div>
     <div class="m-chat-panel">
@@ -451,6 +638,7 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
     </div>
   </div>
 
+  <!-- Item Modal -->
   <div class="modal-overlay" id="m-modal" onclick="mCloseModal(event)">
     <div class="modal-sheet">
       <div class="modal-handle"></div>
@@ -477,6 +665,18 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
       <button class="modal-close-btn" onclick="mCloseModalDirect()">Close</button>
     </div>
   </div>
+
+  <!-- Bottom Tab Bar -->
+  <div class="m-tab-bar">
+    <div class="m-tab active" id="m-tab-shop" onclick="mSwitchTab('shop')">
+      <div class="m-tab-icon">🛒</div>
+      <div class="m-tab-label">Shop</div>
+    </div>
+    <div class="m-tab" id="m-tab-affiliates" onclick="mSwitchTab('affiliates')">
+      <div class="m-tab-icon">🤝</div>
+      <div class="m-tab-label">Affiliates</div>
+    </div>
+  </div>
 </div>
 
 <!-- ══════════ DESKTOP ══════════ -->
@@ -495,7 +695,7 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
     <div class="d-topbar">
       <div class="d-topbar-title" id="d-title">HOME</div>
       <div class="d-topbar-count" id="d-count"></div>
-      <div class="d-search-wrap">
+      <div class="d-search-wrap" id="d-search-wrap">
         <svg width="13" height="13" viewBox="0 0 14 14" fill="none" style="opacity:.4;flex-shrink:0">
           <circle cx="6" cy="6" r="4.5" stroke="white" stroke-width="1.5"/>
           <path d="M9.5 9.5L12.5 12.5" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
@@ -514,7 +714,113 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
     <div class="d-sort-bar" id="d-sort-bar"></div>
 
     <div class="d-body">
-      <div class="d-grid-wrap" id="d-grid"></div>
+      <div class="d-grid-wrap">
+        <!-- Shop grid -->
+        <div id="d-grid"></div>
+
+        <!-- Desktop Affiliates -->
+        <div class="d-affiliates-wrap" id="d-affiliates-wrap">
+          <div class="d-aff-hero">
+            <div class="d-aff-hero-inner">
+              <div class="d-aff-hero-title">🤝 M9 Systems <span>Affiliates</span></div>
+              <div class="d-aff-hero-sub">Use these referral links &amp; affiliate codes to unlock deposit bonuses on M9's partner CS2 platforms. Support the stream and get rewarded!</div>
+            </div>
+          </div>
+
+          <div>
+            <div class="d-aff-section-title">Skin Trading &amp;  Partners</div>
+            <div class="d-aff-grid">
+              <div class="d-aff-card">
+                <div class="d-aff-card-header">
+                  <div class="d-aff-logo" style="background:linear-gradient(135deg,#0d2e1a,#1a3a2e)">🔄</div>
+                  <div class="d-aff-info">
+                    <div class="d-aff-name">SkinSwap</div>
+                    <div class="d-aff-desc">Trade CS2 skins instantly. Get a deposit bonus using M9's referral link.</div>
+                  </div>
+                </div>
+                <div class="d-aff-code-row">
+                  <div class="d-aff-code-box">
+                    <div class="d-aff-code-label">Referral Link</div>
+                    <div class="d-aff-code-val">skinswap.com/r/them9</div>
+                  </div>
+                  <button class="d-aff-visit-btn" onclick="window.open('https://skinswap.com/r/them9','_blank')">Visit ↗</button>
+                </div>
+              </div>
+              <div class="d-aff-card">
+                <div class="d-aff-card-header">
+                  <div class="d-aff-logo" style="background:linear-gradient(135deg,#0d0d2e,#1a1a3a)">⚡</div>
+                  <div class="d-aff-info">
+                    <div class="d-aff-name">Clash.gg</div>
+                    <div class="d-aff-desc">CS2 cases, battles &amp; coin flip. Enter code at deposit for bonus.</div>
+                  </div>
+                </div>
+                <div class="d-aff-code-row">
+                  <div class="d-aff-code-box">
+                    <div class="d-aff-code-label">Affiliate Code</div>
+                    <div class="d-aff-code-val">THEM9</div>
+                  </div>
+                  <button class="d-aff-visit-btn" onclick="window.open('https://clash.gg/r/THEM9','_blank')">Visit ↗</button>
+                </div>
+              </div>
+              <div class="d-aff-card">
+                <div class="d-aff-card-header">
+                  <div class="d-aff-logo" style="background:linear-gradient(135deg,#0d1a2e,#1a2a3a)">🌧️</div>
+                  <div class="d-aff-info">
+                    <div class="d-aff-name">Rain.gg</div>
+                    <div class="d-aff-desc">CS2  &amp; cases. Use the referral link for a deposit bonus.</div>
+                  </div>
+                </div>
+                <div class="d-aff-code-row">
+                  <div class="d-aff-code-box">
+                    <div class="d-aff-code-label">Referral Link</div>
+                    <div class="d-aff-code-val">rain.gg/r/wjPLxmLWGZ</div>
+                  </div>
+                  <button class="d-aff-visit-btn" onclick="window.open('https://rain.gg/r/wjPLxmLWGZ','_blank')">Visit ↗</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="d-aff-section-title">My Clash.gg Cases</div>
+            <div class="d-cases-grid">
+              <a class="d-case-card" href="https://clash.gg/casescs2/Noodles-50-50" target="_blank">
+                <div class="d-case-thumb">📦</div>
+                <div class="d-case-body">
+                  <div class="d-case-name">Noodles 50-50</div>
+                  <div class="d-case-sub">50/50 split loot case</div>
+                  <div class="d-case-link">Open on Clash.gg ↗</div>
+                </div>
+              </a>
+              <a class="d-case-card" href="https://clash.gg/casescs2/Noodles-50-50-(V2)" target="_blank">
+                <div class="d-case-thumb">📦</div>
+                <div class="d-case-body">
+                  <div class="d-case-name">Noodles 50-50 (V2)</div>
+                  <div class="d-case-sub">Updated with new items</div>
+                  <div class="d-case-link">Open on Clash.gg ↗</div>
+                </div>
+              </a>
+              <a class="d-case-card" href="https://clash.gg/casescs2/Noodles-50-50-Loaded" target="_blank">
+                <div class="d-case-thumb">💥</div>
+                <div class="d-case-body">
+                  <div class="d-case-name">Noodles 50-50 Loaded</div>
+                  <div class="d-case-sub">High-value loaded version</div>
+                  <div class="d-case-link">Open on Clash.gg ↗</div>
+                </div>
+              </a>
+              <a class="d-case-card" href="https://clash.gg/casescs2/Noodles-50-50-Agent" target="_blank">
+                <div class="d-case-thumb">🕵️</div>
+                <div class="d-case-body">
+                  <div class="d-case-name">Noodles 50-50 Agent</div>
+                  <div class="d-case-sub">Agent skins focused case</div>
+                  <div class="d-case-link">Open on Clash.gg ↗</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="d-right-panel">
         <div class="d-detail-chat-split">
           <div class="d-detail empty" id="d-detail">
@@ -537,7 +843,7 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
       </div>
     </div>
 
-    <div class="d-update-notice">
+    <div class="d-update-notice" id="d-update-notice">
       <span>⚠️</span>
       <span><strong>Prices update when the stream starts.</strong> If the latest update hasn't loaded yet, use the Refresh button above to force reload.</span>
     </div>
@@ -553,6 +859,8 @@ let mSearch = '', dSearch = '';
 let dSelected = null;
 let mSort = 'name-asc', dSort = 'name-asc';
 let mobileChatLoaded = false;
+let mCurrentTab = 'shop';
+let dCurrentSection = 'shop';
 
 const CATS = ['All','Games','Skins','Stickers','Charms','Music Kits'];
 const CAT_ICONS = {All:'🛍️',Games:'🎮',Skins:'🔫',Stickers:'🎨',Charms:'🪄','Music Kits':'🎵'};
@@ -570,144 +878,171 @@ const _b = [0x78,0x33,0x6e,0x63];
 const _c = ['x6','br','go','4m'];
 const _d = ['v6','wk','i5','h1','ko'];
 const _e = ['m9','sy','ph','er'];
+function _rc(){return _a.join('')+String.fromCharCode(..._b)+_c.join('')+_d.join('');}
+function _rch(){return _e.join('');}
 
-function _rc() {
-  return _a.join('')+String.fromCharCode(..._b)+_c.join('')+_d.join('');
-}
-function _rch() {
-  return _e.join('');
-}
-// ──────────────────────────────────────────────────────────────────
-
-// ── Live Status Pill ──────────────────────────────────────────────
-(function() {
-  const pill = document.getElementById('live-pill');
-  const txt  = document.getElementById('live-pill-text');
-  const msgs = ['Stream is LIVE', 'Shop Is Active'];
-  let msgIdx = 0;
-  let cycleTimer = null;
-
-  function setLive(isLive) {
+// ── Live Status ───────────────────────────────────────────────────
+(function(){
+  const pill=document.getElementById('live-pill');
+  const txt=document.getElementById('live-pill-text');
+  const msgs=['Stream is LIVE','Shop Is Active'];
+  let msgIdx=0,cycleTimer=null;
+  function setLive(isLive){
     pill.classList.remove('checking','live','offline');
-    pill.classList.add(isLive ? 'live' : 'offline');
+    pill.classList.add(isLive?'live':'offline');
     clearInterval(cycleTimer);
-    if (!isLive) {
-      txt.textContent = 'Stream Offline  |  Shop Locked';
-      return;
-    }
-    txt.textContent = msgs[0];
-    cycleTimer = setInterval(() => {
+    if(!isLive){txt.textContent='Stream Offline  |  Shop Locked';return;}
+    txt.textContent=msgs[0];
+    cycleTimer=setInterval(()=>{
       txt.classList.add('fading');
-      setTimeout(() => {
-        msgIdx = (msgIdx + 1) % msgs.length;
-        txt.textContent = msgs[msgIdx];
-        txt.classList.remove('fading');
-      }, 260);
-    }, 3000);
+      setTimeout(()=>{msgIdx=(msgIdx+1)%msgs.length;txt.textContent=msgs[msgIdx];txt.classList.remove('fading');},260);
+    },3000);
   }
-
-  async function checkLive() {
-    try {
-      const ch  = _rch();
-      const cid = _rc();
-      const r = await fetch(
-        `https://api.twitch.tv/helix/streams?user_login=${ch}`,
-        { headers: { 'Client-ID': cid, 'Authorization': `Bearer ${cid}` } }
-      );
-      if (!r.ok) throw new Error('auth');
-      const j = await r.json();
-      setLive(!!(j.data && j.data.length));
-    } catch(_) {
-      embedProbe();
-    }
+  async function checkLive(){
+    try{
+      const r=await fetch(`https://api.twitch.tv/helix/streams?user_login=${_rch()}`,{headers:{'Client-ID':_rc(),'Authorization':`Bearer ${_rc()}`}});
+      if(!r.ok)throw new Error('auth');
+      const j=await r.json();
+      setLive(!!(j.data&&j.data.length));
+    }catch(_){embedProbe();}
   }
-
-  function embedProbe() {
-    const probe = document.createElement('div');
-    probe.id = '_lp';
-    probe.style.cssText = 'position:fixed;width:1px;height:1px;opacity:0;pointer-events:none;z-index:-1';
+  function embedProbe(){
+    const probe=document.createElement('div');
+    probe.id='_lp';probe.style.cssText='position:fixed;width:1px;height:1px;opacity:0;pointer-events:none;z-index:-1';
     document.body.appendChild(probe);
-    const s = document.createElement('script');
-    s.src = 'https://embed.twitch.tv/embed/v1.js';
-    s.onload = () => {
-      try {
-        const em = new Twitch.Embed('_lp', {
-          width:1, height:1, channel: _rch(),
-          layout:'video', autoplay:false, muted:true
+    const s=document.createElement('script');s.src='https://embed.twitch.tv/embed/v1.js';
+    s.onload=()=>{
+      try{
+        const em=new Twitch.Embed('_lp',{width:1,height:1,channel:_rch(),layout:'video',autoplay:false,muted:true});
+        em.addEventListener(Twitch.Embed.VIDEO_READY,()=>{
+          setTimeout(()=>{try{setLive(em.getPlayer().getDuration()===Infinity);}catch(_){setLive(false);}probe.remove();},2500);
         });
-        em.addEventListener(Twitch.Embed.VIDEO_READY, () => {
-          setTimeout(() => {
-            try {
-              const dur = em.getPlayer().getDuration();
-              setLive(dur === Infinity);
-            } catch(_) { setLive(false); }
-            probe.remove();
-          }, 2500);
-        });
-      } catch(_) { setLive(false); probe.remove(); }
+      }catch(_){setLive(false);probe.remove();}
     };
-    s.onerror = () => { setLive(false); probe.remove(); };
+    s.onerror=()=>{setLive(false);probe.remove();};
     document.head.appendChild(s);
   }
-
-  checkLive();
-  setInterval(checkLive, 90000);
+  checkLive();setInterval(checkLive,90000);
 })();
-// ─────────────────────────────────────────────────────────────────
 
-function getCategory(item) {
-  if (item.isgame === 1) return 'Games';
-  const n = item.skinName.toLowerCase();
-  if (n.includes('sticker'))   return 'Stickers';
-  if (n.includes('charm'))     return 'Charms';
-  if (n.includes('music kit')) return 'Music Kits';
+// ── Mobile Tab Switching ──────────────────────────────────────────
+function mSwitchTab(tab){
+  mCurrentTab=tab;
+  const shopContent=document.getElementById('m-content');
+  const affContent=document.getElementById('m-affiliates-page');
+  const filterBar=document.getElementById('m-filters');
+  const sortBar=document.getElementById('m-sort-bar');
+  const fabR=document.getElementById('m-fab-refresh');
+  const fabC=document.getElementById('m-chat-fab');
+  const navTitle=document.getElementById('m-nav-title');
+  const countBadge=document.getElementById('m-count');
+
+  document.getElementById('m-tab-shop').classList.toggle('active',tab==='shop');
+  document.getElementById('m-tab-affiliates').classList.toggle('active',tab==='affiliates');
+
+  if(tab==='shop'){
+    shopContent.style.display='';
+    affContent.classList.remove('active');
+    filterBar.style.display='';
+    sortBar.style.display='';
+    fabR.classList.remove('hidden');
+    fabC.classList.remove('hidden');
+    navTitle.textContent='ITEM SHOP';
+    countBadge.style.display='';
+    shopContent.style.paddingTop='';
+  } else {
+    shopContent.style.display='none';
+    affContent.classList.add('active');
+    filterBar.style.display='none';
+    sortBar.style.display='none';
+    fabR.classList.add('hidden');
+    fabC.classList.add('hidden');
+    navTitle.textContent='AFFILIATES';
+    countBadge.style.display='none';
+  }
+}
+
+// ── Desktop Section Switching ─────────────────────────────────────
+function dSwitchSection(section){
+  dCurrentSection=section;
+  const grid=document.getElementById('d-grid');
+  const affWrap=document.getElementById('d-affiliates-wrap');
+  const sortBar=document.getElementById('d-sort-bar');
+  const searchWrap=document.getElementById('d-search-wrap');
+  const refreshBtn=document.getElementById('d-refresh-btn');
+  const updateNotice=document.getElementById('d-update-notice');
+
+  if(section==='shop'){
+    grid.style.display='';
+    affWrap.classList.remove('active');
+    sortBar.classList.remove('hidden');
+    searchWrap.classList.remove('hidden');
+    refreshBtn.classList.remove('hidden');
+    updateNotice.classList.remove('hidden');
+  } else {
+    grid.style.display='none';
+    affWrap.classList.add('active');
+    sortBar.classList.add('hidden');
+    searchWrap.classList.add('hidden');
+    refreshBtn.classList.add('hidden');
+    updateNotice.classList.add('hidden');
+    document.getElementById('d-title').textContent='AFFILIATES';
+    document.getElementById('d-count').textContent='';
+    resetDetail();
+  }
+}
+
+function getCategory(item){
+  if(item.isgame===1)return 'Games';
+  const n=item.skinName.toLowerCase();
+  if(n.includes('sticker'))return 'Stickers';
+  if(n.includes('charm'))return 'Charms';
+  if(n.includes('music kit'))return 'Music Kits';
   return 'Skins';
 }
-function fmtPrice(p) {
-  return '🪙 ' + p.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
-}
-function badge(item) {
-  let out = '';
-  if (item.tradableDate) out += `<div class="trade-overlay"></div><div class="trade-pill">🔒 Not Tradable<br>${item.tradableDate}</div>`;
-  if (item.isgame === 1) out += `<div class="stock-badge game">Game</div>`;
-  else if (item.skinName.toLowerCase().includes('stattrak')) out += `<div class="stock-badge st">StatTrak™</div>`;
-  else out += `<div class="stock-badge">In Stock</div>`;
+function fmtPrice(p){return '🪙 '+p.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});}
+function badge(item){
+  let out='';
+  if(item.tradableDate)out+=`<div class="trade-overlay"></div><div class="trade-pill">🔒 Not Tradable<br>${item.tradableDate}</div>`;
+  if(item.isgame===1)out+=`<div class="stock-badge game">Game</div>`;
+  else if(item.skinName.toLowerCase().includes('stattrak'))out+=`<div class="stock-badge st">StatTrak™</div>`;
+  else out+=`<div class="stock-badge">In Stock</div>`;
   return out;
 }
-function filtered(filter, search) {
-  const q = search.toLowerCase();
-  return allItems.filter(i => {
-    const c = filter === 'All' || getCategory(i) === filter;
-    const s = !q || i.skinName.toLowerCase().includes(q) || i.buyCmd.toLowerCase().includes(q);
-    return c && s;
+function filtered(filter,search){
+  const q=search.toLowerCase();
+  return allItems.filter(i=>{
+    const c=filter==='All'||getCategory(i)===filter;
+    const s=!q||i.skinName.toLowerCase().includes(q)||i.buyCmd.toLowerCase().includes(q);
+    return c&&s;
   });
 }
-function sorted(items, key) {
-  const arr = [...items];
-  if (key==='name-asc')   arr.sort((a,b)=>a.skinName.localeCompare(b.skinName));
-  if (key==='name-desc')  arr.sort((a,b)=>b.skinName.localeCompare(a.skinName));
-  if (key==='price-asc')  arr.sort((a,b)=>a.price-b.price);
-  if (key==='price-desc') arr.sort((a,b)=>b.price-a.price);
+function sorted(items,key){
+  const arr=[...items];
+  if(key==='name-asc')arr.sort((a,b)=>a.skinName.localeCompare(b.skinName));
+  if(key==='name-desc')arr.sort((a,b)=>b.skinName.localeCompare(a.skinName));
+  if(key==='price-asc')arr.sort((a,b)=>a.price-b.price);
+  if(key==='price-desc')arr.sort((a,b)=>b.price-a.price);
   return arr;
 }
-function grouped(items) {
-  const g = {};
-  items.forEach(i => { const c=getCategory(i); if(!g[c]) g[c]=[]; g[c].push(i); });
+function grouped(items){
+  const g={};
+  items.forEach(i=>{const c=getCategory(i);if(!g[c])g[c]=[];g[c].push(i);});
   return g;
 }
-function showToast(msg) {
-  const t = document.getElementById('toast');
-  t.textContent=msg; t.classList.add('show');
-  clearTimeout(t._t); t._t=setTimeout(()=>t.classList.remove('show'),2000);
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('show');
+  clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('show'),2000);
 }
-function copyCmd(cmd, btn) {
+function copyCmd(cmd,btn){
   navigator.clipboard.writeText(cmd).then(()=>{
     showToast('✓  Copied '+cmd);
     if(btn){const o=btn.textContent;btn.textContent='Copied!';btn.classList.add('copied');setTimeout(()=>{btn.textContent=o;btn.classList.remove('copied');},1500);}
   }).catch(()=>showToast(cmd));
 }
-function buildMarquee(items, cc, ic, bc, nc, pc, fn) {
-  if(!items.length) return '';
+function buildMarquee(items,cc,ic,bc,nc,pc,fn){
+  if(!items.length)return '';
   return [...items,...items].map(item=>{
     const idx=allItems.indexOf(item);
     return `<div class="${cc}" onclick="${fn}(${idx>=0?idx:0})">
@@ -716,72 +1051,65 @@ function buildMarquee(items, cc, ic, bc, nc, pc, fn) {
     </div>`;
   }).join('');
 }
-function setSpinning(s) {
-  ['m-fab-refresh','d-refresh-btn'].forEach(id=>{
-    const el=document.getElementById(id); if(el) el.classList.toggle('spinning',s);
-  });
+function setSpinning(s){
+  ['m-fab-refresh','d-refresh-btn'].forEach(id=>{const el=document.getElementById(id);if(el)el.classList.toggle('spinning',s);});
 }
-function loadItems(force) {
+function loadItems(force){
   setSpinning(true);
   fetch('items.json?t='+Date.now())
     .then(r=>r.json())
     .then(data=>{
-      allItems=data; setSpinning(false);
-      if(force) showToast('✓  Shop refreshed');
-      mBuildFilters(); mBuildSortBar(); mRender();
-      dBuildNav(); dBuildSortBar(); dRender();
+      allItems=data;setSpinning(false);
+      if(force)showToast('✓  Shop refreshed');
+      mBuildFilters();mBuildSortBar();mRender();
+      dBuildNav();dBuildSortBar();dRender();
     })
     .catch(()=>{
       setSpinning(false);
       const err=`<div style="padding:60px 24px;text-align:center;color:var(--secondary);font-size:14px"><div style="font-size:40px;margin-bottom:12px">📂</div><strong style="color:var(--label)">items.json not found</strong></div>`;
-      const mc=document.getElementById('m-content'); if(mc) mc.innerHTML=err;
-      const dg=document.getElementById('d-grid'); if(dg) dg.innerHTML=err;
+      const mc=document.getElementById('m-content');if(mc)mc.innerHTML=err;
+      const dg=document.getElementById('d-grid');if(dg)dg.innerHTML=err;
     });
 }
 
-function openMobileChat() {
-  const drawer = document.getElementById('m-chat-drawer');
-  drawer.classList.add('open');
-  document.body.style.overflow = 'hidden';
-  if (!mobileChatLoaded) {
-    document.getElementById('m-chat-frame').innerHTML =
-      `<iframe src="https://www.twitch.tv/embed/m9sypher/chat?parent=m9sypher.github.io&darkpopout" allowfullscreen style="width:100%;height:100%;border:none"></iframe>`;
-    mobileChatLoaded = true;
+function openMobileChat(){
+  const drawer=document.getElementById('m-chat-drawer');
+  drawer.classList.add('open');document.body.style.overflow='hidden';
+  if(!mobileChatLoaded){
+    document.getElementById('m-chat-frame').innerHTML=`<iframe src="https://www.twitch.tv/embed/m9sypher/chat?parent=m9sypher.github.io&darkpopout" allowfullscreen style="width:100%;height:100%;border:none"></iframe>`;
+    mobileChatLoaded=true;
   }
 }
-function closeMobileChat() {
-  document.getElementById('m-chat-drawer').classList.remove('open');
-  document.body.style.overflow = '';
-}
+function closeMobileChat(){document.getElementById('m-chat-drawer').classList.remove('open');document.body.style.overflow='';}
 
-function mBuildFilters() {
-  const bar=document.getElementById('m-filters'); bar.innerHTML='';
+function mBuildFilters(){
+  const bar=document.getElementById('m-filters');bar.innerHTML='';
   CATS.forEach(cat=>{
     const b=document.createElement('button');
     b.className='filter-pill'+(cat===mFilter?' active':'');
     b.textContent=cat;
-    b.onclick=()=>{ mFilter=cat; bar.querySelectorAll('.filter-pill').forEach(p=>p.classList.remove('active')); b.classList.add('active'); mRender(); };
+    b.onclick=()=>{mFilter=cat;bar.querySelectorAll('.filter-pill').forEach(p=>p.classList.remove('active'));b.classList.add('active');mRender();};
     bar.appendChild(b);
   });
 }
-function mBuildSortBar() {
-  const bar=document.getElementById('m-sort-bar'); bar.innerHTML='';
+function mBuildSortBar(){
+  const bar=document.getElementById('m-sort-bar');bar.innerHTML='';
   SORTS.forEach(s=>{
     const b=document.createElement('button');
     b.className='sort-pill'+(s.key===mSort?' active':'');
     b.innerHTML=s.label+(s.arrow?` <span>${s.arrow}</span>`:'');
-    b.onclick=()=>{ mSort=s.key; bar.querySelectorAll('.sort-pill').forEach(p=>p.classList.remove('active')); b.classList.add('active'); mRender(); };
+    b.onclick=()=>{mSort=s.key;bar.querySelectorAll('.sort-pill').forEach(p=>p.classList.remove('active'));b.classList.add('active');mRender();};
     bar.appendChild(b);
   });
 }
-function mRender() {
+function mRender(){
   const el=document.getElementById('m-content');
   const isHome=mFilter==='All'&&!mSearch;
   const items=sorted(filtered(mFilter,mSearch),mSort);
   document.getElementById('m-count').textContent=items.length+' items';
   let html='';
 
-  if(isHome) {
+  if(isHome){
     const locked=allItems.filter(i=>i.tradableDate).length;
     const cats=new Set(allItems.map(i=>getCategory(i))).size;
     html+=`<div class="m-hero">
@@ -805,7 +1133,7 @@ function mRender() {
     html+=`<div class="m-cats"><div class="m-section-lbl" style="padding:0 0 10px">Browse by Category</div><div class="m-cat-grid">`;
     CAT_ORDER.forEach(cat=>{
       const cnt=allItems.filter(i=>getCategory(i)===cat).length;
-      if(!cnt) return;
+      if(!cnt)return;
       html+=`<div class="m-cat-card" onclick="mSetFilter('${cat}')">
         <div class="m-cat-icon">${CAT_ICONS[cat]}</div>
         <div><div class="m-cat-name">${cat}</div><div class="m-cat-count">${cnt} items</div></div>
@@ -823,12 +1151,12 @@ function mRender() {
     });
     html+=`</div></div>`;
   } else {
-    if(!items.length) {
+    if(!items.length){
       html=`<div style="padding:60px 24px;text-align:center;color:var(--secondary)"><div style="font-size:36px;margin-bottom:10px">🔍</div>No items found</div>`;
     } else {
       const g=grouped(items);
       CAT_ORDER.forEach(cat=>{
-        if(!g[cat]) return;
+        if(!g[cat])return;
         html+=`<div class="section-header">${cat} <span style="font-weight:400;font-size:12px;color:var(--tertiary);text-transform:none;letter-spacing:0">${g[cat].length}</span></div><div class="card-grid">`;
         g[cat].forEach(item=>{
           const idx=allItems.indexOf(item);
@@ -858,13 +1186,13 @@ function mRender() {
 
   el.innerHTML=html;
 }
-function mSetFilter(cat) {
+function mSetFilter(cat){
   mFilter=cat;
   document.querySelectorAll('.filter-pill').forEach(p=>p.classList.toggle('active',p.textContent===cat));
-  mRender(); window.scrollTo(0,0);
+  mRender();window.scrollTo(0,0);
 }
-function mOpenModal(idx) {
-  const item=allItems[idx]; if(!item) return;
+function mOpenModal(idx){
+  const item=allItems[idx];if(!item)return;
   document.getElementById('m-modal-img').src=item.imageUrl;
   document.getElementById('m-modal-name').textContent=item.skinName;
   document.getElementById('m-modal-hash').textContent=item.marketHashName!==item.skinName?item.marketHashName:'';
@@ -879,12 +1207,12 @@ function mOpenModal(idx) {
   else{mr.style.display='none';}
   const dr=document.getElementById('m-modal-diff-row');
   const dv=document.getElementById('m-modal-diff');
-  if(item.difference && item.difference !== '0'){
+  if(item.difference&&item.difference!=='0'){
     dr.style.display='flex';
     const isPos=item.difference.startsWith('+');
     dv.textContent='🪙 '+item.difference;
     dv.className='modal-row-value '+(isPos?'red':'green');
-  } else { dr.style.display='none'; }
+  }else{dr.style.display='none';}
   const tr=document.getElementById('m-modal-trade-row');
   if(item.tradableDate){tr.style.display='flex';document.getElementById('m-modal-trade').textContent=item.tradableDate;}
   else{tr.style.display='none';}
@@ -896,33 +1224,64 @@ function mOpenModal(idx) {
 function mCloseModal(e){if(e.target===document.getElementById('m-modal'))mCloseModalDirect();}
 function mCloseModalDirect(){document.getElementById('m-modal').classList.remove('open');document.body.style.overflow='';}
 
-function dBuildNav() {
-  const nav=document.getElementById('d-nav'); nav.innerHTML='';
-  const lbl=document.createElement('div'); lbl.className='d-nav-label'; lbl.textContent='Navigation'; nav.appendChild(lbl);
+function dBuildNav(){
+  const nav=document.getElementById('d-nav');nav.innerHTML='';
+
+  const lbl=document.createElement('div');lbl.className='d-nav-label';lbl.textContent='Navigation';nav.appendChild(lbl);
+
   const home=document.createElement('div');
-  home.className='d-nav-item'+(dFilter==='All'?' active':'');
+  home.className='d-nav-item'+(dCurrentSection==='shop'&&dFilter==='All'?' active':'');
   home.innerHTML=`<div class="d-nav-icon">🏠</div>Home<span class="d-nav-count">${allItems.length}</span>`;
-  home.onclick=()=>{dFilter='All';dSearch='';document.getElementById('d-search').value='';document.getElementById('d-title').textContent='HOME';dSelected=null;resetDetail();nav.querySelectorAll('.d-nav-item').forEach(x=>x.classList.remove('active'));home.classList.add('active');dRender();};
+  home.onclick=()=>{
+    dCurrentSection='shop';dFilter='All';dSearch='';
+    document.getElementById('d-search').value='';
+    document.getElementById('d-title').textContent='HOME';
+    dSelected=null;resetDetail();
+    nav.querySelectorAll('.d-nav-item').forEach(x=>x.classList.remove('active'));
+    home.classList.add('active');
+    dSwitchSection('shop');dRender();
+  };
   nav.appendChild(home);
-  const lbl2=document.createElement('div'); lbl2.className='d-nav-label'; lbl2.textContent='Categories'; nav.appendChild(lbl2);
+
+  const lbl2=document.createElement('div');lbl2.className='d-nav-label';lbl2.textContent='Categories';nav.appendChild(lbl2);
   CAT_ORDER.forEach(cat=>{
     const cnt=allItems.filter(i=>getCategory(i)===cat).length;
-    if(!cnt) return;
+    if(!cnt)return;
     const el=document.createElement('div');
     el.className='d-nav-item';
     el.innerHTML=`<div class="d-nav-icon">${CAT_ICONS[cat]}</div>${cat}<span class="d-nav-count">${cnt}</span>`;
-    el.onclick=()=>{dFilter=cat;document.getElementById('d-title').textContent=cat.toUpperCase();dSelected=null;resetDetail();nav.querySelectorAll('.d-nav-item').forEach(x=>x.classList.remove('active'));el.classList.add('active');dRender();};
+    el.onclick=()=>{
+      dCurrentSection='shop';dFilter=cat;
+      document.getElementById('d-title').textContent=cat.toUpperCase();
+      dSelected=null;resetDetail();
+      nav.querySelectorAll('.d-nav-item').forEach(x=>x.classList.remove('active'));
+      el.classList.add('active');
+      dSwitchSection('shop');dRender();
+    };
     nav.appendChild(el);
   });
+
+  const lbl3=document.createElement('div');lbl3.className='d-nav-label';lbl3.textContent='More';nav.appendChild(lbl3);
+  const affItem=document.createElement('div');
+  affItem.className='d-nav-item aff-item'+(dCurrentSection==='affiliates'?' active':'');
+  affItem.id='d-nav-affiliates';
+  affItem.innerHTML=`<div class="d-nav-icon">🤝</div>Affiliates`;
+  affItem.onclick=()=>{
+    nav.querySelectorAll('.d-nav-item').forEach(x=>x.classList.remove('active'));
+    affItem.classList.add('active');
+    dSwitchSection('affiliates');
+  };
+  nav.appendChild(affItem);
 }
-function resetDetail() {
+
+function resetDetail(){
   const p=document.getElementById('d-detail');
   p.classList.add('empty');
   p.innerHTML=`<div class="d-detail-placeholder"><div class="ph-icon">👈</div><p>Select an item to view details and copy the buy command</p></div>`;
 }
-function dBuildSortBar() {
-  const bar=document.getElementById('d-sort-bar'); bar.innerHTML='';
-  const lbl=document.createElement('span'); lbl.className='d-sort-label'; lbl.textContent='Sort:'; bar.appendChild(lbl);
+function dBuildSortBar(){
+  const bar=document.getElementById('d-sort-bar');bar.innerHTML='';
+  const lbl=document.createElement('span');lbl.className='d-sort-label';lbl.textContent='Sort:';bar.appendChild(lbl);
   SORTS.forEach(s=>{
     const b=document.createElement('button');
     b.className='d-sort-pill'+(s.key===dSort?' active':'');
@@ -931,18 +1290,19 @@ function dBuildSortBar() {
     bar.appendChild(b);
   });
 }
-function dRender() {
+function dRender(){
+  if(dCurrentSection==='affiliates')return;
   const grid=document.getElementById('d-grid');
   const isHome=dFilter==='All'&&!dSearch;
   const items=sorted(filtered(dFilter,dSearch),dSort);
   document.getElementById('d-count').textContent=items.length+' items';
 
-  if(isHome) {
+  if(isHome){
     const locked=allItems.filter(i=>i.tradableDate).length;
     const cats=new Set(allItems.map(i=>getCategory(i))).size;
     let html=`<div class="d-hero">
       <div class="d-hero-inner">
-        <div class="d-hero-left">
+        <div>
           <div class="d-hero-title">🔥 M9 Systems <span>Item Shop</span></div>
           <div class="d-hero-sub">Browse and redeem items using 🪙 coins earned while watching the stream.<br>Type the buy command in chat to purchase.</div>
           <div class="d-hero-stats">
@@ -967,7 +1327,7 @@ function dRender() {
       <div class="d-cat-grid">`;
     CAT_ORDER.forEach(cat=>{
       const cnt=allItems.filter(i=>getCategory(i)===cat).length;
-      if(!cnt) return;
+      if(!cnt)return;
       html+=`<div class="d-cat-card" onclick="dSetFilter('${cat}')">
         <div class="d-cat-icon">${CAT_ICONS[cat]}</div>
         <div class="d-cat-name">${cat}</div>
@@ -993,7 +1353,7 @@ function dRender() {
     let html='';
     const g=grouped(items);
     CAT_ORDER.forEach(cat=>{
-      if(!g[cat]) return;
+      if(!g[cat])return;
       html+=`<div style="padding:14px 18px 0"><div class="d-section-label">${cat} · ${g[cat].length}</div><div class="d-card-grid">`;
       g[cat].forEach(item=>{
         const idx=allItems.indexOf(item);
@@ -1007,22 +1367,23 @@ function dRender() {
     grid.innerHTML=html;
   }
 }
-function dSetFilter(cat) {
-  dFilter=cat; document.getElementById('d-title').textContent=cat.toUpperCase(); dSelected=null; resetDetail();
-  document.querySelectorAll('.d-nav-item').forEach(x=>x.classList.toggle('active',x.textContent.trim().startsWith(cat)));
-  dRender();
+function dSetFilter(cat){
+  dCurrentSection='shop';dFilter=cat;
+  document.getElementById('d-title').textContent=cat.toUpperCase();
+  dSelected=null;resetDetail();
+  document.querySelectorAll('.d-nav-item').forEach(x=>x.classList.toggle('active',x.textContent.trim().startsWith(cat)&&!x.classList.contains('aff-item')));
+  dSwitchSection('shop');dRender();
 }
-function dSelect(idx) {
-  dSelected=idx; dRender();
-  const item=allItems[idx]; if(!item) return;
-  const panel=document.getElementById('d-detail'); panel.classList.remove('empty');
+function dSelect(idx){
+  dSelected=idx;dRender();
+  const item=allItems[idx];if(!item)return;
+  const panel=document.getElementById('d-detail');panel.classList.remove('empty');
   let markupHtml='';
   if(item.markupPercent!==0){const sign=item.markupPercent>0?'+':'';const cls=item.markupPercent>0?'orange':'green';markupHtml=`<div class="d-detail-row"><span class="d-detail-row-label">Markup</span><span class="d-detail-row-value ${cls}">${sign}${item.markupPercent}%</span></div>`;}
   let diffHtml='';
-  if(item.difference && item.difference !== '0'){
+  if(item.difference&&item.difference!=='0'){
     const isDiffPos=item.difference.startsWith('+');
-    const diffCls=isDiffPos?'red':'green';
-    diffHtml=`<div class="d-detail-row"><span class="d-detail-row-label">Difference</span><span class="d-detail-row-value ${diffCls}">🪙 ${item.difference}</span></div>`;
+    diffHtml=`<div class="d-detail-row"><span class="d-detail-row-label">Difference</span><span class="d-detail-row-value ${isDiffPos?'red':'green'}">🪙 ${item.difference}</span></div>`;
   }
   const tradeHtml=item.tradableDate?`<div class="d-detail-row"><span class="d-detail-row-label">Tradable After</span><span class="d-detail-row-value orange">${item.tradableDate}</span></div>`:'';
   const hashLine=item.marketHashName!==item.skinName?`<div class="d-detail-hash">${item.marketHashName}</div>`:'<div style="margin-bottom:14px"></div>';
