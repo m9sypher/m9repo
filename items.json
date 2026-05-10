@@ -399,10 +399,10 @@
     "imageUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3263320/e73515ea166913132353f23817c9709c24d691f4/header.jpg?t=1771068318",
     "markupPercent": 275,
     "markupLock": false,
-    "cachedAt": "05/09/26, 05:17 PM",
+    "cachedAt": "05/10/26, 09:43 AM",
     "popularityIndex": 0,
     "marketActivity": 100,
-    "lockAPIscrape": 1778372553205,
+    "lockAPIscrape": 1778431688621,
     "isgame": 1,
     "difference": "+187.125"
   },
@@ -416,10 +416,10 @@
     "imageUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4069520/60b052f108998c01fed147d07578a2aed9bcd4ee/header.jpg?t=1772103787",
     "markupPercent": 275,
     "markupLock": false,
-    "cachedAt": "05/09/26, 05:17 PM",
+    "cachedAt": "05/10/26, 09:43 AM",
     "popularityIndex": 0,
     "marketActivity": 100,
-    "lockAPIscrape": 1778372553205,
+    "lockAPIscrape": 1778431688621,
     "isgame": 1,
     "difference": "+299.625"
   },
@@ -604,22 +604,6 @@
     "difference": "+6.975"
   },
   {
-    "skinName": "★ Hand Wraps | Duct Tape (FT)",
-    "marketHashName": "★ Hand Wraps | Duct Tape (Field-Tested)",
-    "price": 6309.771,
-    "tradableDate": "5/15/26",
-    "buyCmd": "!duct1",
-    "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu4vx603vRA_Olpfu-TVJ7uK9V6xsLvSEHGaA_uJzsfVhSjuqqhkysCmRm5_8HibCOl9lV4xwTbMJ5hCxm9PuM7vk4Qze2o5Cyyn7hywa7yw55bsHAqJ0qaXXjgHCL_RjtkKlF0CW/330x192?allow_animated=1",
-    "markupPercent": 86,
-    "markupLock": false,
-    "cachedAt": "05/09/26, 04:12 PM",
-    "popularityIndex": 0,
-    "marketActivity": 48,
-    "lockAPIscrape": 1778368675273,
-    "isgame": 0,
-    "difference": "+1463.4945"
-  },
-  {
     "skinName": "Desert Eagle | Tilted (MW)",
     "marketHashName": "Desert Eagle | Tilted (Minimal Wear)",
     "price": 14.2885,
@@ -664,22 +648,6 @@
     "lockAPIscrape": 1778368675273,
     "isgame": 0,
     "difference": "+686.2725"
-  },
-  {
-    "skinName": "StatTrak™ Five-SeveN | Copper Galaxy (FN)",
-    "marketHashName": "StatTrak™ Five-SeveN | Copper Galaxy (Factory New)",
-    "tradableDate": "5/15/26",
-    "price": 2679.1363,
-    "buyCmd": "!copper1",
-    "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL3l4Dl7idN6vyRaalSI_-DHmKC_uh6teJiXBa_nBovp3OAnN_6cXvEOwFzDcFzQ7Vc4BPuwNy0M7jk5gWL39pCnC35jShN6S1p_a9cBt8cUyQh/330x192?allow_animated=1",
-    "markupPercent": 55,
-    "markupLock": false,
-    "cachedAt": "05/09/26, 04:12 PM",
-    "popularityIndex": 0,
-    "marketActivity": 100,
-    "lockAPIscrape": 1778368675273,
-    "isgame": 0,
-    "difference": "+630.385"
   },
   {
     "skinName": "StatTrak™ P2000 | Turf (FN)",
@@ -736,10 +704,10 @@
     "imageUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4000/header.jpg?t=1776868682",
     "markupPercent": 275,
     "markupLock": false,
-    "cachedAt": "05/09/26, 05:17 PM",
+    "cachedAt": "05/10/26, 09:43 AM",
     "popularityIndex": 0,
     "marketActivity": 100,
-    "lockAPIscrape": 1778372553205,
+    "lockAPIscrape": 1778431688621,
     "isgame": 1,
     "difference": "+374.625"
   },
@@ -819,21 +787,5 @@
     "lockAPIscrape": 1778368675273,
     "isgame": 0,
     "difference": "+1405.2625"
-  },
-  {
-    "skinName": "Glock-18 | Gold Toof (FT)",
-    "marketHashName": "Glock-18 | Gold Toof (Field-Tested)",
-    "price": 3571.9338,
-    "buyCmd": "!gtoof1",
-    "tradableDate": "5/20/26",
-    "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL2kpnj9h1c4_2tY5tuKP-eHmKC_uNztOh8QmfmkE0l4m7Xy9epJX2fZwEkC5UmReMC4xe5kYDuN-LktgGLid8TxC39kGoXufaEN_P6/330x192?allow_animated=1",
-    "markupPercent": 85,
-    "markupLock": false,
-    "cachedAt": "05/09/26, 04:12 PM",
-    "popularityIndex": 0,
-    "marketActivity": 100,
-    "lockAPIscrape": 1778368675273,
-    "isgame": 0,
-    "difference": "+3541.7588"
   }
 ]
