@@ -255,21 +255,6 @@
     "difference": "+0.85"
   },
   {
-    "skinName": "StatTrak™ XM1014 | Red Python (FT)",
-    "marketHashName": "StatTrak™ XM1014 | Red Python (Field-Tested)",
-    "price": 107.2913,
-    "buyCmd": "!python",
-    "imageUrl": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLpk8ewrHZk5-uRe6psK_WABW6e_vxztN5kSi26gBBp5z-HwoquI3meOFUmDsB2FOcLuhXtlNeyNb_j7wKMjY9NnyX32i9MvDErvbi1MnP4lw/330x192?allow_animated=1",
-    "markupPercent": -15,
-    "markupLock": false,
-    "cachedAt": "05/10/26, 01:07 PM",
-    "popularityIndex": 0,
-    "marketActivity": 53,
-    "lockAPIscrape": 1778443953390,
-    "isgame": 0,
-    "difference": "+0.3613"
-  },
-  {
     "skinName": "Sticker | Kimberly",
     "marketHashName": "Sticker | Kimberly",
     "price": 71.825,
