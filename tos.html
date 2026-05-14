@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M9sypheR — Stream Points Terms of Service</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:       #080c10;
+    --surface:  #0d1319;
+    --border:   rgba(255,255,255,0.07);
+    --green:    #4ade80;
+    --gold:     #facc15;
+    --blue:     #38bdf8;
+    --muted:    #4b5563;
+    --text:     #e2e8f0;
+    --dim:      #94a3b8;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── Scanline overlay ───────────────────────────────────── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 3px,
+      rgba(255,255,255,0.012) 3px,
+      rgba(255,255,255,0.012) 4px
+    );
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ── Header ─────────────────────────────────────────────── */
+  header {
+    position: relative;
+    z-index: 1;
+    padding: 80px 24px 60px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(180deg, rgba(74,222,128,0.04) 0%, transparent 100%);
+  }
+
+  .badge {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--green);
+    border: 1px solid rgba(74,222,128,0.3);
+    padding: 4px 12px;
+    border-radius: 2px;
+    margin-bottom: 24px;
+    background: rgba(74,222,128,0.05);
+  }
+
+  h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 8vw, 96px);
+    line-height: 0.95;
+    letter-spacing: 0.02em;
+    color: #fff;
+    margin-bottom: 16px;
+  }
+
+  h1 span {
+    color: var(--green);
+    display: block;
+  }
+
+  .subtitle {
+    font-size: 15px;
+    color: var(--dim);
+    font-weight: 300;
+    max-width: 480px;
+    margin: 0 auto 32px;
+  }
+
+  .meta {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+  }
+
+  /* ── Layout ─────────────────────────────────────────────── */
+  main {
+    position: relative;
+    z-index: 1;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 64px 24px 100px;
+  }
+
+  /* ── Section ─────────────────────────────────────────────── */
+  section {
+    margin-bottom: 56px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.5s ease forwards;
+  }
+
+  section:nth-child(1) { animation-delay: 0.1s; }
+  section:nth-child(2) { animation-delay: 0.2s; }
+  section:nth-child(3) { animation-delay: 0.3s; }
+  section:nth-child(4) { animation-delay: 0.4s; }
+  section:nth-child(5) { animation-delay: 0.5s; }
+  section:nth-child(6) { animation-delay: 0.6s; }
+  section:nth-child(7) { animation-delay: 0.7s; }
+  section:nth-child(8) { animation-delay: 0.8s; }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(74,222,128,0.3), transparent);
+  }
+
+  h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(28px, 4vw, 38px);
+    letter-spacing: 0.04em;
+    color: #fff;
+    margin-bottom: 16px;
+    line-height: 1.1;
+  }
+
+  p {
+    color: var(--dim);
+    font-size: 15px;
+    margin-bottom: 14px;
+  }
+
+  p:last-child { margin-bottom: 0; }
+
+  strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  /* ── Highlight box ───────────────────────────────────────── */
+  .highlight {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--green);
+    border-radius: 0 6px 6px 0;
+    padding: 20px 24px;
+    margin: 20px 0;
+  }
+
+  .highlight.gold {
+    border-left-color: var(--gold);
+  }
+
+  .highlight.blue {
+    border-left-color: var(--blue);
+  }
+
+  .highlight p {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+
+  /* ── Chain diagram ───────────────────────────────────────── */
+  .chain {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 24px 0;
+  }
+
+  .chain-step {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 10px 16px;
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--text);
+    white-space: nowrap;
+  }
+
+  .chain-arrow {
+    color: var(--muted);
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .chain-step.green { border-color: rgba(74,222,128,0.4); color: var(--green); }
+  .chain-step.gold  { border-color: rgba(250,204,21,0.4);  color: var(--gold); }
+  .chain-step.blue  { border-color: rgba(56,189,248,0.4);  color: var(--blue); }
+
+  /* ── Definition list ─────────────────────────────────────── */
+  .def-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 16px 0;
+  }
+
+  .def-item {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 16px;
+    align-items: start;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .def-item:last-child { border-bottom: none; }
+
+  .def-key {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--green);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding-top: 2px;
+  }
+
+  .def-val {
+    font-size: 14px;
+    color: var(--dim);
+    line-height: 1.6;
+  }
+
+  /* ── Footer ─────────────────────────────────────────────── */
+  footer {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 40px 24px;
+    border-top: 1px solid var(--border);
+  }
+
+  footer p {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+  }
+
+  footer a {
+    color: var(--green);
+    text-decoration: none;
+  }
+
+  /* ── Pulse dot ───────────────────────────────────────────── */
+  .pulse {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 6px var(--green);
+    animation: pulse 2s ease-in-out infinite;
+    vertical-align: middle;
+    margin-right: 6px;
+  }
+
+  @keyframes pulse {
+    0%,100% { opacity: 1; transform: scale(1); }
+    50%      { opacity: 0.4; transform: scale(0.7); }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="badge"><span class="pulse"></span>Stream Engagement System</div>
+  <h1>M9sypheR<span>Points Terms</span></h1>
+  <p class="subtitle">How the stream loyalty point system works, what it is, and what it isn't.</p>
+  <p class="meta">Effective as of 2026 · m9sypher.github.io</p>
+</header>
+
+<main>
+
+  <section>
+    <div class="section-label">01 — What Points Are</div>
+    <h2>Stream Engagement Currency</h2>
+    <p>Points are a <strong>free, non-purchasable loyalty currency</strong> earned exclusively through participation in the stream. They have no monetary value, cannot be bought with real money on any platform, and exist solely to reward community engagement.</p>
+    <div class="highlight">
+      <p><strong>Points cannot be transferred to real money under any circumstance.</strong> There is no cash-out mechanism, no withdrawal system, and no conversion to any currency inside this system.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">02 — How Points Are Earned</div>
+    <h2>Free Engagement Only</h2>
+    <p>Every way to earn points in this system is free and engagement-based. No purchase is ever required or accepted for points.</p>
+    <div class="def-list">
+      <div class="def-item">
+        <span class="def-key">Chat Activity</span>
+        <span class="def-val">Points accumulate passively while actively chatting in the stream.</span>
+      </div>
+      <div class="def-item">
+        <span class="def-key">Rain Pot</span>
+        <span class="def-val">A shared pot grows with every chat message and distributes automatically to active viewers every 30 minutes.</span>
+      </div>
+      <div class="def-item">
+        <span class="def-key">Leveling</span>
+        <span class="def-val">XP earned through chat rewards level-up bonuses at milestone levels.</span>
+      </div>
+      <div class="def-item">
+        <span class="def-key">Games</span>
+        <span class="def-val">Wagering points in stream games (Towers, Vault, Slots etc.) can increase or decrease your balance.</span>
+      </div>
+      <div class="def-item">
+        <span class="def-key">Item Offers</span>
+        <span class="def-val">Users may submit a voluntary item offer for streamer review. See Section 05 for full details.</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">03 — The Point Shop</div>
+    <h2>Gifts, Not Prizes</h2>
+    <p>The Point Shop allows viewers to redeem points for CS2 skins and Steam games owned by the streamer. These redemptions are <strong>gifts from the streamer</strong>, not prizes won through gambling.</p>
+    <div class="highlight gold">
+      <p><strong>All shop transactions are entirely at the streamer's discretion.</strong> Items can go out of stock, trades can expire, and the streamer reserves the right to void any transaction at any time for any reason.</p>
+      <p>Redemption of points for items does not constitute a guaranteed exchange, contract, or financial instrument of any kind.</p>
+    </div>
+    <p>What happens to an item after delivery is outside the scope of this system. Any secondary sale or transfer of received items occurs on third-party platforms (Steam Marketplace) and is the sole responsibility of the viewer.</p>
+  </section>
+
+  <section>
+    <div class="section-label">04 — Stream Games</div>
+    <h2>Entertainment Only</h2>
+    <p>Stream games (Towers, Vault, Slots, Blackjack, etc.) allow viewers to wager points for entertainment. Because points have no real monetary value and cannot be purchased, these games <strong>do not constitute gambling</strong> under any standard legal definition.</p>
+    <div class="chain">
+      <div class="chain-step green">Free Chat Activity</div>
+      <div class="chain-arrow">→</div>
+      <div class="chain-step">Stream Points</div>
+      <div class="chain-arrow">→</div>
+      <div class="chain-step gold">Games / Shop</div>
+      <div class="chain-arrow">→</div>
+      <div class="chain-step blue">Entertainment</div>
+    </div>
+    <p>Points are the same currency whether used for games, the shop, or gifting to other viewers. Games are one feature of the engagement system, not its purpose.</p>
+  </section>
+
+  <section>
+    <div class="section-label">05 — Item Offers (!offer)</div>
+    <h2>Voluntary Item Submissions</h2>
+    <p>Viewers may optionally submit a CS2 item they own to the streamer in exchange for stream points using the <strong>!offer</strong> command. This feature operates under the following conditions:</p>
+    <div class="def-list">
+      <div class="def-item">
+        <span class="def-key">Voluntary</span>
+        <span class="def-val">Submissions are entirely optional. No viewer is required or pressured to submit an item.</span>
+      </div>
+      <div class="def-item">
+        <span class="def-key">User-Defined Price</span>
+        <span class="def-val">The viewer sets their own asking price in points. The streamer does not assign value to items.</span>
+      </div>
+      <div class="def-item">
+        <span class="def-key">Manual Approval</span>
+        <span class="def-val">Every offer requires manual review and explicit approval by the streamer. Nothing is automated.</span>
+      </div>
+      <div class="def-item">
+        <span class="def-key">Streamer Discretion</span>
+        <span class="def-val">The streamer may decline any offer at any time without reason. Declined offers carry no obligation.</span>
+      </div>
+      <div class="def-item">
+        <span class="def-key">30 Minute Window</span>
+        <span class="def-val">Offers expire after 30 minutes if not reviewed. Expired offers are automatically cancelled.</span>
+      </div>
+      <div class="def-item">
+        <span class="def-key">Not a Deposit System</span>
+        <span class="def-val">This is not an automated item-to-credit deposit system. It is a voluntary, human-reviewed exchange at the viewer's discretion.</span>
+      </div>
+    </div>
+    <div class="highlight blue">
+      <p>Item offers do not create a closed loop. Points received through an accepted offer are the same stream engagement points as those earned through chatting — they carry no guaranteed redemption value and cannot be converted to cash.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">06 — What This System Is Not</div>
+    <h2>Clear Boundaries</h2>
+    <div class="def-list">
+      <div class="def-item">
+        <span class="def-key">Not a Casino</span>
+        <span class="def-val">No real money enters this system at any point. Points cannot be purchased.</span>
+      </div>
+      <div class="def-item">
+        <span class="def-key">Not a Gambling Site</span>
+        <span class="def-val">Stream games use non-monetary engagement points. No consideration of real value is wagered.</span>
+      </div>
+      <div class="def-item">
+        <span class="def-key">Not a Skin Gambling Site</span>
+        <span class="def-val">Items received from the shop are gifts, not gambling winnings. There is no automated deposit-to-wager pipeline.</span>
+      </div>
+      <div class="def-item">
+        <span class="def-key">Not a Financial Service</span>
+        <span class="def-val">Points are not an investment, financial instrument, or store of value of any kind.</span>
+      </div>
+      <div class="def-item">
+        <span class="def-key">Not a Marketplace</span>
+        <span class="def-val">The Point Shop is a streamer gift program, not a commercial marketplace or exchange.</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">07 — Platform Compliance</div>
+    <h2>Built Within the Rules</h2>
+    <p>This system is designed to comply with the terms of service of all platforms it operates on, including Twitch, Kick, TikTok, and YouTube. Stream engagement reward systems are explicitly supported by these platforms.</p>
+    <p>Steam trading is conducted manually — the streamer physically confirms every trade offer. No automated trading bots or scripts bypass Steam's trade confirmation requirements.</p>
+  </section>
+
+  <section>
+    <div class="section-label">08 — Changes & Contact</div>
+    <h2>Updates</h2>
+    <p>These terms may be updated at any time. Continued participation in the stream's point system after any update constitutes acceptance of the revised terms.</p>
+    <p>Questions about these terms can be directed to the streamer via stream chat or the community Discord.</p>
+    <div class="highlight">
+      <p><strong>By participating in the stream's point system, viewers acknowledge that points have no monetary value, are not exchangeable for cash, and that all shop items received are gifts at the streamer's sole discretion.</strong></p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 M9sypheR · <a href="https://twitch.tv/m9sypher" target="_blank">twitch.tv/m9sypher</a> · All Rights Reserved</p>
+  <p style="margin-top:8px;">Stream Points have no monetary value and cannot be purchased or exchanged for cash.</p>
+</footer>
+
+</body>
+</html>
