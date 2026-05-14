@@ -105,21 +105,6 @@
     "difference": "-0.7862"
   },
   {
-    "skinName": "StatTrak™ Music Kit | Selective Response, No Love Only Pleasure",
-    "marketHashName": "StatTrak™ Music Kit | Selective Response, No Love Only Pleasure",
-    "price": 305.575,
-    "buyCmd": "!musicpleasure2",
-    "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIijyEKzb_3d19nuJn6b4FVh_ZHx-Fz0URL_jZPfrXMVtqH2a_Q0cfLBDWbJk-p0sbNoHnrmxx8m42jdy9f7InieOgciDZZ1EPlK7EehqW9d7Q/330x192?allow_animated=1",
-    "markupPercent": 0,
-    "markupLock": false,
-    "cachedAt": "05/14/26, 01:00 PM",
-    "popularityIndex": 0,
-    "marketActivity": 52,
-    "lockAPIscrape": 1778789131626,
-    "isgame": 0,
-    "difference": "-19.55"
-  },
-  {
     "skinName": "P250 | Small Game (FN)",
     "marketHashName": "P250 | Small Game (Factory New)",
     "price": 138.55,
