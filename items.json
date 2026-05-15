@@ -542,21 +542,6 @@
     "difference": "-0.425"
   },
   {
-    "skinName": "StatTrak™ M4A4 | Temukau (FT)",
-    "marketHashName": "StatTrak™ M4A4 | Temukau (Field-Tested)",
-    "price": 2875.635,
-    "buyCmd": "!temukau1",
-    "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8ypexwiFO0P_6afBSNPWeG2yR1NF7teVgWiT9xxgktm7RnNyqIHmfZwV2XsdwEOYNuxaxmobkZOvl51OMj9lHzCn-jDQJsHjG6ok51w/330x192?allow_animated=1",
-    "markupPercent": 35,
-    "markupLock": false,
-    "cachedAt": "05/15/26, 10:50 AM",
-    "popularityIndex": 0,
-    "marketActivity": 100,
-    "lockAPIscrape": 1778867703158,
-    "isgame": 0,
-    "difference": "-25.245"
-  },
-  {
     "skinName": "Kilowatt Case",
     "marketHashName": "Kilowatt Case",
     "price": 15.3,
