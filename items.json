@@ -572,21 +572,6 @@
     "difference": "-0.7437"
   },
   {
-    "skinName": "StatTrak™ AK-47 | Elite Build (MW)",
-    "marketHashName": "StatTrak™ AK-47 | Elite Build (Minimal Wear)",
-    "price": 573.325,
-    "buyCmd": "!ebuild1",
-    "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwlcK3wiFO0POlPPNSLfGAGmKC2NF6ueZhW2e2wh9y5GjTztirdSqfP1dyCpclR7FZ5xe9wNbhZei25FGPjokXxC2vkGoXuQLr5jvs/330x192?allow_animated=1",
-    "markupPercent": 0,
-    "markupLock": false,
-    "cachedAt": "05/16/26, 03:47 PM",
-    "popularityIndex": 0,
-    "marketActivity": 76,
-    "lockAPIscrape": 1778971925448,
-    "isgame": 0,
-    "difference": "-10.2"
-  },
-  {
     "skinName": "P250 | Cartel (FT)",
     "marketHashName": "P250 | Cartel (Field-Tested)",
     "price": 895.4963,
