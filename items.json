@@ -743,5 +743,20 @@
     "lockAPIscrape": 1778974515105,
     "isgame": 0,
     "difference": "-0.425"
+  },
+  {
+    "skinName": "'Two Times' McCoy | USAF TACP",
+    "marketHashName": "'Two Times' McCoy | USAF TACP",
+    "price": 772.701,
+    "buyCmd": "!mccoy1",
+    "imageUrl": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIa-2lmxU-LR0dnuNm6E8Vl45Iv181z1fh7lk6nz6XRk-fO8YaVjNP3dDDLHl7kks7U4Gi2xkUoj42XXntypcHyQO1J0DsZzFuAJsBW4kNPlN_SiuVKK_o8s4A/330x192?allow_animated=1",
+    "markupPercent": 39,
+    "markupLock": false,
+    "cachedAt": "05/16/26, 03:47 PM",
+    "popularityIndex": 0,
+    "marketActivity": 76,
+    "lockAPIscrape": 1778971925448,
+    "isgame": 0,
+    "difference": "-12.4057"
   }
 ]
