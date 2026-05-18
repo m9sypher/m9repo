@@ -323,10 +323,10 @@
     "imageUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3263320/e73515ea166913132353f23817c9709c24d691f4/header.jpg?t=1771068318",
     "markupPercent": 275,
     "markupLock": false,
-    "cachedAt": "05/17/26, 08:43 PM",
+    "cachedAt": "05/18/26, 02:40 PM",
     "popularityIndex": 0,
     "marketActivity": 100,
-    "lockAPIscrape": 1779076139289,
+    "lockAPIscrape": 1779140724951,
     "isgame": 1,
     "difference": "+187.125"
   },
@@ -339,10 +339,10 @@
     "imageUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4069520/60b052f108998c01fed147d07578a2aed9bcd4ee/header.jpg?t=1772103787",
     "markupPercent": 275,
     "markupLock": false,
-    "cachedAt": "05/17/26, 08:44 PM",
+    "cachedAt": "05/18/26, 02:40 PM",
     "popularityIndex": 0,
     "marketActivity": 100,
-    "lockAPIscrape": 1779076139289,
+    "lockAPIscrape": 1779140724951,
     "isgame": 1,
     "difference": "-382.5"
   },
@@ -597,10 +597,10 @@
     "imageUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4000/header.jpg?t=1776868682",
     "markupPercent": 275,
     "markupLock": false,
-    "cachedAt": "05/17/26, 08:44 PM",
+    "cachedAt": "05/18/26, 02:40 PM",
     "popularityIndex": 0,
     "marketActivity": 100,
-    "lockAPIscrape": 1779076139289,
+    "lockAPIscrape": 1779140724951,
     "isgame": 1,
     "difference": "+374.625"
   },
@@ -637,7 +637,6 @@
   {
     "skinName": "MP9 | Mount Fuji (FT)",
     "marketHashName": "MP9 | Mount Fuji (Field-Tested)",
-    "tradableDate": "5/18/26",
     "price": 492.3837,
     "buyCmd": "!mtfuji1",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8js_f_CNk4uL3V6J4KvmsHm6eytF7teVgWiT9xRkisWzdy479cnvCOg50X5V4QbQCtEG9kd22Yr-x7gHZiYxMmH_3ijQJsHgpePyJbA/330x192?allow_animated=1",
@@ -653,7 +652,6 @@
   {
     "skinName": "M4A1-S | Basilisk (FT)",
     "marketHashName": "M4A1-S | Basilisk (Field-Tested)",
-    "tradableDate": "5/18/26",
     "price": 789.8625,
     "buyCmd": "!basilisk1",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8ypexwjFS4_ega6F_H_GCMWrEwL9lj-NoXCC_nA4sjDCAnobsLGWXbgEnC8RzEOUOuxS7w9S0P77k7g3e2dgWzn-oiSlLuCw967wBB6F35OSJ2FhRctFB/330x192?allow_animated=1",
@@ -669,7 +667,6 @@
   {
     "skinName": "Desert Eagle | Conspiracy (MW)",
     "marketHashName": "Desert Eagle | Conspiracy (Minimal Wear)",
-    "tradableDate": "5/18/26",
     "price": 2373.4125,
     "buyCmd": "!conspiracy1",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL1m5fn8Sdk7OeRbKFsJ_yWMWaF0-tjo95lRi67gVMk4WTSm9moI3-QPVBxDJByQOJe40O6k4fnM-zgsQXci4gUyH3_3CMa8G81tJHuULJI/330x192?allow_animated=1",
@@ -685,7 +682,6 @@
   {
     "skinName": "Music Kit | TWERL and Ekko & Sidetrack, Under Bright Lights",
     "marketHashName": "Music Kit | TWERL and Ekko & Sidetrack, Under Bright Lights",
-    "tradableDate": "5/18/26",
     "price": 941.1413,
     "buyCmd": "!brightlights1",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIijyEKzb_3d19nuIWyS91pKpNa67A7mF0qoyZK0_HUC66v-O_M6I_HHCmTCmO8ns7Y_SnmyxUlwsj_RmcHpLywcg16k7A/330x192?allow_animated=1",
@@ -701,7 +697,6 @@
   {
     "skinName": "Glock-18 | Candy Apple (FN)",
     "marketHashName": "Glock-18 | Candy Apple (Factory New)",
-    "tradableDate": "5/18/26",
     "price": 397.375,
     "buyCmd": "!gapple1",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL2kpnj9h1I4M28baBSLPmUBnPelb93teA-FivjzB5wsjzTyI2pIn_CPAMoW8N3ROJZshm5w9zgNbnk5xue1dyMA9ZU_Q/330x192?allow_animated=1",
