@@ -38,7 +38,6 @@
       overflow-x: hidden;
     }
 
-    /* ── Noise grain overlay ── */
     body::before {
       content: '';
       position: fixed;
@@ -48,7 +47,6 @@
       z-index: 0;
     }
 
-    /* ── Top glow bar ── */
     .top-glow {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -57,7 +55,6 @@
       z-index: 100;
     }
 
-    /* ── Header ── */
     header {
       position: relative;
       padding: 80px 24px 56px;
@@ -125,7 +122,6 @@
       font-weight: 500;
     }
 
-    /* ── Layout ── */
     main {
       position: relative;
       z-index: 1;
@@ -134,7 +130,6 @@
       padding: 0 20px 100px;
     }
 
-    /* ── Section ── */
     section {
       margin-bottom: 12px;
       border: 1px solid var(--border);
@@ -157,8 +152,8 @@
     section:nth-child(6)  { animation-delay: 0.30s; }
     section:nth-child(7)  { animation-delay: 0.35s; }
     section:nth-child(8)  { animation-delay: 0.40s; }
+    section:nth-child(9)  { animation-delay: 0.45s; }
 
-    /* ── Section header (collapsible) ── */
     .section-header {
       display: flex;
       align-items: center;
@@ -172,11 +167,7 @@
 
     .section-header:hover { background: rgba(255,255,255,0.02); }
 
-    .section-icon {
-      font-size: 18px;
-      line-height: 1;
-      flex-shrink: 0;
-    }
+    .section-icon { font-size: 18px; line-height: 1; flex-shrink: 0; }
 
     .section-title {
       font-size: 0.85rem;
@@ -196,6 +187,21 @@
       border-radius: 4px;
     }
 
+    /* NEW badge for recently added commands */
+    .new-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #fbbf24;
+      background: rgba(251,191,36,0.12);
+      border: 1px solid rgba(251,191,36,0.3);
+      padding: 1px 6px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+
     .chevron {
       color: var(--dim);
       font-size: 12px;
@@ -205,12 +211,7 @@
 
     section.open .chevron { transform: rotate(180deg); }
 
-    /* ── Command list ── */
-    .cmd-list {
-      display: none;
-      padding: 4px 0;
-    }
-
+    .cmd-list { display: none; padding: 4px 0; }
     section.open .cmd-list { display: block; }
 
     .cmd-row {
@@ -224,6 +225,20 @@
 
     .cmd-row:last-child { border-bottom: none; }
     .cmd-row:hover { background: rgba(255,255,255,0.02); }
+
+    /* Sub-group divider inside a section */
+    .cmd-group-label {
+      padding: 8px 20px 4px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--dim);
+      border-top: 1px solid rgba(255,255,255,0.04);
+      margin-top: 2px;
+    }
+
+    .cmd-group-label:first-child { border-top: none; margin-top: 0; }
 
     .cmd-name {
       font-family: 'JetBrains Mono', monospace;
@@ -253,20 +268,28 @@
       line-height: 1.4;
     }
 
-    /* ── Category accent colors ── */
-    section[data-cat="economy"] .section-title  { color: #4ade80; }
-    section[data-cat="leveling"] .section-title { color: #a78bfa; }
-    section[data-cat="watchtime"] .section-title{ color: #22d3ee; }
-    section[data-cat="games"] .section-title    { color: #f97316; }
-    section[data-cat="games"] .cmd-name         { color: #f97316; background: rgba(249,115,22,0.08); border-color: rgba(249,115,22,0.18); }
-    section[data-cat="inventory"] .section-title{ color: #fbbf24; }
-    section[data-cat="inventory"] .cmd-name     { color: #fbbf24; background: rgba(251,191,36,0.08); border-color: rgba(251,191,36,0.18); }
-    section[data-cat="giveaway"] .section-title { color: #f472b6; }
-    section[data-cat="giveaway"] .cmd-name      { color: #f472b6; background: rgba(244,114,182,0.08); border-color: rgba(244,114,182,0.18); }
-    section[data-cat="misc"] .section-title     { color: #94a3b8; }
-    section[data-cat="misc"] .cmd-name          { color: #94a3b8; background: rgba(148,163,184,0.08); border-color: rgba(148,163,184,0.18); }
+    /* Category accent colors */
+    section[data-cat="economy"]   .section-title  { color: #4ade80; }
+    section[data-cat="leveling"]  .section-title  { color: #a78bfa; }
+    section[data-cat="watchtime"] .section-title  { color: #22d3ee; }
+    section[data-cat="games"]     .section-title  { color: #f97316; }
+    section[data-cat="games"]     .cmd-name       { color: #f97316; background: rgba(249,115,22,0.08); border-color: rgba(249,115,22,0.18); }
+    section[data-cat="inventory"] .section-title  { color: #fbbf24; }
+    section[data-cat="inventory"] .cmd-name       { color: #fbbf24; background: rgba(251,191,36,0.08); border-color: rgba(251,191,36,0.18); }
+    section[data-cat="shop"]      .section-title  { color: #fb923c; }
+    section[data-cat="shop"]      .cmd-name       { color: #fb923c; background: rgba(251,146,60,0.08); border-color: rgba(251,146,60,0.18); }
+    section[data-cat="giveaway"]  .section-title  { color: #f472b6; }
+    section[data-cat="giveaway"]  .cmd-name       { color: #f472b6; background: rgba(244,114,182,0.08); border-color: rgba(244,114,182,0.18); }
+    section[data-cat="misc"]      .section-title  { color: #94a3b8; }
+    section[data-cat="misc"]      .cmd-name       { color: #94a3b8; background: rgba(148,163,184,0.08); border-color: rgba(148,163,184,0.18); }
 
-    /* ── TikTok notice ── */
+    /* Case battle highlight rows */
+    .cmd-row.highlight {
+      background: rgba(249,115,22,0.04);
+      border-left: 2px solid rgba(249,115,22,0.3);
+    }
+    .cmd-row.highlight:hover { background: rgba(249,115,22,0.07); }
+
     .tiktok-notice {
       position: relative;
       z-index: 1;
@@ -294,7 +317,6 @@
       color: #ff0050;
     }
 
-    /* ── Footer ── */
     footer {
       position: relative;
       z-index: 1;
@@ -320,7 +342,7 @@
   <p class="subtitle">All public bot commands — Twitch · Kick · TikTok · YouTube</p>
 </header>
 
-<div class="tiktok-notice">
+<div class="tiktok-notice" style="padding-left:20px;padding-right:20px;max-width:900px;margin-left:auto;margin-right:auto;">
   <span class="tiktok-icon">📱</span>
   <span class="tiktok-text"><strong>TikTok users:</strong> Commands do not require the <code>!</code> prefix — just type the command name directly, e.g. <code>points</code> instead of <code>!points</code></span>
 </div>
@@ -339,7 +361,7 @@
       <div class="cmd-row"><span class="cmd-name">!points [user]</span><span class="cmd-dot"></span><span class="cmd-desc">Check your or another user's point balance</span></div>
       <div class="cmd-row"><span class="cmd-name">!give &lt;user&gt; &lt;amount&gt;</span><span class="cmd-dot"></span><span class="cmd-desc">Give points to another user — use their platform ID (e.g. twitch_username)</span></div>
       <div class="cmd-row"><span class="cmd-name">!top</span><span class="cmd-dot"></span><span class="cmd-desc">Show the top 5 point balances across all platforms</span></div>
-      <div class="cmd-row"><span class="cmd-name">!daily</span><span class="cmd-dot"></span><span class="cmd-desc">Claim your daily point drop — resets every 24 hours</span></div>
+      <div class="cmd-row"><span class="cmd-name">!daily</span><span class="cmd-dot"></span><span class="cmd-desc">Claim your daily point drop — resets every 24 hours. Three packages available: !daily 1, !daily 2, !daily 3</span></div>
       <div class="cmd-row"><span class="cmd-name">!rain</span><span class="cmd-dot"></span><span class="cmd-desc">Check the current rain pot — distributed to active chatters every 30 min</span></div>
       <div class="cmd-row"><span class="cmd-name">!tiprain &lt;amount&gt;</span><span class="cmd-dot"></span><span class="cmd-desc">Tip points into the rain pot for everyone to share</span></div>
     </div>
@@ -377,18 +399,18 @@
     <div class="section-header" onclick="toggle(this)">
       <span class="section-icon">🎮</span>
       <span class="section-title">Games</span>
-      <span class="section-count">17 commands</span>
+      <span class="section-count">22 commands</span>
+      <span class="new-badge">Updated</span>
       <span class="chevron">▼</span>
     </div>
     <div class="cmd-list">
+
+      <div class="cmd-group-label">Solo Games</div>
       <div class="cmd-row"><span class="cmd-name">!war &lt;amount&gt;</span><span class="cmd-dot"></span><span class="cmd-desc">Draw a card vs the dealer — highest wins. Min 1 / Max 250. Higher wager = harder dealer</span></div>
       <div class="cmd-row"><span class="cmd-name">!slots &lt;wager&gt;</span><span class="cmd-dot"></span><span class="cmd-desc">Spin 3 reels — match symbols to win</span></div>
       <div class="cmd-row"><span class="cmd-name">!scratch &lt;wager&gt;</span><span class="cmd-dot"></span><span class="cmd-desc">Scratch 9 tiles — match 5+ symbols to win. Full page = ×500. Min 1 / Max 250</span></div>
       <div class="cmd-row"><span class="cmd-name">!roulette &lt;red/black/green&gt; &lt;amount&gt;</span><span class="cmd-dot"></span><span class="cmd-desc">Bet on red, black, or green. Red/Black = 2×, Green = 10×. Min 1 / Max 250</span></div>
       <div class="cmd-row"><span class="cmd-name">!coinflip &lt;wager&gt;</span><span class="cmd-dot"></span><span class="cmd-desc">Flip a coin — win 2× or lose it all. Min 1 / Max 250</span></div>
-      <div class="cmd-row"><span class="cmd-name">!duel &lt;amount&gt;</span><span class="cmd-dot"></span><span class="cmd-desc">Open a duel — winner takes both wagers</span></div>
-      <div class="cmd-row"><span class="cmd-name">!join &lt;code&gt;</span><span class="cmd-dot"></span><span class="cmd-desc">Join an open duel by its code</span></div>
-      <div class="cmd-row"><span class="cmd-name">!duels</span><span class="cmd-dot"></span><span class="cmd-desc">List all currently open duels</span></div>
       <div class="cmd-row"><span class="cmd-name">!towers &lt;wager&gt;</span><span class="cmd-dot"></span><span class="cmd-desc">Start a tower climb — 15 floors, 4 doors per floor. Min 1 / Max 1000</span></div>
       <div class="cmd-row"><span class="cmd-name">!climb</span><span class="cmd-dot"></span><span class="cmd-desc">Attempt the next floor of your active tower run</span></div>
       <div class="cmd-row"><span class="cmd-name">!bail</span><span class="cmd-dot"></span><span class="cmd-desc">Cash out your current tower multiplier and leave safely</span></div>
@@ -398,6 +420,17 @@
       <div class="cmd-row"><span class="cmd-name">!vault &lt;4-digit combo&gt;</span><span class="cmd-dot"></span><span class="cmd-desc">Guess the vault combination — correct guess wins the entire pot</span></div>
       <div class="cmd-row"><span class="cmd-name">!blackjack &lt;wager&gt;</span><span class="cmd-dot"></span><span class="cmd-desc">Play blackjack against the dealer — !hit !stand !double available mid-hand</span></div>
       <div class="cmd-row"><span class="cmd-name">!games</span><span class="cmd-dot"></span><span class="cmd-desc">List all available games with usage info</span></div>
+
+      <div class="cmd-group-label">PvP — Duel</div>
+      <div class="cmd-row"><span class="cmd-name">!duel &lt;amount&gt;</span><span class="cmd-dot"></span><span class="cmd-desc">Open a duel — winner takes both wagers</span></div>
+      <div class="cmd-row"><span class="cmd-name">!join &lt;code&gt;</span><span class="cmd-dot"></span><span class="cmd-desc">Join an open duel by its code</span></div>
+      <div class="cmd-row"><span class="cmd-name">!duels</span><span class="cmd-dot"></span><span class="cmd-desc">List all currently open duels</span></div>
+
+      <div class="cmd-group-label">PvP — Case Battle 🆕</div>
+      <div class="cmd-row highlight"><span class="cmd-name">!case &lt;cases&gt; &lt;cost&gt;</span><span class="cmd-dot"></span><span class="cmd-desc">Open a case battle lobby — 1–25 cases at 0.25–500 pts each. e.g. !case 7 10 — opponent pays same to join</span></div>
+      <div class="cmd-row highlight"><span class="cmd-name">!joincase &lt;code&gt;</span><span class="cmd-dot"></span><span class="cmd-desc">Join an open case battle by its code — both players open cases simultaneously, highest combined pull wins the pot</span></div>
+      <div class="cmd-row highlight"><span class="cmd-name">!cases</span><span class="cmd-dot"></span><span class="cmd-desc">List all currently open case battle lobbies</span></div>
+
     </div>
   </section>
 
@@ -417,6 +450,23 @@
     </div>
   </section>
 
+  <!-- Shop -->
+  <section data-cat="shop" class="open">
+    <div class="section-header" onclick="toggle(this)">
+      <span class="section-icon">🛒</span>
+      <span class="section-title">Shop</span>
+      <span class="section-count">4 commands</span>
+      <span class="new-badge">Updated</span>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="cmd-list">
+      <div class="cmd-row"><span class="cmd-name">!shop [search]</span><span class="cmd-dot"></span><span class="cmd-desc">Browse the point shop or search for a specific item</span></div>
+      <div class="cmd-row"><span class="cmd-name">!request &lt;item name&gt;</span><span class="cmd-dot"></span><span class="cmd-desc">Request an item to be added to the shop — e.g. !request AK-47 Redline</span></div>
+      <div class="cmd-row"><span class="cmd-name">!cd &nbsp;/&nbsp; !cooldown</span><span class="cmd-dot"></span><span class="cmd-desc">Check how much time is left on your shop cooldown before you can purchase again</span></div>
+      <div class="cmd-row"><span class="cmd-name">!buycd &lt;Nh|Nm&gt;</span><span class="cmd-dot"></span><span class="cmd-desc">Buy down your shop cooldown with points — e.g. !buycd 6h or !buycd 53m. Rate: 12.37 pts/min</span></div>
+    </div>
+  </section>
+
   <!-- Giveaway -->
   <section data-cat="giveaway" class="open">
     <div class="section-header" onclick="toggle(this)">
@@ -427,20 +477,6 @@
     </div>
     <div class="cmd-list">
       <div class="cmd-row"><span class="cmd-name">!giveaway</span><span class="cmd-dot"></span><span class="cmd-desc">Enter the current giveaway when one is running</span></div>
-    </div>
-  </section>
-
-  <!-- Shop -->
-  <section data-cat="inventory" class="open">
-    <div class="section-header" onclick="toggle(this)">
-      <span class="section-icon">🛒</span>
-      <span class="section-title">Shop</span>
-      <span class="section-count">2 commands</span>
-      <span class="chevron">▼</span>
-    </div>
-    <div class="cmd-list">
-      <div class="cmd-row"><span class="cmd-name">!shop [search]</span><span class="cmd-dot"></span><span class="cmd-desc">Browse the point shop or search for a specific item</span></div>
-      <div class="cmd-row"><span class="cmd-name">!request &lt;item name&gt;</span><span class="cmd-dot"></span><span class="cmd-desc">Request an item to be added to the shop — e.g. !request AK-47 Redline</span></div>
     </div>
   </section>
 
