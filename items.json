@@ -650,21 +650,6 @@
     "difference": "+6.6937"
   },
   {
-    "skinName": "Music Kit | TWERL and Ekko & Sidetrack, Under Bright Lights",
-    "marketHashName": "Music Kit | TWERL and Ekko & Sidetrack, Under Bright Lights",
-    "price": 893.18,
-    "buyCmd": "!brightlights1",
-    "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIijyEKzb_3d19nuIWyS91pKpNa67A7mF0qoyZK0_HUC66v-O_M6I_HHCmTCmO8ns7Y_SnmyxUlwsj_RmcHpLywcg16k7A/330x192?allow_animated=1",
-    "markupPercent": 85,
-    "markupLock": false,
-    "cachedAt": "05/22/26, 06:14 PM",
-    "popularityIndex": 0,
-    "marketActivity": 42,
-    "lockAPIscrape": 1779499194648,
-    "isgame": 0,
-    "difference": "-7.0762"
-  },
-  {
     "skinName": "Glock-18 | Candy Apple (FN)",
     "marketHashName": "Glock-18 | Candy Apple (Factory New)",
     "price": 403.2188,
