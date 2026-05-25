@@ -25,326 +25,105 @@
     --head:      'Rajdhani', sans-serif;
     --body:      'Exo 2', sans-serif;
   }
-
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: var(--body);
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
-
-  /* ── Background grid ── */
+  body { background: var(--bg); color: var(--text); font-family: var(--body); min-height: 100vh; overflow-x: hidden; }
   body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(108,99,255,0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(108,99,255,0.03) 1px, transparent 1px);
-    background-size: 40px 40px;
-    pointer-events: none;
-    z-index: 0;
+    content: ''; position: fixed; inset: 0;
+    background-image: linear-gradient(rgba(108,99,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(108,99,255,0.03) 1px,transparent 1px);
+    background-size: 40px 40px; pointer-events: none; z-index: 0;
   }
-
   body::after {
-    content: '';
-    position: fixed;
-    top: -200px; left: 50%;
-    transform: translateX(-50%);
+    content: ''; position: fixed; top: -200px; left: 50%; transform: translateX(-50%);
     width: 800px; height: 400px;
     background: radial-gradient(ellipse, rgba(108,99,255,0.12) 0%, transparent 70%);
-    pointer-events: none;
-    z-index: 0;
+    pointer-events: none; z-index: 0;
   }
-
-  .wrap {
-    position: relative;
-    z-index: 1;
-    max-width: 760px;
-    margin: 0 auto;
-    padding: 48px 24px 80px;
-  }
+  .wrap { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; padding: 48px 24px 80px; }
 
   /* ── Header ── */
-  .header {
-    text-align: center;
-    margin-bottom: 40px;
-    animation: fadeDown 0.6s ease both;
-  }
-
-  .header-eyebrow {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 4px;
-    color: var(--accent);
-    text-transform: uppercase;
-    margin-bottom: 10px;
-    opacity: 0.8;
-  }
-
-  .header h1 {
-    font-family: var(--head);
-    font-size: clamp(32px, 6vw, 52px);
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--text-bright);
-    text-shadow: 0 0 40px rgba(108,99,255,0.5);
-    line-height: 1;
-  }
-
+  .header { text-align: center; margin-bottom: 40px; animation: fadeDown 0.6s ease both; }
+  .header-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 4px; color: var(--accent); text-transform: uppercase; margin-bottom: 10px; opacity: 0.8; }
+  .header h1 { font-family: var(--head); font-size: clamp(32px,6vw,52px); font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--text-bright); text-shadow: 0 0 40px rgba(108,99,255,0.5); line-height: 1; }
   .header h1 span { color: var(--accent2); }
+  .header-sub { margin-top: 10px; font-size: 13px; color: var(--text-dim); letter-spacing: 1px; }
 
-  .header-sub {
-    margin-top: 10px;
-    font-size: 13px;
-    color: var(--text-dim);
-    letter-spacing: 1px;
+  /* ── Tab nav ── */
+  .tab-nav { display: flex; gap: 2px; margin-bottom: 24px; background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 4px; animation: fadeDown 0.6s 0.05s ease both; }
+  .tab-btn {
+    flex: 1; padding: 11px 16px; border: none; border-radius: 7px; cursor: pointer;
+    font-family: var(--head); font-size: 13px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+    background: transparent; color: var(--text-dim); transition: all 0.2s;
   }
+  .tab-btn:hover { color: var(--text); }
+  .tab-btn.active { background: rgba(108,99,255,0.18); color: var(--accent2); box-shadow: 0 0 0 1px rgba(108,99,255,0.3); }
+
+  /* ── Tab panels ── */
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
 
   /* ── Notice banner ── */
   .notice {
-    background: rgba(108,99,255,0.08);
-    border: 1px solid rgba(108,99,255,0.25);
-    border-left: 3px solid var(--accent);
-    border-radius: 6px;
-    padding: 14px 18px;
-    margin-bottom: 28px;
-    font-size: 13px;
-    line-height: 1.7;
-    color: var(--text);
+    background: rgba(108,99,255,0.08); border: 1px solid rgba(108,99,255,0.25); border-left: 3px solid var(--accent);
+    border-radius: 6px; padding: 14px 18px; margin-bottom: 28px; font-size: 13px; line-height: 1.7; color: var(--text);
     animation: fadeDown 0.6s 0.1s ease both;
   }
-
   .notice strong { color: var(--accent2); }
   .notice .warn  { color: var(--gold); font-weight: 600; }
-  .notice code {
-    font-family: var(--mono);
-    background: rgba(108,99,255,0.15);
-    padding: 1px 6px;
-    border-radius: 3px;
-    font-size: 12px;
-    color: var(--accent2);
-  }
+  .notice code { font-family: var(--mono); background: rgba(108,99,255,0.15); padding: 1px 6px; border-radius: 3px; font-size: 12px; color: var(--accent2); }
 
-  /* ── Section cards ── */
-  .card {
-    background: var(--panel);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 28px;
-    margin-bottom: 20px;
-    animation: fadeUp 0.5s ease both;
-  }
-
+  /* ── Cards ── */
+  .card { background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 28px; margin-bottom: 20px; animation: fadeUp 0.5s ease both; }
   .card:nth-child(1) { animation-delay: 0.15s; }
   .card:nth-child(2) { animation-delay: 0.22s; }
   .card:nth-child(3) { animation-delay: 0.29s; }
   .card:nth-child(4) { animation-delay: 0.36s; }
-
-  .card-title {
-    font-family: var(--head);
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .card-title::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: linear-gradient(90deg, var(--border), transparent);
-  }
+  .card:nth-child(5) { animation-delay: 0.43s; }
+  .card-title { font-family: var(--head); font-size: 13px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+  .card-title::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, var(--border), transparent); }
 
   /* ── Form fields ── */
   .field { margin-bottom: 16px; }
-
-  label {
-    display: block;
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--text-dim);
-    margin-bottom: 7px;
-    font-family: var(--mono);
+  label { display: block; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-dim); margin-bottom: 7px; font-family: var(--mono); }
+  input[type="text"], input[type="number"], select {
+    width: 100%; background: var(--bg2); border: 1px solid var(--border); border-radius: 6px;
+    padding: 11px 14px; color: var(--text-bright); font-family: var(--body); font-size: 14px;
+    outline: none; transition: border-color 0.2s, box-shadow 0.2s; appearance: none;
   }
-
-  input[type="text"],
-  input[type="number"],
-  select {
-    width: 100%;
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 11px 14px;
-    color: var(--text-bright);
-    font-family: var(--body);
-    font-size: 14px;
-    outline: none;
-    transition: border-color 0.2s, box-shadow 0.2s;
-    appearance: none;
-  }
-
-  input[type="text"]:focus,
-  input[type="number"]:focus,
-  select:focus {
-    border-color: var(--accent);
-    box-shadow: 0 0 0 3px var(--accent-glow);
-  }
-
-  select {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236c63ff' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 14px center;
-    padding-right: 36px;
-    cursor: pointer;
-  }
-
+  input[type="text"]:focus, input[type="number"]:focus, select:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-glow); }
+  select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236c63ff' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; cursor: pointer; }
   select option { background: var(--panel2); }
-
-  .field-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-  }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 
   /* ── Platform selector ── */
-  .platform-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-    margin-bottom: 16px;
-  }
-
-  .platform-btn {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 12px 8px;
-    cursor: pointer;
-    text-align: center;
-    transition: all 0.18s;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 6px;
-  }
-
+  .platform-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; margin-bottom: 16px; }
+  .platform-btn { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 12px 8px; cursor: pointer; text-align: center; transition: all 0.18s; display: flex; flex-direction: column; align-items: center; gap: 6px; }
   .platform-btn:hover { border-color: var(--accent); background: rgba(108,99,255,0.08); }
-
-  .platform-btn.active {
-    border-color: var(--accent);
-    background: rgba(108,99,255,0.15);
-    box-shadow: 0 0 12px var(--accent-glow);
-  }
-
+  .platform-btn.active { border-color: var(--accent); background: rgba(108,99,255,0.15); box-shadow: 0 0 12px var(--accent-glow); }
   .platform-btn .p-icon { font-size: 20px; line-height: 1; }
-  .platform-btn .p-name {
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 1px;
-    color: var(--text-dim);
-    text-transform: uppercase;
-  }
+  .platform-btn .p-name { font-family: var(--mono); font-size: 10px; letter-spacing: 1px; color: var(--text-dim); text-transform: uppercase; }
   .platform-btn.active .p-name { color: var(--accent2); }
 
   /* ── !id notice ── */
-  .id-notice {
-    background: rgba(240,192,96,0.07);
-    border: 1px solid rgba(240,192,96,0.2);
-    border-left: 3px solid var(--gold);
-    border-radius: 6px;
-    padding: 11px 14px;
-    font-size: 12px;
-    line-height: 1.7;
-    color: var(--text);
-    margin-top: 12px;
-    display: none;
-  }
-
+  .id-notice { background: rgba(240,192,96,0.07); border: 1px solid rgba(240,192,96,0.2); border-left: 3px solid var(--gold); border-radius: 6px; padding: 11px 14px; font-size: 12px; line-height: 1.7; color: var(--text); margin-top: 12px; display: none; }
   .id-notice.show { display: block; }
   .id-notice strong { color: var(--gold); }
-  .id-notice code {
-    font-family: var(--mono);
-    background: rgba(240,192,96,0.1);
-    padding: 1px 5px;
-    border-radius: 3px;
-    color: var(--gold);
-    font-size: 11px;
-  }
+  .id-notice code { font-family: var(--mono); background: rgba(240,192,96,0.1); padding: 1px 5px; border-radius: 3px; color: var(--gold); font-size: 11px; }
 
   /* ── Tier rows ── */
   .tier-list { display: flex; flex-direction: column; gap: 10px; }
-
-  .tier-row {
-    display: grid;
-    grid-template-columns: 180px 1fr 80px;
-    align-items: center;
-    gap: 12px;
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 10px 14px;
-    transition: border-color 0.2s;
-  }
-
+  .tier-row { display: grid; grid-template-columns: 160px 1fr 80px 80px; align-items: center; gap: 10px; background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; transition: border-color 0.2s; }
   .tier-row:focus-within { border-color: var(--accent); }
-
-  .tier-label {
-    display: flex;
-    align-items: center;
-    gap: 9px;
-    font-family: var(--head);
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 1px;
-  }
-
+  .tier-label { display: flex; align-items: center; gap: 9px; font-family: var(--head); font-size: 14px; font-weight: 600; letter-spacing: 1px; }
   .tier-emoji { font-size: 18px; }
-
-  .tier-bar-wrap {
-    height: 6px;
-    background: rgba(255,255,255,0.05);
-    border-radius: 3px;
-    overflow: hidden;
-  }
-
-  .tier-bar {
-    height: 100%;
-    border-radius: 3px;
-    transition: width 0.3s ease;
-    width: 0%;
-  }
-
+  .tier-bar-wrap { height: 6px; background: rgba(255,255,255,0.05); border-radius: 3px; overflow: hidden; }
+  .tier-bar { height: 100%; border-radius: 3px; transition: width 0.3s ease; width: 0%; }
   .tier-input-wrap { display: flex; align-items: center; gap: 5px; }
-
-  .tier-input {
-    width: 100% !important;
-    text-align: right;
-    padding: 6px 8px !important;
-    font-family: var(--mono) !important;
-    font-size: 14px !important;
-    border: none !important;
-    background: transparent !important;
-    box-shadow: none !important;
-  }
-
+  .tier-input { width: 100% !important; text-align: right; padding: 6px 8px !important; font-family: var(--mono) !important; font-size: 14px !important; border: none !important; background: transparent !important; box-shadow: none !important; }
   .tier-input:focus { border: none !important; box-shadow: none !important; }
-
-  .pct-sign {
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--text-dim);
-  }
+  .pct-sign { font-family: var(--mono); font-size: 12px; color: var(--text-dim); }
+  .tier-cap-badge { font-family: var(--mono); font-size: 10px; letter-spacing: 0.5px; color: var(--text-dim); white-space: nowrap; text-align: right; }
+  .tier-cap-badge.cap-warn { color: var(--red); }
+  .tier-cap-badge.cap-ok { color: var(--green); }
 
   /* Tier colors */
   .t-jackpot   { color: #ffd700; } .bar-jackpot   { background: #ffd700; }
@@ -356,290 +135,178 @@
   .t-dud       { color: #555577; } .bar-dud       { background: #555577; }
 
   /* ── Total bar ── */
-  .total-area {
-    margin-top: 18px;
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 14px 16px;
-  }
-
-  .total-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-  }
-
-  .total-label {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 2px;
-    color: var(--text-dim);
-    text-transform: uppercase;
-  }
-
-  .total-value {
-    font-family: var(--mono);
-    font-size: 20px;
-    font-weight: 700;
-    transition: color 0.2s;
-  }
-
+  .total-area { margin-top: 18px; background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; }
+  .total-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+  .total-label { font-family: var(--mono); font-size: 11px; letter-spacing: 2px; color: var(--text-dim); text-transform: uppercase; }
+  .total-value { font-family: var(--mono); font-size: 20px; font-weight: 700; transition: color 0.2s; }
   .total-value.ok    { color: var(--green); }
   .total-value.over  { color: var(--red); }
   .total-value.under { color: var(--gold); }
-
-  .total-track {
-    height: 8px;
-    background: rgba(255,255,255,0.05);
-    border-radius: 4px;
-    overflow: hidden;
-  }
-
-  .total-fill {
-    height: 100%;
-    border-radius: 4px;
-    transition: width 0.3s ease, background 0.3s;
-    background: var(--accent);
-  }
-
+  .total-track { height: 8px; background: rgba(255,255,255,0.05); border-radius: 4px; overflow: hidden; }
+  .total-fill { height: 100%; border-radius: 4px; transition: width 0.3s ease, background 0.3s; background: var(--accent); }
   .total-fill.ok   { background: var(--green); }
   .total-fill.over { background: var(--red); }
-
-  .total-msg {
-    margin-top: 8px;
-    font-size: 12px;
-    font-family: var(--mono);
-    min-height: 16px;
-    transition: color 0.2s;
-  }
+  .total-msg { margin-top: 8px; font-size: 12px; font-family: var(--mono); min-height: 16px; transition: color 0.2s; }
 
   /* ── Bracket preview ── */
-  .bracket-preview {
-    margin-top: 18px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 13px 16px;
-    font-size: 13px;
-  }
-
-  .bracket-tag {
-    font-family: var(--head);
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    padding: 4px 12px;
-    border-radius: 4px;
-    text-transform: uppercase;
-    border: 1px solid;
-  }
-
+  .bracket-preview { margin-top: 18px; display: flex; align-items: center; gap: 12px; background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 13px 16px; font-size: 13px; }
+  .bracket-tag { font-family: var(--head); font-size: 12px; font-weight: 700; letter-spacing: 2px; padding: 4px 12px; border-radius: 4px; text-transform: uppercase; border: 1px solid; }
   .bracket-Starter { color: #a0c4ff; border-color: #a0c4ff; background: rgba(160,196,255,0.08); }
   .bracket-Mid     { color: #4de8b0; border-color: #4de8b0; background: rgba(77,232,176,0.08); }
   .bracket-High    { color: #bf7fff; border-color: #bf7fff; background: rgba(191,127,255,0.08); }
   .bracket-Elite   { color: #ffd700; border-color: #ffd700; background: rgba(255,215,0,0.08); }
   .bracket-none    { color: var(--text-dim); border-color: var(--border); background: transparent; }
-
   .bracket-desc { color: var(--text-dim); font-size: 12px; }
 
-  /* ── JSON preview ── */
-  .json-preview {
-    background: var(--bg);
+  /* ── Tier info panel ── */
+  .tier-info-panel {
+    margin-top: 20px;
+    background: var(--bg2);
     border: 1px solid var(--border);
     border-radius: 8px;
-    padding: 16px;
-    font-family: var(--mono);
-    font-size: 11.5px;
-    line-height: 1.7;
-    color: #8899cc;
-    white-space: pre-wrap;
-    word-break: break-all;
-    max-height: 280px;
-    overflow-y: auto;
-    scrollbar-width: thin;
-    scrollbar-color: var(--border) transparent;
-  }
-
-  .json-preview .key   { color: #9d71ff; }
-  .json-preview .str   { color: #39e08a; }
-  .json-preview .num   { color: #f0c060; }
-  .json-preview .bool  { color: #ff7eb3; }
-
-  /* ── Buttons ── */
-  .btn-row {
-    display: flex;
-    gap: 12px;
-    margin-top: 20px;
-  }
-
-  .btn {
-    flex: 1;
-    padding: 14px;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    font-family: var(--head);
-    font-size: 15px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    transition: all 0.2s;
-    position: relative;
     overflow: hidden;
   }
-
-  .btn::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: white;
-    opacity: 0;
-    transition: opacity 0.15s;
+  .tier-info-header {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    font-family: var(--head);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
-
-  .btn:active::after { opacity: 0.06; }
-
-  .btn-primary {
-    background: linear-gradient(135deg, var(--accent), var(--accent2));
-    color: #fff;
-    box-shadow: 0 4px 20px var(--accent-glow);
+  .tier-info-header span { font-size: 10px; color: var(--text-dim); font-family: var(--mono); letter-spacing: 1px; font-weight: 400; text-transform: none; }
+  .tier-info-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    border-bottom: 1px solid var(--border);
   }
-
-  .btn-primary:hover {
-    box-shadow: 0 4px 30px rgba(108,99,255,0.6);
-    transform: translateY(-1px);
-  }
-
-  .btn-primary:disabled {
-    opacity: 0.35;
-    cursor: not-allowed;
-    transform: none;
-    box-shadow: none;
-  }
-
-  .btn-secondary {
-    background: var(--panel2);
-    color: var(--text);
-    border: 1px solid var(--border);
-  }
-
-  .btn-secondary:hover { border-color: var(--accent); color: var(--accent2); }
-
-  /* ── Submit note ── */
-  .submit-note {
-    margin-top: 16px;
+  .tier-info-col {
+    padding: 10px 8px;
+    border-right: 1px solid var(--border);
     text-align: center;
-    font-size: 12px;
-    color: var(--text-dim);
-    line-height: 1.8;
   }
+  .tier-info-col:last-child { border-right: none; }
+  .tier-info-col.header-col {
+    background: rgba(255,255,255,0.015);
+    padding: 8px;
+  }
+  .tier-col-name { font-family: var(--head); font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; }
+  .tier-col-emoji { font-size: 16px; margin-bottom: 4px; }
+  .tier-col-cap { font-family: var(--mono); font-size: 10px; color: var(--text-dim); }
+  .tier-col-cap strong { color: var(--text); }
+  .tier-multi-row {
+    display: grid;
+    grid-template-columns: 80px repeat(7, 1fr);
+    border-bottom: 1px solid rgba(42,45,85,0.5);
+  }
+  .tier-multi-row:last-child { border-bottom: none; }
+  .tier-multi-label {
+    padding: 8px 12px;
+    font-family: var(--head);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border-right: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+  }
+  .tier-multi-cell {
+    padding: 7px 6px;
+    text-align: center;
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--text-dim);
+    border-right: 1px solid rgba(42,45,85,0.4);
+  }
+  .tier-multi-cell:last-child { border-right: none; }
+  .tier-multi-cell.active-bracket-cell { background: rgba(108,99,255,0.08); color: var(--text); }
 
+  /* ── Bracket nudge ── */
+  .bracket-nudge { margin-top: 14px; background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; font-size: 12px; display: none; }
+  .bracket-nudge.show { display: block; }
+  .nudge-title { font-family: var(--head); font-size: 13px; font-weight: 700; letter-spacing: 1px; margin-bottom: 4px; }
+  .nudge-body { color: var(--text-dim); line-height: 1.6; margin-bottom: 14px; font-size: 12px; }
+  .nudge-table { display: flex; flex-direction: column; gap: 7px; }
+  .nudge-row { display: grid; grid-template-columns: 64px 140px 1fr; align-items: center; gap: 10px; padding: 6px 10px; border-radius: 5px; background: rgba(255,255,255,0.02); border: 1px solid transparent; transition: border-color 0.2s, background 0.2s; }
+  .nudge-row.active-row { background: rgba(108,99,255,0.08); border-color: var(--border); }
+  .nudge-bracket { font-family: var(--head); font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+  .bracket-Elite-text   { color: #ffd700; }
+  .bracket-High-text    { color: #bf7fff; }
+  .bracket-Mid-text     { color: #4de8b0; }
+  .bracket-Starter-text { color: #a0c4ff; }
+  .nudge-range { font-family: var(--mono); font-size: 11px; color: var(--text-dim); }
+  .nudge-note  { font-size: 11px; color: var(--text-dim); }
+  .nudge-row.active-row .nudge-range, .nudge-row.active-row .nudge-note { color: var(--text); }
+
+  /* ── JSON preview ── */
+  .json-preview { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 16px; font-family: var(--mono); font-size: 11.5px; line-height: 1.7; color: #8899cc; white-space: pre-wrap; word-break: break-all; max-height: 280px; overflow-y: auto; scrollbar-width: thin; scrollbar-color: var(--border) transparent; }
+  .json-preview .key  { color: #9d71ff; }
+  .json-preview .str  { color: #39e08a; }
+  .json-preview .num  { color: #f0c060; }
+  .json-preview .bool { color: #ff7eb3; }
+
+  /* ── Buttons ── */
+  .btn-row { display: flex; gap: 12px; margin-top: 20px; }
+  .btn { flex: 1; padding: 14px; border-radius: 8px; border: none; cursor: pointer; font-family: var(--head); font-size: 15px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; transition: all 0.2s; position: relative; overflow: hidden; }
+  .btn::after { content: ''; position: absolute; inset: 0; background: white; opacity: 0; transition: opacity 0.15s; }
+  .btn:active::after { opacity: 0.06; }
+  .btn-primary { background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #fff; box-shadow: 0 4px 20px var(--accent-glow); }
+  .btn-primary:hover { box-shadow: 0 4px 30px rgba(108,99,255,0.6); transform: translateY(-1px); }
+  .btn-primary:disabled { opacity: 0.35; cursor: not-allowed; transform: none; box-shadow: none; }
+  .btn-secondary { background: var(--panel2); color: var(--text); border: 1px solid var(--border); }
+  .btn-secondary:hover { border-color: var(--accent); color: var(--accent2); }
+  .submit-note { margin-top: 16px; text-align: center; font-size: 12px; color: var(--text-dim); line-height: 1.8; }
   .submit-note strong { color: var(--accent2); }
 
+  /* ── Examples tab ── */
+  .examples-intro { font-size: 13px; color: var(--text-dim); line-height: 1.7; margin-bottom: 20px; }
+  .examples-intro strong { color: var(--accent2); }
+  .example-filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; }
+  .filter-btn { background: var(--bg2); border: 1px solid var(--border); border-radius: 6px; padding: 7px 14px; cursor: pointer; font-family: var(--mono); font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--text-dim); transition: all 0.18s; }
+  .filter-btn:hover { border-color: var(--accent); color: var(--text); }
+  .filter-btn.active { border-color: var(--accent); background: rgba(108,99,255,0.15); color: var(--accent2); }
+  .examples-grid { display: flex; flex-direction: column; gap: 14px; }
+  .example-card {
+    background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px;
+    cursor: pointer; transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .example-card:hover { border-color: var(--accent); box-shadow: 0 0 12px var(--accent-glow); }
+  .example-card-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 14px; gap: 12px; }
+  .example-card-name { font-family: var(--head); font-size: 18px; font-weight: 700; letter-spacing: 2px; color: var(--text-bright); }
+  .example-card-badge-row { display: flex; gap: 8px; align-items: center; margin-top: 4px; flex-wrap: wrap; }
+  .ex-bracket-tag { font-family: var(--head); font-size: 11px; font-weight: 700; letter-spacing: 2px; padding: 3px 10px; border-radius: 4px; text-transform: uppercase; border: 1px solid; flex-shrink: 0; }
+  .ex-style-tag { font-family: var(--mono); font-size: 10px; color: var(--text-dim); border: 1px solid rgba(42,45,85,0.8); border-radius: 4px; padding: 2px 8px; }
+  .example-card-use-btn { background: rgba(108,99,255,0.15); border: 1px solid rgba(108,99,255,0.4); color: var(--accent2); font-family: var(--head); font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 8px 16px; border-radius: 6px; cursor: pointer; transition: all 0.18s; white-space: nowrap; flex-shrink: 0; }
+  .example-card-use-btn:hover { background: rgba(108,99,255,0.28); }
+  .example-tier-strip { display: grid; grid-template-columns: repeat(7,1fr); gap: 4px; }
+  .ex-tier-cell { border-radius: 5px; padding: 7px 4px; text-align: center; background: rgba(255,255,255,0.03); border: 1px solid rgba(42,45,85,0.6); }
+  .ex-tier-emoji { font-size: 14px; display: block; margin-bottom: 3px; }
+  .ex-tier-name { font-family: var(--mono); font-size: 9px; color: var(--text-dim); letter-spacing: 0.5px; display: block; margin-bottom: 3px; }
+  .ex-tier-pct  { font-family: var(--mono); font-size: 12px; font-weight: 700; display: block; }
+  .example-card-desc { margin-top: 12px; font-size: 12px; color: var(--text-dim); line-height: 1.6; font-style: italic; border-top: 1px solid var(--border); padding-top: 10px; }
+  .multi-note { margin-top: 8px; font-size: 11px; color: var(--text-dim); font-family: var(--mono); }
+
   /* ── Animations ── */
-  @keyframes fadeDown {
-    from { opacity: 0; transform: translateY(-16px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  /* ── Scrollbar ── */
+  @keyframes fadeDown { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeUp   { from { opacity: 0; transform: translateY(20px);  } to { opacity: 1; transform: translateY(0); } }
   ::-webkit-scrollbar { width: 6px; }
   ::-webkit-scrollbar-track { background: transparent; }
   ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
 
   /* ── Responsive ── */
-  @media (max-width: 520px) {
-    .tier-row { grid-template-columns: 140px 1fr 64px; }
-    .platform-grid { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 580px) {
+    .tier-row { grid-template-columns: 120px 1fr 64px 64px; }
+    .platform-grid { grid-template-columns: repeat(2,1fr); }
     .field-row { grid-template-columns: 1fr; }
     .btn-row { flex-direction: column; }
-  }
-
-  /* ── Bracket nudge ── */
-  .bracket-nudge {
-    margin-top: 14px;
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 14px 16px;
-    font-size: 12px;
-    display: none;
-  }
-
-  .bracket-nudge.show { display: block; }
-
-  .nudge-title {
-    font-family: var(--head);
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    margin-bottom: 4px;
-  }
-
-  .nudge-body {
-    color: var(--text-dim);
-    line-height: 1.6;
-    margin-bottom: 14px;
-    font-size: 12px;
-  }
-
-  .nudge-table { display: flex; flex-direction: column; gap: 7px; }
-
-  .nudge-row {
-    display: grid;
-    grid-template-columns: 64px 140px 1fr;
-    align-items: center;
-    gap: 10px;
-    padding: 6px 10px;
-    border-radius: 5px;
-    background: rgba(255,255,255,0.02);
-    border: 1px solid transparent;
-    transition: border-color 0.2s, background 0.2s;
-  }
-
-  .nudge-row.active-row {
-    background: rgba(108,99,255,0.08);
-    border-color: var(--border);
-  }
-
-  .nudge-bracket {
-    font-family: var(--head);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
-
-  .bracket-Elite-text   { color: #ffd700; }
-  .bracket-High-text    { color: #bf7fff; }
-  .bracket-Mid-text     { color: #4de8b0; }
-  .bracket-Starter-text { color: #a0c4ff; }
-
-  .nudge-range {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--text-dim);
-  }
-
-  .nudge-note {
-    font-size: 11px;
-    color: var(--text-dim);
-  }
-
-  .nudge-row.active-row .nudge-range,
-  .nudge-row.active-row .nudge-note { color: var(--text); }
-
-  @media (max-width: 520px) {
+    .tier-info-grid { grid-template-columns: repeat(4,1fr); }
+    .tier-multi-row { grid-template-columns: 60px repeat(7,1fr); }
+    .example-tier-strip { grid-template-columns: repeat(4,1fr); }
     .nudge-row { grid-template-columns: 56px 1fr; }
     .nudge-note { display: none; }
   }
@@ -655,190 +322,334 @@
     <div class="header-sub">Design your case · Generate the JSON · Submit to Discord</div>
   </div>
 
-  <!-- Top notice -->
-  <div class="notice">
-    Cases built here are submitted to <strong>#communitycase</strong> on Discord as a <code>.json</code> file.
-    Once approved and added, your case enters the live rotation in <strong>!case</strong> battles and solo unboxes automatically.<br><br>
-    <span class="warn">⚠ Important — Twitch users:</span> Your username is used as your key automatically.
-    If you stream on <strong>Kick, TikTok, or YouTube</strong>, your key must be your <strong>User ID</strong>, not your display name.
-    Run <code>!id</code> in chat to get it. Using the wrong ID means commissions won't track to your account when that feature launches.
+  <!-- Tab nav -->
+  <div class="tab-nav">
+    <button class="tab-btn active" onclick="switchTab('builder')">⚙ Builder</button>
+    <button class="tab-btn" onclick="switchTab('examples')">✦ Examples</button>
   </div>
 
-  <!-- Step 1: Identity -->
-  <div class="card">
-    <div class="card-title">01 — Identity</div>
+  <!-- ═══════════════════════════════════════════════════════
+       BUILDER TAB
+       ═══════════════════════════════════════════════════════ -->
+  <div class="tab-panel active" id="tab-builder">
 
-    <div class="field">
-      <label>Platform</label>
-      <div class="platform-grid">
-        <button class="platform-btn active" data-platform="twitch" onclick="selectPlatform(this)">
-          <span class="p-icon">🟣</span>
-          <span class="p-name">Twitch</span>
-        </button>
-        <button class="platform-btn" data-platform="kick" onclick="selectPlatform(this)">
-          <span class="p-icon">🟢</span>
-          <span class="p-name">Kick</span>
-        </button>
-        <button class="platform-btn" data-platform="tiktok" onclick="selectPlatform(this)">
-          <span class="p-icon">⚫</span>
-          <span class="p-name">TikTok</span>
-        </button>
-        <button class="platform-btn" data-platform="youtube" onclick="selectPlatform(this)">
-          <span class="p-icon">🔴</span>
-          <span class="p-name">YouTube</span>
-        </button>
+    <div class="notice">
+      Cases built here are submitted to <strong>#communitycase</strong> on Discord as a <code>.json</code> file.
+      Once approved and added, your case enters the live rotation in <strong>!case</strong> battles and solo unboxes automatically.<br><br>
+      <span class="warn">⚠ Important — Twitch users:</span> Your username is used as your key automatically.
+      If you stream on <strong>Kick, TikTok, or YouTube</strong>, your key must be your <strong>User ID</strong>, not your display name.
+      Run <code>!id</code> in chat to get it. Using the wrong ID means commissions won't track to your account when that feature launches.
+    </div>
+
+    <!-- Step 1: Identity -->
+    <div class="card">
+      <div class="card-title">01 — Identity</div>
+      <div class="field">
+        <label>Platform</label>
+        <div class="platform-grid">
+          <button class="platform-btn active" data-platform="twitch" onclick="selectPlatform(this)">
+            <span class="p-icon">🟣</span><span class="p-name">Twitch</span>
+          </button>
+          <button class="platform-btn" data-platform="kick" onclick="selectPlatform(this)">
+            <span class="p-icon">🟢</span><span class="p-name">Kick</span>
+          </button>
+          <button class="platform-btn" data-platform="tiktok" onclick="selectPlatform(this)">
+            <span class="p-icon">⚫</span><span class="p-name">TikTok</span>
+          </button>
+          <button class="platform-btn" data-platform="youtube" onclick="selectPlatform(this)">
+            <span class="p-icon">🔴</span><span class="p-name">YouTube</span>
+          </button>
+        </div>
+      </div>
+      <div class="field">
+        <label id="id-label">Twitch Username</label>
+        <input type="text" id="author-input" placeholder="e.g. M9sypheR" oninput="update()">
+        <div class="id-notice" id="id-notice">
+          <strong>⚠ User ID Required</strong><br>
+          On this platform your display name won't link to your account.
+          Run <code>!id</code> in the M9 Bot chat to get your numeric User ID and paste it here.
+          Without it, commissions won't track to you when that feature launches.
+        </div>
+      </div>
+      <div class="field">
+        <label>Discord Tag <span style="color:var(--text-dim);font-size:10px;">(for submission tracking)</span></label>
+        <input type="text" id="discord-input" placeholder="e.g. m9sypher" oninput="update()">
       </div>
     </div>
 
-    <div class="field">
-      <label id="id-label">Twitch Username</label>
-      <input type="text" id="author-input" placeholder="e.g. M9sypheR" oninput="update()">
-      <div class="id-notice" id="id-notice">
-        <strong>⚠ User ID Required</strong><br>
-        On this platform your display name won't link to your account.
-        Run <code>!id</code> in the M9 Bot chat to get your numeric User ID and paste it here.
-        Without it, commissions won't track to you when that feature launches.
+    <!-- Step 2: Case Info -->
+    <div class="card">
+      <div class="card-title">02 — Case Info</div>
+      <div class="field">
+        <label>Case Name <span style="color:var(--text-dim);font-size:10px;">(no emojis · max 40 chars)</span></label>
+        <input type="text" id="case-name" maxlength="40" placeholder="e.g. Shadow Drop" oninput="update()">
       </div>
     </div>
 
-    <div class="field">
-      <label>Discord Tag <span style="color:var(--text-dim);font-size:10px;">(for submission tracking)</span></label>
-      <input type="text" id="discord-input" placeholder="e.g. m9sypher" oninput="update()">
-    </div>
-  </div>
+    <!-- Step 3: Tiers -->
+    <div class="card">
+      <div class="card-title">03 — Tier Percentages</div>
 
-  <!-- Step 2: Case Info -->
-  <div class="card">
-    <div class="card-title">02 — Case Info</div>
-    <div class="field">
-      <label>Case Name <span style="color:var(--text-dim);font-size:10px;">(no emojis · max 40 chars)</span></label>
-      <input type="text" id="case-name" maxlength="40" placeholder="e.g. Shadow Drop" oninput="update()">
-    </div>
-  </div>
+      <!-- Tier info panel (always visible) -->
+      <div class="tier-info-panel" style="margin-bottom: 18px;">
+        <div class="tier-info-header">
+          Tier reference
+          <span>max caps · multiplier bands per bracket</span>
+        </div>
+        <!-- Tier caps row -->
+        <div style="display:grid;grid-template-columns:80px repeat(7,1fr);border-bottom:1px solid var(--border);">
+          <div style="padding:8px 12px;font-family:var(--mono);font-size:10px;color:var(--text-dim);border-right:1px solid var(--border);display:flex;align-items:center;">Cap</div>
+          <div class="tier-info-col header-col">
+            <div class="tier-col-emoji">🌟</div>
+            <div class="tier-col-name t-jackpot">Jackpot</div>
+            <div class="tier-col-cap">max <strong>5%</strong></div>
+          </div>
+          <div class="tier-info-col header-col">
+            <div class="tier-col-emoji">💫</div>
+            <div class="tier-col-name t-legendary">Legendary</div>
+            <div class="tier-col-cap">max <strong>10%</strong></div>
+          </div>
+          <div class="tier-info-col header-col">
+            <div class="tier-col-emoji">👑</div>
+            <div class="tier-col-name t-epic">Epic</div>
+            <div class="tier-col-cap">max <strong>10%</strong></div>
+          </div>
+          <div class="tier-info-col header-col">
+            <div class="tier-col-emoji">💎</div>
+            <div class="tier-col-name t-rare">Rare</div>
+            <div class="tier-col-cap">max <strong>10%</strong></div>
+          </div>
+          <div class="tier-info-col header-col">
+            <div class="tier-col-emoji">🎁</div>
+            <div class="tier-col-name t-uncommon">Uncommon</div>
+            <div class="tier-col-cap">max <strong>90%</strong></div>
+          </div>
+          <div class="tier-info-col header-col">
+            <div class="tier-col-emoji">⭐</div>
+            <div class="tier-col-name t-common">Common</div>
+            <div class="tier-col-cap">max <strong>90%</strong></div>
+          </div>
+          <div class="tier-info-col header-col" style="border-right:none;">
+            <div class="tier-col-emoji">💀</div>
+            <div class="tier-col-name t-dud">Dud</div>
+            <div class="tier-col-cap">max <strong>99%</strong></div>
+          </div>
+        </div>
 
-  <!-- Step 3: Tiers -->
-  <div class="card">
-    <div class="card-title">03 — Tier Percentages</div>
+        <!-- Bracket note -->
+        <div style="padding:10px 14px;border-bottom:1px solid var(--border);font-size:11px;color:var(--text-dim);font-family:var(--mono);line-height:1.6;">
+          Bracket is auto-assigned from your <span style="color:var(--gold);">Jackpot %</span> alone.&nbsp;
+          <span class="bracket-Elite-text">Elite</span> 0.01–0.50% &nbsp;·&nbsp;
+          <span class="bracket-High-text">High</span> 0.51–1.50% &nbsp;·&nbsp;
+          <span class="bracket-Mid-text">Mid</span> 1.51–3.00% &nbsp;·&nbsp;
+          <span class="bracket-Starter-text">Starter</span> 3.01–5.00%
+          &nbsp;&nbsp;<span style="color:rgba(90,95,138,0.7);">|</span>&nbsp;&nbsp;
+          Multipliers below are <strong style="color:var(--text);">fixed ranges per bracket</strong> — they do not change based on your exact % values.
+        </div>
 
-    <div class="tier-list">
-      <div class="tier-row">
-        <div class="tier-label"><span class="tier-emoji">🌟</span><span class="t-jackpot">Jackpot</span></div>
-        <div class="tier-bar-wrap"><div class="tier-bar bar-jackpot" id="bar-t1"></div></div>
-        <div class="tier-input-wrap">
-          <input class="tier-input" type="number" id="t1" min="0.01" max="5" step="0.01" placeholder="0" oninput="update()">
-          <span class="pct-sign">%</span>
+        <!-- Multiplier table header -->
+        <div class="tier-multi-row" style="background:rgba(255,255,255,0.015);">
+          <div class="tier-multi-label" style="font-size:10px;color:var(--text-dim);font-family:var(--mono);letter-spacing:1px;font-weight:400;">BRACKET</div>
+          <div class="tier-multi-cell" style="color:var(--gold);font-size:9px;letter-spacing:1px;">JACKPOT</div>
+          <div class="tier-multi-cell" style="color:#bf7fff;font-size:9px;letter-spacing:1px;">LEGEND</div>
+          <div class="tier-multi-cell" style="color:#7ec8ff;font-size:9px;letter-spacing:1px;">EPIC</div>
+          <div class="tier-multi-cell" style="color:#4de8b0;font-size:9px;letter-spacing:1px;">RARE</div>
+          <div class="tier-multi-cell" style="color:#a0c4ff;font-size:9px;letter-spacing:1px;">UNCOMMON</div>
+          <div class="tier-multi-cell" style="color:#8899bb;font-size:9px;letter-spacing:1px;">COMMON</div>
+          <div class="tier-multi-cell" style="color:#555577;font-size:9px;letter-spacing:1px;">DUD</div>
+        </div>
+        <div class="tier-multi-row" id="mr-elite">
+          <div class="tier-multi-label bracket-Elite-text">Elite</div>
+          <div class="tier-multi-cell" data-bracket="Elite" data-tier="0">10×–22×</div>
+          <div class="tier-multi-cell" data-bracket="Elite" data-tier="1">4.0×–8.0×</div>
+          <div class="tier-multi-cell" data-bracket="Elite" data-tier="2">2.0×–3.5×</div>
+          <div class="tier-multi-cell" data-bracket="Elite" data-tier="3">0.85×–1.6×</div>
+          <div class="tier-multi-cell" data-bracket="Elite" data-tier="4">0.50×–0.9×</div>
+          <div class="tier-multi-cell" data-bracket="Elite" data-tier="5">0.45×–0.65×</div>
+          <div class="tier-multi-cell" data-bracket="Elite" data-tier="6">0.25×–0.38×</div>
+        </div>
+        <div class="tier-multi-row" id="mr-high">
+          <div class="tier-multi-label bracket-High-text">High</div>
+          <div class="tier-multi-cell" data-bracket="High" data-tier="0">7.5×–13.5×</div>
+          <div class="tier-multi-cell" data-bracket="High" data-tier="1">2.8×–5.0×</div>
+          <div class="tier-multi-cell" data-bracket="High" data-tier="2">1.35×–2.4×</div>
+          <div class="tier-multi-cell" data-bracket="High" data-tier="3">0.63×–1.12×</div>
+          <div class="tier-multi-cell" data-bracket="High" data-tier="4">0.38×–0.65×</div>
+          <div class="tier-multi-cell" data-bracket="High" data-tier="5">0.32×–0.50×</div>
+          <div class="tier-multi-cell" data-bracket="High" data-tier="6">0.15×–0.24×</div>
+        </div>
+        <div class="tier-multi-row" id="mr-mid">
+          <div class="tier-multi-label bracket-Mid-text">Mid</div>
+          <div class="tier-multi-cell" data-bracket="Mid" data-tier="0">5.0×–9.0×</div>
+          <div class="tier-multi-cell" data-bracket="Mid" data-tier="1">1.9×–3.3×</div>
+          <div class="tier-multi-cell" data-bracket="Mid" data-tier="2">0.88×–1.5×</div>
+          <div class="tier-multi-cell" data-bracket="Mid" data-tier="3">0.44×–0.78×</div>
+          <div class="tier-multi-cell" data-bracket="Mid" data-tier="4">0.25×–0.42×</div>
+          <div class="tier-multi-cell" data-bracket="Mid" data-tier="5">0.18×–0.28×</div>
+          <div class="tier-multi-cell" data-bracket="Mid" data-tier="6">0.08×–0.13×</div>
+        </div>
+        <div class="tier-multi-row" id="mr-starter" style="border-bottom:none;">
+          <div class="tier-multi-label bracket-Starter-text">Starter</div>
+          <div class="tier-multi-cell" data-bracket="Starter" data-tier="0">2.8×–5.0×</div>
+          <div class="tier-multi-cell" data-bracket="Starter" data-tier="1">1.1×–2.0×</div>
+          <div class="tier-multi-cell" data-bracket="Starter" data-tier="2">0.52×–0.92×</div>
+          <div class="tier-multi-cell" data-bracket="Starter" data-tier="3">0.27×–0.51×</div>
+          <div class="tier-multi-cell" data-bracket="Starter" data-tier="4">0.15×–0.25×</div>
+          <div class="tier-multi-cell" data-bracket="Starter" data-tier="5">0.10×–0.17×</div>
+          <div class="tier-multi-cell" data-bracket="Starter" data-tier="6">0.04×–0.08×</div>
         </div>
       </div>
-      <div class="tier-row">
-        <div class="tier-label"><span class="tier-emoji">💫</span><span class="t-legendary">Legendary</span></div>
-        <div class="tier-bar-wrap"><div class="tier-bar bar-legendary" id="bar-t2"></div></div>
-        <div class="tier-input-wrap">
-          <input class="tier-input" type="number" id="t2" min="0" max="100" step="0.01" placeholder="0" oninput="update()">
-          <span class="pct-sign">%</span>
+
+      <!-- Tier inputs -->
+      <div class="tier-list">
+        <div class="tier-row">
+          <div class="tier-label"><span class="tier-emoji">🌟</span><span class="t-jackpot">Jackpot</span></div>
+          <div class="tier-bar-wrap"><div class="tier-bar bar-jackpot" id="bar-t1"></div></div>
+          <div class="tier-input-wrap">
+            <input class="tier-input" type="number" id="t1" min="0.01" max="5" step="0.01" placeholder="0" oninput="update()">
+            <span class="pct-sign">%</span>
+          </div>
+          <div class="tier-cap-badge" id="cap-t1">max 5%</div>
+        </div>
+        <div class="tier-row">
+          <div class="tier-label"><span class="tier-emoji">💫</span><span class="t-legendary">Legendary</span></div>
+          <div class="tier-bar-wrap"><div class="tier-bar bar-legendary" id="bar-t2"></div></div>
+          <div class="tier-input-wrap">
+            <input class="tier-input" type="number" id="t2" min="0" max="10" step="0.01" placeholder="0" oninput="update()">
+            <span class="pct-sign">%</span>
+          </div>
+          <div class="tier-cap-badge" id="cap-t2">max 10%</div>
+        </div>
+        <div class="tier-row">
+          <div class="tier-label"><span class="tier-emoji">👑</span><span class="t-epic">Epic</span></div>
+          <div class="tier-bar-wrap"><div class="tier-bar bar-epic" id="bar-t3"></div></div>
+          <div class="tier-input-wrap">
+            <input class="tier-input" type="number" id="t3" min="0" max="10" step="0.01" placeholder="0" oninput="update()">
+            <span class="pct-sign">%</span>
+          </div>
+          <div class="tier-cap-badge" id="cap-t3">max 10%</div>
+        </div>
+        <div class="tier-row">
+          <div class="tier-label"><span class="tier-emoji">💎</span><span class="t-rare">Rare</span></div>
+          <div class="tier-bar-wrap"><div class="tier-bar bar-rare" id="bar-t4"></div></div>
+          <div class="tier-input-wrap">
+            <input class="tier-input" type="number" id="t4" min="0" max="10" step="0.01" placeholder="0" oninput="update()">
+            <span class="pct-sign">%</span>
+          </div>
+          <div class="tier-cap-badge" id="cap-t4">max 10%</div>
+        </div>
+        <div class="tier-row">
+          <div class="tier-label"><span class="tier-emoji">🎁</span><span class="t-uncommon">Uncommon</span></div>
+          <div class="tier-bar-wrap"><div class="tier-bar bar-uncommon" id="bar-t5"></div></div>
+          <div class="tier-input-wrap">
+            <input class="tier-input" type="number" id="t5" min="0" max="90" step="0.01" placeholder="0" oninput="update()">
+            <span class="pct-sign">%</span>
+          </div>
+          <div class="tier-cap-badge" id="cap-t5">max 90%</div>
+        </div>
+        <div class="tier-row">
+          <div class="tier-label"><span class="tier-emoji">⭐</span><span class="t-common">Common</span></div>
+          <div class="tier-bar-wrap"><div class="tier-bar bar-common" id="bar-t6"></div></div>
+          <div class="tier-input-wrap">
+            <input class="tier-input" type="number" id="t6" min="0" max="90" step="0.01" placeholder="0" oninput="update()">
+            <span class="pct-sign">%</span>
+          </div>
+          <div class="tier-cap-badge" id="cap-t6">max 90%</div>
+        </div>
+        <div class="tier-row">
+          <div class="tier-label"><span class="tier-emoji">💀</span><span class="t-dud">Dud</span></div>
+          <div class="tier-bar-wrap"><div class="tier-bar bar-dud" id="bar-t7"></div></div>
+          <div class="tier-input-wrap">
+            <input class="tier-input" type="number" id="t7" min="0" max="99" step="0.01" placeholder="0" oninput="update()">
+            <span class="pct-sign">%</span>
+          </div>
+          <div class="tier-cap-badge" id="cap-t7">max 99%</div>
         </div>
       </div>
-      <div class="tier-row">
-        <div class="tier-label"><span class="tier-emoji">👑</span><span class="t-epic">Epic</span></div>
-        <div class="tier-bar-wrap"><div class="tier-bar bar-epic" id="bar-t3"></div></div>
-        <div class="tier-input-wrap">
-          <input class="tier-input" type="number" id="t3" min="0" max="100" step="0.01" placeholder="0" oninput="update()">
-          <span class="pct-sign">%</span>
+
+      <!-- Total bar -->
+      <div class="total-area">
+        <div class="total-row">
+          <span class="total-label">Total</span>
+          <span class="total-value under" id="total-value">0.00%</span>
         </div>
+        <div class="total-track"><div class="total-fill" id="total-fill"></div></div>
+        <div class="total-msg" id="total-msg" style="color:var(--text-dim);">Enter percentages above — must total exactly 100%</div>
       </div>
-      <div class="tier-row">
-        <div class="tier-label"><span class="tier-emoji">💎</span><span class="t-rare">Rare</span></div>
-        <div class="tier-bar-wrap"><div class="tier-bar bar-rare" id="bar-t4"></div></div>
-        <div class="tier-input-wrap">
-          <input class="tier-input" type="number" id="t4" min="0" max="100" step="0.01" placeholder="0" oninput="update()">
-          <span class="pct-sign">%</span>
-        </div>
+
+      <!-- Bracket preview -->
+      <div class="bracket-preview">
+        <div class="bracket-tag bracket-none" id="bracket-tag">—</div>
+        <div class="bracket-desc" id="bracket-desc">Bracket assigned from Jackpot %</div>
       </div>
-      <div class="tier-row">
-        <div class="tier-label"><span class="tier-emoji">🎁</span><span class="t-uncommon">Uncommon</span></div>
-        <div class="tier-bar-wrap"><div class="tier-bar bar-uncommon" id="bar-t5"></div></div>
-        <div class="tier-input-wrap">
-          <input class="tier-input" type="number" id="t5" min="0" max="100" step="0.01" placeholder="0" oninput="update()">
-          <span class="pct-sign">%</span>
-        </div>
-      </div>
-      <div class="tier-row">
-        <div class="tier-label"><span class="tier-emoji">⭐</span><span class="t-common">Common</span></div>
-        <div class="tier-bar-wrap"><div class="tier-bar bar-common" id="bar-t6"></div></div>
-        <div class="tier-input-wrap">
-          <input class="tier-input" type="number" id="t6" min="0" max="100" step="0.01" placeholder="0" oninput="update()">
-          <span class="pct-sign">%</span>
-        </div>
-      </div>
-      <div class="tier-row">
-        <div class="tier-label"><span class="tier-emoji">💀</span><span class="t-dud">Dud</span></div>
-        <div class="tier-bar-wrap"><div class="tier-bar bar-dud" id="bar-t7"></div></div>
-        <div class="tier-input-wrap">
-          <input class="tier-input" type="number" id="t7" min="0" max="100" step="0.01" placeholder="0" oninput="update()">
-          <span class="pct-sign">%</span>
+
+      <!-- Bracket nudge -->
+      <div class="bracket-nudge" id="bracket-nudge">
+        <div class="nudge-title" id="nudge-title"></div>
+        <div class="nudge-body" id="nudge-body"></div>
+        <div class="nudge-table">
+          <div class="nudge-row">
+            <span class="nudge-bracket bracket-Elite-text">Elite</span>
+            <span class="nudge-range">Jackpot 0.01 – 0.50%</span>
+            <span class="nudge-note">Rarest jackpot · highest multipliers · big wager battles</span>
+          </div>
+          <div class="nudge-row">
+            <span class="nudge-bracket bracket-High-text">High</span>
+            <span class="nudge-range">Jackpot 0.51 – 1.50%</span>
+            <span class="nudge-note">Uncommon jackpot · strong multipliers</span>
+          </div>
+          <div class="nudge-row">
+            <span class="nudge-bracket bracket-Mid-text">Mid</span>
+            <span class="nudge-range">Jackpot 1.51 – 3.00%</span>
+            <span class="nudge-note">Moderate jackpot · balanced multipliers</span>
+          </div>
+          <div class="nudge-row">
+            <span class="nudge-bracket bracket-Starter-text">Starter</span>
+            <span class="nudge-range">Jackpot 3.01 – 5.00%</span>
+            <span class="nudge-note">Most frequent jackpot · lower multipliers · low wager battles</span>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- Total bar -->
-    <div class="total-area">
-      <div class="total-row">
-        <span class="total-label">Total</span>
-        <span class="total-value under" id="total-value">0.00%</span>
+    <!-- Step 4: Preview & Export -->
+    <div class="card">
+      <div class="card-title">04 — Preview &amp; Export</div>
+      <div class="json-preview" id="json-preview">// Fill in your details above to generate the JSON</div>
+      <div class="btn-row">
+        <button class="btn btn-primary" id="btn-download" onclick="downloadJSON()" disabled>⬇ Download .json</button>
+        <button class="btn btn-secondary" onclick="copyJSON()">⧉ Copy to Clipboard</button>
       </div>
-      <div class="total-track">
-        <div class="total-fill" id="total-fill"></div>
-      </div>
-      <div class="total-msg" id="total-msg" style="color:var(--text-dim);">Enter percentages above — must total exactly 100%</div>
-    </div>
-
-    <!-- Bracket preview -->
-    <div class="bracket-preview">
-      <div class="bracket-tag bracket-none" id="bracket-tag">—</div>
-      <div class="bracket-desc" id="bracket-desc">Bracket assigned from Jackpot %</div>
-    </div>
-
-    <!-- Bracket nudge -->
-    <div class="bracket-nudge" id="bracket-nudge">
-      <div class="nudge-title" id="nudge-title"></div>
-      <div class="nudge-body" id="nudge-body"></div>
-      <div class="nudge-table">
-        <div class="nudge-row">
-          <span class="nudge-bracket bracket-Elite-text">Elite</span>
-          <span class="nudge-range">Jackpot 0.01 – 0.50%</span>
-          <span class="nudge-note">Rarest jackpot · highest multipliers · big wager battles</span>
-        </div>
-        <div class="nudge-row">
-          <span class="nudge-bracket bracket-High-text">High</span>
-          <span class="nudge-range">Jackpot 0.51 – 1.50%</span>
-          <span class="nudge-note">Uncommon jackpot · strong multipliers</span>
-        </div>
-        <div class="nudge-row">
-          <span class="nudge-bracket bracket-Mid-text">Mid</span>
-          <span class="nudge-range">Jackpot 1.51 – 3.00%</span>
-          <span class="nudge-note">Moderate jackpot · balanced multipliers</span>
-        </div>
-        <div class="nudge-row">
-          <span class="nudge-bracket bracket-Starter-text">Starter</span>
-          <span class="nudge-range">Jackpot 3.01 – 5.00%</span>
-          <span class="nudge-note">Most frequent jackpot · lower multipliers · low wager battles</span>
-        </div>
+      <div class="submit-note">
+        Once downloaded, upload the <strong>.json file</strong> to <strong>#communitycase</strong> in the Discord.<br>
+        Do not rename the file — the filename is used as the case ID.
       </div>
     </div>
-  </div>
 
-  <!-- Step 4: Preview & Export -->
-  <div class="card">
-    <div class="card-title">04 — Preview &amp; Export</div>
-    <div class="json-preview" id="json-preview">// Fill in your details above to generate the JSON</div>
-    <div class="btn-row">
-      <button class="btn btn-primary" id="btn-download" onclick="downloadJSON()" disabled>⬇ Download .json</button>
-      <button class="btn btn-secondary" onclick="copyJSON()">⧉ Copy to Clipboard</button>
+  </div><!-- end #tab-builder -->
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       EXAMPLES TAB
+       ═══════════════════════════════════════════════════════ -->
+  <div class="tab-panel" id="tab-examples">
+    <div class="card" style="animation-delay:0.1s;">
+      <div class="card-title">Example Builds</div>
+      <p class="examples-intro">
+        These are curated example cases showing different bracket strategies. Click <strong>Use this build</strong> to load any example into the builder — then change the name and identity to make it yours.
+        <br><br>
+        <strong>Remember:</strong> Multipliers are <strong>fixed per bracket</strong>, not per percentage. Choosing Elite vs Starter changes your whole multiplier band, not just Jackpot payouts.
+      </p>
+      <div class="example-filters">
+        <button class="filter-btn active" onclick="filterExamples('all', this)">All</button>
+        <button class="filter-btn" onclick="filterExamples('Elite', this)">Elite</button>
+        <button class="filter-btn" onclick="filterExamples('High', this)">High</button>
+        <button class="filter-btn" onclick="filterExamples('Mid', this)">Mid</button>
+        <button class="filter-btn" onclick="filterExamples('Starter', this)">Starter</button>
+      </div>
+      <div class="examples-grid" id="examples-grid"></div>
     </div>
-    <div class="submit-note">
-      Once downloaded, upload the <strong>.json file</strong> to <strong>#communitycase</strong> in the Discord.<br>
-      Do not rename the file — the filename is used as the case ID.
-    </div>
-  </div>
+  </div><!-- end #tab-examples -->
 
 </div>
 
@@ -846,32 +657,101 @@
 // ── State ──────────────────────────────────────────────────────
 let currentPlatform = 'twitch';
 
-const BRACKET_MULTIS = {
-  Elite:   { Jackpot:[10,22],     Legendary:[4.0,8.0],  Epic:[2.0,3.5],   Rare:[0.85,1.60], Uncommon:[0.50,0.90], Common:[0.45,0.65], Dud:[0.25,0.38] },
-  High:    { Jackpot:[7.5,13.5],  Legendary:[2.8,5.0],  Epic:[1.35,2.40], Rare:[0.63,1.12], Uncommon:[0.38,0.65], Common:[0.32,0.50], Dud:[0.15,0.24] },
-  Mid:     { Jackpot:[5.0,9.0],   Legendary:[1.9,3.3],  Epic:[0.88,1.50], Rare:[0.44,0.78], Uncommon:[0.25,0.42], Common:[0.18,0.28], Dud:[0.08,0.13] },
-  Starter: { Jackpot:[2.8,5.0],   Legendary:[1.1,2.0],  Epic:[0.52,0.92], Rare:[0.27,0.51], Uncommon:[0.15,0.25], Common:[0.10,0.17], Dud:[0.04,0.08] },
-};
-
+const TIER_CAPS   = [5, 10, 10, 10, 90, 90, 99];
 const TIER_LABELS = ['Jackpot','Legendary','Epic','Rare','Uncommon','Common','Dud'];
 const TIER_IDS    = ['t1','t2','t3','t4','t5','t6','t7'];
 
-// ── Platform select ────────────────────────────────────────────
+const BRACKET_MULTIS = {
+  Elite:   { Jackpot:[10,22],     Legendary:[4.0,8.0],  Epic:[2.0,3.5],   Rare:[0.85,1.60], Uncommon:[0.50,0.90], Common:[0.45,0.65], Dud:[0.25,0.38]  },
+  High:    { Jackpot:[7.5,13.5],  Legendary:[2.8,5.0],  Epic:[1.35,2.40], Rare:[0.63,1.12], Uncommon:[0.38,0.65], Common:[0.32,0.50], Dud:[0.15,0.24]  },
+  Mid:     { Jackpot:[5.0,9.0],   Legendary:[1.9,3.3],  Epic:[0.88,1.50], Rare:[0.44,0.78], Uncommon:[0.25,0.42], Common:[0.18,0.28], Dud:[0.08,0.13]  },
+  Starter: { Jackpot:[2.8,5.0],   Legendary:[1.1,2.0],  Epic:[0.52,0.92], Rare:[0.27,0.51], Uncommon:[0.15,0.25], Common:[0.10,0.17], Dud:[0.04,0.08]  },
+};
+
+// ── Example case library ─────────────────────────────────────
+const EXAMPLES = [
+  {
+    name: 'Shadow Elite',
+    bracket: 'Elite',
+    style: 'High Risk',
+    tiers: [0.10, 2.00, 5.00, 7.90, 25.00, 35.00, 25.00],
+    desc: 'Ultra-rare Jackpot at 0.10% — only the most dedicated high-rollers will crack it. Sky-high multipliers across every tier. Designed for maximum tension in big wager battles (7,500+ pts).'
+  },
+  {
+    name: 'Apex Predator',
+    bracket: 'Elite',
+    style: 'Balanced Elite',
+    tiers: [0.40, 3.50, 6.10, 10.00, 20.00, 40.00, 20.00],
+    desc: 'Still firmly Elite but slightly more generous. Jackpot at 0.40% — hits roughly once every 250 pulls. Legendary and Epic are meaningful without being impossible.'
+  },
+  {
+    name: 'Neon Heist',
+    bracket: 'High',
+    style: 'Action-Packed',
+    tiers: [1.00, 4.00, 8.00, 10.00, 22.00, 35.00, 20.00],
+    desc: 'Jackpot at exactly 1% — clean and memorable. High bracket means strong multipliers without needing whale-level wagers. Great for mid-tier battles (1,500–7,499 pts).'
+  },
+  {
+    name: 'Crimson Vault',
+    bracket: 'High',
+    style: 'Rare-Weighted',
+    tiers: [0.75, 2.00, 4.25, 8.00, 25.00, 40.00, 20.00],
+    desc: 'Skewed toward Rare and Uncommon — regular players feel the difference between tiers. Jackpot rare enough to generate hype without being punishing.'
+  },
+  {
+    name: 'Midnight Drop',
+    bracket: 'Mid',
+    style: 'Community Pick',
+    tiers: [2.00, 5.00, 8.00, 10.00, 20.00, 35.00, 20.00],
+    desc: 'The sweet spot. Jackpot at 2% means regulars will see it happen live. Mid bracket covers battles from 300–1,499 pts and solo unboxes from 20–99 pts — great reach for active communities.'
+  },
+  {
+    name: 'Glitch Protocol',
+    bracket: 'Mid',
+    style: 'Dud-Heavy',
+    tiers: [1.75, 3.25, 5.00, 7.00, 13.00, 25.00, 45.00],
+    desc: 'Heavy Dud tier adds drama — most pulls feel painful, which makes Jackpots and Legendaries feel incredible. High-variance vibes, still Mid bracket multipliers.'
+  },
+  {
+    name: 'Starter Pack',
+    bracket: 'Starter',
+    style: 'Beginner-Friendly',
+    tiers: [5.00, 8.00, 9.00, 10.00, 18.00, 30.00, 20.00],
+    desc: 'Max Jackpot at 5% — hits every 20 pulls on average. Lowest bracket but also the most accessible. Appears in any battle under 300 pts and solo unboxes under 20 pts. Perfect for new or small communities.'
+  },
+  {
+    name: 'Daily Driver',
+    bracket: 'Starter',
+    style: 'Low Variance',
+    tiers: [3.50, 6.50, 8.00, 10.00, 22.00, 30.00, 20.00],
+    desc: 'Slightly rarer Jackpot than max Starter — still very approachable. Comfortable for everyday viewers who casually spend 5–15 pts. Everyone can participate.'
+  },
+];
+
+// ── Tab switching ─────────────────────────────────────────────
+function switchTab(tab) {
+  document.querySelectorAll('.tab-btn').forEach((b,i) => {
+    b.classList.toggle('active', (i===0 && tab==='builder') || (i===1 && tab==='examples'));
+  });
+  document.getElementById('tab-builder').classList.toggle('active', tab==='builder');
+  document.getElementById('tab-examples').classList.toggle('active', tab==='examples');
+  if (tab==='examples') renderExamples('all');
+}
+
+// ── Platform select ───────────────────────────────────────────
 function selectPlatform(btn) {
   document.querySelectorAll('.platform-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   currentPlatform = btn.dataset.platform;
-
   const label  = document.getElementById('id-label');
   const notice = document.getElementById('id-notice');
   const input  = document.getElementById('author-input');
-
   if (currentPlatform === 'twitch') {
     label.textContent = 'Twitch Username';
     input.placeholder = 'e.g. M9sypheR';
     notice.classList.remove('show');
   } else {
-    const names = { kick: 'Kick', tiktok: 'TikTok', youtube: 'YouTube' };
+    const names = { kick:'Kick', tiktok:'TikTok', youtube:'YouTube' };
     label.textContent = `${names[currentPlatform]} User ID`;
     input.placeholder = 'Run !id in chat to get your numeric ID';
     notice.classList.add('show');
@@ -879,7 +759,7 @@ function selectPlatform(btn) {
   update();
 }
 
-// ── Bracket logic ──────────────────────────────────────────────
+// ── Bracket logic ─────────────────────────────────────────────
 function getBracket(jackpot) {
   if (jackpot <= 0)    return null;
   if (jackpot <= 0.50) return 'Elite';
@@ -889,163 +769,172 @@ function getBracket(jackpot) {
   return null;
 }
 
-// ── Ticket thresholds ──────────────────────────────────────────
+// ── Ticket thresholds ─────────────────────────────────────────
 function buildThresholds(pcts) {
-  const total = 999999;
-  let running = 0;
-  const out = {};
-  TIER_LABELS.forEach((label, i) => {
-    running += (pcts[i] / 100) * total;
-    out[label] = Math.round(running);
-  });
+  const total = 999999; let running = 0; const out = {};
+  TIER_LABELS.forEach((label, i) => { running += (pcts[i]/100)*total; out[label] = Math.round(running); });
   out['Dud'] = total;
   return out;
 }
 
-// ── Syntax highlight JSON ──────────────────────────────────────
+// ── Syntax highlight JSON ─────────────────────────────────────
 function highlight(json) {
   return json
-    .replace(/("[\w]+")\s*:/g, '<span class="key">$1</span>:')
-    .replace(/:\s*(".*?")/g, ': <span class="str">$1</span>')
-    .replace(/:\s*(\d+\.?\d*)/g, ': <span class="num">$1</span>')
-    .replace(/:\s*(true|false)/g, ': <span class="bool">$1</span>');
+    .replace(/("[\w]+")\s*:/g,'<span class="key">$1</span>:')
+    .replace(/:\s*(".*?")/g,': <span class="str">$1</span>')
+    .replace(/:\s*(\d+\.?\d*)/g,': <span class="num">$1</span>')
+    .replace(/:\s*(true|false)/g,': <span class="bool">$1</span>');
 }
 
-// ── Emoji detection ────────────────────────────────────────────
-function hasEmoji(str) {
-  return /[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE00}-\u{FEFF}]/u.test(str);
+function hasEmoji(str) { return /[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE00}-\u{FEFF}]/u.test(str); }
+
+// ── Highlight active bracket row in multiplier table ──────────
+function highlightMultiTable(bracket) {
+  document.querySelectorAll('.tier-multi-cell').forEach(cell => {
+    cell.classList.toggle('active-bracket-cell', cell.dataset.bracket === bracket);
+  });
+  ['Elite','High','Mid','Starter'].forEach(b => {
+    const row = document.getElementById('mr-' + b.toLowerCase());
+    if (row) row.style.background = (b === bracket) ? 'rgba(108,99,255,0.06)' : '';
+  });
 }
 
-// ── Main update ────────────────────────────────────────────────
+// ── Main update ───────────────────────────────────────────────
 function update() {
   const author   = document.getElementById('author-input').value.trim();
   const caseName = document.getElementById('case-name').value.trim();
   const discord  = document.getElementById('discord-input').value.trim();
 
-  // Tier values
   const pcts = TIER_IDS.map(id => {
     const v = parseFloat(document.getElementById(id).value);
     return isNaN(v) ? 0 : v;
   });
 
-  // Tier bars
+  // Tier bars + cap badges
   TIER_IDS.forEach((id, i) => {
-    const bar = document.getElementById('bar-' + id);
-    bar.style.width = Math.min(pcts[i], 100) + '%';
+    const bar  = document.getElementById('bar-' + id);
+    const cap  = document.getElementById('cap-' + id);
+    const maxPct = TIER_CAPS[i];
+    bar.style.width = Math.min((pcts[i] / maxPct) * 100, 100) + '%';
+    if (pcts[i] > maxPct) {
+      cap.textContent = `⚠ max ${maxPct}%`;
+      cap.className = 'tier-cap-badge cap-warn';
+    } else if (pcts[i] > 0 && pcts[i] <= maxPct) {
+      cap.textContent = `✓ ${pcts[i].toFixed(2)}% / ${maxPct}%`;
+      cap.className = 'tier-cap-badge cap-ok';
+    } else {
+      cap.textContent = `max ${maxPct}%`;
+      cap.className = 'tier-cap-badge';
+    }
   });
 
   // Total
-  const total     = parseFloat(pcts.reduce((a, b) => a + b, 0).toFixed(4));
-  const totalEl   = document.getElementById('total-value');
-  const fillEl    = document.getElementById('total-fill');
-  const msgEl     = document.getElementById('total-msg');
-  const dlBtn     = document.getElementById('btn-download');
+  const total   = parseFloat(pcts.reduce((a,b)=>a+b,0).toFixed(4));
+  const totalEl = document.getElementById('total-value');
+  const fillEl  = document.getElementById('total-fill');
+  const msgEl   = document.getElementById('total-msg');
+  const dlBtn   = document.getElementById('btn-download');
 
   totalEl.textContent = total.toFixed(2) + '%';
   fillEl.style.width  = Math.min(total, 100) + '%';
+  totalEl.className   = 'total-value ' + (total===100?'ok':total>100?'over':'under');
+  fillEl.className    = 'total-fill '  + (total>100?'over':total===100?'ok':'');
 
-  totalEl.className = 'total-value ' + (total === 100 ? 'ok' : total > 100 ? 'over' : 'under');
-  fillEl.className  = 'total-fill '  + (total > 100 ? 'over' : total === 100 ? 'ok' : '');
+  // Cap violations
+  const capViolations = pcts.map((p,i) => p > TIER_CAPS[i]);
+  const anyCap = capViolations.some(Boolean);
 
-  if (total === 100) {
+  if (anyCap) {
+    const violated = capViolations.map((v,i)=>v?TIER_LABELS[i]:null).filter(Boolean).join(', ');
+    msgEl.textContent = `⚠ ${violated} exceeds cap — check limits above`;
+    msgEl.style.color = 'var(--red)';
+  } else if (total===100) {
     msgEl.textContent = '✓ Total is exactly 100% — good to go';
     msgEl.style.color = 'var(--green)';
-  } else if (total > 100) {
-    msgEl.textContent = `Over by ${(total - 100).toFixed(2)}% — reduce a tier`;
+  } else if (total>100) {
+    msgEl.textContent = `Over by ${(total-100).toFixed(2)}% — reduce a tier`;
     msgEl.style.color = 'var(--red)';
   } else {
-    const rem = (100 - total).toFixed(2);
-    msgEl.textContent = rem > 0 ? `${rem}% remaining` : 'Enter percentages above — must total exactly 100%';
+    const rem = (100-total).toFixed(2);
+    msgEl.textContent = rem>0 ? `${rem}% remaining` : 'Enter percentages above — must total exactly 100%';
     msgEl.style.color = 'var(--text-dim)';
   }
 
-  // Jackpot cap warning
-  if (pcts[0] > 5) {
-    msgEl.textContent = '⚠ Jackpot cannot exceed 5% — lower it to continue';
-    msgEl.style.color = 'var(--red)';
-  }
-
   // Bracket
-  const bracket    = getBracket(pcts[0]);
-  const bracketTag = document.getElementById('bracket-tag');
+  const bracket     = getBracket(pcts[0]);
+  const bracketTag  = document.getElementById('bracket-tag');
   const bracketDesc = document.getElementById('bracket-desc');
-
   const bracketDescs = {
     Elite:   'Jackpot 0.01–0.50% — highest multiplier bands',
     High:    'Jackpot 0.51–1.50% — high multiplier bands',
     Mid:     'Jackpot 1.51–3.00% — mid multiplier bands',
     Starter: 'Jackpot 3.01–5.00% — starter multiplier bands',
   };
-
   if (bracket) {
-    bracketTag.className = `bracket-tag bracket-${bracket}`;
+    bracketTag.className   = `bracket-tag bracket-${bracket}`;
     bracketTag.textContent = bracket;
     bracketDesc.textContent = bracketDescs[bracket];
   } else {
-    bracketTag.className = 'bracket-tag bracket-none';
+    bracketTag.className   = 'bracket-tag bracket-none';
     bracketTag.textContent = '—';
     bracketDesc.textContent = 'Bracket assigned from Jackpot %';
   }
+
+  highlightMultiTable(bracket);
 
   // Bracket nudge
   const nudge      = document.getElementById('bracket-nudge');
   const nudgeTitle = document.getElementById('nudge-title');
   const nudgeBody  = document.getElementById('nudge-body');
   const nudgeRows  = document.querySelectorAll('.nudge-row');
-  const bracketOrder = ['Elite','High','Mid','Starter'];
-  const nudgeTitles = {
-    Elite  : '⚠ Heads up — you are building an Elite case',
-    High   : 'You are building a High bracket case',
-    Mid    : 'You are building a Mid bracket case',
-    Starter: 'You are building a Starter bracket case',
-  };
+  const nudgeTitles = { Elite:'⚠ Heads up — you are building an Elite case', High:'You are building a High bracket case', Mid:'You are building a Mid bracket case', Starter:'You are building a Starter bracket case' };
   const nudgeBodies = {
     Elite  : 'A low Jackpot % feels natural — jackpots should be rare. But in this system a rare jackpot means Elite bracket, which only appears in the biggest wager battles (7,500+ pts) and solo unboxes at 350+ pts. Most viewers will never see your case unless they are high spenders. If you want it to appear more often, raise your Jackpot % toward 1–3%.',
     High   : 'High bracket cases appear in battles with a 1,500–7,499 pt total wager and solo unboxes at 100–349 pts. Good middle ground — seen by regular players without requiring massive wagers.',
     Mid    : 'Mid bracket cases appear in battles with a 300–1,499 pt total wager and solo unboxes at 20–99 pts. Great reach — most active players will encounter this.',
     Starter: 'Starter bracket cases appear in any battle under 300 pts total wager and solo unboxes under 20 pts. Maximum exposure — seen by everyone including new viewers.',
   };
-
-  if (bracket && pcts[0] > 0) {
+  if (bracket && pcts[0]>0) {
     nudge.classList.add('show');
     nudgeTitle.textContent = nudgeTitles[bracket];
-    nudgeTitle.style.color = { Elite:'#ffd700', High:'#bf7fff', Mid:'#4de8b0', Starter:'#a0c4ff' }[bracket];
+    nudgeTitle.style.color = {Elite:'#ffd700',High:'#bf7fff',Mid:'#4de8b0',Starter:'#a0c4ff'}[bracket];
     nudgeBody.textContent  = nudgeBodies[bracket];
     nudgeRows.forEach(row => {
       const rowBracket = row.querySelector('.nudge-bracket').textContent.trim();
-      row.classList.toggle('active-row', rowBracket === bracket);
+      row.classList.toggle('active-row', rowBracket===bracket);
     });
   } else {
     nudge.classList.remove('show');
   }
 
   // Validation
-  const nameOk    = caseName.length >= 2 && caseName.length <= 40 && !hasEmoji(caseName);
-  const authorOk  = author.length >= 1;
-  const totalOk   = total === 100;
-  const jackpotOk = pcts[0] > 0 && pcts[0] <= 5;
-  const valid     = nameOk && authorOk && totalOk && jackpotOk && bracket;
+  const nameOk    = caseName.length>=2 && caseName.length<=40 && !hasEmoji(caseName);
+  const authorOk  = author.length>=1;
+  const totalOk   = total===100;
+  const jackpotOk = pcts[0]>0 && pcts[0]<=5;
+  const capsOk    = !anyCap;
+  const valid     = nameOk && authorOk && totalOk && jackpotOk && capsOk && bracket;
 
   dlBtn.disabled = !valid;
 
-  // Build JSON
   if (!valid) {
     const issues = [];
-    if (!authorOk)              issues.push('// ⚠ Add your ' + (currentPlatform === 'twitch' ? 'username' : 'User ID'));
-    if (!nameOk && caseName.length < 2) issues.push('// ⚠ Add a case name');
-    if (nameOk === false && hasEmoji(caseName)) issues.push('// ⚠ Remove emojis from case name');
-    if (!jackpotOk && pcts[0] > 5)   issues.push('// ⚠ Jackpot over 5% cap');
-    if (!totalOk)               issues.push(`// ⚠ Total is ${total.toFixed(2)}% — must be 100%`);
+    if (!authorOk) issues.push('// ⚠ Add your ' + (currentPlatform==='twitch'?'username':'User ID'));
+    if (!nameOk && caseName.length<2) issues.push('// ⚠ Add a case name');
+    if (!nameOk && hasEmoji(caseName)) issues.push('// ⚠ Remove emojis from case name');
+    if (!jackpotOk && pcts[0]>5) issues.push('// ⚠ Jackpot over 5% cap');
+    if (anyCap && !(!jackpotOk && pcts[0]>5)) issues.push('// ⚠ One or more tiers over their cap — check the reference table');
+    if (!totalOk) issues.push(`// ⚠ Total is ${total.toFixed(2)}% — must be 100%`);
     document.getElementById('json-preview').innerHTML = issues.join('\n') || '// Fill in your details above to generate the JSON';
     return;
   }
 
-  const authorKey    = `${currentPlatform}_${author.toLowerCase().replace(/\s+/g, '_')}`;
+  const authorKey    = `${currentPlatform}_${author.toLowerCase().replace(/\s+/g,'_')}`;
   const tierPercents = {};
-  TIER_LABELS.forEach((l, i) => tierPercents[l] = pcts[i]);
+  TIER_LABELS.forEach((l,i) => tierPercents[l] = pcts[i]);
   const multis       = BRACKET_MULTIS[bracket];
   const thresholds   = buildThresholds(pcts);
-  const fileName     = caseName.toLowerCase().replace(/\s+/g, '_').replace(/[^a-z0-9_-]/g, '');
+  const fileName     = caseName.toLowerCase().replace(/\s+/g,'_').replace(/[^a-z0-9_-]/g,'');
 
   const json = {
     name             : caseName,
@@ -1061,14 +950,13 @@ function update() {
 
   window._currentJSON     = JSON.stringify(json, null, 2);
   window._currentFileName = fileName + '.json';
-
   document.getElementById('json-preview').innerHTML = highlight(window._currentJSON);
 }
 
-// ── Download ───────────────────────────────────────────────────
+// ── Download ──────────────────────────────────────────────────
 function downloadJSON() {
   if (!window._currentJSON) return;
-  const blob = new Blob([window._currentJSON], { type: 'application/json' });
+  const blob = new Blob([window._currentJSON], { type:'application/json' });
   const a    = document.createElement('a');
   a.href     = URL.createObjectURL(blob);
   a.download = window._currentFileName;
@@ -1076,7 +964,7 @@ function downloadJSON() {
   URL.revokeObjectURL(a.href);
 }
 
-// ── Copy ───────────────────────────────────────────────────────
+// ── Copy ──────────────────────────────────────────────────────
 function copyJSON() {
   const text = window._currentJSON || document.getElementById('json-preview').textContent;
   navigator.clipboard.writeText(text).then(() => {
@@ -1085,12 +973,80 @@ function copyJSON() {
     btn.textContent = '✓ Copied!';
     btn.style.color = 'var(--green)';
     btn.style.borderColor = 'var(--green)';
-    setTimeout(() => {
-      btn.textContent = orig;
-      btn.style.color = '';
-      btn.style.borderColor = '';
-    }, 2000);
+    setTimeout(() => { btn.textContent = orig; btn.style.color=''; btn.style.borderColor=''; }, 2000);
   });
+}
+
+// ── Load example into builder ─────────────────────────────────
+function loadExample(idx) {
+  const ex = EXAMPLES[idx];
+  switchTab('builder');
+  ex.tiers.forEach((pct, i) => {
+    document.getElementById(TIER_IDS[i]).value = pct;
+  });
+  // Clear name/author so user fills their own
+  document.getElementById('case-name').value = '';
+  document.getElementById('author-input').value = '';
+  document.getElementById('discord-input').value = '';
+  update();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ── Examples rendering ────────────────────────────────────────
+const TIER_EMOJIS = ['🌟','💫','👑','💎','🎁','⭐','💀'];
+const TIER_SHORT  = ['Jack','Leg','Epic','Rare','Uncom','Com','Dud'];
+const TIER_COLORS = ['#ffd700','#bf7fff','#7ec8ff','#4de8b0','#a0c4ff','#8899bb','#555577'];
+
+let currentFilter = 'all';
+
+function filterExamples(bracket, btn) {
+  currentFilter = bracket;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderExamples(bracket);
+}
+
+function renderExamples(filter) {
+  const grid = document.getElementById('examples-grid');
+  const filtered = filter==='all' ? EXAMPLES : EXAMPLES.filter(e=>e.bracket===filter);
+  const bracketColors = { Elite:'#ffd700', High:'#bf7fff', Mid:'#4de8b0', Starter:'#a0c4ff' };
+  const bracketBgs    = { Elite:'rgba(255,215,0,0.08)', High:'rgba(191,127,255,0.08)', Mid:'rgba(77,232,176,0.08)', Starter:'rgba(160,196,255,0.08)' };
+  const multis        = BRACKET_MULTIS;
+
+  grid.innerHTML = filtered.map((ex, fi) => {
+    const realIdx = EXAMPLES.indexOf(ex);
+    const bc = bracketColors[ex.bracket];
+    const bb = bracketBgs[ex.bracket];
+    const tierStrip = ex.tiers.map((pct, i) => `
+      <div class="ex-tier-cell">
+        <span class="ex-tier-emoji">${TIER_EMOJIS[i]}</span>
+        <span class="ex-tier-name" style="color:${TIER_COLORS[i]}">${TIER_SHORT[i]}</span>
+        <span class="ex-tier-pct" style="color:${TIER_COLORS[i]}">${pct}%</span>
+      </div>
+    `).join('');
+
+    // Show multiplier bands for this bracket
+    const m = multis[ex.bracket];
+    const multiStr = `Jackpot ${m.Jackpot[0]}×–${m.Jackpot[1]}× &nbsp;·&nbsp; Legendary ${m.Legendary[0]}×–${m.Legendary[1]}× &nbsp;·&nbsp; Epic ${m.Epic[0]}×–${m.Epic[1]}× &nbsp;·&nbsp; Rare ${m.Rare[0]}×–${m.Rare[1]}×`;
+
+    return `
+      <div class="example-card" style="animation:fadeUp 0.4s ${fi*0.05}s ease both;">
+        <div class="example-card-top">
+          <div>
+            <div class="example-card-name">${ex.name}</div>
+            <div class="example-card-badge-row">
+              <span class="ex-bracket-tag" style="color:${bc};border-color:${bc};background:${bb};">${ex.bracket}</span>
+              <span class="ex-style-tag">${ex.style}</span>
+            </div>
+          </div>
+          <button class="example-card-use-btn" onclick="loadExample(${realIdx})">Use this build ↗</button>
+        </div>
+        <div class="example-tier-strip">${tierStrip}</div>
+        <div class="multi-note">Multipliers: ${multiStr}</div>
+        <div class="example-card-desc">${ex.desc}</div>
+      </div>
+    `;
+  }).join('');
 }
 
 // Init
