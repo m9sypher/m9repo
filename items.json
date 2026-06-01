@@ -638,21 +638,6 @@
     "difference": "+10.7991"
   },
   {
-    "skinName": "M4A1-S | Basilisk (FT)",
-    "marketHashName": "M4A1-S | Basilisk (Field-Tested)",
-    "price": 1096.4363,
-    "buyCmd": "!basilisk1",
-    "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8ypexwjFS4_ega6F_H_GCMWrEwL9lj-NoXCC_nA4sjDCAnobsLGWXbgEnC8RzEOUOuxS7w9S0P77k7g3e2dgWzn-oiSlLuCw967wBB6F35OSJ2FhRctFB/330x192?allow_animated=1",
-    "markupPercent": 75,
-    "markupLock": false,
-    "cachedAt": "05/31/26, 03:48 PM",
-    "popularityIndex": 0,
-    "marketActivity": 42,
-    "lockAPIscrape": 1780268014597,
-    "isgame": 0,
-    "difference": "-5.1187"
-  },
-  {
     "skinName": "Glock-18 | Candy Apple (FN)",
     "marketHashName": "Glock-18 | Candy Apple (Factory New)",
     "price": 571.1062,
