@@ -558,22 +558,6 @@
     "difference": "-677.975"
   },
   {
-    "skinName": "Garry's Mod",
-    "marketHashName": "Garry's Mod",
-    "appId": 4000,
-    "price": 1002.99,
-    "buyCmd": "!gmod1",
-    "imageUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4000/header.jpg?t=1776868682",
-    "markupPercent": 275,
-    "markupLock": false,
-    "cachedAt": "06/12/26, 03:01 PM",
-    "popularityIndex": 0,
-    "marketActivity": 100,
-    "lockAPIscrape": 1781301979991,
-    "isgame": 1,
-    "difference": "-467.8125"
-  },
-  {
     "skinName": "Dreams & Nightmares Case",
     "marketHashName": "Dreams & Nightmares Case",
     "price": 120.198,
