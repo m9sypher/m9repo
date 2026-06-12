@@ -573,21 +573,6 @@
     "difference": "-0.4485"
   },
   {
-    "skinName": "StatTrak™ Zeus x27 | Olympus (FT)",
-    "marketHashName": "StatTrak™ Zeus x27 | Olympus (Field-Tested)",
-    "price": 608.7472,
-    "buyCmd": "!zeus1",
-    "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLln4Xl7x1B6ue9V7BlNf6XC3WvxuFyj-xsSyCmmFMk52SBw9qhJH6QOlAhWcEjQ-8I5BOwxNDlN-LntAyMg91DziWth3tI8G81tJsBsl6E/330x192?allow_animated=1",
-    "markupPercent": 42,
-    "markupLock": false,
-    "cachedAt": "06/12/26, 03:36 PM",
-    "popularityIndex": 0,
-    "marketActivity": 100,
-    "lockAPIscrape": 1781304080141,
-    "isgame": 0,
-    "difference": "-2.2748"
-  },
-  {
     "skinName": "Glock-18 | Candy Apple (FN)",
     "marketHashName": "Glock-18 | Candy Apple (Factory New)",
     "price": 553.3968,
