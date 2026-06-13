@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M9SypheR — Chat Rules</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:        #0e0e10;
+    --surface:   #161618;
+    --border:    #2a2a2e;
+    --border-hi: #3e3e44;
+    --text:      #d4d4d8;
+    --muted:     #71717a;
+    --red:       #e5383b;
+    --red-dim:   #7f1d1f;
+    --amber:     #f59e0b;
+    --amber-dim: #78350f;
+    --green:     #22c55e;
+    --green-dim: #14532d;
+    --white:     #f4f4f5;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Barlow', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    position: relative;
+    padding: 56px 32px 40px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+  }
+
+  .header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(229,56,59,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .header-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    color: var(--red);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .header-tag::before,
+  .header-tag::after {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--red);
+    opacity: 0.5;
+  }
+
+  .header-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(40px, 7vw, 72px);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .header-title span {
+    color: var(--red);
+  }
+
+  .header-sub {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    margin-top: 14px;
+  }
+
+  .header-sub strong {
+    color: var(--amber);
+  }
+
+  /* ── MAIN LAYOUT ── */
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+
+  /* ── SECTION LABEL ── */
+  .section-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ── RULE CARD ── */
+  .rule-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid transparent;
+    border-radius: 4px;
+    padding: 20px 22px;
+    margin-bottom: 10px;
+    display: grid;
+    grid-template-columns: 36px 1fr auto;
+    gap: 16px;
+    align-items: start;
+    transition: border-color 0.15s, background 0.15s;
+    position: relative;
+  }
+
+  .rule-card:hover {
+    border-color: var(--border-hi);
+    background: #1a1a1d;
+  }
+
+  .rule-card.severity-ban {
+    border-left-color: var(--red);
+  }
+
+  .rule-card.severity-ban:hover {
+    border-left-color: var(--red);
+  }
+
+  .rule-card.severity-warn {
+    border-left-color: var(--amber);
+  }
+
+  .rule-card.severity-note {
+    border-left-color: #3f3f46;
+  }
+
+  .rule-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--muted);
+    padding-top: 1px;
+    text-align: right;
+  }
+
+  .rule-body {}
+
+  .rule-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+
+  .rule-desc {
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.55;
+  }
+
+  .rule-desc em {
+    color: var(--muted);
+    font-style: normal;
+    font-size: 13px;
+  }
+
+  .badge {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 3px;
+    white-space: nowrap;
+    margin-top: 2px;
+  }
+
+  .badge-ban {
+    background: var(--red-dim);
+    color: var(--red);
+    border: 1px solid rgba(229,56,59,0.3);
+  }
+
+  .badge-warn {
+    background: var(--amber-dim);
+    color: var(--amber);
+    border: 1px solid rgba(245,158,11,0.3);
+  }
+
+  .badge-note {
+    background: #27272a;
+    color: var(--muted);
+    border: 1px solid var(--border);
+  }
+
+  /* ── PENALTY TABLE ── */
+  .penalty-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    margin-bottom: 40px;
+    overflow: hidden;
+  }
+
+  .penalty-header {
+    background: #1a1a1d;
+    border-bottom: 1px solid var(--border);
+    padding: 14px 22px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .penalty-header-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+
+  .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--red);
+    flex-shrink: 0;
+  }
+
+  .dot.amber { background: var(--amber); }
+  .dot.green { background: var(--green); }
+
+  .penalty-row {
+    display: grid;
+    grid-template-columns: 32px 1fr 160px;
+    gap: 16px;
+    align-items: center;
+    padding: 14px 22px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .penalty-row:last-child { border-bottom: none; }
+
+  .penalty-step {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--muted);
+    text-align: center;
+  }
+
+  .penalty-label {
+    font-size: 14px;
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  .penalty-label span {
+    font-size: 12px;
+    color: var(--muted);
+    display: block;
+    margin-top: 1px;
+  }
+
+  .penalty-action {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    text-align: right;
+    letter-spacing: 0.06em;
+  }
+
+  .action-warn   { color: var(--amber); }
+  .action-mute   { color: #a78bfa; }
+  .action-ban    { color: var(--red); }
+  .action-perma  { color: var(--red); text-decoration: underline; text-decoration-style: dotted; }
+
+  /* ── BOT NOTE ── */
+  .bot-note {
+    background: #111113;
+    border: 1px solid var(--border);
+    border-left: 3px solid #6366f1;
+    border-radius: 4px;
+    padding: 16px 20px;
+    margin-bottom: 40px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+
+  .bot-icon {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    color: #6366f1;
+    white-space: nowrap;
+    padding-top: 2px;
+  }
+
+  .bot-text {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .bot-text strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    border-top: 1px solid var(--border);
+    padding: 28px 32px;
+    text-align: center;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+  }
+
+  .footer strong { color: var(--red); }
+
+  /* ── SPACER ── */
+  .section-gap { margin-bottom: 36px; }
+
+  @media (max-width: 540px) {
+    .rule-card { grid-template-columns: 28px 1fr; }
+    .badge { display: none; }
+    .penalty-row { grid-template-columns: 24px 1fr 90px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-tag">M9SypheR — Chat Directives</div>
+  <h1 class="header-title">Chat <span>Rules</span></h1>
+  <p class="header-sub">Enforced by moderators &amp; <strong>M9_BOT</strong> &nbsp;·&nbsp; Last updated June 2025</p>
+</header>
+
+<main class="container">
+
+  <!-- PENALTY LADDER -->
+  <div class="section-label">Enforcement Ladder</div>
+
+  <div class="penalty-box section-gap">
+    <div class="penalty-header">
+      <div class="dot"></div>
+      <div class="penalty-header-title">Standard Violation Track</div>
+    </div>
+    <div class="penalty-row">
+      <div class="penalty-step">1</div>
+      <div class="penalty-label">First offence <span>Initial acknowledgement from mod or bot</span></div>
+      <div class="penalty-action action-warn">WARNING</div>
+    </div>
+    <div class="penalty-row">
+      <div class="penalty-step">2</div>
+      <div class="penalty-label">Second offence <span>Short cooldown enforced</span></div>
+      <div class="penalty-action action-mute">MUTE · 10 min</div>
+    </div>
+    <div class="penalty-row">
+      <div class="penalty-step">3</div>
+      <div class="penalty-label">Third offence <span>Extended timeout</span></div>
+      <div class="penalty-action action-mute">MUTE · 1 hr</div>
+    </div>
+    <div class="penalty-row">
+      <div class="penalty-step">4</div>
+      <div class="penalty-label">Fourth offence — pattern confirmed <span>No further chances</span></div>
+      <div class="penalty-action action-perma">PERMA-BAN</div>
+    </div>
+  </div>
+
+  <!-- BOT NOTE -->
+  <div class="bot-note section-gap">
+    <div class="bot-icon">M9_BOT</div>
+    <div class="bot-text">
+      <strong>M9_BOT (m9_bot)</strong> runs AutoMod and may issue mutes or bans automatically if it catches a violation. 
+      Not every message is guaranteed to be caught — human mods are the final authority. 
+      Bot actions are logged and reviewable. If you believe an action was incorrect, message a mod directly.
+    </div>
+  </div>
+
+  <!-- RULES: ZERO TOLERANCE -->
+  <div class="section-label">Zero Tolerance — Immediate Action</div>
+
+  <div class="rule-card severity-ban">
+    <div class="rule-num">01</div>
+    <div class="rule-body">
+      <div class="rule-title">Country / Nationality Hatred</div>
+      <div class="rule-desc">
+        No hatred, mockery, or discrimination targeting someone's country or nationality. 
+        CS is a global game — this chat is global. You can talk trash about a match, not about where someone is from. 
+        <em>Violations follow the standard ladder: warn → mute → mute → perma-ban.</em>
+      </div>
+    </div>
+    <div class="badge badge-ban">⚠ Ladder</div>
+  </div>
+
+  <div class="rule-card severity-ban">
+    <div class="rule-num">02</div>
+    <div class="rule-body">
+      <div class="rule-title">Racism, Hate Speech &amp; Slurs</div>
+      <div class="rule-desc">
+        Racism, hate speech, and slurs targeting race, ethnicity, religion, or identity are an instant ban. 
+        No ladder, no warnings — you're gone. <em>M9_BOT will act if it catches it; mods will act if it doesn't.</em>
+      </div>
+    </div>
+    <div class="badge badge-ban">Instant Ban</div>
+  </div>
+
+  <div class="rule-card severity-ban section-gap">
+    <div class="rule-num">03</div>
+    <div class="rule-body">
+      <div class="rule-title">Threats &amp; Targeted Harassment</div>
+      <div class="rule-desc">
+        No threats or sustained harassment toward any viewer, mod, or the streamer. 
+        Joking with someone is fine; going after them is not. We'll know the difference.
+      </div>
+    </div>
+    <div class="badge badge-ban">Instant Ban</div>
+  </div>
+
+  <!-- RULES: MODERATED -->
+  <div class="section-label">Moderated — Ladder Applies</div>
+
+  <div class="rule-card severity-warn">
+    <div class="rule-num">04</div>
+    <div class="rule-body">
+      <div class="rule-title">Disrespect &amp; Trash Talk</div>
+      <div class="rule-desc">
+        This is a CS chat — some banter is part of the culture and is allowed. Push it past the line 
+        (personal attacks, sustained targeting of one person, or crossing into the above categories) 
+        and moderation will step in. We decide where the line is. <em>When mods act, respect it.</em>
+      </div>
+    </div>
+    <div class="badge badge-warn">Use Judgment</div>
+  </div>
+
+  <div class="rule-card severity-warn">
+    <div class="rule-num">05</div>
+    <div class="rule-body">
+      <div class="rule-title">NSFW / Adult Content</div>
+      <div class="rule-desc">
+        Keep it out of chat. This applies to text, links, and anything that would get the stream flagged.
+      </div>
+    </div>
+    <div class="badge badge-warn">Ladder</div>
+  </div>
+
+  <div class="rule-card severity-warn">
+    <div class="rule-num">06</div>
+    <div class="rule-body">
+      <div class="rule-title">Spam &amp; Repeated Messages</div>
+      <div class="rule-desc">
+        No spam, copypasta floods, or copy-pasting the same message repeatedly. 
+        <em>M9_BOT has flood detection — it will catch it.</em>
+      </div>
+    </div>
+    <div class="badge badge-warn">Ladder</div>
+  </div>
+
+  <div class="rule-card severity-warn section-gap">
+    <div class="rule-num">07</div>
+    <div class="rule-body">
+      <div class="rule-title">Self-Promo, Ads &amp; Channel Links</div>
+      <div class="rule-desc">
+        Don't advertise your own channel, other streams, or third-party services in chat without permission. 
+        <em>Ask a mod first if you're unsure.</em>
+      </div>
+    </div>
+    <div class="badge badge-warn">Ladder</div>
+  </div>
+
+  <!-- RULES: NOTES -->
+  <div class="section-label">House Notes</div>
+
+  <div class="rule-card severity-note">
+    <div class="rule-num">08</div>
+    <div class="rule-body">
+      <div class="rule-title">Points — Don't Beg</div>
+      <div class="rule-desc">
+        Points are earned passively for watching. Don't beg for them, ask for handouts, or spam point commands. 
+        <em>M9_BOT tracks begging. It's not a good look.</em>
+      </div>
+    </div>
+    <div class="badge badge-note">Note</div>
+  </div>
+
+  <div class="rule-card severity-note">
+    <div class="rule-num">09</div>
+    <div class="rule-body">
+      <div class="rule-title">Mini-Modding</div>
+      <div class="rule-desc">
+        Don't try to moderate other chatters yourself. If someone breaks a rule, let the mods or M9_BOT handle it. 
+        Unsolicited policing is annoying for everyone.
+      </div>
+    </div>
+    <div class="badge badge-note">Note</div>
+  </div>
+
+  <div class="rule-card severity-note">
+    <div class="rule-num">10</div>
+    <div class="rule-body">
+      <div class="rule-title">Mods &amp; Streamer Have Final Say</div>
+      <div class="rule-desc">
+        Moderators and M9SypheR reserve the right to act at any time, including outside these rules, 
+        if something disrupts the stream or community. This is not a courtroom.
+      </div>
+    </div>
+    <div class="badge badge-note">Always</div>
+  </div>
+
+</main>
+
+<footer class="footer">
+  M9SYPHER &nbsp;·&nbsp; m9_bot active &nbsp;·&nbsp; <strong>Violate the rules, face the consequences.</strong>
+</footer>
+
+</body>
+</html>
