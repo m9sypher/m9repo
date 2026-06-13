@@ -347,21 +347,6 @@
     "difference": "-5.9925"
   },
   {
-    "skinName": "StatTrak™ Desert Eagle | Corinthian (FT)",
-    "marketHashName": "StatTrak™ Desert Eagle | Corinthian (Field-Tested)",
-    "price": 113.8272,
-    "buyCmd": "!deag2",
-    "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL1m5fn8Sdk7uORbKFsJ_yWMWSf0-d4pOlgTieMmBgjuiiI1NiuJX7Cbw9xXJshR-RY5hO5wNTgNuzn4A3Y2NkXxCv_jHka7y5usOocEf1ykShuajs/330x192?allow_animated=1",
-    "markupPercent": 0,
-    "markupLock": false,
-    "cachedAt": "06/12/26, 05:02 PM",
-    "popularityIndex": 0,
-    "marketActivity": 79,
-    "lockAPIscrape": 1781309276724,
-    "isgame": 0,
-    "difference": "-0.426"
-  },
-  {
     "skinName": "StatTrak™ Negev | dev_texture (FT)",
     "marketHashName": "StatTrak™ Negev | dev_texture (Field-Tested)",
     "price": 40.08,
