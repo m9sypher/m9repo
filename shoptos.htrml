@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>M9Bot Support — Points, Trades & Giveaways</title>
+<style>
+  /* ── Palette ─────────────────────────────────────────────── */
+  :root {
+    --bg-page:       #1b2838;
+    --bg-panel:      #c6d4df;
+    --bg-panel-dark: #16202d;
+    --bg-sidebar:    #2a475e;
+    --bg-sidebar-h:  #1b2838;
+    --bg-content:    #dce3e8;
+    --bg-header:     #171a21;
+    --bg-breadcrumb: #1e3141;
+    --bg-notice:     #1e3141;
+    --bg-warning:    #3d2a1e;
+    --bg-caution:    #2e1e1e;
+    --bg-tip:        #1e2d1e;
+
+    --accent-blue:   #66c0f4;
+    --accent-blue-d: #4b8cbf;
+    --accent-green:  #a3cf6f;
+    --accent-orange: #e88b2a;
+    --accent-red:    #c94040;
+
+    --text-light:    #c6d4df;
+    --text-dim:      #8ba3b5;
+    --text-content:  #2a3f50;
+    --text-heading:  #1a2c3d;
+    --text-label:    #4d7899;
+
+    --border-subtle: rgba(103,153,190,.25);
+    --border-panel:  #4d7899;
+
+    --nav-h: 56px;
+    --sidebar-w: 240px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: "Motiva Sans", Arial, "Helvetica Neue", sans-serif;
+    background: var(--bg-page);
+    color: var(--text-light);
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  /* ── Top nav ─────────────────────────────────────────────── */
+  .top-nav {
+    background: var(--bg-header);
+    height: var(--nav-h);
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    gap: 12px;
+    border-bottom: 1px solid rgba(103,153,190,.2);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .top-nav .steam-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+  .steam-logo svg { width: 32px; height: 32px; fill: var(--text-dim); }
+  .steam-logo-text {
+    font-size: 22px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+  }
+  .nav-sep {
+    width: 1px; height: 28px;
+    background: rgba(103,153,190,.3);
+    margin: 0 8px;
+  }
+  .nav-label {
+    color: var(--text-dim);
+    font-size: 13px;
+    letter-spacing: .5px;
+  }
+
+
+  /* ── Breadcrumb ──────────────────────────────────────────── */
+  .breadcrumb {
+    background: var(--bg-breadcrumb);
+    padding: 10px 24px;
+    font-size: 11px;
+    color: var(--text-dim);
+    border-bottom: 1px solid rgba(103,153,190,.15);
+  }
+  .breadcrumb a { color: var(--accent-blue); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .breadcrumb span { margin: 0 6px; opacity: .5; }
+
+  /* ── Layout ──────────────────────────────────────────────── */
+  .page-shell {
+    display: flex;
+    min-height: calc(100vh - var(--nav-h) - 40px);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px 40px;
+    gap: 0;
+  }
+
+  /* ── Sidebar ─────────────────────────────────────────────── */
+  .sidebar {
+    width: var(--sidebar-w);
+    flex-shrink: 0;
+    padding: 20px 0 20px 0;
+    padding-right: 12px;
+  }
+  .sidebar-title {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    padding: 0 12px 8px;
+    border-bottom: 1px solid var(--border-subtle);
+    margin-bottom: 8px;
+  }
+  .sidebar nav a {
+    display: block;
+    padding: 7px 12px;
+    font-size: 12px;
+    color: var(--text-light);
+    text-decoration: none;
+    border-left: 2px solid transparent;
+    transition: background .12s, border-color .12s, color .12s;
+  }
+  .sidebar nav a:hover {
+    background: var(--bg-sidebar);
+    color: var(--accent-blue);
+    border-left-color: var(--accent-blue-d);
+  }
+  .sidebar nav a.active {
+    background: var(--bg-sidebar);
+    border-left-color: var(--accent-blue);
+    color: var(--accent-blue);
+  }
+  .sidebar-section-label {
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    padding: 14px 12px 4px;
+    opacity: .7;
+  }
+
+  /* ── Content panel ───────────────────────────────────────── */
+  .content-wrap {
+    flex: 1;
+    min-width: 0;
+    padding: 20px 0 20px 24px;
+    border-left: 1px solid var(--border-subtle);
+  }
+
+  .article-header {
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border-subtle);
+    margin-bottom: 24px;
+  }
+  .article-eyebrow {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent-blue-d);
+    margin-bottom: 6px;
+  }
+  .article-title {
+    font-size: 26px;
+    font-weight: 300;
+    color: #fff;
+    letter-spacing: .3px;
+    line-height: 1.2;
+  }
+  .article-meta {
+    margin-top: 8px;
+    font-size: 11px;
+    color: var(--text-dim);
+  }
+
+  /* ── Sections ────────────────────────────────────────────── */
+  .section {
+    background: rgba(22,32,45,.6);
+    border: 1px solid var(--border-subtle);
+    border-radius: 3px;
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+  .section-header {
+    background: var(--bg-sidebar);
+    padding: 12px 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid rgba(103,153,190,.2);
+  }
+  .section-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    opacity: .85;
+  }
+  .section-title {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .6px;
+    text-transform: uppercase;
+    color: var(--accent-blue);
+  }
+  .section-anchor {
+    margin-left: auto;
+    font-size: 10px;
+    color: var(--text-dim);
+    letter-spacing: 1px;
+  }
+  .section-body {
+    padding: 18px 20px;
+    color: var(--text-light);
+    font-size: 13px;
+    line-height: 1.75;
+  }
+
+  /* Prose inside section-body */
+  .section-body p { margin-bottom: 12px; }
+  .section-body p:last-child { margin-bottom: 0; }
+  .section-body strong { color: #fff; font-weight: 600; }
+  .section-body em { color: var(--accent-blue); font-style: normal; }
+
+  /* Sub-headings inside sections */
+  .sub-h {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--accent-blue-d);
+    margin: 18px 0 8px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .sub-h:first-child { margin-top: 0; }
+
+  /* Rules list */
+  .rules-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 12px;
+  }
+  .rules-list li {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    padding: 7px 0;
+    border-bottom: 1px solid rgba(103,153,190,.1);
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .rules-list li:last-child { border-bottom: none; }
+  .rule-num {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    background: var(--accent-blue-d);
+    border-radius: 50%;
+    font-size: 10px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    margin-top: 1px;
+  }
+
+  /* Callout boxes */
+  .callout {
+    border-radius: 3px;
+    padding: 12px 14px;
+    margin: 14px 0;
+    font-size: 12.5px;
+    line-height: 1.6;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .callout-icon { flex-shrink: 0; font-size: 15px; margin-top: 1px; }
+  .callout.info    { background: var(--bg-notice);  border-left: 3px solid var(--accent-blue); }
+  .callout.warn    { background: var(--bg-warning); border-left: 3px solid var(--accent-orange); }
+  .callout.danger  { background: var(--bg-caution); border-left: 3px solid var(--accent-red); }
+  .callout.tip     { background: var(--bg-tip);     border-left: 3px solid var(--accent-green); }
+  .callout.info  .callout-text  { color: var(--text-light); }
+  .callout.warn  .callout-text  { color: #d4a96a; }
+  .callout.danger .callout-text { color: #d4807e; }
+  .callout.tip   .callout-text  { color: #9fc87a; }
+  .callout strong { color: inherit; font-weight: 700; }
+
+  /* Tier table */
+  .tier-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0 14px;
+    font-size: 12.5px;
+  }
+  .tier-table th {
+    background: var(--bg-sidebar);
+    color: var(--accent-blue);
+    text-align: left;
+    padding: 8px 12px;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .tier-table td {
+    padding: 8px 12px;
+    border-bottom: 1px solid rgba(103,153,190,.1);
+    color: var(--text-light);
+    vertical-align: top;
+  }
+  .tier-table tr:last-child td { border-bottom: none; }
+  .tier-table tr:hover td { background: rgba(103,153,190,.05); }
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 2px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+  }
+  .badge-orange { background: rgba(232,139,42,.2); color: var(--accent-orange); border: 1px solid rgba(232,139,42,.35); }
+  .badge-red    { background: rgba(201,64,64,.2);  color: #e07070;              border: 1px solid rgba(201,64,64,.35); }
+  .badge-grey   { background: rgba(103,153,190,.15); color: var(--text-dim);    border: 1px solid var(--border-subtle); }
+  .badge-perm   { background: rgba(80,20,20,.5);   color: #ff6b6b;              border: 1px solid rgba(201,64,64,.5); }
+
+  /* URL example block */
+  .url-block {
+    background: var(--bg-panel-dark);
+    border: 1px solid var(--border-subtle);
+    border-radius: 2px;
+    padding: 10px 14px;
+    font-family: "Consolas", "Courier New", monospace;
+    font-size: 11.5px;
+    color: var(--accent-green);
+    word-break: break-all;
+    margin: 10px 0;
+  }
+  .url-block .url-label {
+    display: block;
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    color: var(--text-dim);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+
+  /* Points display */
+  .points-display {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 10px;
+    margin: 12px 0;
+  }
+  .points-card {
+    background: var(--bg-panel-dark);
+    border: 1px solid var(--border-subtle);
+    border-radius: 3px;
+    padding: 12px 14px;
+  }
+  .points-card-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-dim);
+    margin-bottom: 4px;
+  }
+  .points-card-value {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--accent-blue);
+  }
+  .points-card-sub {
+    font-size: 11px;
+    color: var(--text-dim);
+    margin-top: 2px;
+  }
+
+  /* Inline code */
+  code {
+    background: rgba(22,32,45,.8);
+    border: 1px solid var(--border-subtle);
+    border-radius: 2px;
+    padding: 1px 5px;
+    font-family: "Consolas", monospace;
+    font-size: 12px;
+    color: var(--accent-green);
+  }
+
+  /* Divider */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border-subtle);
+    margin: 20px 0;
+  }
+
+  /* Footer */
+  .page-footer {
+    background: var(--bg-header);
+    border-top: 1px solid rgba(103,153,190,.15);
+    padding: 20px 40px;
+    text-align: center;
+    font-size: 11px;
+    color: var(--text-dim);
+    line-height: 1.8;
+  }
+  .page-footer a { color: var(--accent-blue-d); text-decoration: none; }
+
+  /* Scroll-to-top */
+  a.back-top {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 11px;
+    color: var(--accent-blue-d);
+    text-decoration: none;
+    letter-spacing: .5px;
+  }
+  a.back-top:hover { color: var(--accent-blue); }
+
+  @media (max-width: 720px) {
+    .sidebar { display: none; }
+    .content-wrap { padding-left: 0; border-left: none; }
+    .page-shell { padding: 0 12px 32px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── Top navigation ── -->
+<div class="top-nav">
+  <a class="steam-logo" href="#">
+    <svg viewBox="0 0 233 233" xmlns="http://www.w3.org/2000/svg">
+      <path d="M116.5 0C52.1 0 0 52.1 0 116.5c0 55.4 38.7 101.8 90.7 113.4L137 116.5c0-43.7 35.4-79.2 79.2-79.2C214.1 37.3 168 0 116.5 0z"/>
+      <path d="M216.2 37.3c-43.8 0-79.2 35.5-79.2 79.2 0 43.7 35.4 79.2 79.2 79.2s79.2-35.5 79.2-79.2-35.5-79.2-79.2-79.2zm0 121.1c-23.1 0-41.9-18.8-41.9-41.9s18.8-41.9 41.9-41.9S258.1 93 258.1 116.1s-18.8 41.3-41.9 41.3z"/>
+      <path d="M86.3 160.4l-20-8.3c3.5 7.2 9.4 13.2 17 16.6 17.1 7.6 37.2-.1 44.8-17.2 3.7-8.3 3.8-17.4.5-25.5l-20.2-8.4c4.6-1.7 9.7-2 14.7.2 7.5 3.1 12.8 9.8 14.4 17.5l18.5 7.7C152.4 126.7 137 109 116.5 109c-5.7 0-11.1 1.3-16 3.6l.1.1-14.3-5.9C80.7 91 67.8 82 53.2 82c-24.5 0-44.3 19.8-44.3 44.3 0 21.4 15.2 39.3 35.5 43.3l41.9 17.3z"/>
+    </svg>
+    <span class="steam-logo-text">Support</span>
+  </a>
+  <div class="nav-sep"></div>
+  <span class="nav-label">M9Bot — Stream Rules &amp; Policies</span>
+
+</div>
+
+<!-- ── Breadcrumb ── -->
+<div class="breadcrumb">
+  <a href="#">Support</a><span>›</span>
+  <a href="#">M9Bot</a><span>›</span>
+  Points, Trades &amp; Giveaway Policies
+</div>
+
+<!-- ── Page shell ── -->
+<div class="page-shell">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-title">On This Page</div>
+    <nav>
+      <a href="#points" class="active">Point System</a>
+      <a href="#earning">Earning Points</a>
+      <a href="#spending">Spending Points</a>
+      <a href="#trades">Item Trades</a>
+      <a href="#tradeurl">Trade URL Setup</a>
+      <a href="#tradeurl-rules">Trade URL Rules</a>
+      <a href="#final">All Sales Final</a>
+      <a href="#tradebans">Trade Bans</a>
+      <a href="#ban-tiers">Ban Tiers</a>
+      <a href="#giveaway">Giveaways</a>
+      <a href="#giveaway-entry">How to Enter</a>
+      <a href="#giveaway-claim">Claiming a Prize</a>
+    </nav>
+    <div class="sidebar-section-label" style="margin-top:24px;">Quick Links</div>
+    <nav>
+      <a href="#">Stream — Twitch</a>
+      <a href="#">Stream — Kick</a>
+      <a href="#">Trade URL Help</a>
+    </nav>
+  </aside>
+
+  <!-- Main content -->
+  <main class="content-wrap">
+
+    <div class="article-header">
+      <div class="article-eyebrow">M9Bot Documentation</div>
+      <h1 class="article-title">Points, Item Trades &amp; Giveaway Policies</h1>
+      <div class="article-meta">
+        Applies to: Twitch · Kick · TikTok · YouTube &nbsp;|&nbsp;
+        Last updated: June 2025 &nbsp;|&nbsp;
+        Version: 2.0
+      </div>
+    </div>
+
+    <div class="callout info">
+      <span class="callout-icon">ℹ</span>
+      <div class="callout-text">
+        These rules govern the M9Bot point economy, CS2 skin trade system, and stream giveaways.
+        By participating in any of these features, you agree to all policies on this page.
+        Moderators enforce these rules at their discretion.
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!--  SECTION 1 — POINT SYSTEM                     -->
+    <!-- ══════════════════════════════════════════════ -->
+    <div class="section" id="points">
+      <div class="section-header">
+        <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="#66c0f4" stroke-width="1.8">
+          <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+        </svg>
+        <span class="section-title">Point System Overview</span>
+        <span class="section-anchor">§ 1</span>
+      </div>
+      <div class="section-body">
+
+        <p>
+          M9Bot operates a <strong>stream point economy</strong> across all supported platforms.
+          Points are the currency of the channel — they are earned by participating in chat,
+          supporting the stream, and engaging with interactive features. Points have <strong>no
+          real-world monetary value</strong> and cannot be transferred between accounts.
+        </p>
+
+        <div class="sub-h" id="earning">How Points Are Earned</div>
+
+        <div class="points-display">
+          <div class="points-card">
+            <div class="points-card-label">Watching</div>
+            <div class="points-card-value">Passive</div>
+            <div class="points-card-sub">Points accumulate while you're in chat during a live stream.</div>
+          </div>
+          <div class="points-card">
+            <div class="points-card-label">Chatting</div>
+            <div class="points-card-value">Per Message</div>
+            <div class="points-card-sub">Active chatters earn bonus points for engaging with the stream.</div>
+          </div>
+          <div class="points-card">
+            <div class="points-card-label">Supporting</div>
+            <div class="points-card-value">Bonus</div>
+            <div class="points-card-sub">Subs, Bits, Gifts, TikTok Diamonds — supporting grants extra point multipliers and exclusive perks.</div>
+          </div>
+          <div class="points-card">
+            <div class="points-card-label">Minigames</div>
+            <div class="points-card-value">Win / Lose</div>
+            <div class="points-card-sub">Gambling minigames (roulette, slots, blackjack, case battles) can multiply or reduce your balance.</div>
+          </div>
+        </div>
+
+        <p>
+          Point rates may fluctuate based on the <strong>live shop multiplier</strong>, which is
+          displayed on-screen during the stream. The multiplier adjusts automatically based on
+          shop activity and can rise during periods of low spending. The current multiplier is
+          always visible in the stream overlay.
+        </p>
+
+        <div class="sub-h" id="spending">Spending Points</div>
+
+        <ul class="rules-list">
+          <li>
+            <span class="rule-num">1</span>
+            <span>Points can be spent in the <strong>M9Bot Point Shop</strong> to purchase CS2 skins, which are then delivered to your Steam inventory via automated trade offer.</span>
+          </li>
+          <li>
+            <span class="rule-num">2</span>
+            <span>Points can be wagered in <strong>chat minigames</strong> including roulette, slots, blackjack, case openings, case battles, and the towers climbing game.</span>
+          </li>
+          <li>
+            <span class="rule-num">3</span>
+            <span>Points can be used for <strong>channel point redemptions</strong> on Twitch where applicable.</span>
+          </li>
+          <li>
+            <span class="rule-num">4</span>
+            <span>Points can also be used to submit <strong>item offers</strong> — proposing your own CS2 items to the bot in exchange for a points payout via the <code>!offer</code> system.</span>
+          </li>
+          <li>
+            <span class="rule-num">5</span>
+            <span>Points <strong>do not expire</strong> while the stream is active, but M9Bot reserves the right to wipe or adjust balances in the event of abuse or system error.</span>
+          </li>
+        </ul>
+
+        <div class="callout tip">
+          <span class="callout-icon">✦</span>
+          <div class="callout-text">
+            <strong>Supporter Perks:</strong> Subscribers, VIPs, channel supporters, and TikTok gifters receive
+            bonus point rates, reduced cooldowns, and are exempt from certain message-threshold requirements
+            across the bot's trade and giveaway features.
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!--  SECTION 2 — ITEM TRADES                      -->
+    <!-- ══════════════════════════════════════════════ -->
+    <div class="section" id="trades">
+      <div class="section-header">
+        <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="#66c0f4" stroke-width="1.8">
+          <path d="M7 16V4m0 0L3 8m4-4l4 4M17 8v12m0 0l4-4m-4 4l-4-4"/>
+        </svg>
+        <span class="section-title">Item Trades for Points</span>
+        <span class="section-anchor">§ 2</span>
+      </div>
+      <div class="section-body">
+
+        <p>
+          M9Bot's point shop allows viewers to spend accumulated points to receive <strong>real CS2 skins</strong>
+          delivered directly to their Steam inventory via automated trade offer. The following rules
+          govern all shop purchases and item deliveries. Read them carefully before making any purchase.
+        </p>
+
+        <div class="sub-h" id="tradeurl">Setting Up Your Trade URL</div>
+
+        <p>
+          To receive items purchased in the M9Bot shop, you <strong>must provide a valid Steam Trade URL</strong>.
+          This URL links your Steam account to your chat identity so the bot can send trade offers directly
+          to your inventory. Your Trade URL is required before any purchase can be processed.
+        </p>
+
+        <p>A valid Steam Trade URL looks exactly like this:</p>
+
+        <div class="url-block">
+          <span class="url-label">Required format — Steam Trade URL</span>
+          https://steamcommunity.com/tradeoffer/new/?partner=<em style="color:#66c0f4">XXXXXXXXX</em>&amp;token=<em style="color:#66c0f4">XXXXXXXXX</em>
+        </div>
+
+        <ul class="rules-list">
+          <li>
+            <span class="rule-num">1</span>
+            <span>Your Trade URL must be obtained from your own Steam account under <strong>Profile → Trade Offers → Who can send me Trade Offers</strong>. Do not use a URL from any other source.</span>
+          </li>
+          <li>
+            <span class="rule-num">2</span>
+            <span>The Trade URL must contain both a <code>partner=</code> value and a <code>token=</code> value. Incomplete or malformed URLs will be rejected and your purchase cannot proceed until corrected.</span>
+          </li>
+          <li>
+            <span class="rule-num">3</span>
+            <span>You must ensure your Steam account is set to <strong>accept trade offers</strong> and that you are not trade-restricted on Steam's side (e.g. Steam Guard hold, Steam trade ban). M9Bot cannot bypass Steam-side restrictions.</span>
+          </li>
+          <li>
+            <span class="rule-num">4</span>
+            <span>If your Trade URL changes (e.g. you regenerate your Steam token), you must re-submit your new URL before future purchases. Trades sent to an outdated URL may fail and cannot be reissued.</span>
+          </li>
+          <li>
+            <span class="rule-num">5</span>
+            <span>Your Trade URL is linked to your chat identity and stored securely by M9Bot. Attempting to use a Trade URL that belongs to a <strong>different person's Steam account</strong> is a serious violation — see Trade Ban policy.</span>
+          </li>
+        </ul>
+
+        <div class="callout warn">
+          <span class="callout-icon">⚠</span>
+          <div class="callout-text">
+            <strong>Never share your Steam login credentials</strong> to obtain a Trade URL.
+            Your Trade URL is found in your Steam settings and does <em>not</em> require your password.
+            M9Bot staff will never ask for your Steam password, Steam Guard code, or API key.
+          </div>
+        </div>
+
+        <div class="sub-h" id="tradeurl-rules">Trade URL Rules</div>
+
+        <ul class="rules-list">
+          <li>
+            <span class="rule-num">1</span>
+            <span><strong>One Trade URL per account.</strong> Your Trade URL must consistently correspond to the same Steam account. Swapping your Trade URL to a different Steam account after it has been registered is not permitted.</span>
+          </li>
+          <li>
+            <span class="rule-num">2</span>
+            <span><strong>Do not paste someone else's Trade URL.</strong> Submitting a Trade URL that does not belong to your Steam account — regardless of how it was obtained — will result in an immediate trade ban. The trade will be voided and no refund will be issued.</span>
+          </li>
+          <li>
+            <span class="rule-num">3</span>
+            <span><strong>Expired or invalid tokens.</strong> If your Steam trade token has been regenerated and your saved URL is outdated, inform a moderator before attempting to re-submit. Simply re-submitting may be flagged for review.</span>
+          </li>
+        </ul>
+
+        <div class="sub-h" id="final">All Point Purchases Are Final — No Refunds</div>
+
+        <div class="callout danger">
+          <span class="callout-icon">🚫</span>
+          <div class="callout-text">
+            <strong>All point purchases are final and non-refundable.</strong>
+            Once points are deducted from your balance to initiate a shop purchase, those points
+            cannot be returned under any circumstances.
+          </div>
+        </div>
+
+        <ul class="rules-list">
+          <li>
+            <span class="rule-num">1</span>
+            <span>
+              <strong>Trade reverts on Steam are not eligible for a refund.</strong>
+              If you receive a trade offer and subsequently cancel or decline it — or if Steam automatically cancels the offer on your side — the points spent on that purchase <strong>will not be returned</strong>.
+              Once M9Bot sends a trade offer, the transaction is considered complete from the point economy's perspective.
+            </span>
+          </li>
+          <li>
+            <span class="rule-num">2</span>
+            <span>
+              <strong>Declined trade offers are not refunded.</strong>
+              If you decline a trade offer for any reason (changed your mind, accepted on wrong account, etc.), no points will be restored.
+            </span>
+          </li>
+          <li>
+            <span class="rule-num">3</span>
+            <span>
+              <strong>Expired trade offers are not refunded.</strong>
+              Steam trade offers expire after a set period. If you fail to accept a trade offer before it expires, your points are forfeited. It is your responsibility to accept offers promptly.
+            </span>
+          </li>
+          <li>
+            <span class="rule-num">4</span>
+            <span>
+              <strong>Steam-side holds or restrictions are not eligible for refunds.</strong>
+              If your account has a Steam Guard trade hold, mobile authenticator hold, or any other Steam-imposed restriction that prevents item delivery, points cannot be refunded.
+              Verify your Steam account is trade-eligible before making any purchase.
+            </span>
+          </li>
+          <li>
+            <span class="rule-num">5</span>
+            <span>
+              <strong>Bot or technical errors</strong> that result in a failed trade will be reviewed on a case-by-case basis by a moderator. This is the <em>only</em> exception where a point restoration may be considered, and it is entirely at moderator discretion.
+            </span>
+          </li>
+        </ul>
+
+        <p>
+          The no-refund policy exists to protect the integrity of the point economy and prevent abuse.
+          Please ensure your Steam account is correctly configured and that you genuinely want an item
+          before spending points. There are no exceptions to this policy outside of confirmed bot error.
+        </p>
+
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!--  SECTION 3 — TRADE BANS                       -->
+    <!-- ══════════════════════════════════════════════ -->
+    <div class="section" id="tradebans">
+      <div class="section-header">
+        <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="#66c0f4" stroke-width="1.8">
+          <circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/>
+        </svg>
+        <span class="section-title">Trade Bans</span>
+        <span class="section-anchor">§ 3</span>
+      </div>
+      <div class="section-body">
+
+        <p>
+          M9Bot operates a <strong>trade ban system</strong> to protect the integrity of the point shop,
+          item giveaways, and the channel community as a whole. A trade ban restricts a user from
+          participating in item trades, shop purchases, and prize claims.
+        </p>
+
+        <p>
+          Trade bans may be applied automatically by M9Bot or manually by a moderator.
+          A trade ban may be issued if <strong>we detect or suspect suspicious activity</strong> in
+          connection with your account, your Trade URL, or your participation in trades or giveaways.
+          Moderators reserve the right to issue a trade ban at any time, for any conduct they reasonably
+          consider to be an attempt to exploit, abuse, or circumvent the system.
+        </p>
+
+        <div class="callout warn">
+          <span class="callout-icon">⚠</span>
+          <div class="callout-text">
+            <strong>Suspicious activity is determined at moderator discretion.</strong>
+            You do not need to have completed a prohibited action to receive a trade ban — patterns of
+            behaviour, repeated anomalies, or any activity that undermines the fairness of the system
+            may be sufficient grounds.
+          </div>
+        </div>
+
+        <p>Examples of conduct that may result in a trade ban include, but are not limited to:</p>
+
+        <ul class="rules-list">
+          <li>
+            <span class="rule-num">✕</span>
+            <span>Submitting a Trade URL that does not belong to your own Steam account</span>
+          </li>
+          <li>
+            <span class="rule-num">✕</span>
+            <span>Attempting to change your registered Trade URL to a different Steam account after it has been saved</span>
+          </li>
+          <li>
+            <span class="rule-num">✕</span>
+            <span>Any activity M9Bot or a moderator identifies as an attempt to exploit, manipulate, or defraud the trade or point system</span>
+          </li>
+          <li>
+            <span class="rule-num">✕</span>
+            <span>Coordinating with other users to abuse the trade or giveaway system</span>
+          </li>
+          <li>
+            <span class="rule-num">✕</span>
+            <span>Repeated unusual patterns of behaviour in the shop or giveaway system that raise concern</span>
+          </li>
+          <li>
+            <span class="rule-num">✕</span>
+            <span>Moderator-issued manual ban for conduct deemed harmful to the community or stream</span>
+          </li>
+        </ul>
+
+        <div class="sub-h" id="ban-tiers">Ban Tiers — Escalating Offences</div>
+
+        <p>
+          Trade bans follow an <strong>escalating tier system</strong>. Each offence on your account
+          increases the severity of the resulting ban. Offence history is permanently retained.
+        </p>
+
+        <table class="tier-table">
+          <thead>
+            <tr>
+              <th>Offence #</th>
+              <th>Duration</th>
+              <th>Status</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1st Offence</strong></td>
+              <td>10 Days</td>
+              <td><span class="badge badge-orange">Temporary</span></td>
+              <td>Trade and shop access suspended for 10 days.</td>
+            </tr>
+            <tr>
+              <td><strong>2nd Offence</strong></td>
+              <td>30 Days</td>
+              <td><span class="badge badge-red">Temporary</span></td>
+              <td>Trade and shop access suspended for 30 days.</td>
+            </tr>
+            <tr>
+              <td><strong>3rd Offence+</strong></td>
+              <td>Permanent</td>
+              <td><span class="badge badge-perm">Permanent</span></td>
+              <td>Lifetime ban from all M9Bot trade features. No appeal path.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>
+          While trade-banned, you <strong>cannot</strong>: purchase items from the point shop,
+          enter or claim prizes in giveaways, or participate in any trade-based features.
+          You <em>can</em> still chat, earn points, and play non-trade minigames depending on
+          the specific ban circumstances.
+        </p>
+
+        <div class="callout info">
+          <span class="callout-icon">ℹ</span>
+          <div class="callout-text">
+            <strong>Message threshold:</strong> In addition to trade ban checks, participation in certain
+            trade and giveaway features requires a minimum of <strong>250 messages</strong> in the channel.
+            Supporters, subscribers, VIPs, and channel supporters are exempt from this threshold.
+          </div>
+        </div>
+
+        <hr class="divider" />
+
+        <p style="font-size:12px; color:var(--text-dim);">
+          If you believe a trade ban was issued in error, contact a moderator directly in chat.
+          Moderators have the ability to review ban history and, where appropriate, remove an active ban.
+          Disputes will not be handled via third-party platforms.
+        </p>
+
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!--  SECTION 4 — GIVEAWAYS                        -->
+    <!-- ══════════════════════════════════════════════ -->
+    <div class="section" id="giveaway">
+      <div class="section-header">
+        <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="#66c0f4" stroke-width="1.8">
+          <path d="M20 12v10H4V12M22 7H2v5h20V7zM12 22V7M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z"/>
+        </svg>
+        <span class="section-title">Giveaway Rules</span>
+        <span class="section-anchor">§ 4</span>
+      </div>
+      <div class="section-body">
+
+        <p>
+          M9Bot runs <strong>live stream giveaways</strong> where a randomly selected winner receives a
+          CS2 skin or other prize delivered via automated Steam trade. All giveaways are run on-stream
+          and winners are drawn in real time. The following rules apply to all giveaways.
+        </p>
+
+        <div class="sub-h" id="giveaway-entry">Entering a Giveaway</div>
+
+        <ul class="rules-list">
+          <li>
+            <span class="rule-num">1</span>
+            <span>To enter an active giveaway, type <code>!giveaway</code> in chat. Entry is available on all supported platforms (Twitch, Kick, TikTok, YouTube) simultaneously.</span>
+          </li>
+          <li>
+            <span class="rule-num">2</span>
+            <span><strong>One entry per person.</strong> Typing <code>!giveaway</code> more than once will not grant additional entries — duplicate entries are ignored automatically.</span>
+          </li>
+          <li>
+            <span class="rule-num">3</span>
+            <span>You <strong>must not be trade banned</strong> to enter a giveaway. Trade-banned users are automatically excluded from entry and cannot claim prizes.</span>
+          </li>
+          <li>
+            <span class="rule-num">4</span>
+            <span>Once a moderator starts the giveaway countdown with <code>!startgiveaway</code>, there is a <strong>30-second final entry window</strong>. After the countdown ends, the entry list is locked and no new entries are accepted.</span>
+          </li>
+          <li>
+            <span class="rule-num">5</span>
+            <span>The winner is selected using a <strong>random draw</strong> from all valid entries at the time of drawing. The selection is performed live on-stream.</span>
+          </li>
+        </ul>
+
+        <div class="sub-h" id="giveaway-claim">Claiming Your Prize</div>
+
+        <ul class="rules-list">
+          <li>
+            <span class="rule-num">1</span>
+            <span>When your name is drawn, you will be announced in chat and given a <strong>time-limited window</strong> (typically 2 minutes) to paste your Steam Trade URL in chat.</span>
+          </li>
+          <li>
+            <span class="rule-num">2</span>
+            <span>The Trade URL you submit <strong>must belong to your own Steam account</strong>. Submitting a Trade URL from any other Steam account is a violation of the trade rules and will result in your prize being voided and a trade ban applied.</span>
+          </li>
+          <li>
+            <span class="rule-num">3</span>
+            <span>If you have a Trade URL already on file with M9Bot, it must <strong>match the URL you submit</strong>. Attempting to switch to a different Steam account to claim a prize will void the giveaway and result in a trade ban.</span>
+          </li>
+          <li>
+            <span class="rule-num">4</span>
+            <span><strong>If you do not paste your Trade URL within the claim window</strong>, the trade window expires and the prize is forfeited. A re-roll is required and will be performed at moderator discretion via <code>!startgiveaway</code>.</span>
+          </li>
+          <li>
+            <span class="rule-num">5</span>
+            <span>You must have at least <strong>250 messages</strong> in the channel to be eligible to claim a prize. If you win but do not meet this threshold, your prize will be voided and a re-roll will be performed. <em>Supporters, subscribers, VIPs, and TikTok gifters are exempt from this requirement.</em></span>
+          </li>
+          <li>
+            <span class="rule-num">6</span>
+            <span>Once your Trade URL is accepted and the trade is launched, the prize is considered delivered. Trade reverts, declined offers, and expired Steam trade offers <strong>do not entitle you to a re-draw or re-issue of the prize</strong>.</span>
+          </li>
+          <li>
+            <span class="rule-num">7</span>
+            <span>Accounts flagged by the moderation system for suspicious activity may be deemed ineligible to claim prizes at moderator discretion, triggering a re-roll.</span>
+          </li>
+        </ul>
+
+        <div class="callout info">
+          <span class="callout-icon">ℹ</span>
+          <div class="callout-text">
+            <strong>Re-rolls:</strong> If a winner is ineligible (trade banned, below message threshold, expired window, suspicious flag), a moderator will perform a re-roll by restarting the draw. Re-rolls pull from the same original entry list.
+          </div>
+        </div>
+
+        <div class="sub-h">General Giveaway Notes</div>
+
+        <ul class="rules-list">
+          <li>
+            <span class="rule-num">●</span>
+            <span>Giveaway prizes and frequency are determined entirely by the streamer. There is no guaranteed schedule.</span>
+          </li>
+          <li>
+            <span class="rule-num">●</span>
+            <span>Moderators may void an entire giveaway at any time using <code>!voidgiveaway</code>, clearing all entries and cancelling any pending trade window.</span>
+          </li>
+          <li>
+            <span class="rule-num">●</span>
+            <span>Attempting to manipulate a giveaway through any means — including multi-account entry, coercion, or exploit — will result in an immediate trade ban and removal from the current and future giveaways.</span>
+          </li>
+          <li>
+            <span class="rule-num">●</span>
+            <span>M9Bot giveaways are a community feature, not a promotional lottery. No purchase is necessary to enter and no guarantee of winning is implied.</span>
+          </li>
+        </ul>
+
+        <div class="callout danger">
+          <span class="callout-icon">🚫</span>
+          <div class="callout-text">
+            <strong>All giveaway prizes are final once delivered.</strong>
+            Prizes cannot be exchanged, transferred, or returned for points after a trade has been sent.
+            The same no-refund policy that applies to point shop purchases applies to all giveaway prizes.
+          </div>
+        </div>
+
+        <a class="back-top" href="#">↑ Back to top</a>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- ── Footer ── -->
+<div class="page-footer">
+  <div>© M9Bot · Stream Support Documentation · All policies subject to change without notice.</div>
+  <div style="margin-top:4px;">
+    Questions? Contact a moderator live in chat during stream. 
+    <a href="#">Twitch</a> · <a href="#">Kick</a>
+  </div>
+</div>
+
+<script>
+  // Smooth active sidebar tracking
+  const links = document.querySelectorAll('.sidebar nav a');
+  const sections = [...document.querySelectorAll('[id]')];
+
+  function onScroll() {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 80) current = s.id;
+    });
+    links.forEach(l => {
+      l.classList.toggle('active', l.getAttribute('href') === '#' + current);
+    });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  links.forEach(l => {
+    l.addEventListener('click', e => {
+      const target = document.querySelector(l.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
