@@ -392,21 +392,6 @@
     "difference": "+0.1908"
   },
   {
-    "skinName": "Revolution Case",
-    "marketHashName": "Revolution Case",
-    "price": 37.5494,
-    "buyCmd": "!revo1",
-    "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJKz2lu_XsnXwtmkJjSU91dh8bj35VTqVBP4io_frnAVvfb6aqduc_TFVjTCxbx05OU4S3jilE9w4DzRnImtIy2Sa1JzDJEhRPlK7EcO4U8gfA/330x192?allow_animated=1",
-    "markupPercent": 59,
-    "markupLock": false,
-    "cachedAt": "06/17/26, 03:35 PM",
-    "popularityIndex": 0,
-    "marketActivity": 100,
-    "lockAPIscrape": 1781736044302,
-    "isgame": 0,
-    "difference": "+0.0782"
-  },
-  {
     "skinName": "MP9 | Urban Sovereign (FT)",
     "marketHashName": "MP9 | Urban Sovereign (Field-Tested)",
     "price": 91.008,
