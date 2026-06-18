@@ -862,9 +862,9 @@ let mobileChatLoaded = false;
 let mCurrentTab = 'shop';
 let dCurrentSection = 'shop';
 
-const CATS = ['All','Games/Codes','Skins','Stickers','Charms','Music Kits'];
-const CAT_ICONS = {All:'🛍️',Games/Codes:'🎮',Skins:'🔫',Stickers:'🎨',Charms:'🪄','Music Kits':'🎵'};
-const CAT_ORDER = ['Games/Codes','Skins','Stickers','Charms','Music Kits'];
+const CATS = ['All','Games And Codes','Skins','Stickers','Charms','Music Kits'];
+const CAT_ICONS = {All:'🛍️',Games:'🎮',Skins:'🔫',Stickers:'🎨',Charms:'🪄','Music Kits':'🎵'};
+const CAT_ORDER = ['Games','Skins','Stickers','Charms','Music Kits'];
 const SORTS = [
   {key:'name-asc',  label:'A → Z',   arrow:'↑'},
   {key:'name-desc', label:'Z → A',   arrow:'↓'},
@@ -993,7 +993,7 @@ function dSwitchSection(section){
 }
 
 function getCategory(item){
-  if(item.isgame===1)return 'Games/Codes';
+  if(item.isgame===1)return 'Games';
   const n=item.skinName.toLowerCase();
   if(n.includes('sticker'))return 'Stickers';
   if(n.includes('charm'))return 'Charms';
