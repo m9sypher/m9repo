@@ -318,33 +318,33 @@
     "skinName": "Carry The Glass",
     "marketHashName": "Carry The Glass",
     "appId": 3263320,
-    "price": 1077.84,
+    "price": 3742.5,
     "buyCmd": "!carryglass1",
     "imageUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3263320/e73515ea166913132353f23817c9709c24d691f4/header.jpg?t=1771068318",
     "markupPercent": 275,
     "markupLock": false,
-    "cachedAt": "06/18/26, 12:29 PM",
+    "cachedAt": "06/18/26, 12:42 PM",
     "popularityIndex": 0,
     "marketActivity": 100,
-    "lockAPIscrape": 1781811257417,
+    "lockAPIscrape": 1781812063952,
     "isgame": 1,
-    "difference": "-2664.66"
+    "difference": "+2664.66"
   },
   {
     "skinName": "Super Battle Golf",
     "marketHashName": "Super Battle Golf",
     "appId": 4069520,
-    "price": 1725.84,
+    "price": 5992.5,
     "buyCmd": "!battlegolf1",
     "imageUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4069520/60b052f108998c01fed147d07578a2aed9bcd4ee/header.jpg?t=1772103787",
     "markupPercent": 275,
     "markupLock": false,
-    "cachedAt": "06/18/26, 12:29 PM",
+    "cachedAt": "06/18/26, 12:42 PM",
     "popularityIndex": 0,
     "marketActivity": 100,
-    "lockAPIscrape": 1781811257417,
+    "lockAPIscrape": 1781812063952,
     "isgame": 1,
-    "difference": "-4266.66"
+    "difference": "+4266.66"
   },
   {
     "skinName": "StatTrak™ Negev | dev_texture (FT)",
@@ -573,6 +573,22 @@
     "markupPercent": 125
   },
   {
+    "skinName": "M4A1-S | Black Lotus (BS)",
+    "marketHashName": "M4A1-S | Black Lotus (Battle-Scarred)",
+    "tradableDate": "6/21/26",
+    "price": 3579.552,
+    "buyCmd": "!blotus1",
+    "imageUrl": "https://community.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8ypexwjFS4_ega6F_H_3HDzaD_ux6seJicCW8gQg0jDWAm5ngbynCalJyDpMlQONYtkPpldTlYr7qtAPc2NhByiX4jikav3tj5O4LU6A7uvqArAmeAQg",
+    "markupLock": false,
+    "cachedAt": "06/18/26, 12:24 PM",
+    "popularityIndex": 0,
+    "marketActivity": 100,
+    "lockAPIscrape": 1,
+    "isgame": 0,
+    "difference": "+42.768",
+    "markupPercent": 72
+  },
+  {
     "skinName": "Desert Eagle | Mecha Industries (FT)",
     "marketHashName": "Desert Eagle | Mecha Industries (Field-Tested)",
     "tradableDate": "6/19/26",
@@ -784,16 +800,16 @@
     "skinName": "Garry's Mod",
     "marketHashName": "Garry's Mod",
     "appId": 4000,
-    "price": 1077.84,
+    "price": 3742.5,
     "buyCmd": "!gmod1",
     "imageUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4000/header.jpg?t=1776868682",
     "markupPercent": 275,
     "markupLock": false,
-    "cachedAt": "06/18/26, 12:29 PM",
+    "cachedAt": "06/18/26, 12:42 PM",
     "popularityIndex": 0,
     "marketActivity": 100,
-    "lockAPIscrape": 1781811257417,
+    "lockAPIscrape": 1781812063952,
     "isgame": 1,
-    "difference": "-2664.66"
+    "difference": "+2664.66"
   }
 ]
