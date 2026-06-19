@@ -816,5 +816,20 @@
     "lockAPIscrape": 1781875570248,
     "isgame": 0,
     "difference": "-0.405"
+  },
+  {
+    "skinName": "M4A4 | 龍王 Dragon King (FT)",
+    "marketHashName": "M4A4 | 龍王 (Dragon King) (Field-Tested)",
+    "price": 2663.0439,
+    "buyCmd": "!dking1",
+    "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8ypexwiFO0P_6afBSIf6QC3SE0-96j-xsSyCmmFNytmrRmNz8JXzCbwUmXJN4R7YNskLuwdexNO3k5lfago5DmXn4hiwc8G81tMXFlsCz/330x192?allow_animated=1",
+    "markupLock": false,
+    "cachedAt": "06/18/26, 08:24 PM",
+    "popularityIndex": 0,
+    "marketActivity": 100,
+    "lockAPIscrape": 1781839740243,
+    "isgame": 0,
+    "difference": "-76.9369",
+    "markupPercent": 136
   }
 ]
