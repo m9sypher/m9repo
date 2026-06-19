@@ -527,21 +527,6 @@
     "markupPercent": 136
   },
   {
-    "skinName": "StatTrak™ FAMAS | Mecha Industries (FT)",
-    "marketHashName": "StatTrak™ FAMAS | Mecha Industries (Field-Tested)",
-    "price": 3323.3917,
-    "buyCmd": "!mechafamas1",
-    "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL3n5vh7h1c_M2oaalsM8-eC2SYwNF7teVgWiT9xU8jsWiBwt6vJX3BagEjCMYjFuRY5hDukYDkP7zr51eM34gWm339jDQJsHjOPWImuw/330x192?allow_animated=1",
-    "markupLock": false,
-    "cachedAt": "06/19/26, 06:21 AM",
-    "popularityIndex": 0,
-    "marketActivity": 100,
-    "lockAPIscrape": 1781875570248,
-    "isgame": 0,
-    "difference": "-93.3188",
-    "markupPercent": 125
-  },
-  {
     "skinName": "M4A1-S | Black Lotus (BS)",
     "marketHashName": "M4A1-S | Black Lotus (Battle-Scarred)",
     "tradableDate": "6/21/26",
