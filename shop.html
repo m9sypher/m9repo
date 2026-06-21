@@ -24,10 +24,14 @@
   --purple:     #9c6cff;
   --twitch:     #9147ff;
   --gold:       #f0a93a;
-  --stat:       #e8852f;
-  --knife:      #e0473f;
-  --glove:      #4fc3d4;
-  --rare:       #d4af37;
+  --r-consumer:   #b0c3d9;
+  --r-industrial: #5e98d9;
+  --r-milspec:    #4b69ff;
+  --r-restricted: #8847ff;
+  --r-classified: #d32ce6;
+  --r-covert:     #eb4b4b;
+  --r-knife:      #ffd700;
+  --r-game:       #b0c3d9;
   --sidebar-w:  220px;
   --detail-w:   340px;
   --chat-w:     300px;
@@ -246,12 +250,14 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
 .m-tile-swap{width:16px;height:16px;border-radius:50%;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 .m-tile-swap svg{width:9px;height:9px;stroke:var(--tertiary);fill:none;stroke-width:2;stroke-linecap:round}
 
-.rarity-stat .m-tile-wear{color:var(--stat)}
-.rarity-knife .m-tile-wear{color:var(--knife)}
-.rarity-glove .m-tile-wear{color:var(--glove)}
-.rarity-rare .m-tile-wear{color:var(--rare)}
-.rarity-game .m-tile-wear{color:var(--purple)}
-.rarity-default .m-tile-wear{color:var(--secondary)}
+.rarity-consumer .m-tile-wear{color:var(--r-consumer)}
+.rarity-industrial .m-tile-wear{color:var(--r-industrial)}
+.rarity-milspec .m-tile-wear{color:var(--r-milspec)}
+.rarity-restricted .m-tile-wear{color:var(--r-restricted)}
+.rarity-classified .m-tile-wear{color:var(--r-classified)}
+.rarity-covert .m-tile-wear{color:var(--r-covert)}
+.rarity-knife .m-tile-wear{color:var(--r-knife)}
+.rarity-game .m-tile-wear{color:var(--r-game)}
 
 .section-header{font-size:11px;font-weight:700;color:var(--tertiary);text-transform:uppercase;letter-spacing:.5px;padding:14px 12px 8px;display:flex;align-items:center;gap:6px;}
 .section-count{font-weight:400;font-size:11px;color:var(--tertiary);text-transform:none;letter-spacing:0}
@@ -437,12 +443,14 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
   .d-tile-swap{width:16px;height:16px;border-radius:50%;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
   .d-tile-swap svg{width:9px;height:9px;stroke:var(--tertiary);fill:none;stroke-width:2;stroke-linecap:round}
 
-  .rarity-stat .d-tile-wear{color:var(--stat)}
-  .rarity-knife .d-tile-wear{color:var(--knife)}
-  .rarity-glove .d-tile-wear{color:var(--glove)}
-  .rarity-rare .d-tile-wear{color:var(--rare)}
-  .rarity-game .d-tile-wear{color:var(--purple)}
-  .rarity-default .d-tile-wear{color:var(--secondary)}
+  .rarity-consumer .d-tile-wear{color:var(--r-consumer)}
+  .rarity-industrial .d-tile-wear{color:var(--r-industrial)}
+  .rarity-milspec .d-tile-wear{color:var(--r-milspec)}
+  .rarity-restricted .d-tile-wear{color:var(--r-restricted)}
+  .rarity-classified .d-tile-wear{color:var(--r-classified)}
+  .rarity-covert .d-tile-wear{color:var(--r-covert)}
+  .rarity-knife .d-tile-wear{color:var(--r-knife)}
+  .rarity-game .d-tile-wear{color:var(--r-game)}
 
 
   .d-right-panel{width:calc(var(--detail-w) + var(--chat-w));flex-shrink:0;display:flex;flex-direction:column;border-left:.5px solid var(--sep);overflow:hidden;}
@@ -912,6 +920,7 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
 
 <script>
 let allItems = [];
+let hotItems = [];
 let mFilter = 'All', dFilter = 'All';
 let mSearch = '', dSearch = '';
 let dSelected = null;
@@ -920,8 +929,8 @@ let mobileChatLoaded = false;
 let mCurrentTab = 'shop';
 let dCurrentSection = 'shop';
 
-const CATS = ['All','Games & Giftcards','Skins','Stickers','Charms','Music Kits'];
-const CAT_ICONS = {All:'🛍️','Games & Giftcards':'🎮',Skins:'🔫',Stickers:'🎨',Charms:'🪄','Music Kits':'🎵'};
+const CATS = ['All','Hot Items','Games & Giftcards','Skins','Stickers','Charms','Music Kits'];
+const CAT_ICONS = {All:'🛍️','Hot Items':'🔥','Games & Giftcards':'🎮',Skins:'🔫',Stickers:'🎨',Charms:'🪄','Music Kits':'🎵'};
 const CAT_ORDER = ['Games & Giftcards','Skins','Stickers','Charms','Music Kits'];
 const SORTS = [
   {key:'name-asc',  label:'A → Z',   arrow:'↑'},
@@ -931,7 +940,20 @@ const SORTS = [
 ];
 
 /* ── rarity watermark colors ── */
-const RARITY_COLOR = {stat:'#e8852f', knife:'#e0473f', glove:'#4fc3d4', rare:'#d4af37', game:'#9c6cff', default:'#5a5e6e'};
+/* ── CS2 rarity tier colors, assigned by price band ── */
+const RARITY_COLOR = {consumer:'#b0c3d9', industrial:'#5e98d9', milspec:'#4b69ff', restricted:'#8847ff', classified:'#d32ce6', covert:'#eb4b4b', knife:'#ffd700', game:'#b0c3d9'};
+const RARITY_LABEL = {consumer:'Consumer Grade', industrial:'Industrial Grade', milspec:'Mil-Spec', restricted:'Restricted', classified:'Classified', covert:'Covert', knife:'★ Extraordinary', game:'Digital Item'};
+/* breakpoints are the floor price (in coins) for each tier, checked high to low */
+/* scaled 3.2x from the original item.json sample range to leave headroom as inventory grows */
+const RARITY_BREAKS = [
+  [7360,'knife'],
+  [5440,'covert'],
+  [3200,'classified'],
+  [1280,'restricted'],
+  [480,'milspec'],
+  [160,'industrial'],
+  [0,'consumer'],
+];
 
 // ── Obfuscated config ──────────────────────────────────────────────
 const _a = ['ki','mn','e7','8k'];
@@ -1064,26 +1086,30 @@ function getCategory(item){
   return 'Skins';
 }
 
-/* ── rarity classification, drives wear-line color + watermark tint ── */
+/* ── rarity classification: pure price-tier lookup, mapped to CS2's rarity colors ── */
 function getRarity(item){
   if(item.isgame===1)return 'game';
-  const n=item.skinName.toLowerCase();
-  if(n.includes('stattrak'))return 'stat';
-  if(n.includes('★')||n.includes('knife')||n.includes('karambit')||n.includes('bayonet')||n.includes('dagger')||n.includes('talon')||n.includes('skeleton')||n.includes('butterfly')||n.includes('gut knife')||n.includes('flip knife')||n.includes('falchion')||n.includes('bowie')||n.includes('huntsman')||n.includes('shadow daggers')||n.includes('ursus')||n.includes('navaja')||n.includes('stiletto')||n.includes('paracord')||n.includes('survival knife')||n.includes('nomad')||n.includes('classic knife'))return 'knife';
-  if(n.includes('gloves')||n.includes('glove')||n.includes('wraps')||n.includes('hand wraps'))return 'glove';
-  if(item.price>=8000)return 'rare';
-  return 'default';
+  for(const [floor,tier] of RARITY_BREAKS){
+    if(item.price>=floor)return tier;
+  }
+  return 'consumer';
 }
 
 /* ── wear / type line shown above the item name ── */
+const WEAR_MAP = {FN:'Factory New',MW:'Minimal Wear',FT:'Field-Tested',WW:'Well-Worn',BS:'Battle-Scarred'};
 function getWearLine(item){
   const n=item.skinName;
-  const wears=['Factory New','Minimal Wear','Field-Tested','Well-Worn','Battle-Scarred'];
-  for(const w of wears){if(n.includes(w))return n.includes('StatTrak')?('StatTrak™ | '+w):w;}
+  const isStat=n.toLowerCase().includes('stattrak');
+  const abbr=n.match(/\((FN|MW|FT|WW|BS)\)/);
+  if(abbr)return (isStat?'StatTrak™ | ':'')+WEAR_MAP[abbr[1]];
+  const full=['Factory New','Minimal Wear','Field-Tested','Well-Worn','Battle-Scarred'];
+  for(const w of full){if(n.includes(w))return (isStat?'StatTrak™ | ':'')+w;}
   if(item.isgame===1)return 'Digital Item';
   if(n.toLowerCase().includes('sticker'))return 'Sticker';
   if(n.toLowerCase().includes('charm'))return 'Charm';
   if(n.toLowerCase().includes('music kit'))return 'Music Kit';
+  if(n.toLowerCase().includes('case'))return 'Case';
+  if(isStat)return 'StatTrak™';
   return 'Collectible';
 }
 
@@ -1091,7 +1117,7 @@ function fmtPrice(p){return p.toLocaleString('en-US',{minimumFractionDigits:2,ma
 
 /* ── watermark SVG, tinted per rarity ── */
 function watermarkSvg(rarity){
-  const c=RARITY_COLOR[rarity]||RARITY_COLOR.default;
+  const c=RARITY_COLOR[rarity]||RARITY_COLOR.consumer;
   return `<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M50 6 L62 30 L88 26 L74 46 L92 58 L66 60 L70 86 L50 70 L30 86 L34 60 L8 58 L26 46 L12 26 L38 30 Z" stroke="${c}" stroke-width="1.6" fill="none" stroke-linejoin="round"/>
     <circle cx="50" cy="50" r="16" stroke="${c}" stroke-width="1.6" fill="none"/>
@@ -1108,7 +1134,25 @@ function lockOrGameBadge(item,cls){
   return '';
 }
 
+/* ── Hot Items: 5 random picks from the top 10-15 priced, re-rolled on each load/refresh ── */
+function rollHotItems(){
+  const pool=[...allItems].sort((a,b)=>b.price-a.price).slice(0,Math.min(15,allItems.length));
+  const picked=[];
+  const usedIdx=new Set();
+  const n=Math.min(5,pool.length);
+  while(picked.length<n){
+    const idx=Math.floor(Math.random()*pool.length);
+    if(usedIdx.has(idx))continue;
+    usedIdx.add(idx);
+    picked.push(pool[idx]);
+  }
+  hotItems=picked;
+}
 function filtered(filter,search){
+  if(filter==='Hot Items'){
+    const q=search.toLowerCase();
+    return hotItems.filter(i=>!q||i.skinName.toLowerCase().includes(q)||i.buyCmd.toLowerCase().includes(q));
+  }
   const q=search.toLowerCase();
   return allItems.filter(i=>{
     const c=filter==='All'||getCategory(i)===filter;
@@ -1148,7 +1192,7 @@ function loadItems(force){
   fetch('items.json?t='+Date.now())
     .then(r=>r.json())
     .then(data=>{
-      allItems=data;setSpinning(false);
+      allItems=data;rollHotItems();setSpinning(false);
       if(force)showToast('✓  Shop refreshed');
       mBuildFilters();mBuildSortBar();mRender();
       dBuildNav();dBuildSortBar();dRender();
@@ -1234,7 +1278,7 @@ function mHomeSectionHtml(){
       <div class="m-promo-eyebrow">🔥 Hot Items</div>
       <div class="m-promo-title">Top picks this week</div>
       <div class="m-promo-sub">Browse the highest-value skins currently in stock.</div>
-      <button class="m-promo-btn" onclick="mSetFilter('Skins')">Browse Skins →</button>
+      <button class="m-promo-btn" onclick="mSetFilter('Hot Items')">View Hot Items →</button>
     </div>
     <div class="m-promo-card discord" data-slide="2">
       <div class="m-promo-eyebrow">💬 Discord</div>
@@ -1288,6 +1332,7 @@ function mInitCarousel(){
 function mRender(){
   const el=document.getElementById('m-content');
   const isHome=mFilter==='All'&&!mSearch;
+  const isHot=mFilter==='Hot Items';
   const items=sorted(filtered(mFilter,mSearch),mSort);
   document.getElementById('m-count').textContent=items.length+' items';
   let html='';
@@ -1296,6 +1341,10 @@ function mRender(){
 
   if(!items.length){
     html+=`<div style="padding:60px 24px;text-align:center;color:var(--secondary)"><div style="font-size:36px;margin-bottom:10px">🔍</div>No items found</div>`;
+  } else if(isHot){
+    html+=`<div class="section-header">🔥 Hot Items <span class="section-count">${items.length}</span></div><div class="tile-grid">`;
+    items.forEach(item=>{html+=mTileHtml(item);});
+    html+='</div>';
   } else {
     const g=grouped(items);
     if(isHome)html+=`<div class="m-cat-section-lbl" style="padding:18px 12px 0 12px">All Items <span class="chev">›</span></div>`;
@@ -1318,13 +1367,29 @@ function mRender(){
   if(isHome)mInitCarousel();
   else clearInterval(mCarouselTimer);
 }
+function mSetFilter(cat){
+  mFilter=cat;mSearch='';
+  const searchInput=document.getElementById('m-search');if(searchInput)searchInput.value='';
+  const bar=document.getElementById('m-filters');
+  if(bar){
+    let found=false;
+    bar.querySelectorAll('.filter-pill').forEach(p=>{
+      const match=p.textContent.trim()===cat;
+      p.classList.toggle('active',match);
+      if(match)found=true;
+    });
+    if(!found)bar.querySelectorAll('.filter-pill').forEach(p=>p.classList.remove('active'));
+  }
+  mRender();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
 function mOpenModal(idx){
   const item=allItems[idx];if(!item)return;
   const rarity=getRarity(item);
   document.getElementById('m-modal-watermark').innerHTML=watermarkSvg(rarity);
   document.getElementById('m-modal-img').src=item.imageUrl;
   document.getElementById('m-modal-wear').textContent=getWearLine(item);
-  document.getElementById('m-modal-wear').style.color=RARITY_COLOR[rarity]||RARITY_COLOR.default;
+  document.getElementById('m-modal-wear').style.color=RARITY_COLOR[rarity]||RARITY_COLOR.consumer;
   document.getElementById('m-modal-name').textContent=item.skinName;
   document.getElementById('m-modal-hash').textContent=item.marketHashName!==item.skinName?item.marketHashName:'';
   document.getElementById('m-modal-price').innerHTML=`<span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--gold);margin-right:5px;vertical-align:-1px"></span>${fmtPrice(item.price)}`;
@@ -1387,6 +1452,21 @@ function dBuildNav(){
     };
     nav.appendChild(el);
   });
+
+  const lbl2b=document.createElement('div');lbl2b.className='d-nav-label';lbl2b.textContent='Featured';nav.appendChild(lbl2b);
+  const hotEl=document.createElement('div');
+  hotEl.className='d-nav-item'+(dCurrentSection==='shop'&&dFilter==='Hot Items'?' active':'');
+  hotEl.innerHTML=`<div class="d-nav-icon">🔥</div>Hot Items`;
+  hotEl.onclick=()=>{
+    dCurrentSection='shop';dFilter='Hot Items';dSearch='';
+    document.getElementById('d-search').value='';
+    document.getElementById('d-title').textContent='HOT ITEMS';
+    dSelected=null;resetDetail();
+    nav.querySelectorAll('.d-nav-item').forEach(x=>x.classList.remove('active'));
+    hotEl.classList.add('active');
+    dSwitchSection('shop');dRender();
+  };
+  nav.appendChild(hotEl);
 
   const lbl3=document.createElement('div');lbl3.className='d-nav-label';lbl3.textContent='More';nav.appendChild(lbl3);
   const affItem=document.createElement('div');
@@ -1459,7 +1539,7 @@ function dHomeSectionHtml(){
         <div class="d-promo-eyebrow">🔥 Hot Items</div>
         <div class="d-promo-title">Top picks this week</div>
         <div class="d-promo-sub">Browse the highest-value skins currently in stock.</div>
-        <button class="d-promo-btn" onclick="dSetFilter('Skins')">Browse Skins →</button>
+        <button class="d-promo-btn" onclick="dSetFilter('Hot Items')">View Hot Items →</button>
       </div>
       <div class="d-promo-card discord" data-slide="2">
         <div class="d-promo-eyebrow">💬 Discord</div>
@@ -1502,6 +1582,7 @@ function dRender(){
   if(dCurrentSection==='affiliates')return;
   const grid=document.getElementById('d-grid');
   const isHome=dFilter==='All'&&!dSearch;
+  const isHot=dFilter==='Hot Items';
   const items=sorted(filtered(dFilter,dSearch),dSort);
   document.getElementById('d-count').textContent=items.length+' items';
 
@@ -1516,6 +1597,15 @@ function dRender(){
   }
 
   html+='<div class="d-items-wrap">';
+  if(isHot){
+    html+=`<div class="d-section-label">🔥 Hot Items <span class="section-count">${items.length}</span></div><div class="d-tile-grid">`;
+    items.forEach(item=>{html+=dTileHtml(item);});
+    html+=`</div>`;
+    html+='</div>';
+    grid.innerHTML=html;
+    clearInterval(dCarouselTimer);
+    return;
+  }
   if(isHome)html+=`<div class="d-cat-section-lbl" style="padding:6px 0 4px">All Items <span class="chev">›</span></div>`;
   const g=grouped(items);
   CAT_ORDER.forEach(cat=>{
@@ -1558,7 +1648,7 @@ function dSelect(idx){
       <img src="${item.imageUrl}" alt="${item.skinName}">
     </div>
     <div class="d-detail-body">
-      <div class="d-detail-wear" style="color:${RARITY_COLOR[rarity]||RARITY_COLOR.default}">${getWearLine(item)}</div>
+      <div class="d-detail-wear" style="color:${RARITY_COLOR[rarity]||RARITY_COLOR.consumer}">${getWearLine(item)}</div>
       <div class="d-detail-name">${item.skinName}</div>
       ${hashLine}
       <div class="d-detail-row"><span class="d-detail-row-label">Price</span><span class="d-detail-row-value">🪙 ${fmtPrice(item.price)}</span></div>
