@@ -177,12 +177,13 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
 .m-cat-section-lbl{font-size:11px;font-weight:700;color:var(--tertiary);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
 .m-cat-section-lbl .chev{opacity:.4;font-size:13px}
 .m-big-cat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.m-big-cat-tile{position:relative;border-radius:14px;overflow:hidden;cursor:pointer;border:.5px solid var(--sep);background:var(--card);padding:14px;min-height:108px;display:flex;flex-direction:column;justify-content:space-between;transition:transform .12s;}
+.m-big-cat-tile{position:relative;border-radius:14px;overflow:hidden;cursor:pointer;border:.5px solid var(--sep);background:var(--card);padding:14px;min-height:118px;display:flex;flex-direction:column;justify-content:space-between;transition:transform .12s;}
 .m-big-cat-tile:active{transform:scale(.97)}
 .m-big-cat-tile::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 85% 110%, var(--tile-glow,rgba(77,159,255,.18)) 0%, transparent 65%);pointer-events:none;}
 .m-big-cat-eyebrow{display:flex;align-items:center;gap:6px;font-size:10.5px;font-weight:600;color:var(--secondary);position:relative;z-index:1;}
-.m-big-cat-icon-row{display:flex;justify-content:flex-end;gap:-6px;position:relative;z-index:1;}
-.m-big-cat-icon-row span{font-size:30px;line-height:1}
+.m-big-cat-img-row{position:absolute;top:8px;right:8px;width:54px;height:54px;z-index:1;}
+.m-big-cat-img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity .8s ease;filter:drop-shadow(0 2px 6px rgba(0,0,0,.5));}
+.m-big-cat-img.active{opacity:1}
 .m-big-cat-name{font-size:13.5px;font-weight:700;color:var(--label);font-family:'Rajdhani',sans-serif;letter-spacing:.3px;position:relative;z-index:1;margin-top:8px;}
 .m-big-cat-count{font-size:10.5px;color:var(--tertiary);position:relative;z-index:1;margin-top:1px;}
 
@@ -319,6 +320,11 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
 .modal-row-value.red{color:var(--red)}
 .modal-row-value.orange{color:var(--orange)}
 .modal-cmd-row{margin-top:14px;background:rgba(77,159,255,.08);border-radius:10px;padding:12px 14px;display:flex;align-items:center;justify-content:space-between;gap:12px;border:.5px solid rgba(77,159,255,.2);}
+.modal-notice-area{margin-top:14px;padding-top:14px;border-top:.5px solid var(--sep);display:flex;flex-direction:column;gap:9px;}
+.notice-line{display:flex;align-items:flex-start;gap:8px;font-size:12px;line-height:1.5;}
+.notice-icon{flex-shrink:0;font-size:13px;line-height:1.5;}
+.notice-text{flex:1;}
+.notice-text strong{font-weight:700;}
 .modal-cmd-label{font-size:12px;color:var(--secondary);margin-bottom:3px}
 .modal-cmd-code{font-family:'SF Mono',Menlo,monospace;font-size:17px;font-weight:700;color:var(--accent);letter-spacing:-.2px}
 .modal-copy-btn{background:var(--accent2);color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:14px;font-weight:600;cursor:pointer;flex-shrink:0;transition:all .1s;}
@@ -413,12 +419,13 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
   .d-cat-section-lbl{font-size:11px;font-weight:700;color:var(--tertiary);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
   .d-cat-section-lbl .chev{opacity:.4;font-size:13px}
   .d-big-cat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
-  .d-big-cat-tile{position:relative;border-radius:14px;overflow:hidden;cursor:pointer;border:.5px solid var(--sep);background:var(--card);padding:18px 20px;min-height:118px;display:flex;flex-direction:column;justify-content:space-between;transition:transform .14s,border-color .14s;}
+  .d-big-cat-tile{position:relative;border-radius:14px;overflow:hidden;cursor:pointer;border:.5px solid var(--sep);background:var(--card);padding:18px 20px;min-height:132px;display:flex;flex-direction:column;justify-content:space-between;transition:transform .14s,border-color .14s;}
   .d-big-cat-tile:hover{transform:translateY(-3px);border-color:rgba(77,159,255,.25)}
   .d-big-cat-tile::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 85% 110%, var(--tile-glow,rgba(77,159,255,.18)) 0%, transparent 65%);pointer-events:none;}
   .d-big-cat-eyebrow{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:600;color:var(--secondary);position:relative;z-index:1;}
-  .d-big-cat-icon-row{display:flex;justify-content:flex-end;position:relative;z-index:1;}
-  .d-big-cat-icon-row span{font-size:36px;line-height:1}
+  .d-big-cat-img-row{position:absolute;top:14px;right:16px;width:72px;height:72px;z-index:1;}
+  .d-big-cat-img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity .8s ease;filter:drop-shadow(0 2px 8px rgba(0,0,0,.5));}
+  .d-big-cat-img.active{opacity:1}
   .d-big-cat-name{font-size:15px;font-weight:700;color:var(--label);font-family:'Rajdhani',sans-serif;letter-spacing:.3px;position:relative;z-index:1;margin-top:10px;}
   .d-big-cat-count{font-size:11.5px;color:var(--tertiary);position:relative;z-index:1;margin-top:1px;}
 
@@ -474,6 +481,7 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
   .d-detail-row-value.red{color:var(--red)}
   .d-detail-row-value.orange{color:var(--orange)}
   .d-cmd-block{margin:14px 18px 18px;background:rgba(77,159,255,.08);border-radius:10px;padding:14px;border:.5px solid rgba(77,159,255,.2);}
+  .d-detail-notice-area{margin:6px 18px 0;padding-top:12px;border-top:.5px solid var(--sep);display:flex;flex-direction:column;gap:9px;}
   .d-cmd-label{font-size:10px;font-weight:700;color:var(--secondary);text-transform:uppercase;letter-spacing:.4px;margin-bottom:4px}
   .d-cmd-code{font-family:'SF Mono',Menlo,monospace;font-size:17px;font-weight:700;color:var(--accent);letter-spacing:-.2px;margin-bottom:12px}
   .d-copy-btn{width:100%;background:var(--accent2);color:#fff;border:none;border-radius:9px;padding:11px;font-size:14px;font-weight:600;cursor:pointer;transition:all .12s;}
@@ -720,6 +728,8 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
         <div class="modal-row" id="m-modal-markup-row"><span class="modal-row-label">Markup</span><span class="modal-row-value" id="m-modal-markup"></span></div>
         <div class="modal-row" id="m-modal-diff-row" style="display:none"><span class="modal-row-label">Difference</span><span class="modal-row-value" id="m-modal-diff"></span></div>
         <div class="modal-row" id="m-modal-trade-row" style="display:none"><span class="modal-row-label">Tradable After</span><span class="modal-row-value orange" id="m-modal-trade"></span></div>
+        <div class="modal-row"><span class="modal-row-label">Market Activity</span><span class="modal-row-value" id="m-modal-activity"></span></div>
+        <div id="m-modal-notices"></div>
         <div class="modal-cmd-row">
           <div>
             <div class="modal-cmd-label">Type in chat to buy</div>
@@ -1095,6 +1105,50 @@ function getRarity(item){
   return 'consumer';
 }
 
+/* ── notice tone classes, reused by mobile + desktop info area ── */
+const NOTICE_COLOR = {orange:'#ff9500', green:'#2ecc71', red:'#ff4757', blue:'#4d9fff', purple:'#9c6cff', gold:'#ffd700'};
+
+/* ── contextual notices for an item: tradability, price moves, region/friend requirements, high-value caution ── */
+function getItemNotices(item){
+  const notices=[];
+
+  if(item.tradableDate){
+    notices.push({icon:'🔒',tone:'orange',text:`Not tradable until <strong>${item.tradableDate}</strong>.`});
+  }
+
+  if(item.difference){
+    const diffNum=parseFloat(String(item.difference).replace(/[^0-9.+-]/g,''));
+    if(!isNaN(diffNum)&&Math.abs(diffNum)>100){
+      if(diffNum>0){
+        notices.push({icon:'📈',tone:'red',text:`Price has risen by <strong>+${fmtPrice(diffNum)}</strong> coins recently.`});
+      } else {
+        notices.push({icon:'📉',tone:'green',text:`Price has dropped by <strong>${fmtPrice(Math.abs(diffNum))}</strong> coins recently.`});
+      }
+    }
+  }
+
+  if(item.isgame===1){
+    notices.push({icon:'🌍',tone:'blue',text:'May be region-locked. Gift cards convert from USD to the receiver\'s local currency.'});
+    notices.push({icon:'👥',tone:'purple',text:'Requires adding <strong>@m9sypher</strong> as a friend for 3 days to complete the transaction.'});
+  }
+
+  const rarity=getRarity(item);
+  if(rarity==='knife'||rarity==='covert'){
+    notices.push({icon:'💎',tone:'gold',text:'High-value item — double check trade details before confirming in chat.'});
+  }
+
+  if(item.markupLock===true){
+    notices.push({icon:'📌',tone:'blue',text:'Price is currently locked and won\'t update with market changes.'});
+  }
+
+  return notices;
+}
+function noticesHtml(item,wrapClass){
+  const notices=getItemNotices(item);
+  if(!notices.length)return'';
+  return `<div class="${wrapClass}">${notices.map(n=>`<div class="notice-line" style="color:${NOTICE_COLOR[n.tone]}"><span class="notice-icon">${n.icon}</span><span class="notice-text">${n.text}</span></div>`).join('')}</div>`;
+}
+
 /* ── wear / type line shown above the item name ── */
 const WEAR_MAP = {FN:'Factory New',MW:'Minimal Wear',FT:'Field-Tested',WW:'Well-Worn',BS:'Battle-Scarred'};
 function getWearLine(item){
@@ -1135,18 +1189,32 @@ function lockOrGameBadge(item,cls){
 }
 
 /* ── Hot Items: 5 random picks from the top 10-15 priced, re-rolled on each load/refresh ── */
-function rollHotItems(){
-  const pool=[...allItems].sort((a,b)=>b.price-a.price).slice(0,Math.min(15,allItems.length));
+function sampleRandom(arr,n){
+  const pool=[...arr];
   const picked=[];
   const usedIdx=new Set();
-  const n=Math.min(5,pool.length);
-  while(picked.length<n){
+  const count=Math.min(n,pool.length);
+  while(picked.length<count){
     const idx=Math.floor(Math.random()*pool.length);
     if(usedIdx.has(idx))continue;
     usedIdx.add(idx);
     picked.push(pool[idx]);
   }
-  hotItems=picked;
+  return picked;
+}
+function rollHotItems(){
+  const pool=[...allItems].sort((a,b)=>b.price-a.price).slice(0,Math.min(15,allItems.length));
+  hotItems=sampleRandom(pool,5);
+}
+/* ── per-category image pools for the big category tiles, re-rolled on each load/refresh ── */
+let catImagePools={};
+function rollCategoryImagePools(){
+  catImagePools={};
+  CAT_ORDER.forEach(cat=>{
+    const items=allItems.filter(i=>getCategory(i)===cat);
+    if(!items.length)return;
+    catImagePools[cat]=sampleRandom(items,4).map(i=>i.imageUrl);
+  });
 }
 function filtered(filter,search){
   if(filter==='Hot Items'){
@@ -1192,7 +1260,7 @@ function loadItems(force){
   fetch('items.json?t='+Date.now())
     .then(r=>r.json())
     .then(data=>{
-      allItems=data;rollHotItems();setSpinning(false);
+      allItems=data;rollHotItems();rollCategoryImagePools();setSpinning(false);
       if(force)showToast('✓  Shop refreshed');
       mBuildFilters();mBuildSortBar();mRender();
       dBuildNav();dBuildSortBar();dRender();
@@ -1300,13 +1368,51 @@ function bigCatTilesHtml(prefix){
     const cnt=allItems.filter(i=>getCategory(i)===cat).length;
     if(!cnt)return'';
     const fn=prefix==='m'?`mSetFilter('${cat}')`:`dSetFilter('${cat}')`;
-    return `<div class="${prefix}-big-cat-tile" style="--tile-glow:${glow[cat]||'rgba(77,159,255,.18)'}" onclick="${fn}">
+    const pool=catImagePools[cat]||[];
+    const img0=pool[0]||'';
+    const safeId=cat.replace(/[^a-zA-Z0-9]/g,'');
+    return `<div class="${prefix}-big-cat-tile" style="--tile-glow:${glow[cat]||'rgba(77,159,255,.18)'}" onclick="${fn}" data-cat-tile="${prefix}-${safeId}">
       <div class="${prefix}-big-cat-eyebrow">${CAT_ICONS[cat]} ${cat}</div>
-      <div class="${prefix}-big-cat-icon-row"><span>${CAT_ICONS[cat]}</span></div>
+      <div class="${prefix}-big-cat-img-row">
+        <img class="${prefix}-big-cat-img active" src="${img0}" alt="" loading="lazy" onerror="this.style.display='none'">
+        <img class="${prefix}-big-cat-img" src="" alt="" loading="lazy" onerror="this.style.display='none'">
+      </div>
       <div class="${prefix}-big-cat-name">${cat}</div>
       <div class="${prefix}-big-cat-count">${cnt} items</div>
     </div>`;
   }).join('');
+}
+let catTileTimers={m:[],d:[]};
+function initCatTileFades(prefix){
+  (catTileTimers[prefix]||[]).forEach(t=>clearInterval(t));
+  catTileTimers[prefix]=[];
+  CAT_ORDER.forEach(cat=>{
+    const pool=catImagePools[cat];
+    if(!pool||pool.length<2)return;
+    const safeId=cat.replace(/[^a-zA-Z0-9]/g,'');
+    const tile=document.querySelector(`[data-cat-tile="${prefix}-${safeId}"]`);
+    if(!tile)return;
+    let poolIdx=0;
+    const timer=setInterval(()=>{
+      poolIdx=(poolIdx+1)%pool.length;
+      const imgs=tile.querySelectorAll(`.${prefix}-big-cat-img`);
+      if(imgs.length<2)return;
+      const activeImg=tile.querySelector(`.${prefix}-big-cat-img.active`)||imgs[0];
+      const nextImg=activeImg===imgs[0]?imgs[1]:imgs[0];
+      let swapped=false;
+      const doSwap=()=>{
+        if(swapped)return;
+        swapped=true;
+        nextImg.classList.add('active');
+        activeImg.classList.remove('active');
+      };
+      nextImg.onload=doSwap;
+      nextImg.onerror=doSwap;
+      nextImg.src=pool[poolIdx];
+      setTimeout(doSwap,2500);
+    },15000);
+    catTileTimers[prefix].push(timer);
+  });
 }
 let mCarouselIdx=0,mCarouselTimer=null;
 function mInitCarousel(){
@@ -1364,7 +1470,7 @@ function mRender(){
   </div>`;
 
   el.innerHTML=html;
-  if(isHome)mInitCarousel();
+  if(isHome){mInitCarousel();initCatTileFades('m');}
   else clearInterval(mCarouselTimer);
 }
 function mSetFilter(cat){
@@ -1408,6 +1514,8 @@ function mOpenModal(idx){
   const tr=document.getElementById('m-modal-trade-row');
   if(item.tradableDate){tr.style.display='flex';document.getElementById('m-modal-trade').textContent=item.tradableDate;}
   else{tr.style.display='none';}
+  document.getElementById('m-modal-activity').textContent=item.marketActivity+'%';
+  document.getElementById('m-modal-notices').innerHTML=noticesHtml(item,'modal-notice-area');
   document.getElementById('m-modal-cmd').textContent=item.buyCmd;
   document.getElementById('m-modal-copy').onclick=()=>{copyCmd(item.buyCmd);mCloseModalDirect();};
   document.getElementById('m-modal').classList.add('open');
@@ -1592,7 +1700,7 @@ function dRender(){
   if(!items.length){
     html+=`<div style="padding:60px 24px;text-align:center;color:var(--secondary)"><div style="font-size:36px;margin-bottom:10px">🔍</div>No items found</div>`;
     grid.innerHTML=html;
-    if(isHome)dInitCarousel();else clearInterval(dCarouselTimer);
+    if(isHome){dInitCarousel();initCatTileFades('d');}else clearInterval(dCarouselTimer);
     return;
   }
 
@@ -1619,7 +1727,7 @@ function dRender(){
   });
   html+='</div>';
   grid.innerHTML=html;
-  if(isHome)dInitCarousel();else clearInterval(dCarouselTimer);
+  if(isHome){dInitCarousel();initCatTileFades('d');}else clearInterval(dCarouselTimer);
 }
 function dSetFilter(cat){
   dCurrentSection='shop';dFilter=cat;
@@ -1655,6 +1763,7 @@ function dSelect(idx){
       ${markupHtml}${diffHtml}${tradeHtml}
       <div class="d-detail-row"><span class="d-detail-row-label">Market Activity</span><span class="d-detail-row-value">${item.marketActivity}%</span></div>
     </div>
+    ${noticesHtml(item,'d-detail-notice-area')}
     <div class="d-cmd-block">
       <div class="d-cmd-label">Buy Command</div>
       <div class="d-cmd-code">${item.buyCmd}</div>
