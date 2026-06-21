@@ -140,6 +140,52 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
 
 .m-content{padding-top:178px;padding-bottom:72px}
 
+/* ── Mobile Home: welcome banner + carousel ── */
+.m-home-row{display:flex;gap:10px;padding:12px 12px 0;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+.m-home-row::-webkit-scrollbar{display:none}
+.m-welcome-card{flex-shrink:0;width:78vw;max-width:300px;scroll-snap-align:start;background:linear-gradient(135deg,#0d1829 0%,#0a1f3d 100%);border-radius:14px;border:.5px solid var(--sep);padding:16px;position:relative;overflow:hidden;}
+.m-welcome-card::before{content:'';position:absolute;inset:0;opacity:.5;background:url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%234d9fff' fill-opacity='0.05'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");}
+.m-welcome-top{display:flex;align-items:center;gap:10px;position:relative}
+.m-welcome-avatar{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,#2979ff,#4d9fff);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+.m-welcome-greet{font-size:10.5px;color:rgba(255,255,255,.5);font-weight:500;}
+.m-welcome-name{font-size:15px;font-weight:700;color:#fff;font-family:'Rajdhani',sans-serif;letter-spacing:.3px;}
+.m-welcome-sub{font-size:11.5px;color:rgba(255,255,255,.45);margin-top:10px;line-height:1.5;position:relative}
+.m-welcome-btn{margin-top:12px;background:var(--accent2);color:#fff;border:none;border-radius:9px;padding:9px 14px;font-size:12.5px;font-weight:600;cursor:pointer;position:relative;}
+
+.m-promo-card{flex-shrink:0;width:78vw;max-width:300px;scroll-snap-align:start;border-radius:14px;border:.5px solid var(--sep);padding:16px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;}
+.m-promo-card.aff{background:linear-gradient(135deg,#15200d 0%,#0d1a2e 100%)}
+.m-promo-card.hot{background:linear-gradient(135deg,#2e1410 0%,#1a0d0d 100%)}
+.m-promo-card.discord{background:linear-gradient(135deg,#1a0d2e 0%,#10071c 100%)}
+.m-promo-eyebrow{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;display:flex;align-items:center;gap:6px;position:relative}
+.m-promo-card.aff .m-promo-eyebrow{color:var(--green)}
+.m-promo-card.hot .m-promo-eyebrow{color:var(--red)}
+.m-promo-card.discord .m-promo-eyebrow{color:#a991ff}
+.m-promo-title{font-size:15px;font-weight:700;color:#fff;font-family:'Rajdhani',sans-serif;letter-spacing:.3px;margin-top:8px;position:relative}
+.m-promo-sub{font-size:11.5px;color:rgba(255,255,255,.5);margin-top:4px;line-height:1.5;position:relative}
+.m-promo-btn{margin-top:12px;align-self:flex-start;background:rgba(255,255,255,.12);color:#fff;border:.5px solid rgba(255,255,255,.18);border-radius:9px;padding:8px 13px;font-size:12px;font-weight:600;cursor:pointer;position:relative;}
+
+.m-carousel-dots{display:flex;justify-content:center;gap:5px;padding:10px 0 4px}
+.m-carousel-dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.15);transition:all .2s;}
+.m-carousel-dot.active{background:var(--accent);width:14px;border-radius:3px;}
+
+/* ── Mobile Home: big category tiles ── */
+.m-cat-section{padding:14px 12px 0}
+.m-cat-section-lbl{font-size:11px;font-weight:700;color:var(--tertiary);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+.m-cat-section-lbl .chev{opacity:.4;font-size:13px}
+.m-big-cat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.m-big-cat-tile{position:relative;border-radius:14px;overflow:hidden;cursor:pointer;border:.5px solid var(--sep);background:var(--card);padding:14px;min-height:108px;display:flex;flex-direction:column;justify-content:space-between;transition:transform .12s;}
+.m-big-cat-tile:active{transform:scale(.97)}
+.m-big-cat-tile::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 85% 110%, var(--tile-glow,rgba(77,159,255,.18)) 0%, transparent 65%);pointer-events:none;}
+.m-big-cat-eyebrow{display:flex;align-items:center;gap:6px;font-size:10.5px;font-weight:600;color:var(--secondary);position:relative;z-index:1;}
+.m-big-cat-icon-row{display:flex;justify-content:flex-end;gap:-6px;position:relative;z-index:1;}
+.m-big-cat-icon-row span{font-size:30px;line-height:1}
+.m-big-cat-name{font-size:13.5px;font-weight:700;color:var(--label);font-family:'Rajdhani',sans-serif;letter-spacing:.3px;position:relative;z-index:1;margin-top:8px;}
+.m-big-cat-count{font-size:10.5px;color:var(--tertiary);position:relative;z-index:1;margin-top:1px;}
+
+/* ── Terms notice (Games & Giftcards) ── */
+.terms-notice{margin:0 12px 6px;background:rgba(77,159,255,.06);border:.5px solid rgba(77,159,255,.18);border-radius:10px;padding:10px 12px;font-size:11px;color:rgba(240,242,255,.6);line-height:1.6;}
+.terms-notice strong{color:var(--accent);font-weight:600}
+
 .m-fab-refresh{
   position:fixed;bottom:70px;right:20px;z-index:200;
   width:50px;height:50px;border-radius:50%;background:var(--accent2);border:none;cursor:pointer;
@@ -210,8 +256,6 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
 .section-header{font-size:11px;font-weight:700;color:var(--tertiary);text-transform:uppercase;letter-spacing:.5px;padding:14px 12px 8px;display:flex;align-items:center;gap:6px;}
 .section-count{font-weight:400;font-size:11px;color:var(--tertiary);text-transform:none;letter-spacing:0}
 .tile-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;padding:0 8px}
-.game-cat-notice{margin:0 12px 6px;background:rgba(255,149,0,.08);border:.5px solid rgba(255,149,0,.2);border-radius:8px;padding:7px 10px;font-size:11px;color:rgba(240,242,255,.55);line-height:1.5;}
-.game-cat-notice strong{color:var(--orange);font-weight:600}
 
 .m-update-notice{margin:16px 16px 0;background:rgba(255,149,0,.08);border:.5px solid rgba(255,149,0,.2);border-radius:12px;padding:12px 14px;display:flex;align-items:flex-start;gap:10px;}
 .m-update-text{font-size:12px;color:var(--secondary);line-height:1.5}
@@ -327,6 +371,54 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
 
   .d-section-label{font-size:11px;font-weight:700;color:var(--tertiary);text-transform:uppercase;letter-spacing:.5px;padding:16px 18px 8px;display:flex;align-items:center;gap:6px;}
   .d-items-wrap{padding:4px 14px 40px}
+
+  /* ── Desktop Home: welcome banner + carousel ── */
+  .d-home-row{display:flex;gap:14px;padding:18px 18px 0;flex-shrink:0;}
+  .d-welcome-card{flex:1.1;min-width:0;background:linear-gradient(135deg,#0d1829 0%,#0a1f3d 100%);border-radius:16px;border:.5px solid var(--sep);padding:22px 24px;position:relative;overflow:hidden;display:flex;align-items:center;gap:18px;}
+  .d-welcome-card::before{content:'';position:absolute;inset:0;opacity:.5;background:url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%234d9fff' fill-opacity='0.05'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");}
+  .d-welcome-avatar{width:52px;height:52px;border-radius:13px;background:linear-gradient(135deg,#2979ff,#4d9fff);display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;position:relative;z-index:1;}
+  .d-welcome-text{position:relative;z-index:1;flex:1;min-width:0}
+  .d-welcome-greet{font-size:11px;color:rgba(255,255,255,.5);font-weight:500;}
+  .d-welcome-name{font-size:20px;font-weight:700;color:#fff;font-family:'Rajdhani',sans-serif;letter-spacing:.3px;}
+  .d-welcome-sub{font-size:12.5px;color:rgba(255,255,255,.45);margin-top:6px;line-height:1.5;max-width:340px;}
+  .d-welcome-btn{margin-top:12px;background:var(--accent2);color:#fff;border:none;border-radius:9px;padding:9px 16px;font-size:13px;font-weight:600;cursor:pointer;position:relative;z-index:1;transition:all .12s;}
+  .d-welcome-btn:hover{background:#1a5ec7}
+
+  .d-promo-wrap{flex:1;min-width:0;position:relative;border-radius:16px;overflow:hidden;border:.5px solid var(--sep);}
+  .d-promo-card{position:absolute;inset:0;padding:22px 24px;display:none;flex-direction:column;justify-content:center;}
+  .d-promo-card.active{display:flex}
+  .d-promo-card.aff{background:linear-gradient(135deg,#15200d 0%,#0d1a2e 100%)}
+  .d-promo-card.hot{background:linear-gradient(135deg,#2e1410 0%,#1a0d0d 100%)}
+  .d-promo-card.discord{background:linear-gradient(135deg,#1a0d2e 0%,#10071c 100%)}
+  .d-promo-eyebrow{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;display:flex;align-items:center;gap:6px;}
+  .d-promo-card.aff .d-promo-eyebrow{color:var(--green)}
+  .d-promo-card.hot .d-promo-eyebrow{color:var(--red)}
+  .d-promo-card.discord .d-promo-eyebrow{color:#a991ff}
+  .d-promo-title{font-size:19px;font-weight:700;color:#fff;font-family:'Rajdhani',sans-serif;letter-spacing:.3px;margin-top:8px;}
+  .d-promo-sub{font-size:12.5px;color:rgba(255,255,255,.5);margin-top:5px;line-height:1.5;max-width:320px;}
+  .d-promo-btn{margin-top:13px;align-self:flex-start;background:rgba(255,255,255,.12);color:#fff;border:.5px solid rgba(255,255,255,.18);border-radius:9px;padding:8px 15px;font-size:12.5px;font-weight:600;cursor:pointer;transition:all .12s;}
+  .d-promo-btn:hover{background:rgba(255,255,255,.18)}
+  .d-carousel-dots{position:absolute;bottom:14px;right:20px;display:flex;gap:5px;z-index:2;}
+  .d-carousel-dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.2);cursor:pointer;transition:all .2s;}
+  .d-carousel-dot.active{background:#fff;width:16px;border-radius:3px;}
+
+  /* ── Desktop Home: big category tiles ── */
+  .d-cat-section{padding:20px 18px 0;flex-shrink:0}
+  .d-cat-section-lbl{font-size:11px;font-weight:700;color:var(--tertiary);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+  .d-cat-section-lbl .chev{opacity:.4;font-size:13px}
+  .d-big-cat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+  .d-big-cat-tile{position:relative;border-radius:14px;overflow:hidden;cursor:pointer;border:.5px solid var(--sep);background:var(--card);padding:18px 20px;min-height:118px;display:flex;flex-direction:column;justify-content:space-between;transition:transform .14s,border-color .14s;}
+  .d-big-cat-tile:hover{transform:translateY(-3px);border-color:rgba(77,159,255,.25)}
+  .d-big-cat-tile::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 85% 110%, var(--tile-glow,rgba(77,159,255,.18)) 0%, transparent 65%);pointer-events:none;}
+  .d-big-cat-eyebrow{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:600;color:var(--secondary);position:relative;z-index:1;}
+  .d-big-cat-icon-row{display:flex;justify-content:flex-end;position:relative;z-index:1;}
+  .d-big-cat-icon-row span{font-size:36px;line-height:1}
+  .d-big-cat-name{font-size:15px;font-weight:700;color:var(--label);font-family:'Rajdhani',sans-serif;letter-spacing:.3px;position:relative;z-index:1;margin-top:10px;}
+  .d-big-cat-count{font-size:11.5px;color:var(--tertiary);position:relative;z-index:1;margin-top:1px;}
+
+  .terms-notice-d{margin:8px 18px 0;background:rgba(77,159,255,.06);border:.5px solid rgba(77,159,255,.18);border-radius:10px;padding:11px 14px;font-size:11.5px;color:rgba(240,242,255,.6);line-height:1.6;}
+  .terms-notice-d strong{color:var(--accent);font-weight:600}
+
   .d-tile-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:2px;}
 
   .d-tile{position:relative;cursor:pointer;padding:10px 8px 12px;border-radius:8px;transition:background .12s;outline:1px solid transparent;outline-offset:-1px;}
@@ -352,8 +444,6 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
   .rarity-game .d-tile-wear{color:var(--purple)}
   .rarity-default .d-tile-wear{color:var(--secondary)}
 
-  .game-cat-notice-d{margin:0 18px 8px;background:rgba(255,149,0,.08);border:.5px solid rgba(255,149,0,.2);border-radius:8px;padding:8px 12px;font-size:11.5px;color:rgba(240,242,255,.55);line-height:1.5;}
-  .game-cat-notice-d strong{color:var(--orange);font-weight:600}
 
   .d-right-panel{width:calc(var(--detail-w) + var(--chat-w));flex-shrink:0;display:flex;flex-direction:column;border-left:.5px solid var(--sep);overflow:hidden;}
   .d-detail-chat-split{flex:1;display:flex;flex-direction:column;overflow:hidden}
@@ -813,7 +903,7 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
 
     <div class="d-update-notice" id="d-update-notice">
       <span>⚠️</span>
-      <span><strong>Prices update when the stream starts.</strong> If the latest update hasn't loaded yet, use the Refresh button above to force reload.</span>
+      <span><strong>Subscribers &amp; VIPs get reduced cooldown.</strong> Prices update when the stream starts — if the latest update hasn't loaded yet, use the Refresh button above to force reload.</span>
     </div>
   </div>
 </div>
@@ -1120,30 +1210,113 @@ function mTileHtml(item){
     </div>
   </div>`;
 }
+function mHomeSectionHtml(){
+  return `
+  <div class="m-home-row" id="m-carousel-row">
+    <div class="m-welcome-card">
+      <div class="m-welcome-top">
+        <div class="m-welcome-avatar">🛒</div>
+        <div>
+          <div class="m-welcome-greet">Welcome to</div>
+          <div class="m-welcome-name">M9 Systems</div>
+        </div>
+      </div>
+      <div class="m-welcome-sub">Earn 🪙 coins by watching the stream, then redeem them here for skins, games, and more.</div>
+      <button class="m-welcome-btn" onclick="window.open('https://twitch.tv/m9sypher','_blank')">Watch Live</button>
+    </div>
+    <div class="m-promo-card aff" data-slide="0">
+      <div class="m-promo-eyebrow">🤝 Affiliates</div>
+      <div class="m-promo-title">Get deposit bonuses</div>
+      <div class="m-promo-sub">Use M9's referral codes on SkinSwap, Clash.gg &amp; Rain.gg.</div>
+      <button class="m-promo-btn" onclick="mSwitchTab('affiliates')">View Affiliates →</button>
+    </div>
+    <div class="m-promo-card hot" data-slide="1">
+      <div class="m-promo-eyebrow">🔥 Hot Items</div>
+      <div class="m-promo-title">Top picks this week</div>
+      <div class="m-promo-sub">Browse the highest-value skins currently in stock.</div>
+      <button class="m-promo-btn" onclick="mSetFilter('Skins')">Browse Skins →</button>
+    </div>
+    <div class="m-promo-card discord" data-slide="2">
+      <div class="m-promo-eyebrow">💬 Discord</div>
+      <div class="m-promo-title">Join the community</div>
+      <div class="m-promo-sub">Get updates, request items &amp; chat with other viewers.</div>
+      <button class="m-promo-btn" onclick="window.open('https://discord.com/invite/TfjkVjhZwc','_blank')">Join Discord →</button>
+    </div>
+  </div>
+  <div class="m-carousel-dots" id="m-carousel-dots"></div>
+
+  <div class="m-cat-section">
+    <div class="m-cat-section-lbl">Browse Categories <span class="chev">›</span></div>
+    <div class="m-big-cat-grid">${bigCatTilesHtml('m')}</div>
+  </div>`;
+}
+function bigCatTilesHtml(prefix){
+  const glow={'Games & Giftcards':'rgba(156,108,255,.22)',Skins:'rgba(77,159,255,.2)',Stickers:'rgba(255,149,0,.2)',Charms:'rgba(240,169,58,.2)','Music Kits':'rgba(46,204,113,.18)'};
+  return CAT_ORDER.map(cat=>{
+    const cnt=allItems.filter(i=>getCategory(i)===cat).length;
+    if(!cnt)return'';
+    const fn=prefix==='m'?`mSetFilter('${cat}')`:`dSetFilter('${cat}')`;
+    return `<div class="${prefix}-big-cat-tile" style="--tile-glow:${glow[cat]||'rgba(77,159,255,.18)'}" onclick="${fn}">
+      <div class="${prefix}-big-cat-eyebrow">${CAT_ICONS[cat]} ${cat}</div>
+      <div class="${prefix}-big-cat-icon-row"><span>${CAT_ICONS[cat]}</span></div>
+      <div class="${prefix}-big-cat-name">${cat}</div>
+      <div class="${prefix}-big-cat-count">${cnt} items</div>
+    </div>`;
+  }).join('');
+}
+let mCarouselIdx=0,mCarouselTimer=null;
+function mInitCarousel(){
+  const dotsWrap=document.getElementById('m-carousel-dots');
+  if(!dotsWrap)return;
+  dotsWrap.innerHTML='';
+  for(let i=0;i<3;i++){
+    const d=document.createElement('div');
+    d.className='m-carousel-dot'+(i===0?' active':'');
+    dotsWrap.appendChild(d);
+  }
+  clearInterval(mCarouselTimer);
+  mCarouselIdx=0;
+  mCarouselTimer=setInterval(()=>{
+    mCarouselIdx=(mCarouselIdx+1)%3;
+    const row=document.getElementById('m-carousel-row');
+    if(!row)return;
+    const card=row.querySelector(`[data-slide="${mCarouselIdx}"]`);
+    if(card)row.scrollTo({left:card.offsetLeft-row.querySelector('.m-welcome-card').offsetWidth-10,behavior:'smooth'});
+    dotsWrap.querySelectorAll('.m-carousel-dot').forEach((d,i)=>d.classList.toggle('active',i===mCarouselIdx));
+  },4000);
+}
 function mRender(){
   const el=document.getElementById('m-content');
+  const isHome=mFilter==='All'&&!mSearch;
   const items=sorted(filtered(mFilter,mSearch),mSort);
   document.getElementById('m-count').textContent=items.length+' items';
   let html='';
 
+  if(isHome)html+=mHomeSectionHtml();
+
   if(!items.length){
-    html=`<div style="padding:60px 24px;text-align:center;color:var(--secondary)"><div style="font-size:36px;margin-bottom:10px">🔍</div>No items found</div>`;
+    html+=`<div style="padding:60px 24px;text-align:center;color:var(--secondary)"><div style="font-size:36px;margin-bottom:10px">🔍</div>No items found</div>`;
   } else {
     const g=grouped(items);
+    if(isHome)html+=`<div class="m-cat-section-lbl" style="padding:18px 12px 0 12px">All Items <span class="chev">›</span></div>`;
     CAT_ORDER.forEach(cat=>{
       if(!g[cat])return;
-      const gameNoticeM=cat==='Games & Giftcards'?`<div class="game-cat-notice">⚠️ <strong>Note:</strong> Some game titles are region-restricted. Gift cards convert to your local Steam Wallet currency.</div>`:'';
-      html+=`<div class="section-header">${cat} <span class="section-count">${g[cat].length}</span></div>${gameNoticeM}<div class="tile-grid">`;
+      html+=`<div class="section-header">${cat} <span class="section-count">${g[cat].length}</span></div><div class="tile-grid">`;
       g[cat].forEach(item=>{html+=mTileHtml(item);});
       html+='</div>';
+      if(cat==='Games & Giftcards'){
+        html+=`<div class="terms-notice"><strong>Game &amp; Giftcard Terms:</strong> Games may be region-locked. Gift cards convert from USD to the receiver's local currency. Both transaction types require adding <strong>@m9sypher</strong> as a friend for 3 days.</div>`;
+      }
     });
   }
 
   html+=`<div class="m-update-notice" style="margin-bottom:20px">
-    <div class="m-update-text"><strong>⚠️ Prices update when the stream starts.</strong> If the latest update hasn't loaded yet, tap the refresh button to force reload.</div>
+    <div class="m-update-text"><strong>⚠️ Subscribers &amp; VIPs get reduced cooldown.</strong> Prices update when the stream starts — if the latest update hasn't loaded yet, tap refresh to force reload.</div>
   </div>`;
 
   el.innerHTML=html;
+  if(isHome)mInitCarousel();
+  else clearInterval(mCarouselTimer);
 }
 function mOpenModal(idx){
   const item=allItems[idx];if(!item)return;
@@ -1263,25 +1436,100 @@ function dTileHtml(item){
     </div>
   </div>`;
 }
+function dHomeSectionHtml(){
+  return `
+  <div class="d-home-row">
+    <div class="d-welcome-card">
+      <div class="d-welcome-avatar">🛒</div>
+      <div class="d-welcome-text">
+        <div class="d-welcome-greet">Welcome to</div>
+        <div class="d-welcome-name">M9 Systems Item Shop</div>
+        <div class="d-welcome-sub">Earn 🪙 coins by watching the stream, then redeem them here for skins, games, and more.</div>
+        <button class="d-welcome-btn" onclick="window.open('https://twitch.tv/m9sypher','_blank')">Watch Live</button>
+      </div>
+    </div>
+    <div class="d-promo-wrap" id="d-promo-wrap">
+      <div class="d-promo-card aff active" data-slide="0">
+        <div class="d-promo-eyebrow">🤝 Affiliates</div>
+        <div class="d-promo-title">Get deposit bonuses</div>
+        <div class="d-promo-sub">Use M9's referral codes on SkinSwap, Clash.gg &amp; Rain.gg.</div>
+        <button class="d-promo-btn" onclick="dSwitchSection('affiliates');document.querySelectorAll('.d-nav-item').forEach(x=>x.classList.remove('active'));document.getElementById('d-nav-affiliates').classList.add('active')">View Affiliates →</button>
+      </div>
+      <div class="d-promo-card hot" data-slide="1">
+        <div class="d-promo-eyebrow">🔥 Hot Items</div>
+        <div class="d-promo-title">Top picks this week</div>
+        <div class="d-promo-sub">Browse the highest-value skins currently in stock.</div>
+        <button class="d-promo-btn" onclick="dSetFilter('Skins')">Browse Skins →</button>
+      </div>
+      <div class="d-promo-card discord" data-slide="2">
+        <div class="d-promo-eyebrow">💬 Discord</div>
+        <div class="d-promo-title">Join the community</div>
+        <div class="d-promo-sub">Get updates, request items &amp; chat with other viewers.</div>
+        <button class="d-promo-btn" onclick="window.open('https://discord.com/invite/TfjkVjhZwc','_blank')">Join Discord →</button>
+      </div>
+      <div class="d-carousel-dots" id="d-carousel-dots"></div>
+    </div>
+  </div>
+
+  <div class="d-cat-section">
+    <div class="d-cat-section-lbl">Browse Categories <span class="chev">›</span></div>
+    <div class="d-big-cat-grid">${bigCatTilesHtml('d')}</div>
+  </div>`;
+}
+let dCarouselIdx=0,dCarouselTimer=null;
+function dInitCarousel(){
+  const dotsWrap=document.getElementById('d-carousel-dots');
+  if(!dotsWrap)return;
+  dotsWrap.innerHTML='';
+  for(let i=0;i<3;i++){
+    const d=document.createElement('div');
+    d.className='d-carousel-dot'+(i===0?' active':'');
+    d.onclick=()=>dGoToSlide(i);
+    dotsWrap.appendChild(d);
+  }
+  clearInterval(dCarouselTimer);
+  dCarouselIdx=0;
+  dCarouselTimer=setInterval(()=>dGoToSlide((dCarouselIdx+1)%3),4000);
+}
+function dGoToSlide(i){
+  dCarouselIdx=i;
+  const wrap=document.getElementById('d-promo-wrap');
+  if(!wrap)return;
+  wrap.querySelectorAll('.d-promo-card').forEach(c=>c.classList.toggle('active',c.dataset.slide===String(i)));
+  wrap.querySelectorAll('.d-carousel-dot').forEach((d,idx)=>d.classList.toggle('active',idx===i));
+}
 function dRender(){
   if(dCurrentSection==='affiliates')return;
   const grid=document.getElementById('d-grid');
+  const isHome=dFilter==='All'&&!dSearch;
   const items=sorted(filtered(dFilter,dSearch),dSort);
   document.getElementById('d-count').textContent=items.length+' items';
 
-  if(!items.length){grid.innerHTML=`<div style="padding:60px 24px;text-align:center;color:var(--secondary)"><div style="font-size:36px;margin-bottom:10px">🔍</div>No items found</div>`;return;}
+  let html='';
+  if(isHome)html+=dHomeSectionHtml();
 
-  let html='<div class="d-items-wrap">';
+  if(!items.length){
+    html+=`<div style="padding:60px 24px;text-align:center;color:var(--secondary)"><div style="font-size:36px;margin-bottom:10px">🔍</div>No items found</div>`;
+    grid.innerHTML=html;
+    if(isHome)dInitCarousel();else clearInterval(dCarouselTimer);
+    return;
+  }
+
+  html+='<div class="d-items-wrap">';
+  if(isHome)html+=`<div class="d-cat-section-lbl" style="padding:6px 0 4px">All Items <span class="chev">›</span></div>`;
   const g=grouped(items);
   CAT_ORDER.forEach(cat=>{
     if(!g[cat])return;
-    const gameNoticeD=cat==='Games & Giftcards'?`<div class="game-cat-notice-d">⚠️ <strong>Note:</strong> Some game titles are region-restricted. Gift cards convert to your local Steam Wallet currency.</div>`:'';
-    html+=`<div class="d-section-label">${cat} <span class="section-count">${g[cat].length}</span></div>${gameNoticeD}<div class="d-tile-grid">`;
+    html+=`<div class="d-section-label">${cat} <span class="section-count">${g[cat].length}</span></div><div class="d-tile-grid">`;
     g[cat].forEach(item=>{html+=dTileHtml(item);});
     html+=`</div>`;
+    if(cat==='Games & Giftcards'){
+      html+=`<div class="terms-notice-d"><strong>Game &amp; Giftcard Terms:</strong> Games may be region-locked. Gift cards convert from USD to the receiver's local currency. Both transaction types require adding <strong>@m9sypher</strong> as a friend for 3 days.</div>`;
+    }
   });
   html+='</div>';
   grid.innerHTML=html;
+  if(isHome)dInitCarousel();else clearInterval(dCarouselTimer);
 }
 function dSetFilter(cat){
   dCurrentSection='shop';dFilter=cat;
