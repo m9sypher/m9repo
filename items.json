@@ -902,16 +902,16 @@
   {
     "skinName": "Osiris | Elite Crew",
     "marketHashName": "Osiris | Elite Crew",
-    "price": 1622.1842,
+    "price": 1622.1841,
     "buyCmd": "!agent2",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIa-2lmxU-LR0dnuNm6E8Vl45Iv181z1fgn8oZrl-DZk-fO8YaVjNPjdDDXEk7p35uAxTHDqxRh25DuDzI2sdC7BOwZ1W5BwRe4O4BfsktKxZPSiuVIisGC3vg/330x192?allow_animated=1",
     "markupLock": false,
-    "cachedAt": "06/22/26, 05:58 PM",
+    "cachedAt": "06/22/26, 06:37 PM",
     "popularityIndex": 0,
     "marketActivity": 100,
-    "lockAPIscrape": 1782176609949,
+    "lockAPIscrape": 1782178922155,
     "isgame": 0,
-    "difference": "-6.3218",
+    "difference": "-0.0001",
     "markupPercent": 112
   }
 ]
