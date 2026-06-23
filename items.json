@@ -617,21 +617,6 @@
     "markupPercent": 154
   },
   {
-    "skinName": "AWP | Corticera (FT)",
-    "marketHashName": "AWP | Corticera (Field-Tested)",
-    "price": 4489.4615,
-    "buyCmd": "!corticera1",
-    "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwiYbf_jdk6fO4bahsH_GEHlidxOp_pewnFy_glE9w5mvUzd2ueCmWalN2C5dyQeNf4xDrkYfhPrm24gOK2NhCyDK-0H0-lhjVIg/330x192?allow_animated=1",
-    "markupLock": false,
-    "cachedAt": "06/22/26, 04:56 PM",
-    "popularityIndex": 0,
-    "marketActivity": 100,
-    "lockAPIscrape": 1782172874020,
-    "isgame": 0,
-    "difference": "-40.9622",
-    "markupPercent": 164
-  },
-  {
     "skinName": "AWP | Green Energy (FT)",
     "marketHashName": "AWP | Green Energy (Field-Tested)",
     "price": 1625.8285,
