@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>M9 Bio — Region Code Generator</title>
+<style>
+  :root {
+    --bg: #0b0d10;
+    --panel: #14171c;
+    --border: #232830;
+    --text: #e7eaee;
+    --muted: #8a93a3;
+    --accent: #5eead4;
+    --accent-dim: #1f3d38;
+    --error: #f87171;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  .card {
+    width: 100%;
+    max-width: 440px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 32px;
+  }
+  h1 {
+    font-size: 1.25rem;
+    margin: 0 0 4px;
+    letter-spacing: 0.2px;
+  }
+  .sub {
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin: 0 0 24px;
+    line-height: 1.5;
+  }
+  label {
+    display: block;
+    font-size: 0.78rem;
+    color: var(--muted);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  input[type="text"] {
+    width: 100%;
+    background: #0e1116;
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 12px 14px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.15s ease;
+  }
+  input[type="text"]:focus { border-color: var(--accent); }
+  button {
+    width: 100%;
+    margin-top: 16px;
+    background: var(--accent);
+    color: #06302b;
+    font-weight: 600;
+    border: none;
+    padding: 13px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: opacity 0.15s ease;
+  }
+  button:hover { opacity: 0.88; }
+  button:disabled { opacity: 0.5; cursor: not-allowed; }
+  .result {
+    margin-top: 22px;
+    display: none;
+  }
+  .result.show { display: block; }
+  .detected {
+    font-size: 0.82rem;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+  .detected b { color: var(--text); }
+  .code-box {
+    background: #0e1116;
+    border: 1px solid var(--accent-dim);
+    border-radius: 8px;
+    padding: 14px;
+    font-family: 'Consolas', 'SF Mono', monospace;
+    font-size: 1.05rem;
+    letter-spacing: 1px;
+    word-break: break-all;
+    color: var(--accent);
+    text-align: center;
+  }
+  .copy-btn {
+    margin-top: 10px;
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-weight: 500;
+  }
+  .copy-btn:hover { border-color: var(--accent); opacity: 1; }
+  .hint {
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-top: 10px;
+    text-align: center;
+  }
+  .error {
+    margin-top: 16px;
+    color: var(--error);
+    font-size: 0.85rem;
+    display: none;
+  }
+  .error.show { display: block; }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <h1>Set Your Region</h1>
+  <p class="sub">
+    Type <code>!id</code> in chat to get your key, paste it below, then paste the
+    generated command back into chat.
+  </p>
+
+  <label for="userId">Your !id key</label>
+  <input type="text" id="userId" placeholder="e.g. twitch_yourname" autocomplete="off" />
+
+  <button id="genBtn">Generate Code</button>
+
+  <div class="error" id="errorBox"></div>
+
+  <div class="result" id="resultBox">
+    <div class="detected">
+      Detected location: <b id="detectedLocation">—</b>
+    </div>
+    <div class="code-box" id="codeOutput">—</div>
+    <button class="copy-btn" id="copyBtn">Copy Command</button>
+    <div class="hint">Paste this command into chat to finish setup.</div>
+  </div>
+</div>
+
+<script>
+  // ── State name → 2-letter code lookup ──────────────────────────
+  // ip-api.com returns a "region" field that's already the USPS-style
+  // 2-letter code for US results (e.g. "NV"), and a country-appropriate
+  // short code for most other countries too. We use that directly rather
+  // than maintaining our own name→abbreviation table.
+
+  // ── Random part: 6 base36 (0-9, A-Z) characters ─────────────────
+  function randomPart() {
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    let out = '';
+    for (let i = 0; i < 6; i++) out += chars[Math.floor(Math.random() * chars.length)];
+    return out;
+  }
+
+  // ── Verification tail ────────────────────────────────────────────
+  // A short, deterministic value derived from the region code, the random
+  // part, and the user's id. Its purpose is to catch someone hand-editing
+  // the region/random portion of a code before pasting it into chat — it
+  // is NOT a secret (this is a public static page, nothing here could be
+  // a secret), it's just a tamper check. bio.js on the bot side recomputes
+  // this same value and rejects the code if it doesn't match.
+  function simpleHash(str) {
+    let hash = 0x811c9dc5;
+    for (let i = 0; i < str.length; i++) {
+      hash ^= str.charCodeAt(i);
+      hash = Math.imul(hash, 0x01000193);
+    }
+    return hash >>> 0;
+  }
+  const VERIFY_ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+  function computeVerifyTail(stateCode, randPart, userId) {
+    const mixed = `${stateCode.toUpperCase()}:${randPart.toUpperCase()}:${userId.toLowerCase()}`;
+    const h = simpleHash(mixed);
+    const c1 = VERIFY_ALPHABET[h % VERIFY_ALPHABET.length];
+    const c2 = VERIFY_ALPHABET[Math.floor(h / VERIFY_ALPHABET.length) % VERIFY_ALPHABET.length];
+    return c1 + c2;
+  }
+
+  const genBtn = document.getElementById('genBtn');
+  const userIdInput = document.getElementById('userId');
+  const resultBox = document.getElementById('resultBox');
+  const errorBox = document.getElementById('errorBox');
+  const codeOutput = document.getElementById('codeOutput');
+  const detectedLocation = document.getElementById('detectedLocation');
+  const copyBtn = document.getElementById('copyBtn');
+
+  let lastCommand = '';
+
+  function showError(text) {
+    errorBox.textContent = text;
+    errorBox.classList.add('show');
+    resultBox.classList.remove('show');
+  }
+  function clearError() {
+    errorBox.classList.remove('show');
+  }
+
+  async function generate() {
+    const id = userIdInput.value.trim();
+    if (!id) {
+      showError('Enter the key from !id first.');
+      return;
+    }
+    if (!/^(twitch|kick|tiktok|yt)_.+/i.test(id)) {
+      showError('That doesn\'t look like a valid !id key (expected e.g. twitch_yourname).');
+      return;
+    }
+
+    clearError();
+    genBtn.disabled = true;
+    genBtn.textContent = 'Generating…';
+
+    try {
+      // Direct browser → ip-api.com call. No backend involved — this page
+      // is static and hosted on GitHub Pages.
+      const res = await fetch('https://ip-api.com/json/?fields=status,message,country,countryCode,region,regionName,city');
+      const data = await res.json();
+
+      if (data.status !== 'success') {
+        showError('Could not determine your location right now. Try again in a moment.');
+        return;
+      }
+
+      const stateCode = (data.region || data.countryCode || 'XX').toUpperCase();
+      const rp = randomPart();
+      const tail = computeVerifyTail(stateCode, rp, id);
+      const code = `${stateCode}-${rp}-${tail}`;
+
+      lastCommand = `!bio ${code}`;
+      codeOutput.textContent = lastCommand;
+      detectedLocation.textContent = `${data.regionName || data.region}, ${data.country}`;
+      resultBox.classList.add('show');
+    } catch (err) {
+      showError('Could not reach the location service. Check your connection and try again.');
+    } finally {
+      genBtn.disabled = false;
+      genBtn.textContent = 'Generate Code';
+    }
+  }
+
+  async function copyCommand() {
+    if (!lastCommand) return;
+    try {
+      await navigator.clipboard.writeText(lastCommand);
+      copyBtn.textContent = 'Copied!';
+      setTimeout(() => { copyBtn.textContent = 'Copy Command'; }, 1500);
+    } catch (err) {
+      const range = document.createRange();
+      range.selectNode(codeOutput);
+      window.getSelection().removeAllRanges();
+      window.getSelection().addRange(range);
+    }
+  }
+
+  genBtn.addEventListener('click', generate);
+  userIdInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') generate(); });
+  copyBtn.addEventListener('click', copyCommand);
+</script>
+
+</body>
+</html>
