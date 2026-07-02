@@ -318,33 +318,33 @@
     "skinName": "Carry The Glass",
     "marketHashName": "Carry The Glass",
     "appId": 3263320,
-    "price": 501.42,
+    "price": 2055,
     "buyCmd": "!carryglass1",
     "imageUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3263320/e73515ea166913132353f23817c9709c24d691f4/header.jpg?t=1771068318",
     "markupPercent": 275,
     "markupLock": false,
-    "cachedAt": "06/28/26, 04:11 PM",
+    "cachedAt": "07/01/26, 11:25 PM",
     "popularityIndex": 0,
     "marketActivity": 100,
-    "lockAPIscrape": 1782688613170,
+    "lockAPIscrape": 1782973831559,
     "isgame": 1,
-    "difference": "-3.0825"
+    "difference": "+1553.58"
   },
   {
     "skinName": "Super Battle Golf",
     "marketHashName": "Super Battle Golf",
     "appId": 4069520,
-    "price": 1022.97,
+    "price": 4192.5,
     "buyCmd": "!battlegolf1",
     "imageUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4069520/60b052f108998c01fed147d07578a2aed9bcd4ee/header.jpg?t=1772103787",
     "markupPercent": 275,
     "markupLock": false,
-    "cachedAt": "06/28/26, 04:11 PM",
+    "cachedAt": "07/01/26, 11:25 PM",
     "popularityIndex": 0,
     "marketActivity": 100,
-    "lockAPIscrape": 1782688613170,
+    "lockAPIscrape": 1782973831559,
     "isgame": 1,
-    "difference": "-6.2887"
+    "difference": "+3169.53"
   },
   {
     "skinName": "StatTrak™ Negev | dev_texture (FT)",
@@ -665,17 +665,17 @@
     "skinName": "Garry's Mod",
     "marketHashName": "Garry's Mod",
     "appId": 4000,
-    "price": 913.17,
+    "price": 3742.5,
     "buyCmd": "!gmod1",
     "imageUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4000/header.jpg?t=1776868682",
     "markupPercent": 275,
     "markupLock": false,
-    "cachedAt": "06/28/26, 04:11 PM",
+    "cachedAt": "07/01/26, 11:25 PM",
     "popularityIndex": 0,
     "marketActivity": 100,
-    "lockAPIscrape": 1782688613170,
+    "lockAPIscrape": 1782973831559,
     "isgame": 1,
-    "difference": "-5.6138"
+    "difference": "+2829.33"
   },
   {
     "skinName": "Steam Wallet ($10)",
@@ -744,7 +744,6 @@
   {
     "skinName": "★ Shadow Daggers | Damascus Steel (FT)",
     "marketHashName": "★ Shadow Daggers | Damascus Steel (Field-Tested)",
-    "tradableDate": "6/30/26",
     "price": 26006.779,
     "buyCmd": "!daggers1",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL6kJ_m-B1L-uGmV6V8H_SSA2aDwvtlj7g5cCS2kRQyvnOBydf4JXmSOFJ2CcQhQudeu0K7xobgNr_qtQLejI9Bz3_-hyNOvC86_a9cBtUR7rOG/330x192?allow_animated=1",
@@ -760,7 +759,6 @@
   {
     "skinName": "StatTrak™ Nova | Ocular (FT)",
     "marketHashName": "StatTrak™ Nova | Ocular (Field-Tested)",
-    "tradableDate": "6/30/26",
     "price": 183.6198,
     "buyCmd": "!ocular1",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL_kYDhwixU-fORZ6d4LPGBMWqVxedjva89GHzrwhh14jvQm46geC2fOw8hCcF0QeALs0S7lNLjZezj5gWKi94U02yg2ZCbkb4B/330x192?allow_animated=1",
@@ -776,7 +774,6 @@
   {
     "skinName": "AK-47 | Midnight Laminate (MW)",
     "marketHashName": "AK-47 | Midnight Laminate (Minimal Wear)",
-    "tradableDate": "6/30/26",
     "price": 1367.3467,
     "buyCmd": "!midlam1",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwlcK3wjFU6s2neq1pJeOQC2mE_v5jovFlSha_nBovp3PRnt36d36UOlUmCcF2TOZfsRC_ldW1ML625AbZ2dhHyn_7jSgauCtp_a9cBpVVSdXG/330x192?allow_animated=1",
@@ -792,7 +789,6 @@
   {
     "skinName": "StatTrak™ Glock-18 | Shinobu (FT)",
     "marketHashName": "StatTrak™ Glock-18 | Shinobu (Field-Tested)",
-    "tradableDate": "6/30/26",
     "price": 1338.5254,
     "buyCmd": "!shinobu1",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL2kpnj9h1c4_2tY5t-KPmdAWWF_uNztOh8QmflzR50sDnXzdv9I3iTOwdzAsZxE7FcsUW7xNPkMeyx4QTYiI5CnCj9kGoXuamHlTQY/330x192?allow_animated=1",
@@ -808,7 +804,6 @@
   {
     "skinName": "USP-S | Cortex (MW)",
     "marketHashName": "USP-S | Cortex (Minimal Wear)",
-    "tradableDate": "6/30/26",
     "price": 1079.334,
     "buyCmd": "!cortex1",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLkjYbf7itX6vytbbZSI-WsG3SA_u1jpN5lRi67gVNz4G7Qm938cS_Da1AhXpB1EeVb4xm4mtDjN7vj4A3b2NpGyCr52i4Y8G81tMzdoYZ7/330x192?allow_animated=1",
@@ -824,7 +819,6 @@
   {
     "skinName": "StatTrak™ Zeus x27 | Olympus (MW)",
     "marketHashName": "StatTrak™ Zeus x27 | Olympus (Minimal Wear)",
-    "tradableDate": "6/30/26",
     "price": 1461.1354,
     "buyCmd": "!olympus1",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLln4Xl7x1B6ue9V7BlNf6XC3WvxuFyj-1gSCGn2xl2sm7XnI6hdC-XPAcmXsF2RLIP4xbslty2NLvqswePjYlEySn33S9XrnE8cYTqlUY/330x192?allow_animated=1",
@@ -840,7 +834,6 @@
   {
     "skinName": "Glock-18 | Block-18 (BS)",
     "marketHashName": "Glock-18 | Block-18 (Battle-Scarred)",
-    "tradableDate": "6/30/26",
     "price": 44.125,
     "buyCmd": "!gblock2",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL2kpnj9h1c4_2tY5tvMvmQBVidzuByouhoQRa7kBwxqnPQyousJXyQaQAgXpQhEOQItxixmtDvMLnltFeL2t5Hziz2iyod5yg4_a9cBssBB-aV/330x192?allow_animated=1",
@@ -856,7 +849,6 @@
   {
     "skinName": "StatTrak™ Desert Eagle | Corinthian (FT)",
     "marketHashName": "StatTrak™ Desert Eagle | Corinthian (Field-Tested)",
-    "tradableDate": "6/30/26",
     "price": 178.8618,
     "buyCmd": "!corin1",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL1m5fn8Sdk7uORbKFsJ_yWMWSf0-d4pOlgTieMmBgjuiiI1NiuJX7Cbw9xXJshR-RY5hO5wNTgNuzn4A3Y2NkXxCv_jHka7y5usOocEf1ykShuajs/330x192?allow_animated=1",
