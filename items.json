@@ -2,7 +2,7 @@
   {
     "skinName": "Sticker | Tamara (Holo)",
     "marketHashName": "Sticker | Tamara (Holo)",
-    "price": 358.4151,
+    "price": 355.3905,
     "buyCmd": "!tamara_holo1",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjNqoO26H9ml29Zfn_1XiDgnwk5fy_B1T4P6hJqJvePPDXj_Jkr51seI4Sn_qwR9-tjiHyN2ocX3EOA4mWcNxF-EK50Gm0oqwz4iWKok/330x192?allow_animated=1",
     "markupPercent": 113,
@@ -12,12 +12,12 @@
     "marketActivity": 71,
     "lockAPIscrape": 1783113253093,
     "isgame": 0,
-    "difference": "-7.5615"
+    "difference": "-3.0246"
   },
   {
     "skinName": "Sticker | Sherry (Holo)",
     "marketHashName": "Sticker | Sherry (Holo)",
-    "price": 230.1934,
+    "price": 228.2508,
     "buyCmd": "!sherry_holo1",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjNqoO26H9ml29Zfn_1XiDg7ylpPy7ztk5_2iZ-o-JvSSWmbDlb4l6Oc7S3DhxUslsGuGy9iteXrCPwZzW8dzTOEJuhHrjJS5YICPoSom/330x192?allow_animated=1",
     "markupPercent": 113,
@@ -27,12 +27,12 @@
     "marketActivity": 71,
     "lockAPIscrape": 1783113253093,
     "isgame": 0,
-    "difference": "-4.8564"
+    "difference": "-1.9426"
   },
   {
     "skinName": "Sticker | Martha",
     "marketHashName": "Sticker | Martha",
-    "price": 2.37,
+    "price": 2.35,
     "buyCmd": "!martha1",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjNqoO26H9ml29Zfn_1XiDhDwjILo_GwO7KOvbaI0caTHDTLAkL1y6bM8Hnrjl0Rxt2_Ry9j6JyiVaAQlWJZ2W6dU5QiW9y87/330x192?allow_animated=1",
     "markupPercent": 0,
@@ -42,12 +42,12 @@
     "marketActivity": 67,
     "lockAPIscrape": 1783113253093,
     "isgame": 0,
-    "difference": "-0.05"
+    "difference": "-0.02"
   },
   {
     "skinName": "Sticker | Martha",
     "marketHashName": "Sticker | Martha",
-    "price": 2.37,
+    "price": 2.35,
     "buyCmd": "!martha2",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjNqoO26H9ml29Zfn_1XiDhDwjILo_GwO7KOvbaI0caTHDTLAkL1y6bM8Hnrjl0Rxt2_Ry9j6JyiVaAQlWJZ2W6dU5QiW9y87/330x192?allow_animated=1",
     "markupPercent": 0,
@@ -57,12 +57,12 @@
     "marketActivity": 67,
     "lockAPIscrape": 1783113253093,
     "isgame": 0,
-    "difference": "-0.05"
+    "difference": "-0.02"
   },
   {
     "skinName": "Sticker | Martha",
     "marketHashName": "Sticker | Martha",
-    "price": 2.37,
+    "price": 2.35,
     "buyCmd": "!martha3",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjNqoO26H9ml29Zfn_1XiDhDwjILo_GwO7KOvbaI0caTHDTLAkL1y6bM8Hnrjl0Rxt2_Ry9j6JyiVaAQlWJZ2W6dU5QiW9y87/330x192?allow_animated=1",
     "markupPercent": 0,
@@ -72,12 +72,12 @@
     "marketActivity": 67,
     "lockAPIscrape": 1783113253093,
     "isgame": 0,
-    "difference": "-0.05"
+    "difference": "-0.02"
   },
   {
     "skinName": "Sticker | Sherry",
     "marketHashName": "Sticker | Sherry",
-    "price": 16.59,
+    "price": 16.45,
     "buyCmd": "!sherry2",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjNqoO26H9ml29Zfn_1XiDg7ylpPy7zsV6aerPaU_cvHDXzHGlO8l6Oc7Tnu1zR4l4G3dyNasci2TOg4kCZFxQ_lK7EcaEGR1aw/330x192?allow_animated=1",
     "markupPercent": 0,
@@ -87,12 +87,12 @@
     "marketActivity": 100,
     "lockAPIscrape": 1783113253093,
     "isgame": 0,
-    "difference": "-0.35"
+    "difference": "-0.14"
   },
   {
     "skinName": "Sticker | Sherry",
     "marketHashName": "Sticker | Sherry",
-    "price": 30.6915,
+    "price": 30.4325,
     "buyCmd": "!sherry3",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjNqoO26H9ml29Zfn_1XiDg7ylpPy7zsV6aerPaU_cvHDXzHGlO8l6Oc7Tnu1zR4l4G3dyNasci2TOg4kCZFxQ_lK7EcaEGR1aw/330x192?allow_animated=1",
     "markupPercent": 85,
@@ -102,12 +102,12 @@
     "marketActivity": 100,
     "lockAPIscrape": 1783113253093,
     "isgame": 0,
-    "difference": "-0.6475"
+    "difference": "-0.259"
   },
   {
     "skinName": "P250 | Small Game (FN)",
     "marketHashName": "P250 | Small Game (Factory New)",
-    "price": 112.338,
+    "price": 111.39,
     "buyCmd": "!smallgame1",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLhzMOwwjFU7PqRYLFjNPWBMWWcwPRzj_E7GnmMmRQguynLzdv4JCrGalRzCpZzQLUD5BG5wdPkZuqx51OLjt4Uyiv52CJL6ipssfFCD_QcHDx_gA/330x192?allow_animated=1",
     "markupPercent": 0,
@@ -117,12 +117,12 @@
     "marketActivity": 100,
     "lockAPIscrape": 1783113253093,
     "isgame": 0,
-    "difference": "-2.37"
+    "difference": "-0.948"
   },
   {
     "skinName": "Charm | Lil' Cackle",
     "marketHashName": "Charm | Lil' Cackle",
-    "price": 15.405,
+    "price": 15.275,
     "buyCmd": "!cackle1",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWsPGiE7Fhy-I764WbkThD8i5jp6Ttkv6PhY6dSLfmAHW6exuJ_vupWQyC_mRIr_WTQnImtIn2WaAUgC5RxFuUL4BK4ktbmP-i07waKiYNNnyuqinhIvCx1o7FVIQay8B4/330x192?allow_animated=1",
     "markupPercent": 25,
@@ -132,12 +132,12 @@
     "marketActivity": 100,
     "lockAPIscrape": 1783113253093,
     "isgame": 0,
-    "difference": "-0.325"
+    "difference": "-0.13"
   },
   {
     "skinName": "Charm | Lil' Cackle",
     "marketHashName": "Charm | Lil' Cackle",
-    "price": 8.2571,
+    "price": 8.1874,
     "buyCmd": "!cackle2",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWsPGiE7Fhy-I764WbkThD8i5jp6Ttkv6PhY6dSLfmAHW6exuJ_vupWQyC_mRIr_WTQnImtIn2WaAUgC5RxFuUL4BK4ktbmP-i07waKiYNNnyuqinhIvCx1o7FVIQay8B4/330x192?allow_animated=1",
     "markupPercent": -33,
@@ -147,12 +147,12 @@
     "marketActivity": 100,
     "lockAPIscrape": 1783113253093,
     "isgame": 0,
-    "difference": "-0.1742"
+    "difference": "-0.0697"
   },
   {
     "skinName": "Charm | Lil' Cackle",
     "marketHashName": "Charm | Lil' Cackle",
-    "price": 12.324,
+    "price": 12.22,
     "buyCmd": "!cackle3",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWsPGiE7Fhy-I764WbkThD8i5jp6Ttkv6PhY6dSLfmAHW6exuJ_vupWQyC_mRIr_WTQnImtIn2WaAUgC5RxFuUL4BK4ktbmP-i07waKiYNNnyuqinhIvCx1o7FVIQay8B4/330x192?allow_animated=1",
     "markupPercent": 0,
@@ -162,12 +162,12 @@
     "marketActivity": 100,
     "lockAPIscrape": 1783113253093,
     "isgame": 0,
-    "difference": "-0.26"
+    "difference": "-0.104"
   },
   {
     "skinName": "Charm | Lil' Baller",
     "marketHashName": "Charm | Lil' Baller",
-    "price": 6.636,
+    "price": 6.58,
     "buyCmd": "!baller2",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWsPGiE7Fhy-I764WbkThD8i5jp6Ttkv6PhY6dSLfmAHW6exuJ_vupWTSignhgzsTyJlsH8eX6QOFcoWJRzTe8NshTpwIXkMeyztQ3eit1GzCWsj39Junw95btXT-N7rTQtXshi/330x192?allow_animated=1",
     "markupPercent": 0,
@@ -177,12 +177,12 @@
     "marketActivity": 100,
     "lockAPIscrape": 1783113253093,
     "isgame": 0,
-    "difference": "-0.14"
+    "difference": "-0.056"
   },
   {
     "skinName": "Charm | Lil' Baller",
     "marketHashName": "Charm | Lil' Baller",
-    "price": 6.636,
+    "price": 6.58,
     "buyCmd": "!baller1",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWsPGiE7Fhy-I764WbkThD8i5jp6Ttkv6PhY6dSLfmAHW6exuJ_vupWTSignhgzsTyJlsH8eX6QOFcoWJRzTe8NshTpwIXkMeyztQ3eit1GzCWsj39Junw95btXT-N7rTQtXshi/330x192?allow_animated=1",
     "markupPercent": 0,
@@ -192,12 +192,12 @@
     "marketActivity": 100,
     "lockAPIscrape": 1783113253093,
     "isgame": 0,
-    "difference": "-0.14"
+    "difference": "-0.056"
   },
   {
     "skinName": "Sticker | Sherry",
     "marketHashName": "Sticker | Sherry",
-    "price": 12.6084,
+    "price": 12.502,
     "buyCmd": "!sherry1",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjNqoO26H9ml29Zfn_1XiDg7ylpPy7zsV6aerPaU_cvHDXzHGlO8l6Oc7Tnu1zR4l4G3dyNasci2TOg4kCZFxQ_lK7EcaEGR1aw/330x192?allow_animated=1",
     "markupPercent": -24,
@@ -207,12 +207,12 @@
     "marketActivity": 100,
     "lockAPIscrape": 1783113253093,
     "isgame": 0,
-    "difference": "-0.266"
+    "difference": "-0.1064"
   },
   {
     "skinName": "Souvenir PP-Bizon | Candy Apple (FN)",
     "marketHashName": "Souvenir PP-Bizon | Candy Apple (Factory New)",
-    "price": 86.9695,
+    "price": 86.2356,
     "buyCmd": "!candyapple1",
     "imageUrl": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLzl4zv8x1I4M28baBSLPmUBnPemO105rI6SirhzRwi6zjWzd2uJCmfaFByApMiRbNcuxC_k9TgZb_qthue1dzUHyay4A/330x192?allow_animated=1",
     "markupPercent": 32,
@@ -222,12 +222,12 @@
     "marketActivity": 45,
     "lockAPIscrape": 1783113253093,
     "isgame": 0,
-    "difference": "-1.8348"
+    "difference": "-0.7339"
   },
   {
     "skinName": "UMP-45 | Delusion (MW)",
     "marketHashName": "UMP-45 | Delusion (Minimal Wear)",
-    "price": 148.362,
+    "price": 147.11,
     "buyCmd": "!delusion1",
     "imageUrl": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLkk4a0qB1I_827ZbQ5dc-XQ3GZ0ud5vvJWQyC0nQlp5z7RwtyrIC6WbAYgCJp3Q-YD4RXsxN3jN-7n41He390QzXn5iCMf5jErvbiLTzB_rQ/330x192?allow_animated=1",
     "markupPercent": 0,
@@ -237,12 +237,12 @@
     "marketActivity": 65,
     "lockAPIscrape": 1783113253093,
     "isgame": 0,
-    "difference": "-3.13"
+    "difference": "-1.252"
   },
   {
     "skinName": "Sticker | Kimberly",
     "marketHashName": "Sticker | Kimberly",
-    "price": 69.678,
+    "price": 69.09,
     "buyCmd": "!kim1",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjNqoO26H9ml29Zfn_1XiDhb4k5Tl7y5Coaf_PPU1IqWXX2KTx-gn47VrHnGwzUlw5W3Sn9usdC7FPw91A5J3E7UU8k7v3dbOmKU/330x192?allow_animated=1",
     "markupPercent": 0,
@@ -252,12 +252,12 @@
     "marketActivity": 82,
     "lockAPIscrape": 1783113253093,
     "isgame": 0,
-    "difference": "-1.47"
+    "difference": "-0.588"
   },
   {
     "skinName": "M4A1-S | Nitro (FT)",
     "marketHashName": "M4A1-S | Nitro (Field-Tested)",
-    "price": 47.5612,
+    "price": 47.1598,
     "buyCmd": "!nitro1",
     "imageUrl": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8ypexwjFS4_ega6F_H-OcMWiCwOBxtd5oTCq2mwk0jDCAnobsLGWQPwMoW5VxTLEMsxK4moazP-vj5ALciIkWzCX72HhL5nts4b1QV6tz5OSJ2HJmNovH/330x192?allow_animated=1",
     "markupPercent": 73,
@@ -267,12 +267,12 @@
     "marketActivity": 100,
     "lockAPIscrape": 1783113253093,
     "isgame": 0,
-    "difference": "-1.0034"
+    "difference": "-0.4014"
   },
   {
     "skinName": "Five-SeveN | Sky Blue (FN)",
     "marketHashName": "Five-SeveN | Sky Blue (Factory New)",
-    "price": 18.486,
+    "price": 18.33,
     "buyCmd": "!skyblue1",
     "imageUrl": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL3l4Dl7idN6vyRe6toH_KfG2KvwOByj-JhXSa-kCIrujqNjsGueHuXb1VxDZRzFuJe5BC4w4XnYbnj5A2NjIMUyyr3iikY6Cc4tecBT-N7rc172J_D/330x192?allow_animated=1",
     "markupPercent": 0,
@@ -282,12 +282,12 @@
     "marketActivity": 100,
     "lockAPIscrape": 1783113253093,
     "isgame": 0,
-    "difference": "-0.39"
+    "difference": "-0.156"
   },
   {
     "skinName": "Five-SeveN | Sky Blue (FN)",
     "marketHashName": "Five-SeveN | Sky Blue (Factory New)",
-    "price": 26.2502,
+    "price": 26.0287,
     "buyCmd": "!skyblue2",
     "imageUrl": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL3l4Dl7idN6vyRe6toH_KfG2KvwOByj-JhXSa-kCIrujqNjsGueHuXb1VxDZRzFuJe5BC4w4XnYbnj5A2NjIMUyyr3iikY6Cc4tecBT-N7rc172J_D/330x192?allow_animated=1",
     "markupPercent": 42,
@@ -297,12 +297,12 @@
     "marketActivity": 100,
     "lockAPIscrape": 1783113253093,
     "isgame": 0,
-    "difference": "-0.5538"
+    "difference": "-0.2215"
   },
   {
     "skinName": "P250 | Red Tide (MW)",
     "marketHashName": "P250 | Red Tide (Minimal Wear)",
-    "price": 36.498,
+    "price": 36.19,
     "buyCmd": "!redtide1",
     "imageUrl": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLhzMOwwipC6s2-YapmH_OcHGac_uJ_t-l9AXznkUV35WiGy4yhcX6ROgYnCcd3F-AJ4RG_wNXvZOjm7wXWj9lFnCrgznQexaJMRP4/330x192?allow_animated=1",
     "markupPercent": 0,
@@ -312,13 +312,13 @@
     "marketActivity": 100,
     "lockAPIscrape": 1783113253093,
     "isgame": 0,
-    "difference": "-0.77"
+    "difference": "-0.308"
   },
   {
     "skinName": "Carry The Glass",
     "marketHashName": "Carry The Glass",
     "appId": 3263320,
-    "price": 487.035,
+    "price": 482.925,
     "buyCmd": "!carryglass1",
     "imageUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3263320/e73515ea166913132353f23817c9709c24d691f4/header.jpg?t=1771068318",
     "markupPercent": 275,
@@ -328,13 +328,13 @@
     "marketActivity": 100,
     "lockAPIscrape": 1783115953079,
     "isgame": 1,
-    "difference": "-10.275"
+    "difference": "-4.11"
   },
   {
     "skinName": "Super Battle Golf",
     "marketHashName": "Super Battle Golf",
     "appId": 4069520,
-    "price": 993.6225,
+    "price": 985.2375,
     "buyCmd": "!battlegolf1",
     "imageUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4069520/60b052f108998c01fed147d07578a2aed9bcd4ee/header.jpg?t=1772103787",
     "markupPercent": 275,
@@ -344,12 +344,12 @@
     "marketActivity": 100,
     "lockAPIscrape": 1783115953079,
     "isgame": 1,
-    "difference": "-20.9625"
+    "difference": "-8.385"
   },
   {
     "skinName": "StatTrak™ Negev | dev_texture (FT)",
     "marketHashName": "StatTrak™ Negev | dev_texture (Field-Tested)",
-    "price": 35.076,
+    "price": 34.78,
     "buyCmd": "!devnegev1",
     "imageUrl": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL_m5Hl6x1Y-s2gbaNoNs-XC3GExPZipfNscCS2kRQyvnPTwtv7InieOFJ1DpZ2F7YCskXultC1MOnktlaI344WxCX62ntB7i46_a9cBrXKNorP/330x192?allow_animated=1",
     "markupPercent": 0,
@@ -359,12 +359,12 @@
     "marketActivity": 75,
     "lockAPIscrape": 1783113253093,
     "isgame": 0,
-    "difference": "-0.74"
+    "difference": "-0.296"
   },
   {
     "skinName": "StatTrak™ Sawed-Off | Fusion (FN)",
     "marketHashName": "StatTrak™ Sawed-Off | Fusion (Factory New)",
-    "price": 132.4593,
+    "price": 131.3415,
     "buyCmd": "!fusion1",
     "imageUrl": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLin4Hl-S1d6c29abNoJP-VCFiW1P1_v-9WQyC0nQlp4WiHyY79eHmXOw4mW5JwQ-Jc5hO7koXjML_jsgSK2oJHmyz82ilB7DErvbjU0C2wDw/330x192?allow_animated=1",
     "markupPercent": 35,
@@ -374,12 +374,12 @@
     "marketActivity": 43,
     "lockAPIscrape": 1783113253093,
     "isgame": 0,
-    "difference": "-2.7945"
+    "difference": "-1.1178"
   },
   {
     "skinName": "CZ75-Auto | Red Astor (FT)",
     "marketHashName": "CZ75-Auto | Red Astor (Field-Tested)",
-    "price": 70.626,
+    "price": 70.03,
     "buyCmd": "!redastor1",
     "imageUrl": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLyhMG1_B1c_M2tcvM4Ic-BC2OR0vp5ot5kSi26gBBp4GTdmN6rcnmTO1R1W5shRu4Mu0SxxNG1Mb6341SLi4tFxST-235M5jErvbiaWQ2HSQ/330x192?allow_animated=1",
     "markupPercent": 0,
@@ -389,12 +389,12 @@
     "marketActivity": 87,
     "lockAPIscrape": 1783113253093,
     "isgame": 0,
-    "difference": "-1.49"
+    "difference": "-0.596"
   },
   {
     "skinName": "MP9 | Urban Sovereign (FT)",
     "marketHashName": "MP9 | Urban Sovereign (Field-Tested)",
-    "price": 65.886,
+    "price": 65.33,
     "buyCmd": "!urbansov1",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8js_f8DIC0Oe8aqVjH-OcGGKCxOdxvt5kSi26gBBpsDmDm4qsInKSOlQnDcdwE-9YtBSwmoG1P7jh7lTdg4kWnCyqiSJI6jErvbj8vl5c_w/330x192?allow_animated=1",
     "markupPercent": 0,
@@ -404,12 +404,12 @@
     "marketActivity": 69,
     "lockAPIscrape": 1783113253093,
     "isgame": 0,
-    "difference": "-1.39"
+    "difference": "-0.556"
   },
   {
     "skinName": "Sticker | Gold Nova",
     "marketHashName": "Sticker | Gold Nova",
-    "price": 68.256,
+    "price": 67.68,
     "buyCmd": "!gnova1",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjNmqPHeb4kR64ZfL6Vj3Ugj9m9nn8i5f0PyhfqUjJamXCj7CkLsisbE9Fnzmlksi6mmHzdiqIyqTZwJ0DJF1QecMs0Hrwcqnab2HWFVYYg/330x192?allow_animated=1",
     "markupPercent": 0,
@@ -419,12 +419,12 @@
     "marketActivity": 81,
     "lockAPIscrape": 1783113253093,
     "isgame": 0,
-    "difference": "-1.44"
+    "difference": "-0.576"
   },
   {
     "skinName": "P250 | X-Ray (FN)",
     "marketHashName": "P250 | X-Ray (Factory New)",
-    "price": 50.244,
+    "price": 49.82,
     "buyCmd": "!xray1",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLhzMOwwiFO0Oq8ab1SMKLGXlicyOl-pK8_HSjjxx9wsmXQnIv6cH2TaAQoWZd4RuAKshe7wdS1NOvi5VCIi48Q02yg2fSIc8-4/330x192?allow_animated=1",
     "markupPercent": 0,
@@ -434,12 +434,12 @@
     "marketActivity": 100,
     "lockAPIscrape": 1783113253093,
     "isgame": 0,
-    "difference": "-1.06"
+    "difference": "-0.424"
   },
   {
     "skinName": "StatTrak™ Glock-18 | Block-18 (FT)",
     "marketHashName": "StatTrak™ Glock-18 | Block-18 (Field-Tested)",
-    "price": 148.4237,
+    "price": 147.1712,
     "buyCmd": "!gblock1",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL2kpnj9h1c4_2tY5tvMvmQBVidzuByouhoQRa-kBkupjDLmN-rJH3FZgUkWMF2EOVfsUS8lNO1Nrzm4wbY2I9EzCT23StI6Hs4t_FCD_Qg7K1xSg/330x192?allow_animated=1",
     "markupPercent": 81,
@@ -449,12 +449,12 @@
     "marketActivity": 100,
     "lockAPIscrape": 1783113253093,
     "isgame": 0,
-    "difference": "-3.1313"
+    "difference": "-1.2525"
   },
   {
     "skinName": "Kilowatt Case",
     "marketHashName": "Kilowatt Case",
-    "price": 11.85,
+    "price": 11.75,
     "buyCmd": "!kilo3",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJKz2lu_XsnXwtmkJjSU91dh8bj35VTqVBP4io_frnEVvqf_a6VoIfGSXz7Hlbwg57QwSS_mxhl15jiGyN37c3_GZw91W8BwRflK7EfKsa2sfw/330x192?allow_animated=1",
     "markupPercent": 0,
@@ -464,12 +464,12 @@
     "marketActivity": 100,
     "lockAPIscrape": 1783113253093,
     "isgame": 0,
-    "difference": "-0.25"
+    "difference": "-0.1"
   },
   {
     "skinName": "P90 | Elite Build (MW)",
     "marketHashName": "P90 | Elite Build (Minimal Wear)",
-    "price": 68.8485,
+    "price": 68.2675,
     "buyCmd": "!p90elite1",
     "imageUrl": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLhx8bf_jdk_6v-V6lsM-SWHH6vzedxuPUnHyi1xE9xsGiDmdqpdnmRPwcgDZslRuAM40Trx93nNevj7gOPjdlGzzK-0H27CoeJJQ/330x192?allow_animated=1",
     "markupPercent": 75,
@@ -479,12 +479,12 @@
     "marketActivity": 86,
     "lockAPIscrape": 1783113253093,
     "isgame": 0,
-    "difference": "-1.4525"
+    "difference": "-0.581"
   },
   {
     "skinName": "P250 | Cartel (FT)",
     "marketHashName": "P250 | Cartel (Field-Tested)",
-    "price": 1256.4792,
+    "price": 1245.876,
     "buyCmd": "!p250cartel1",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLhzMOwwiNK0OL8PfRSI_GBGmKc_uNztOh8Qmfmk0tzt26Hyon4dnzFPAR1C8FxQOcI5xPsx9biY-riswaMiNlMzi36kGoXue--ccGo/330x192?allow_animated=1",
     "markupPercent": 135,
@@ -494,12 +494,12 @@
     "marketActivity": 100,
     "lockAPIscrape": 1783113253093,
     "isgame": 0,
-    "difference": "-26.508"
+    "difference": "-10.6032"
   },
   {
     "skinName": "Glock-18 | Candy Apple (FN)",
     "marketHashName": "Glock-18 | Candy Apple (Factory New)",
-    "price": 414.513,
+    "price": 411.015,
     "buyCmd": "!gapple1",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL2kpnj9h1I4M28baBSLPmUBnPelb93teA-FivjzB5wsjzTyI2pIn_CPAMoW8N3ROJZshm5w9zgNbnk5xue1dyMA9ZU_Q/330x192?allow_animated=1",
     "markupPercent": 175,
@@ -509,12 +509,12 @@
     "marketActivity": 42,
     "lockAPIscrape": 1783113253093,
     "isgame": 0,
-    "difference": "-8.745"
+    "difference": "-3.498"
   },
   {
     "skinName": "M4A1-S | Black Lotus (BS)",
     "marketHashName": "M4A1-S | Black Lotus (Battle-Scarred)",
-    "price": 603.5442,
+    "price": 598.451,
     "buyCmd": "!blotus1",
     "imageUrl": "https://community.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8ypexwjFS4_ega6F_H_3HDzaD_ux6seJicCW8gQg0jDWAm5ngbynCalJyDpMlQONYtkPpldTlYr7qtAPc2NhByiX4jikav3tj5O4LU6A7uvqArAmeAQg",
     "markupLock": false,
@@ -523,13 +523,13 @@
     "marketActivity": 100,
     "lockAPIscrape": 1783113253093,
     "isgame": 0,
-    "difference": "-12.733",
+    "difference": "-5.0932",
     "markupPercent": 114
   },
   {
     "skinName": "Desert Eagle | Mecha Industries (FT)",
     "marketHashName": "Desert Eagle | Mecha Industries (Field-Tested)",
-    "price": 806.274,
+    "price": 799.47,
     "buyCmd": "!mechadeag1",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL1m5fn8Sdk6OGRbKFsJ_yWMWqVwuZ3j-1gSCGn20h042vSyY2tdyjCZwIlXJBxQeNe4EWxxoHkMOq0sQGIid5Fnyr42HtXrnE8p4gbgvE/330x192?allow_animated=1",
     "markupLock": false,
@@ -538,13 +538,13 @@
     "marketActivity": 100,
     "lockAPIscrape": 1783113253093,
     "isgame": 0,
-    "difference": "-17.01",
+    "difference": "-6.804",
     "markupPercent": 125
   },
   {
     "skinName": "StatTrak™ M4A1-S | Electrum (FT)",
     "marketHashName": "StatTrak™ M4A1-S | Electrum (Field-Tested)",
-    "price": 717.7545,
+    "price": 711.6975,
     "buyCmd": "!electrum1",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8ypexwjFS4_ega6F_H_3HDzaD_ut6teJ9XTy-qhAitzSQl8GqcC3FPw8oCsAjFOcMtBXuxoeyZePm5lGK399FmS38hy9Luihr4ecFT-N7rcPUCN_I/330x192?allow_animated=1",
     "markupLock": false,
@@ -553,13 +553,13 @@
     "marketActivity": 100,
     "lockAPIscrape": 1783113253093,
     "isgame": 0,
-    "difference": "-15.1425",
+    "difference": "-6.057",
     "markupPercent": 125
   },
   {
     "skinName": "M4A1-S | Leaded Glass (FT)",
     "marketHashName": "M4A1-S | Leaded Glass (Field-Tested)",
-    "price": 1298.3808,
+    "price": 1287.424,
     "buyCmd": "!leadglass1",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8ypexwjFS4_ega6F_H_eAMWrEwL9Jo-loWz22hyIqtjmMj4K3dCieZwAnWMMhROVcsxS-m4a0MOrhsVPWiN0Umy-tjXxOvXlu57kAAr1lpPP-g--6yQ/330x192?allow_animated=1",
     "markupLock": false,
@@ -568,13 +568,13 @@
     "marketActivity": 100,
     "lockAPIscrape": 1783113253093,
     "isgame": 0,
-    "difference": "-27.392",
+    "difference": "-10.9568",
     "markupPercent": 114
   },
   {
     "skinName": "AUG | Amber Fade (FN)",
     "marketHashName": "AUG | Amber Fade (Factory New)",
-    "price": 1159.2855,
+    "price": 1149.5025,
     "buyCmd": "!amberaug1",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwi5Hf_CNk6fOqbZtgJeSSAmuZwtF6ueZhW2fizUlwsmuEytmvJHzGaQJyXMclEbYCuhPtkdHmPrvqsVaL3osTmyj6kGoXuZFFysy6/330x192?allow_animated=1",
     "markupLock": false,
@@ -583,13 +583,13 @@
     "marketActivity": 100,
     "lockAPIscrape": 1783113253093,
     "isgame": 0,
-    "difference": "-24.4575",
+    "difference": "-9.783",
     "markupPercent": 125
   },
   {
     "skinName": "StatTrak™ P90 | Deathgaze (FT)",
     "marketHashName": "StatTrak™ P90 | Deathgaze (Field-Tested)",
-    "price": 1161.8214,
+    "price": 1152.017,
     "buyCmd": "!deathgaze1",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLhx8bf7XsL0ParabBlJ_GJC1idxOp_pewnGH3lwUtw5z_Wy9eqdiqUOlAlXpF5R-MCshC7xNDuMO3jtQeP34kWmTK-0H0e9r7eSA/330x192?allow_animated=1",
     "markupLock": false,
@@ -598,13 +598,13 @@
     "marketActivity": 100,
     "lockAPIscrape": 1783113253093,
     "isgame": 0,
-    "difference": "-24.511",
+    "difference": "-9.8044",
     "markupPercent": 154
   },
   {
     "skinName": "SSG 08 | Ghost Crusader (MW)",
     "marketHashName": "SSG 08 | Ghost Crusader (Minimal Wear)",
-    "price": 326.586,
+    "price": 323.83,
     "buyCmd": "!gcrusade1",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLijZGwpR1c_M29e6M9eM-SHGqRwuFktd5lRi67gVN_6jnQzYmhc3jFbgUoA5J3ReYIsRO8ktGyM-iz4AaMi4hDzyqsiSJJ8G81tKe_wmAg/330x192?allow_animated=1",
     "markupLock": false,
@@ -613,13 +613,13 @@
     "marketActivity": 100,
     "lockAPIscrape": 1783113253093,
     "isgame": 0,
-    "difference": "-6.89",
+    "difference": "-2.756",
     "markupPercent": 112
   },
   {
     "skinName": "Tec-9 | Fuel Injector (FT)",
     "marketHashName": "Tec-9 | Fuel Injector (Field-Tested)",
-    "price": 1719.8853,
+    "price": 1705.3715,
     "buyCmd": "!injector1",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLlm5W5wiVI0Oara_1SM-WDC3WTye9kt-RtcCS2kRQyvnPQnoz7JXPFb1ciXMMmE7JfsEPqkIHhNuvjtQWIg4JEmX392HhN7C46_a9cBhuml-Bv/330x192?allow_animated=1",
     "markupLock": false,
@@ -628,13 +628,13 @@
     "marketActivity": 100,
     "lockAPIscrape": 1783113253093,
     "isgame": 0,
-    "difference": "-36.2845",
+    "difference": "-14.5138",
     "markupPercent": 145
   },
   {
     "skinName": "Soldier | Phoenix",
     "marketHashName": "Soldier | Phoenix",
-    "price": 745.6209,
+    "price": 739.3287,
     "buyCmd": "!agent1",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIa-2lmxU-LR0dnuNm6E8Vl45Iv181z1fgn8oYbo8idV5uqRfqV_KfGdGm_elrd05uUwSn-wxB5_52zRyd39cHuWOgEmW5R3QbQM5xi4mtayMunq5hue1dxmxRjA3w/330x192?allow_animated=1",
     "markupLock": false,
@@ -643,14 +643,14 @@
     "marketActivity": 100,
     "lockAPIscrape": 1783113253093,
     "isgame": 0,
-    "difference": "-15.7304",
+    "difference": "-6.2922",
     "markupPercent": 112
   },
   {
     "skinName": "Garry's Mod",
     "marketHashName": "Garry's Mod",
     "appId": 4000,
-    "price": 886.9725,
+    "price": 879.4875,
     "buyCmd": "!gmod1",
     "imageUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4000/header.jpg?t=1776868682",
     "markupPercent": 275,
@@ -660,12 +660,12 @@
     "marketActivity": 100,
     "lockAPIscrape": 1783115953079,
     "isgame": 1,
-    "difference": "-18.7125"
+    "difference": "-7.485"
   },
   {
     "skinName": "Steam Wallet ($10)",
     "marketHashName": "Steam Wallet ($10)",
-    "price": 2127.4957,
+    "price": 2109.5421,
     "buyCmd": "!swten1",
     "tradableDate": "7/8/26",
     "imageUrl": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSam-juOI3DN0QRJtuxWreIjwFiI3gLdRL4XFfJ85DTNeGqQ3KSq1RV1pkHJsFzOM_F3auyt2PLminJDL8ClfcN8u8DMZaTwhY5Osj2rLB9zl88tT0BGjiN&usqp=CAc",
@@ -676,12 +676,12 @@
     "marketActivity": 100,
     "lockAPIscrape": 1781813845983,
     "isgame": 1,
-    "difference": "-44.8839"
+    "difference": "-17.9536"
   },
   {
     "skinName": "Steam Wallet ($10)",
     "marketHashName": "Steam Wallet ($10)",
-    "price": 2127.4957,
+    "price": 2109.5421,
     "buyCmd": "!swten2",
     "tradableDate": "7/8/26",
     "imageUrl": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSam-juOI3DN0QRJtuxWreIjwFiI3gLdRL4XFfJ85DTNeGqQ3KSq1RV1pkHJsFzOM_F3auyt2PLminJDL8ClfcN8u8DMZaTwhY5Osj2rLB9zl88tT0BGjiN&usqp=CAc",
@@ -692,12 +692,12 @@
     "marketActivity": 100,
     "lockAPIscrape": 1781813845983,
     "isgame": 1,
-    "difference": "-44.8839"
+    "difference": "-17.9536"
   },
   {
     "skinName": "Steam Wallet ($25)",
     "marketHashName": "Steam Wallet ($25)",
-    "price": 4255.0108,
+    "price": 4219.1035,
     "buyCmd": "!swtwofive1",
     "tradableDate": "7/8/26",
     "imageUrl": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSam-juOI3DN0QRJtuxWreIjwFiI3gLdRL4XFfJ85DTNeGqQ3KSq1RV1pkHJsFzOM_F3auyt2PLminJDL8ClfcN8u8DMZaTwhY5Osj2rLB9zl88tT0BGjiN&usqp=CAc",
@@ -708,12 +708,12 @@
     "marketActivity": 100,
     "lockAPIscrape": 1781813845983,
     "isgame": 1,
-    "difference": "-89.7682"
+    "difference": "-35.9073"
   },
   {
     "skinName": "Steam Wallet ($25)",
     "marketHashName": "Steam Wallet ($25)",
-    "price": 4255.0108,
+    "price": 4219.1035,
     "buyCmd": "!swtwofive2",
     "tradableDate": "7/8/26",
     "imageUrl": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSam-juOI3DN0QRJtuxWreIjwFiI3gLdRL4XFfJ85DTNeGqQ3KSq1RV1pkHJsFzOM_F3auyt2PLminJDL8ClfcN8u8DMZaTwhY5Osj2rLB9zl88tT0BGjiN&usqp=CAc",
@@ -724,12 +724,12 @@
     "marketActivity": 100,
     "lockAPIscrape": 1781813845983,
     "isgame": 1,
-    "difference": "-89.7682"
+    "difference": "-35.9073"
   },
   {
     "skinName": "★ Shadow Daggers | Damascus Steel (FT)",
     "marketHashName": "★ Shadow Daggers | Damascus Steel (Field-Tested)",
-    "price": 25704.3943,
+    "price": 25487.4796,
     "buyCmd": "!daggers1",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL6kJ_m-B1L-uGmV6V8H_SSA2aDwvtlj7g5cCS2kRQyvnOBydf4JXmSOFJ2CcQhQudeu0K7xobgNr_qtQLejI9Bz3_-hyNOvC86_a9cBtUR7rOG/330x192?allow_animated=1",
     "markupLock": false,
@@ -737,14 +737,14 @@
     "marketActivity": 100,
     "lockAPIscrape": 1783113253093,
     "isgame": 0,
-    "difference": "-542.2868",
+    "difference": "-216.9147",
     "markupPercent": 714,
     "cachedAt": "07/03/26, 02:09 PM"
   },
   {
     "skinName": "StatTrak™ Nova | Ocular (FT)",
     "marketHashName": "StatTrak™ Nova | Ocular (Field-Tested)",
-    "price": 176.4844,
+    "price": 174.9951,
     "buyCmd": "!ocular1",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL_kYDhwixU-fORZ6d4LPGBMWqVxedjva89GHzrwhh14jvQm46geC2fOw8hCcF0QeALs0S7lNLjZezj5gWKi94U02yg2ZCbkb4B/330x192?allow_animated=1",
     "markupLock": false,
@@ -753,13 +753,13 @@
     "marketActivity": 100,
     "lockAPIscrape": 1783113253093,
     "isgame": 0,
-    "difference": "-3.7233",
+    "difference": "-1.4893",
     "markupPercent": 97
   },
   {
     "skinName": "AK-47 | Midnight Laminate (MW)",
     "marketHashName": "AK-47 | Midnight Laminate (Minimal Wear)",
-    "price": 1259.5223,
+    "price": 1248.8934,
     "buyCmd": "!midlam1",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwlcK3wjFU6s2neq1pJeOQC2mE_v5jovFlSha_nBovp3PRnt36d36UOlUmCcF2TOZfsRC_ldW1ML625AbZ2dhHyn_7jSgauCtp_a9cBpVVSdXG/330x192?allow_animated=1",
     "markupLock": false,
@@ -768,13 +768,13 @@
     "marketActivity": 100,
     "lockAPIscrape": 1783113253093,
     "isgame": 0,
-    "difference": "-26.5722",
+    "difference": "-10.6289",
     "markupPercent": 101
   },
   {
     "skinName": "StatTrak™ Glock-18 | Shinobu (FT)",
     "marketHashName": "StatTrak™ Glock-18 | Shinobu (Field-Tested)",
-    "price": 1297.0393,
+    "price": 1286.0938,
     "buyCmd": "!shinobu1",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL2kpnj9h1c4_2tY5t-KPmdAWWF_uNztOh8QmflzR50sDnXzdv9I3iTOwdzAsZxE7FcsUW7xNPkMeyx4QTYiI5CnCj9kGoXuamHlTQY/330x192?allow_animated=1",
     "markupLock": false,
@@ -783,13 +783,13 @@
     "marketActivity": 100,
     "lockAPIscrape": 1783113253093,
     "isgame": 0,
-    "difference": "-27.3637",
+    "difference": "-10.9455",
     "markupPercent": 117
   },
   {
     "skinName": "StatTrak™ Zeus x27 | Olympus (MW)",
     "marketHashName": "StatTrak™ Zeus x27 | Olympus (Minimal Wear)",
-    "price": 1349.2789,
+    "price": 1337.8926,
     "buyCmd": "!olympus1",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLln4Xl7x1B6ue9V7BlNf6XC3WvxuFyj-1gSCGn2xl2sm7XnI6hdC-XPAcmXsF2RLIP4xbslty2NLvqswePjYlEySn33S9XrnE8cYTqlUY/330x192?allow_animated=1",
     "markupLock": false,
@@ -798,13 +798,13 @@
     "marketActivity": 100,
     "lockAPIscrape": 1783113253093,
     "isgame": 0,
-    "difference": "-28.4658",
+    "difference": "-11.3863",
     "markupPercent": 127
   },
   {
     "skinName": "Glock-18 | Block-18 (BS)",
     "marketHashName": "Glock-18 | Block-18 (Battle-Scarred)",
-    "price": 40.911,
+    "price": 40.5658,
     "buyCmd": "!gblock2",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL2kpnj9h1c4_2tY5tvMvmQBVidzuByouhoQRa7kBwxqnPQyousJXyQaQAgXpQhEOQItxixmtDvMLnltFeL2t5Hziz2iyod5yg4_a9cBssBB-aV/330x192?allow_animated=1",
     "markupLock": false,
@@ -812,14 +812,14 @@
     "marketActivity": 100,
     "lockAPIscrape": 1783113253093,
     "isgame": 0,
-    "difference": "-0.8631",
+    "difference": "-0.3452",
     "markupPercent": 37,
     "cachedAt": "07/03/26, 02:09 PM"
   },
   {
     "skinName": "StatTrak™ Desert Eagle | Corinthian (FT)",
     "marketHashName": "StatTrak™ Desert Eagle | Corinthian (Field-Tested)",
-    "price": 166.6395,
+    "price": 165.2333,
     "buyCmd": "!corin1",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL1m5fn8Sdk7uORbKFsJ_yWMWSf0-d4pOlgTieMmBgjuiiI1NiuJX7Cbw9xXJshR-RY5hO5wNTgNuzn4A3Y2NkXxCv_jHka7y5usOocEf1ykShuajs/330x192?allow_animated=1",
     "markupLock": false,
@@ -828,13 +828,13 @@
     "marketActivity": 100,
     "lockAPIscrape": 1783113253093,
     "isgame": 0,
-    "difference": "-3.5156",
+    "difference": "-1.4062",
     "markupPercent": 87
   },
   {
     "skinName": "Kilowatt Case",
     "marketHashName": "Kilowatt Case",
-    "price": 11.85,
+    "price": 11.75,
     "buyCmd": "!kilo1",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJKz2lu_XsnXwtmkJjSU91dh8bj35VTqVBP4io_frnEVvqf_a6VoIfGSXz7Hlbwg57QwSS_mxhl15jiGyN37c3_GZw91W8BwRflK7EfKsa2sfw/330x192?allow_animated=1",
     "markupPercent": 0,
@@ -844,12 +844,12 @@
     "marketActivity": 100,
     "lockAPIscrape": 1783113253093,
     "isgame": 0,
-    "difference": "-0.25"
+    "difference": "-0.1"
   },
   {
     "skinName": "Osiris | Elite Crew",
     "marketHashName": "Osiris | Elite Crew",
-    "price": 1260.1195,
+    "price": 1249.4856,
     "buyCmd": "!agent2",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIa-2lmxU-LR0dnuNm6E8Vl45Iv181z1fgn8oZrl-DZk-fO8YaVjNPjdDDXEk7p35uAxTHDqxRh25DuDzI2sdC7BOwZ1W5BwRe4O4BfsktKxZPSiuVIisGC3vg/330x192?allow_animated=1",
     "markupLock": false,
@@ -858,7 +858,7 @@
     "marketActivity": 100,
     "lockAPIscrape": 1783113253093,
     "isgame": 0,
-    "difference": "-26.5848",
+    "difference": "-10.6339",
     "markupPercent": 112
   }
 ]
