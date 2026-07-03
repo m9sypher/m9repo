@@ -757,21 +757,6 @@
     "markupPercent": 97
   },
   {
-    "skinName": "AK-47 | Midnight Laminate (MW)",
-    "marketHashName": "AK-47 | Midnight Laminate (Minimal Wear)",
-    "price": 1248.8934,
-    "buyCmd": "!midlam1",
-    "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwlcK3wjFU6s2neq1pJeOQC2mE_v5jovFlSha_nBovp3PRnt36d36UOlUmCcF2TOZfsRC_ldW1ML625AbZ2dhHyn_7jSgauCtp_a9cBpVVSdXG/330x192?allow_animated=1",
-    "markupLock": false,
-    "cachedAt": "07/03/26, 04:24 PM",
-    "popularityIndex": 0,
-    "marketActivity": 100,
-    "lockAPIscrape": 1783121373343,
-    "isgame": 0,
-    "difference": "-10.6289",
-    "markupPercent": 101
-  },
-  {
     "skinName": "StatTrak™ Glock-18 | Shinobu (FT)",
     "marketHashName": "StatTrak™ Glock-18 | Shinobu (Field-Tested)",
     "price": 1283.0342,
