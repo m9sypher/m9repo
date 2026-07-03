@@ -802,21 +802,6 @@
     "markupPercent": 117
   },
   {
-    "skinName": "USP-S | Cortex (MW)",
-    "marketHashName": "USP-S | Cortex (Minimal Wear)",
-    "price": 1050.2154,
-    "buyCmd": "!cortex1",
-    "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLkjYbf7itX6vytbbZSI-WsG3SA_u1jpN5lRi67gVNz4G7Qm938cS_Da1AhXpB1EeVb4xm4mtDjN7vj4A3b2NpGyCr52i4Y8G81tMzdoYZ7/330x192?allow_animated=1",
-    "markupLock": false,
-    "cachedAt": "07/02/26, 05:28 PM",
-    "popularityIndex": 0,
-    "marketActivity": 100,
-    "lockAPIscrape": 1783038797092,
-    "isgame": 0,
-    "difference": "-4.329",
-    "markupPercent": 125
-  },
-  {
     "skinName": "StatTrak™ Zeus x27 | Olympus (MW)",
     "marketHashName": "StatTrak™ Zeus x27 | Olympus (Minimal Wear)",
     "price": 1398.7831,
