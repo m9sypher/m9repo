@@ -512,21 +512,6 @@
     "difference": "-1.76"
   },
   {
-    "skinName": "AWP | Elite Build (FT)",
-    "marketHashName": "AWP | Elite Build (Field-Tested)",
-    "price": 2013.0366,
-    "buyCmd": "!ebuildawp1",
-    "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwiYbf_jdk7uW-V6lsM-SWHH6vzOtyufRkAXnjzRx15WrWmd37JC7FZgEoCsFzFOQM4UHqm4a0YrnrtAXWg4IUmyTgznQe9p8sU8k/330x192?allow_animated=1",
-    "markupLock": false,
-    "cachedAt": "07/02/26, 05:28 PM",
-    "popularityIndex": 0,
-    "marketActivity": 100,
-    "lockAPIscrape": 1783038797092,
-    "isgame": 0,
-    "difference": "-8.2977",
-    "markupPercent": 136
-  },
-  {
     "skinName": "M4A1-S | Black Lotus (BS)",
     "marketHashName": "M4A1-S | Black Lotus (Battle-Scarred)",
     "price": 621.9585,
