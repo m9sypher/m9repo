@@ -817,21 +817,6 @@
     "markupPercent": 87
   },
   {
-    "skinName": "Kilowatt Case",
-    "marketHashName": "Kilowatt Case",
-    "price": 11.75,
-    "buyCmd": "!kilo1",
-    "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJKz2lu_XsnXwtmkJjSU91dh8bj35VTqVBP4io_frnEVvqf_a6VoIfGSXz7Hlbwg57QwSS_mxhl15jiGyN37c3_GZw91W8BwRflK7EfKsa2sfw/330x192?allow_animated=1",
-    "markupPercent": 0,
-    "markupLock": false,
-    "cachedAt": "07/03/26, 05:40 PM",
-    "popularityIndex": 0,
-    "marketActivity": 100,
-    "lockAPIscrape": 1783125919433,
-    "isgame": 0,
-    "difference": "-0.1"
-  },
-  {
     "skinName": "Osiris | Elite Crew",
     "marketHashName": "Osiris | Elite Crew",
     "price": 1255.464,
