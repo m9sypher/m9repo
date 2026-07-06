@@ -772,21 +772,6 @@
     "markupPercent": 117
   },
   {
-    "skinName": "StatTrak™ Zeus x27 | Olympus (MW)",
-    "marketHashName": "StatTrak™ Zeus x27 | Olympus (Minimal Wear)",
-    "price": 1324.5863,
-    "buyCmd": "!olympus1",
-    "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLln4Xl7x1B6ue9V7BlNf6XC3WvxuFyj-1gSCGn2xl2sm7XnI6hdC-XPAcmXsF2RLIP4xbslty2NLvqswePjYlEySn33S9XrnE8cYTqlUY/330x192?allow_animated=1",
-    "markupLock": false,
-    "cachedAt": "07/05/26, 05:45 PM",
-    "popularityIndex": 0,
-    "marketActivity": 100,
-    "lockAPIscrape": 1783299048259,
-    "isgame": 0,
-    "difference": "+3.3805",
-    "markupPercent": 127
-  },
-  {
     "skinName": "Glock-18 | Block-18 (BS)",
     "marketHashName": "Glock-18 | Block-18 (Battle-Scarred)",
     "price": 40.583,
