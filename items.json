@@ -663,21 +663,6 @@
     "difference": "+4.4955"
   },
   {
-    "skinName": "Steam Wallet ($10)",
-    "marketHashName": "Steam Wallet ($10)",
-    "price": 2083.3884,
-    "buyCmd": "!swten1",
-    "imageUrl": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSam-juOI3DN0QRJtuxWreIjwFiI3gLdRL4XFfJ85DTNeGqQ3KSq1RV1pkHJsFzOM_F3auyt2PLminJDL8ClfcN8u8DMZaTwhY5Osj2rLB9zl88tT0BGjiN&usqp=CAc",
-    "markupPercent": 360,
-    "markupLock": false,
-    "cachedAt": "06/24/26, 01:12 PM",
-    "popularityIndex": 0,
-    "marketActivity": 100,
-    "lockAPIscrape": 1781813845983,
-    "isgame": 1,
-    "difference": "+5.5153"
-  },
-  {
     "skinName": "Steam Wallet ($25)",
     "marketHashName": "Steam Wallet ($25)",
     "price": 4166.7962,
