@@ -399,7 +399,7 @@
     <div class="section-header" onclick="toggle(this)">
       <span class="section-icon">🎮</span>
       <span class="section-title">Games</span>
-      <span class="section-count">22 commands</span>
+      <span class="section-count">24 commands</span>
       <span class="new-badge">Updated</span>
       <span class="chevron">▼</span>
     </div>
@@ -407,7 +407,7 @@
 
       <div class="cmd-group-label">Solo Games</div>
       <div class="cmd-row"><span class="cmd-name">!war &lt;amount&gt;</span><span class="cmd-dot"></span><span class="cmd-desc">Draw a card vs the dealer — highest wins. Min 1 / Max 250. Higher wager = harder dealer</span></div>
-      <div class="cmd-row"><span class="cmd-name">!slots &lt;wager&gt;</span><span class="cmd-dot"></span><span class="cmd-desc">Spin 3 reels — match symbols to win</span></div>
+      <div class="cmd-row highlight"><span class="cmd-name">!plinko &lt;wager&gt; &lt;low|med|high|extreme&gt;</span><span class="cmd-dot"></span><span class="cmd-desc">Drop a ball down the Plinko board — pick your risk level. Higher risk = bigger multiplier ceiling, harder to land center. Max 15 plays per 5 min</span></div>
       <div class="cmd-row"><span class="cmd-name">!scratch &lt;wager&gt;</span><span class="cmd-dot"></span><span class="cmd-desc">Scratch 9 tiles — match 5+ symbols to win. Full page = ×500. Min 1 / Max 250</span></div>
       <div class="cmd-row"><span class="cmd-name">!roulette &lt;red/black/green&gt; &lt;amount&gt;</span><span class="cmd-dot"></span><span class="cmd-desc">Bet on red, black, or green. Red/Black = 2×, Green = 10×. Min 1 / Max 250</span></div>
       <div class="cmd-row"><span class="cmd-name">!coinflip &lt;wager&gt;</span><span class="cmd-dot"></span><span class="cmd-desc">Flip a coin — win 2× or lose it all. Min 1 / Max 250</span></div>
@@ -421,12 +421,16 @@
       <div class="cmd-row"><span class="cmd-name">!blackjack &lt;wager&gt;</span><span class="cmd-dot"></span><span class="cmd-desc">Play blackjack against the dealer — !hit !stand !double available mid-hand</span></div>
       <div class="cmd-row"><span class="cmd-name">!games</span><span class="cmd-dot"></span><span class="cmd-desc">List all available games with usage info</span></div>
 
+      <div class="cmd-group-label">Group Games — Hunt 🆕</div>
+      <div class="cmd-row highlight"><span class="cmd-name">!hunt &lt;wager&gt;</span><span class="cmd-dot"></span><span class="cmd-desc">Start a Hunt lobby or join one forming — wager charged on join, max 500. 30s to join, then guess how many of the target emoji appear</span></div>
+      <div class="cmd-row highlight"><span class="cmd-name">!found &lt;number&gt;</span><span class="cmd-dot"></span><span class="cmd-desc">Submit your one guess once a Hunt has started — exact matches win, faster guesses earn a bigger multiplier</span></div>
+
       <div class="cmd-group-label">PvP — Duel</div>
       <div class="cmd-row"><span class="cmd-name">!duel &lt;amount&gt;</span><span class="cmd-dot"></span><span class="cmd-desc">Open a duel — winner takes both wagers</span></div>
       <div class="cmd-row"><span class="cmd-name">!join &lt;code&gt;</span><span class="cmd-dot"></span><span class="cmd-desc">Join an open duel by its code</span></div>
       <div class="cmd-row"><span class="cmd-name">!duels</span><span class="cmd-dot"></span><span class="cmd-desc">List all currently open duels</span></div>
 
-      <div class="cmd-group-label">PvP — Case Battle 🆕</div>
+      <div class="cmd-group-label">PvP — Case Battle</div>
       <div class="cmd-row highlight"><span class="cmd-name">!case &lt;cases&gt; &lt;cost&gt;</span><span class="cmd-dot"></span><span class="cmd-desc">Open a case battle lobby — 1–25 cases at 0.25–500 pts each. e.g. !case 7 10 — opponent pays same to join</span></div>
       <div class="cmd-row highlight"><span class="cmd-name">!joincase &lt;code&gt;</span><span class="cmd-dot"></span><span class="cmd-desc">Join an open case battle by its code — both players open cases simultaneously, highest combined pull wins the pot</span></div>
       <div class="cmd-row highlight"><span class="cmd-name">!cases</span><span class="cmd-dot"></span><span class="cmd-desc">List all currently open case battle lobbies</span></div>
