@@ -32,7 +32,6 @@
     overflow-x: hidden;
   }
 
-  /* ── Scanline overlay ───────────────────────────────────── */
   body::before {
     content: '';
     position: fixed;
@@ -48,7 +47,6 @@
     z-index: 0;
   }
 
-  /* ── Header ─────────────────────────────────────────────── */
   header {
     position: relative;
     z-index: 1;
@@ -101,7 +99,6 @@
     letter-spacing: 0.1em;
   }
 
-  /* ── Layout ─────────────────────────────────────────────── */
   main {
     position: relative;
     z-index: 1;
@@ -110,7 +107,6 @@
     padding: 64px 24px 100px;
   }
 
-  /* ── Section ─────────────────────────────────────────────── */
   section {
     margin-bottom: 56px;
     opacity: 0;
@@ -125,7 +121,6 @@
   section:nth-child(5) { animation-delay: 0.5s; }
   section:nth-child(6) { animation-delay: 0.6s; }
   section:nth-child(7) { animation-delay: 0.7s; }
-  section:nth-child(8) { animation-delay: 0.8s; }
 
   @keyframes fadeUp {
     to { opacity: 1; transform: translateY(0); }
@@ -172,7 +167,6 @@
     font-weight: 600;
   }
 
-  /* ── Highlight box ───────────────────────────────────────── */
   .highlight {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -195,7 +189,6 @@
     font-size: 14px;
   }
 
-  /* ── Chain diagram ───────────────────────────────────────── */
   .chain {
     display: flex;
     align-items: center;
@@ -225,7 +218,6 @@
   .chain-step.gold  { border-color: rgba(250,204,21,0.4);  color: var(--gold); }
   .chain-step.blue  { border-color: rgba(56,189,248,0.4);  color: var(--blue); }
 
-  /* ── Definition list ─────────────────────────────────────── */
   .def-list {
     display: flex;
     flex-direction: column;
@@ -259,7 +251,6 @@
     line-height: 1.6;
   }
 
-  /* ── Footer ─────────────────────────────────────────────── */
   footer {
     position: relative;
     z-index: 1;
@@ -280,7 +271,6 @@
     text-decoration: none;
   }
 
-  /* ── Pulse dot ───────────────────────────────────────────── */
   .pulse {
     display: inline-block;
     width: 6px;
@@ -340,10 +330,6 @@
         <span class="def-key">Games</span>
         <span class="def-val">Wagering points in stream games (Towers, Vault, Slots etc.) can increase or decrease your balance.</span>
       </div>
-      <div class="def-item">
-        <span class="def-key">Item Offers</span>
-        <span class="def-val">Users may submit a voluntary item offer for streamer review. See Section 05 for full details.</span>
-      </div>
     </div>
   </section>
 
@@ -375,42 +361,7 @@
   </section>
 
   <section>
-    <div class="section-label">05 — Item Offers (!offer)</div>
-    <h2>Voluntary Item Submissions</h2>
-    <p>Viewers may optionally submit a CS2 item they own to the streamer in exchange for stream points using the <strong>!offer</strong> command. This feature operates under the following conditions:</p>
-    <div class="def-list">
-      <div class="def-item">
-        <span class="def-key">Voluntary</span>
-        <span class="def-val">Submissions are entirely optional. No viewer is required or pressured to submit an item.</span>
-      </div>
-      <div class="def-item">
-        <span class="def-key">User-Defined Price</span>
-        <span class="def-val">The viewer sets their own asking price in points. The streamer does not assign value to items.</span>
-      </div>
-      <div class="def-item">
-        <span class="def-key">Manual Approval</span>
-        <span class="def-val">Every offer requires manual review and explicit approval by the streamer. Nothing is automated.</span>
-      </div>
-      <div class="def-item">
-        <span class="def-key">Streamer Discretion</span>
-        <span class="def-val">The streamer may decline any offer at any time without reason. Declined offers carry no obligation.</span>
-      </div>
-      <div class="def-item">
-        <span class="def-key">30 Minute Window</span>
-        <span class="def-val">Offers expire after 30 minutes if not reviewed. Expired offers are automatically cancelled.</span>
-      </div>
-      <div class="def-item">
-        <span class="def-key">Not a Deposit System</span>
-        <span class="def-val">This is not an automated item-to-credit deposit system. It is a voluntary, human-reviewed exchange at the viewer's discretion.</span>
-      </div>
-    </div>
-    <div class="highlight blue">
-      <p>Item offers do not create a closed loop. Points received through an accepted offer are the same stream engagement points as those earned through chatting — they carry no guaranteed redemption value and cannot be converted to cash.</p>
-    </div>
-  </section>
-
-  <section>
-    <div class="section-label">06 — What This System Is Not</div>
+    <div class="section-label">05 — What This System Is Not</div>
     <h2>Clear Boundaries</h2>
     <div class="def-list">
       <div class="def-item">
@@ -437,14 +388,14 @@
   </section>
 
   <section>
-    <div class="section-label">07 — Platform Compliance</div>
+    <div class="section-label">06 — Platform Compliance</div>
     <h2>Built Within the Rules</h2>
     <p>This system is designed to comply with the terms of service of all platforms it operates on, including Twitch, Kick, TikTok, and YouTube. Stream engagement reward systems are explicitly supported by these platforms.</p>
-    <p>Steam trading is conducted manually — the streamer physically confirms every trade offer. No automated trading bots or scripts bypass Steam's trade confirmation requirements.</p>
+    <p>Steam trading (for shop redemptions) is conducted manually — the streamer physically confirms every trade offer. No automated trading bots or scripts bypass Steam's trade confirmation requirements.</p>
   </section>
 
   <section>
-    <div class="section-label">08 — Changes & Contact</div>
+    <div class="section-label">07 — Changes & Contact</div>
     <h2>Updates</h2>
     <p>These terms may be updated at any time. Continued participation in the stream's point system after any update constitutes acceptance of the revised terms.</p>
     <p>Questions about these terms can be directed to the streamer via stream chat or the community Discord.</p>
