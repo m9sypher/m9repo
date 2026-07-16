@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M9 Games — Main Page (F2P)</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    min-height: 100vh;
+    background: #0b0d12;
+    font-family: 'Nunito', sans-serif;
+    color: #e7e9ee;
+    overflow-x: hidden;
+  }
+
+  /* ── Header ─────────────────────────────────────────── */
+  #mg-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 14px 22px;
+    background: #12141b;
+    border-bottom: 1px solid #232733;
+  }
+  #mg-header h1 {
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: #f5b731;
+    margin: 0;
+    letter-spacing: 0.3px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  #mg-header .mg-f2p {
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #6ee787;
+    background: #1c2b1f;
+    border: 1px solid #2a4530;
+    padding: 3px 9px;
+    border-radius: 999px;
+  }
+  #mg-header .mg-sub {
+    font-size: 12px;
+    font-weight: 700;
+    color: #9aa0b4;
+  }
+
+  /* ── Main layout ────────────────────────────────────── */
+  #mg-main {
+    display: grid;
+    grid-template-columns: minmax(360px, 900px) 340px;
+    gap: 16px;
+    padding: 18px;
+    justify-content: center;
+    align-items: stretch;
+    height: 840px;
+  }
+  @media (max-width: 1150px) {
+    #mg-main { grid-template-columns: 1fr; height: auto; }
+    #mg-games-col, #mg-stream-col { height: auto !important; }
+    #mg-twitch-chat-wrap { height: 420px !important; }
+  }
+  .mg-panel {
+    background: #14161d;
+    border: 1px solid #232733;
+    border-radius: 14px;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .mg-panel h2 {
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #9aa0b4;
+    margin: 0;
+    padding: 12px 14px;
+    border-bottom: 1px solid #232733;
+    background: #191c25;
+  }
+
+  /* ── Games grid ─────────────────────────────────────── */
+  #mg-games-scroll {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    padding: 18px;
+  }
+  #mg-games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 16px;
+  }
+
+  .mg-tile {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 26px 14px 20px;
+    border-radius: 14px;
+    border: 1px solid #232733;
+    background: #191c25;
+    text-decoration: none;
+    color: inherit;
+    overflow: hidden;
+    cursor: pointer;
+    isolation: isolate;
+    transition: transform 0.28s cubic-bezier(.2,.8,.2,1), border-color 0.28s ease, box-shadow 0.28s ease, background 0.28s ease;
+  }
+  .mg-tile::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    z-index: -2;
+    background: radial-gradient(120px 90px at 50% 0%, color-mix(in srgb, var(--accent) 35%, transparent), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .mg-tile::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -60%;
+    width: 40%; height: 100%;
+    z-index: -1;
+    background: linear-gradient(115deg, transparent, color-mix(in srgb, var(--accent) 22%, transparent), transparent);
+    transform: skewX(-18deg);
+    transition: left 0.65s ease;
+  }
+
+  .mg-tile.live:hover,
+  .mg-tile.live:focus-visible {
+    transform: translateY(-6px) scale(1.015);
+    border-color: var(--accent);
+    background: #1b1e28;
+    box-shadow: 0 0 0 1px var(--accent) inset, 0 16px 32px -14px var(--accent);
+  }
+  .mg-tile.live:hover::before,
+  .mg-tile.live:focus-visible::before { opacity: 1; }
+  .mg-tile.live:hover::after,
+  .mg-tile.live:focus-visible::after { left: 130%; }
+  .mg-tile.live:hover .mg-tile-icon,
+  .mg-tile.live:focus-visible .mg-tile-icon {
+    color: var(--accent);
+    transform: scale(1.08) translateY(-2px);
+  }
+  .mg-tile.live:hover .mg-tile-status,
+  .mg-tile.live:focus-visible .mg-tile-status { color: var(--accent); }
+  .mg-tile.live:active { transform: translateY(-2px) scale(0.99); }
+
+  .mg-tile.soon {
+    filter: grayscale(0.85);
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  .mg-tile.soon:hover {
+    opacity: 0.72;
+    filter: grayscale(0.55);
+    border-color: color-mix(in srgb, var(--accent) 50%, #232733);
+  }
+  .mg-tile.soon:hover .mg-tile-icon { color: var(--accent); }
+
+  .mg-tile-icon {
+    width: 56px;
+    height: 56px;
+    color: #9aa0b4;
+    transition: color 0.28s ease, transform 0.28s ease;
+  }
+  .mg-tile-icon svg { width: 100%; height: 100%; display: block; }
+
+  .mg-tile-name {
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.3px;
+    color: #e7e9ee;
+  }
+  .mg-tile-status {
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 700;
+    font-size: 10.5px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: #565d70;
+    transition: color 0.28s ease;
+  }
+  .mg-tile.live .mg-tile-status { color: #6ee787; }
+  .mg-tile-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    padding: 3px 7px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.06);
+    color: #7d8399;
+    border: 1px solid #2c3140;
+  }
+
+  /* ── Stream column (video + chat), same pattern as the live overlay ── */
+  #mg-stream-col {
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  #mg-video-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #000;
+    flex-shrink: 0;
+  }
+  #mg-twitch-video {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+  }
+  #mg-twitch-chat-wrap {
+    flex: 1;
+    min-height: 0;
+    border-top: 1px solid #232733;
+  }
+  #mg-twitch-chat {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+  }
+  /* ── Footer disclaimer ──────────────────────────────── */
+  #mg-footer {
+    padding: 0 18px 22px;
+  }
+  #mg-disclaimer {
+    background: #14161d;
+    border: 1px solid #232733;
+    border-radius: 14px;
+    padding: 18px 22px 20px;
+    max-width: 1272px;
+    margin: 0 auto;
+  }
+  #mg-disclaimer h3 {
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #9aa0b4;
+    margin: 0 0 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #232733;
+  }
+  #mg-disclaimer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 22px;
+  }
+  .mg-disclaimer-block h4 {
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    color: #f5b731;
+    margin: 0 0 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .mg-disclaimer-block p {
+    font-size: 12.5px;
+    line-height: 1.55;
+    color: #9aa0b4;
+    margin: 0;
+  }
+  .mg-disclaimer-block code {
+    background: #1c1f28;
+    border: 1px solid #2c3140;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-size: 11.5px;
+    color: #c3c8d6;
+  }
+  @media (max-width: 1150px) {
+    #mg-disclaimer { max-width: none; }
+  }
+
+  /* ── Transparency / code snippets ──────────────────────── */
+  #mg-transparency {
+    background: #14161d;
+    border: 1px solid #232733;
+    border-radius: 14px;
+    padding: 18px 22px 20px;
+    max-width: 1272px;
+    margin: 16px auto 0;
+  }
+  #mg-transparency h3 {
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #9aa0b4;
+    margin: 0 0 4px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #232733;
+  }
+  #mg-transparency > p {
+    font-size: 12.5px;
+    line-height: 1.55;
+    color: #9aa0b4;
+    margin: 10px 0 16px;
+  }
+  .mg-code-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 16px;
+  }
+  .mg-code-card {
+    background: #191c25;
+    border: 1px solid #232733;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .mg-code-card-head {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 9px 12px;
+    border-bottom: 1px solid #232733;
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: #e7e9ee;
+  }
+  .mg-code-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .mg-code-card pre {
+    margin: 0;
+    padding: 12px 14px;
+    overflow-x: auto;
+    background: #16181f;
+  }
+  .mg-code-card code {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11.5px;
+    line-height: 1.65;
+    color: #c3c8d6;
+    white-space: pre;
+  }
+  .tok-kw   { color: #c586c0; }
+  .tok-fn   { color: #dcdcaa; }
+  .tok-str  { color: #ce9178; }
+  .tok-num  { color: #b5cea8; }
+  .tok-var  { color: #9cdcfe; }
+  .tok-com  { color: #6a9955; font-style: italic; }
+  .tok-punc { color: #808697; }
+
+  /* ── ToS tile (outside the games grid) ─────────────────── */
+  #mg-tos-tile {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    max-width: 1272px;
+    margin: 0 auto;
+    padding: 15px 20px;
+    background: #14161d;
+    border: 1px solid #232733;
+    border-radius: 14px;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  #mg-tos-tile:hover, #mg-tos-tile:focus-visible {
+    border-color: #f5b731;
+    background: #191c25;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px -12px rgba(245,183,49,0.35);
+    outline: none;
+  }
+  .mg-tos-icon {
+    width: 30px;
+    height: 30px;
+    color: #f5b731;
+    flex-shrink: 0;
+  }
+  .mg-tos-icon svg { width: 100%; height: 100%; display: block; }
+  .mg-tos-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .mg-tos-text b {
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 13.5px;
+    color: #e7e9ee;
+  }
+  .mg-tos-text span {
+    font-size: 12px;
+    color: #9aa0b4;
+  }
+  .mg-tos-chevron {
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 700;
+    font-size: 11.5px;
+    letter-spacing: 0.5px;
+    color: #565d70;
+    flex-shrink: 0;
+    transition: color 0.25s ease, transform 0.25s ease;
+  }
+  #mg-tos-tile:hover .mg-tos-chevron, #mg-tos-tile:focus-visible .mg-tos-chevron {
+    color: #f5b731;
+    transform: translateX(3px);
+  }
+
+  /* ── ToS popup modal ────────────────────────────────────── */
+  #mg-tos-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(5,6,9,0.78);
+    backdrop-filter: blur(3px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    z-index: 1000;
+  }
+  #mg-tos-backdrop.open { display: flex; }
+  #mg-tos-modal {
+    width: 100%;
+    max-width: 760px;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    background: #14161d;
+    border: 1px solid #232733;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 24px 60px -12px rgba(0,0,0,0.6);
+    animation: mgModalIn 0.22s ease;
+  }
+  @keyframes mgModalIn {
+    from { opacity: 0; transform: translateY(10px) scale(0.98); }
+    to   { opacity: 1; transform: none; }
+  }
+  #mg-tos-modal-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    border-bottom: 1px solid #232733;
+    background: #191c25;
+    flex-shrink: 0;
+  }
+  #mg-tos-modal-head h3 {
+    margin: 0;
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: #f5b731;
+  }
+  #mg-tos-modal-close {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    border: 1px solid #2c3140;
+    background: rgba(255,255,255,0.06);
+    color: #9aa0b4;
+    cursor: pointer;
+    font-size: 13px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+  #mg-tos-modal-close:hover { color: #e7e9ee; border-color: #3a3220; }
+  #mg-tos-modal-body {
+    padding: 20px 24px 26px;
+    overflow-y: auto;
+  }
+  #mg-tos-modal-body .tos-updated {
+    font-size: 11px;
+    font-weight: 700;
+    color: #565d70;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    margin-bottom: 18px;
+  }
+  #mg-tos-modal-body .tos-section { margin-bottom: 22px; }
+  #mg-tos-modal-body .tos-section:last-child { margin-bottom: 0; }
+  #mg-tos-modal-body .tos-section h4 {
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #f5b731;
+    margin: 0 0 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  #mg-tos-modal-body .tos-section h4 .tos-num {
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 11px;
+    color: #0b0d12;
+    background: #f5b731;
+    width: 19px;
+    height: 19px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  #mg-tos-modal-body .tos-section p {
+    font-size: 12.5px;
+    line-height: 1.65;
+    color: #9aa0b4;
+    margin: 0 0 8px;
+  }
+  #mg-tos-modal-body .tos-section ul { margin: 0 0 8px; padding-left: 18px; }
+  #mg-tos-modal-body .tos-section li {
+    font-size: 12.5px;
+    line-height: 1.6;
+    color: #9aa0b4;
+    margin-bottom: 5px;
+  }
+  #mg-tos-modal-body .tos-section strong { color: #e7e9ee; }
+  #mg-tos-modal-body .tos-callout {
+    background: #191c25;
+    border: 1px solid #232733;
+    border-left: 3px solid #f5b731;
+    border-radius: 10px;
+    padding: 10px 13px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #c3c8d6;
+    margin: 8px 0;
+  }
+  #mg-tos-modal-body .tos-callout.red { border-left-color: #ef4444; }
+  #mg-tos-modal-body .tos-callout.green { border-left-color: #22c55e; }
+  #mg-tos-modal-body a { color: #f5b731; }
+</style>
+</head>
+<body>
+
+<div id="mg-header">
+  <h1>🎮 M9 Games - Main Page (F2P)</h1>
+  <div class="mg-sub">Pick a game to play in chat</div>
+</div>
+
+<div id="mg-main">
+  <div class="mg-panel" id="mg-games-col">
+    <h2>Relayed Chat Games</h2>
+    <div id="mg-games-scroll">
+      <div id="mg-games-grid">
+
+        <a class="mg-tile live" style="--accent:#22c55e" href="https://m9sypher.github.io/m9repo/m9chtrly_21.html" target="_blank" rel="noopener">
+          <div class="mg-tile-icon">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="10" y="16" width="30" height="40" rx="5" transform="rotate(-9 25 36)" fill="#14161d" stroke="currentColor" stroke-width="2.5"/>
+              <rect x="24" y="12" width="30" height="40" rx="5" fill="#191c25" stroke="currentColor" stroke-width="2.5"/>
+              <text x="30" y="34" font-family="'Baloo 2', sans-serif" font-weight="800" font-size="15" fill="currentColor">2</text>
+              <text x="30" y="49" font-family="'Baloo 2', sans-serif" font-weight="800" font-size="15" fill="currentColor">1</text>
+              <path d="M46 40 a4 4 0 1 0 0.1 0 M46 33 l0 4 M46 40 l-3 5 M46 40 l3 5" stroke="currentColor" stroke-width="1.6" fill="none" opacity="0"/>
+            </svg>
+          </div>
+          <div class="mg-tile-name">Blackjack</div>
+          <div class="mg-tile-status">Play Now</div>
+        </a>
+
+        <a class="mg-tile live" style="--accent:#f5b731" href="https://m9sypher.github.io/m9repo/m9chtrly_towers.html" target="_blank" rel="noopener">
+          <div class="mg-tile-icon">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M27 8 L37 8 L37 14 L41 14 L41 20 L23 20 L23 14 L27 14 Z" fill="currentColor"/>
+              <rect x="20" y="24" width="24" height="8" rx="1.5" stroke="currentColor" stroke-width="2.2" fill="#191c25"/>
+              <rect x="16" y="34" width="32" height="9" rx="1.5" stroke="currentColor" stroke-width="2.2" fill="#191c25"/>
+              <rect x="12" y="45" width="40" height="11" rx="1.5" stroke="currentColor" stroke-width="2.2" fill="#191c25"/>
+              <circle cx="32" cy="28" r="1.6" fill="currentColor"/>
+              <circle cx="26" cy="38.5" r="1.6" fill="currentColor"/>
+              <circle cx="38" cy="38.5" r="1.6" fill="currentColor"/>
+              <circle cx="21" cy="50.5" r="1.6" fill="currentColor"/>
+              <circle cx="43" cy="50.5" r="1.6" fill="currentColor"/>
+            </svg>
+          </div>
+          <div class="mg-tile-name">Towers</div>
+          <div class="mg-tile-status">Play Now</div>
+        </a>
+
+        <div class="mg-tile soon" style="--accent:#b9c0d4" aria-disabled="true">
+          <span class="mg-tile-badge">Soon</span>
+          <div class="mg-tile-icon">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="32" cy="18" rx="13" ry="13" stroke="currentColor" stroke-width="2.4" fill="#191c25"/>
+              <text x="32" y="23" text-anchor="middle" font-family="'Baloo 2', sans-serif" font-weight="800" font-size="12" fill="currentColor">M9</text>
+              <ellipse cx="32" cy="46" rx="13" ry="4.2" stroke="currentColor" stroke-width="2" fill="none" opacity="0.55"/>
+              <path d="M32 31 L32 41" stroke="currentColor" stroke-width="2" stroke-dasharray="1 5" stroke-linecap="round" opacity="0.7"/>
+              <path d="M14 30 Q10 24 15 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.6"/>
+              <path d="M50 30 Q54 24 49 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.6"/>
+            </svg>
+          </div>
+          <div class="mg-tile-name">Coinflip</div>
+          <div class="mg-tile-status">Coming Soon</div>
+        </div>
+
+        <div class="mg-tile soon" style="--accent:#5b8cff" aria-disabled="true">
+          <span class="mg-tile-badge">Soon</span>
+          <div class="mg-tile-icon">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M32 6 L54 52 L10 52 Z" stroke="currentColor" stroke-width="2.2" fill="none"/>
+              <circle cx="32" cy="18" r="2" fill="currentColor"/>
+              <circle cx="26" cy="28" r="2" fill="currentColor"/>
+              <circle cx="38" cy="28" r="2" fill="currentColor"/>
+              <circle cx="20" cy="38" r="2" fill="currentColor"/>
+              <circle cx="32" cy="38" r="2" fill="currentColor"/>
+              <circle cx="44" cy="38" r="2" fill="currentColor"/>
+              <circle cx="35" cy="14" r="3.2" fill="currentColor" opacity="0.85"/>
+              <rect x="12" y="52" width="9" height="6" stroke="currentColor" stroke-width="2" fill="#191c25"/>
+              <rect x="21.5" y="52" width="9" height="6" stroke="currentColor" stroke-width="2" fill="#191c25"/>
+              <rect x="31" y="52" width="9" height="6" stroke="currentColor" stroke-width="2" fill="#191c25"/>
+              <rect x="40.5" y="52" width="9" height="6" stroke="currentColor" stroke-width="2" fill="#191c25"/>
+            </svg>
+          </div>
+          <div class="mg-tile-name">Plinko</div>
+          <div class="mg-tile-status">Coming Soon</div>
+        </div>
+
+        <div class="mg-tile soon" style="--accent:#ef4444" aria-disabled="true">
+          <span class="mg-tile-badge">Soon</span>
+          <div class="mg-tile-icon">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="16" y="9" width="14" height="20" rx="2" transform="rotate(-16 23 19)" stroke="currentColor" stroke-width="2.2" fill="#191c25"/>
+              <rect x="34" y="9" width="14" height="20" rx="2" transform="rotate(16 41 19)" stroke="currentColor" stroke-width="2.2" fill="#191c25"/>
+              <path d="M14 40 L32 28 L50 40 L32 34 Z" stroke="currentColor" stroke-width="2.2" fill="currentColor" fill-opacity="0.12" stroke-linejoin="round"/>
+              <path d="M32 34 L32 55" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+              <path d="M25 48 L32 55 L39 48" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="mg-tile-name">War</div>
+          <div class="mg-tile-status">Coming Soon</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <aside class="mg-panel" id="mg-stream-col">
+    <h2>Stream</h2>
+    <div id="mg-video-wrap">
+      <iframe id="mg-twitch-video" src="" allowfullscreen scrolling="no"></iframe>
+    </div>
+    <div id="mg-twitch-chat-wrap">
+      <iframe id="mg-twitch-chat" src=""></iframe>
+    </div>
+  </aside>
+</div>
+
+<a id="mg-tos-tile" href="https://m9sypher.github.io/m9repo/tos.html" target="_blank" rel="noopener noreferrer">
+  <div class="mg-tos-icon">
+    <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M18 6 h20 l10 10 v42 a2 2 0 0 1 -2 2 h-28 a2 2 0 0 1 -2 -2 v-50 a2 2 0 0 1 2 -2 Z" stroke="currentColor" stroke-width="2.2" fill="#191c25"/>
+      <path d="M38 6 v10 h10" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+      <path d="M23 28 h18 M23 35 h18 M23 42 h12" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+    </svg>
+  </div>
+  <div class="mg-tos-text">
+    <b>By Playing Games in Chat or Stand Alone Pages, you agree to our Terms.</b>
+    <span>Tap to read the full Terms of Service &amp; Guidelines — how points work, fairness, and more.</span>
+  </div>
+  <div class="mg-tos-chevron">VIEW ›</div>
+</a>
+
+<div id="mg-footer">
+  <div id="mg-disclaimer">
+    <h3>Notices</h3>
+    <div id="mg-disclaimer-grid">
+      <div class="mg-disclaimer-block">
+        <h4>⚠️ Live Chat Dependency</h4>
+        <p>
+          Every game on this page is powered entirely by Twitch Chat. Game state, floor progress, and outcomes are relayed to the UI in real time by parsing chat messages directly from the channel's live feed — there is no independent game server driving these visuals. Consequently, if the stream is offline, chat is not being read and none of the games above are playable. To participate, commands must be typed directly into Twitch Chat — either through the embedded chatbox on this page or a standard Twitch chat client — no other input method is supported.
+        </p>
+      </div>
+      <div class="mg-disclaimer-block">
+        <h4>🔒 Cookies &amp; Data Handling</h4>
+        <p>
+          The embedded Twitch video and chat player may prompt your browser to store a cookie. This cookie is set and managed exclusively by Twitch to retain your embed session (e.g. staying signed in) so you aren't required to re-authenticate on every visit — it is not used by this project to collect, log, or store any personal or account information. This page and every linked game page are static files hosted on GitHub Pages: no backend server, database, or logging process runs as part of this deployment. As a result, M9 and the M9 Server infrastructure have no access to your Twitch credentials, session data, or chat history through this project — there is simply no server-side process here capable of capturing it.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div id="mg-transparency">
+    <h3>For The Curious — How It Works</h3>
+    <p>
+      A simplified look at what actually runs on this page and game pages. These snippets are trimmed down for readability, but reflect the real logic: everything reads public, non-authenticated data, and nothing here talks to a private server.
+    </p>
+    <p>
+      <b style="color:#e7e9ee;">Note on tracking:</b> Blackjack does not require tracking a username at all — it's multiplayer, so there's only ever one game running at a time, and the page simply pulls every event from it. The other games, however, are treated as single-player once you track a name: only game actions belonging to that exact tracked username are displayed. If you track your own name, you'll only see your own run — other viewers' games will not appear unless you specifically track their username instead.
+    </p>
+    <div class="mg-code-grid">
+
+      <div class="mg-code-card">
+        <div class="mg-code-card-head"><span class="mg-code-dot" style="background:#f5b731"></span>Username Tracking</div>
+        <pre><code><span class="tok-com">// You type a username — it's kept in your own browser</span>
+<span class="tok-kw">const</span> <span class="tok-var">username</span> = <span class="tok-var">input</span>.<span class="tok-fn">value</span>.<span class="tok-fn">trim</span>().<span class="tok-fn">toLowerCase</span>();
+<span class="tok-var">localStorage</span>.<span class="tok-fn">setItem</span>(<span class="tok-str">'tracked_name'</span>, <span class="tok-var">username</span>);
+
+<span class="tok-com">// Only chat lines from the bot that mention</span>
+<span class="tok-com">// this username are used to update the UI</span>
+<span class="tok-kw">if</span> (<span class="tok-var">msg</span>.<span class="tok-var">author</span> === <span class="tok-str">'M9_BOT'</span> &amp;&amp; <span class="tok-var">msg</span>.<span class="tok-var">text</span>.<span class="tok-fn">includes</span>(<span class="tok-var">username</span>)) {
+  <span class="tok-fn">updateGameUI</span>(<span class="tok-var">msg</span>);
+}</code></pre>
+      </div>
+
+      <div class="mg-code-card">
+        <div class="mg-code-card-head"><span class="mg-code-dot" style="background:#22c55e"></span>Avatar Fetching</div>
+        <pre><code><span class="tok-com">// Public lookup only — no login, no token, no private scopes</span>
+<span class="tok-kw">function</span> <span class="tok-fn">fetchAvatar</span>(<span class="tok-var">username</span>) {
+  <span class="tok-kw">return</span> <span class="tok-fn">fetch</span>(<span class="tok-str">`https://decapi.me/twitch/avatar/${</span><span class="tok-var">username</span><span class="tok-str">}`</span>)
+    .<span class="tok-fn">then</span>(<span class="tok-var">res</span> =&gt; <span class="tok-var">res</span>.<span class="tok-fn">text</span>()); <span class="tok-com">// -&gt; a public image URL</span>
+}</code></pre>
+      </div>
+
+      <div class="mg-code-card">
+        <div class="mg-code-card-head"><span class="mg-code-dot" style="background:#5b8cff"></span>Video &amp; Chat Embed</div>
+        <pre><code><span class="tok-com">// Twitch's own official embed endpoints — we just fill in the channel</span>
+<span class="tok-kw">const</span> <span class="tok-var">channel</span> = <span class="tok-str">'m9sypher'</span>;
+<span class="tok-kw">const</span> <span class="tok-var">parent</span>  = <span class="tok-var">location</span>.<span class="tok-var">hostname</span>;
+
+<span class="tok-var">videoFrame</span>.<span class="tok-var">src</span> = <span class="tok-str">`https://player.twitch.tv/?channel=${</span><span class="tok-var">channel</span><span class="tok-str">}&amp;parent=${</span><span class="tok-var">parent</span><span class="tok-str">}`</span>;
+<span class="tok-var">chatFrame</span>.<span class="tok-var">src</span>  = <span class="tok-str">`https://www.twitch.tv/embed/${</span><span class="tok-var">channel</span><span class="tok-str">}/chat?parent=${</span><span class="tok-var">parent</span><span class="tok-str">}`</span>;</code></pre>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  const MG_CHANNEL = 'm9sypher';
+  const parent = location.hostname || 'localhost';
+  document.getElementById('mg-twitch-video').src =
+    'https://player.twitch.tv/?channel=' + encodeURIComponent(MG_CHANNEL) + '&parent=' + parent;
+  document.getElementById('mg-twitch-chat').src =
+    'https://www.twitch.tv/embed/' + encodeURIComponent(MG_CHANNEL) + '/chat?parent=' + parent + '&darkpopout';
+</script>
+</body>
+</html>
