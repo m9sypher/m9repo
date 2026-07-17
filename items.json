@@ -738,21 +738,6 @@
     "difference": "+0.0456"
   },
   {
-    "skinName": "USP-S | Cortex (MW)",
-    "marketHashName": "USP-S | Cortex (Minimal Wear)",
-    "price": 631.2328,
-    "buyCmd": "!cortex1",
-    "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLkjYbf7itX6vytbbZSI-WsG3SA_u1jpN5lRi67gVNz4G7Qm938cS_Da1AhXpB1EeVb4xm4mtDjN7vj4A3b2NpGyCr52i4Y8G81tMzdoYZ7/330x192?allow_animated=1",
-    "markupLock": false,
-    "popularityIndex": 0,
-    "marketActivity": 100,
-    "lockAPIscrape": 1784326055220,
-    "isgame": 0,
-    "difference": "-0.0002",
-    "markupPercent": 37,
-    "cachedAt": "07/17/26, 03:02 PM"
-  },
-  {
     "skinName": "Music Kit | Ben Bromfield, Rabbit Hole",
     "marketHashName": "Music Kit | Ben Bromfield, Rabbit Hole",
     "price": 55.715,
