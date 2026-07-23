@@ -766,5 +766,20 @@
     "lockAPIscrape": 1784775570142,
     "isgame": 0,
     "difference": "-0.345"
+  },
+  {
+    "skinName": "Souvenir Charm | Austin 2025 Highlight | Triple Kill Clutch",
+    "marketHashName": "Souvenir Charm | Austin 2025 Highlight | Triple Kill Clutch",
+    "price": 8.9645,
+    "buyCmd": "!tags1",
+    "imageUrl": "https://community.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWgIGjFtQQgu4z31VjyUk-hzMOu-3APtqX8a_U6c6SRW2TGlL4k5uI-TXzhxEUm6mqDzN2pcC6WZwR0A4wwG7BUDwUFHQ",
+    "markupLock": false,
+    "popularityIndex": 0,
+    "marketActivity": 100,
+    "lockAPIscrape": 1784775570142,
+    "isgame": 0,
+    "difference": "-0.321",
+    "markupPercent": 114,
+    "cachedAt": "07/22/26, 07:54 PM"
   }
 ]
