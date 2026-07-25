@@ -402,14 +402,14 @@
     "cachedAt": "07/24/26, 12:01 PM",
     "popularityIndex": 0,
     "marketActivity": 195,
-    "lockAPIscrape": 1,
+    "lockAPIscrape": 1784951159203,
     "isgame": 0,
     "difference": "0"
   },
   {
     "skinName": "Tec-9 | Sultan (FT)",
     "marketHashName": "Tec-9 | Sultan (Field-Tested)",
-    "price": 9.8725,
+    "price": 24.00,
     "buyCmd": "!tec2",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLlm5W5wjZe7KuRe7FhNPGdMWqVxedjva9vGn2wl04itT6DzomgJymQbwUnDMF4ELUCsBK6kofuM7zhsgPegoxN02yg2YrpSh5o/330x192?allow_animated=1",
     "markupPercent": 0,
@@ -417,14 +417,14 @@
     "cachedAt": "07/24/26, 12:01 PM",
     "popularityIndex": 0,
     "marketActivity": 195,
-    "lockAPIscrape": 1,
+    "lockAPIscrape": 1784951159203,
     "isgame": 0,
     "difference": "0"
   },
   {
     "skinName": "Sticker | Neo-Hold (Holo)",
     "marketHashName": "Sticker | Neo-Hold (Holo)",
-    "price": 6.2864,
+    "price": 24.00,
     "buyCmd": "!neohold1",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cj1_03ofg_wnZ_u-m1T4P6hV6poL8-bAWuUj7cg4ORvHC2wlE51sT7cy9n4dX6RbVIpCpslQbYLsEPskd21NLuwsQPAy9USU9fjPj4/330x192?allow_animated=1",
     "markupPercent": 0,
@@ -454,7 +454,7 @@
   {
     "skinName": "Glock-18 | Ifrit Lattice (FT)",
     "marketHashName": "Glock-18 | Ifrit Lattice (Field-Tested)",
-    "price": 9.8725,
+    "price": 860.55,
     "buyCmd": "!ifrit1",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL2kpnj9h1c4_2tY5tkJuKaGlicwPpiueJscCS2kRQyvnOEy4mpcinFbVVyD8QjQeYItkHpk4W1YeLk5QLf3d5Gnyz-jy4duyc__a9cBhsdCabB/330x192?allow_animated=1",
     "markupPercent": 0,
