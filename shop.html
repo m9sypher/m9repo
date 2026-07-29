@@ -106,7 +106,7 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
   border-bottom:.5px solid var(--sep);z-index:99;
   display:flex;align-items:center;padding:0 12px;
 }
-.m-search-wrap{display:flex;align-items:center;background:rgba(255,255,255,.05);border-radius:9px;padding:0 11px;gap:8px;width:100%;height:32px;border:.5px solid var(--sep)}
+.m-search-wrap{display:flex;align-items:center;background:rgba(255,255,255,.05);border-radius:9px;padding:0 11px;gap:8px;flex:1;min-width:0;height:32px;border:.5px solid var(--sep)}
 .m-search-wrap svg{width:13px;height:13px;flex-shrink:0;opacity:.4}
 .m-search-wrap input{flex:1;border:none;background:transparent;font-size:13.5px;color:var(--label);outline:none;height:100%}
 .m-search-wrap input::placeholder{color:var(--secondary)}
@@ -262,7 +262,30 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
 
 .section-header{font-size:11px;font-weight:700;color:var(--tertiary);text-transform:uppercase;letter-spacing:.5px;padding:14px 12px 8px;display:flex;align-items:center;gap:6px;}
 .section-count{font-weight:400;font-size:11px;color:var(--tertiary);text-transform:none;letter-spacing:0}
-.tile-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;padding:0 8px}
+.tile-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(104px,1fr));gap:2px;padding:0 8px}
+@media(max-width:360px){.tile-grid{grid-template-columns:repeat(auto-fill,minmax(92px,1fr))}}
+@media(min-width:500px) and (max-width:767px){.tile-grid{grid-template-columns:repeat(auto-fill,minmax(128px,1fr))}}
+
+/* ── Steam-style List Row (mobile) ── */
+.list-header{display:flex;align-items:center;padding:6px 12px;font-size:9.5px;font-weight:700;color:var(--tertiary);text-transform:uppercase;letter-spacing:.5px;border-bottom:.5px solid var(--sep);}
+.list-header .lh-name{flex:1;min-width:0}
+.list-header .lh-activity{width:56px;text-align:right;flex-shrink:0}
+.list-header .lh-price{width:74px;text-align:right;flex-shrink:0}
+.m-list-wrap{padding:0 8px}
+.m-list-row{display:flex;align-items:center;gap:10px;padding:8px 4px;border-bottom:.5px solid var(--sep);cursor:pointer;transition:background .12s;}
+.m-list-row:active{background:rgba(255,255,255,.03)}
+.m-list-thumb{position:relative;width:44px;height:44px;flex-shrink:0;border-radius:6px;background:rgba(255,255,255,.03);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.m-list-thumb img{width:82%;height:82%;object-fit:contain;position:relative;z-index:1}
+.m-list-info{flex:1;min-width:0}
+.m-list-name{font-size:12.5px;font-weight:600;color:var(--label);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.m-list-sub{font-size:10.5px;font-weight:500;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.m-list-activity{width:56px;text-align:right;flex-shrink:0;font-size:11px;color:var(--secondary)}
+.m-list-price{width:74px;text-align:right;flex-shrink:0;font-size:12.5px;font-weight:700;color:var(--label);display:flex;align-items:center;justify-content:flex-end;gap:4px}
+.m-list-price .coin{width:10px;height:10px;border-radius:50%;background:var(--gold);flex-shrink:0;display:inline-block;}
+.view-toggle{display:flex;align-items:center;flex-shrink:0;background:rgba(255,255,255,.05);border-radius:8px;padding:2px;gap:2px;border:.5px solid var(--sep)}
+.view-toggle-btn{width:26px;height:22px;display:flex;align-items:center;justify-content:center;border-radius:6px;cursor:pointer;color:var(--secondary);transition:all .12s;background:none;border:none;}
+.view-toggle-btn svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:1.8}
+.view-toggle-btn.active{background:var(--accent2);color:#fff}
 
 .m-update-notice{margin:16px 16px 0;background:rgba(255,149,0,.08);border:.5px solid rgba(255,149,0,.2);border-radius:12px;padding:12px 14px;display:flex;align-items:flex-start;gap:10px;}
 .m-update-text{font-size:12px;color:var(--secondary);line-height:1.5}
@@ -434,6 +457,31 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
 
   .d-tile-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:2px;}
 
+  /* ── Steam-style List Row (desktop) ── */
+  .d-view-toggle{display:flex;align-items:center;flex-shrink:0;background:rgba(255,255,255,.05);border-radius:8px;padding:2px;gap:2px;border:.5px solid var(--sep)}
+  .d-view-toggle.hidden{display:none}
+  .d-view-toggle-btn{width:28px;height:24px;display:flex;align-items:center;justify-content:center;border-radius:6px;cursor:pointer;color:var(--secondary);transition:all .12s;background:none;border:none;}
+  .d-view-toggle-btn svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:1.8}
+  .d-view-toggle-btn:hover{color:var(--label)}
+  .d-view-toggle-btn.active{background:var(--accent2);color:#fff}
+  .d-list-header{display:flex;align-items:center;padding:8px 18px 8px;font-size:10.5px;font-weight:700;color:var(--tertiary);text-transform:uppercase;letter-spacing:.6px;border-bottom:.5px solid var(--sep);position:sticky;top:0;background:var(--bg);z-index:5;}
+  .d-list-header .lh-name{flex:1;min-width:0}
+  .d-list-header .lh-activity{width:110px;text-align:right;flex-shrink:0}
+  .d-list-header .lh-price{width:120px;text-align:right;flex-shrink:0}
+  .d-list-wrap{padding:0 14px 40px}
+  .d-list-row{display:flex;align-items:center;gap:14px;padding:9px 4px;border-bottom:.5px solid var(--sep);cursor:pointer;transition:background .1s;}
+  .d-list-row:hover{background:rgba(255,255,255,.035)}
+  .d-list-row.selected{background:rgba(77,159,255,.06)}
+  .d-list-thumb{position:relative;width:46px;height:46px;flex-shrink:0;border-radius:6px;background:rgba(255,255,255,.03);display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .d-list-thumb img{width:82%;height:82%;object-fit:contain;position:relative;z-index:1;transition:transform .15s}
+  .d-list-row:hover .d-list-thumb img{transform:scale(1.06)}
+  .d-list-info{flex:1;min-width:0}
+  .d-list-name{font-size:13.5px;font-weight:600;color:var(--label);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .d-list-sub{font-size:11.5px;font-weight:500;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .d-list-activity{width:110px;text-align:right;flex-shrink:0;font-size:12.5px;color:var(--secondary)}
+  .d-list-price{width:120px;text-align:right;flex-shrink:0;font-size:14px;font-weight:700;color:var(--label);display:flex;align-items:center;justify-content:flex-end;gap:5px}
+  .d-list-price .coin{width:11px;height:11px;border-radius:50%;background:var(--gold);flex-shrink:0;display:inline-block;}
+
   .d-tile{position:relative;cursor:pointer;padding:10px 8px 12px;border-radius:8px;transition:background .12s;outline:1px solid transparent;outline-offset:-1px;}
   .d-tile:hover{background:rgba(255,255,255,.03)}
   .d-tile.selected{outline-color:var(--accent);background:rgba(77,159,255,.05)}
@@ -576,6 +624,14 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
     <div class="m-search-wrap">
       <svg viewBox="0 0 14 14" fill="none"><circle cx="6" cy="6" r="4.5" stroke="white" stroke-width="1.5"/><path d="M9.5 9.5L12.5 12.5" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
       <input type="text" id="m-search" placeholder="Search items…" autocomplete="off">
+    </div>
+    <div class="view-toggle" style="margin-left:8px">
+      <button class="view-toggle-btn active" id="m-view-grid" onclick="mSetView('grid')" aria-label="Grid view">
+        <svg viewBox="0 0 16 16"><rect x="1" y="1" width="6" height="6" rx="1"/><rect x="9" y="1" width="6" height="6" rx="1"/><rect x="1" y="9" width="6" height="6" rx="1"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg>
+      </button>
+      <button class="view-toggle-btn" id="m-view-list" onclick="mSetView('list')" aria-label="List view">
+        <svg viewBox="0 0 16 16"><rect x="1" y="2" width="14" height="2.5" rx="1"/><rect x="1" y="7" width="14" height="2.5" rx="1"/><rect x="1" y="12" width="14" height="2.5" rx="1"/></svg>
+      </button>
     </div>
   </div>
 
@@ -778,6 +834,14 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
         </svg>
         <input type="text" id="d-search" placeholder="Search items…" autocomplete="off">
       </div>
+      <div class="d-view-toggle" id="d-view-toggle">
+        <button class="d-view-toggle-btn active" id="d-view-grid" onclick="dSetView('grid')" aria-label="Grid view">
+          <svg viewBox="0 0 16 16"><rect x="1" y="1" width="6" height="6" rx="1"/><rect x="9" y="1" width="6" height="6" rx="1"/><rect x="1" y="9" width="6" height="6" rx="1"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg>
+        </button>
+        <button class="d-view-toggle-btn" id="d-view-list" onclick="dSetView('list')" aria-label="List view">
+          <svg viewBox="0 0 16 16"><rect x="1" y="2" width="14" height="2.5" rx="1"/><rect x="1" y="7" width="14" height="2.5" rx="1"/><rect x="1" y="12" width="14" height="2.5" rx="1"/></svg>
+        </button>
+      </div>
       <button class="d-refresh-btn" id="d-refresh-btn" onclick="loadItems(true)">
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
           <path d="M13.5 2.5A6.5 6.5 0 1 1 8 1.5"/>
@@ -938,6 +1002,7 @@ let mSort = 'name-asc', dSort = 'name-asc';
 let mobileChatLoaded = false;
 let mCurrentTab = 'shop';
 let dCurrentSection = 'shop';
+let mViewMode = 'grid', dViewMode = 'grid';
 
 const CATS = ['All','Hot Items','Games & Giftcards','Skins','Stickers','Charms','Music Kits'];
 const CAT_ICONS = {All:'🛍️','Hot Items':'🔥','Games & Giftcards':'🎮',Skins:'🔫',Stickers:'🎨',Charms:'🪄','Music Kits':'🎵'};
@@ -1066,6 +1131,7 @@ function dSwitchSection(section){
   const searchWrap=document.getElementById('d-search-wrap');
   const refreshBtn=document.getElementById('d-refresh-btn');
   const updateNotice=document.getElementById('d-update-notice');
+  const viewToggle=document.getElementById('d-view-toggle');
 
   if(section==='shop'){
     grid.style.display='';
@@ -1074,6 +1140,7 @@ function dSwitchSection(section){
     searchWrap.classList.remove('hidden');
     refreshBtn.classList.remove('hidden');
     updateNotice.classList.remove('hidden');
+    if(viewToggle)viewToggle.classList.remove('hidden');
   } else {
     grid.style.display='none';
     affWrap.classList.add('active');
@@ -1081,6 +1148,7 @@ function dSwitchSection(section){
     searchWrap.classList.add('hidden');
     refreshBtn.classList.add('hidden');
     updateNotice.classList.add('hidden');
+    if(viewToggle)viewToggle.classList.add('hidden');
     document.getElementById('d-title').textContent='AFFILIATES';
     document.getElementById('d-count').textContent='';
     resetDetail();
@@ -1322,6 +1390,25 @@ function mTileHtml(item){
     </div>
   </div>`;
 }
+function mListRowHtml(item){
+  const idx=allItems.indexOf(item);
+  const rarity=getRarity(item);
+  const wear=getWearLine(item);
+  const badge=item.tradableDate?`<div class="m-tile-lock" style="top:-2px;right:-2px;transform:scale(.75)">🔒</div>`:(item.isgame===1?`<div class="m-tile-game-badge" style="top:-2px;right:-2px;transform:scale(.75)">GAME</div>`:'');
+  return `<div class="m-list-row rarity-${rarity}" onclick="mOpenModal(${idx})">
+    <div class="m-list-thumb">
+      <div class="tile-watermark">${watermarkSvg(rarity)}</div>
+      <img src="${item.imageUrl}" alt="${item.skinName}" loading="lazy" onerror="this.style.display='none'">
+      ${badge}
+    </div>
+    <div class="m-list-info">
+      <div class="m-list-name">${item.skinName}</div>
+      <div class="m-list-sub">${wear}</div>
+    </div>
+    <div class="m-list-activity">${item.marketActivity}%</div>
+    <div class="m-list-price"><span class="coin"></span>${fmtPrice(item.price)}</div>
+  </div>`;
+}
 function mHomeSectionHtml(){
   return `
   <div class="m-home-row" id="m-carousel-row">
@@ -1445,20 +1532,30 @@ function mRender(){
 
   if(isHome)html+=mHomeSectionHtml();
 
+  const isList=mViewMode==='list';
+  const wrapOpen=isList?'<div class="m-list-wrap">':'<div class="tile-grid">';
+  const wrapClose='</div>';
+  const itemHtml=isList?mListRowHtml:mTileHtml;
+  const listHeader=`<div class="list-header"><span class="lh-name">Item</span><span class="lh-activity">Activity</span><span class="lh-price">Price</span></div>`;
+
   if(!items.length){
     html+=`<div style="padding:60px 24px;text-align:center;color:var(--secondary)"><div style="font-size:36px;margin-bottom:10px">🔍</div>No items found</div>`;
   } else if(isHot){
-    html+=`<div class="section-header">🔥 Hot Items <span class="section-count">${items.length}</span></div><div class="tile-grid">`;
-    items.forEach(item=>{html+=mTileHtml(item);});
-    html+='</div>';
+    html+=`<div class="section-header">🔥 Hot Items <span class="section-count">${items.length}</span></div>`;
+    if(isList)html+=listHeader;
+    html+=wrapOpen;
+    items.forEach(item=>{html+=itemHtml(item);});
+    html+=wrapClose;
   } else {
     const g=grouped(items);
     if(isHome)html+=`<div class="m-cat-section-lbl" style="padding:18px 12px 0 12px">All Items <span class="chev">›</span></div>`;
     CAT_ORDER.forEach(cat=>{
       if(!g[cat])return;
-      html+=`<div class="section-header">${cat} <span class="section-count">${g[cat].length}</span></div><div class="tile-grid">`;
-      g[cat].forEach(item=>{html+=mTileHtml(item);});
-      html+='</div>';
+      html+=`<div class="section-header">${cat} <span class="section-count">${g[cat].length}</span></div>`;
+      if(isList)html+=listHeader;
+      html+=wrapOpen;
+      g[cat].forEach(item=>{html+=itemHtml(item);});
+      html+=wrapClose;
       if(cat==='Games & Giftcards'){
         html+=`<div class="terms-notice"><strong>Game &amp; Giftcard Terms:</strong> Games may be region-locked. Gift cards convert from USD to the receiver's local currency. Both transaction types require adding <strong>@m9sypher</strong> as a friend for 3 days.</div>`;
       }
@@ -1472,6 +1569,13 @@ function mRender(){
   el.innerHTML=html;
   if(isHome){mInitCarousel();initCatTileFades('m');}
   else clearInterval(mCarouselTimer);
+}
+function mSetView(mode){
+  mViewMode=mode;
+  const g=document.getElementById('m-view-grid'),l=document.getElementById('m-view-list');
+  if(g)g.classList.toggle('active',mode==='grid');
+  if(l)l.classList.toggle('active',mode==='list');
+  mRender();
 }
 function mSetFilter(cat){
   mFilter=cat;mSearch='';
@@ -1624,6 +1728,25 @@ function dTileHtml(item){
     </div>
   </div>`;
 }
+function dListRowHtml(item){
+  const idx=allItems.indexOf(item);
+  const rarity=getRarity(item);
+  const wear=getWearLine(item);
+  const badge=item.tradableDate?`<div class="d-tile-lock" style="top:-2px;right:-2px;transform:scale(.8)">🔒</div>`:(item.isgame===1?`<div class="d-tile-game-badge" style="top:-2px;right:-2px;transform:scale(.8)">GAME</div>`:'');
+  return `<div class="d-list-row rarity-${rarity}${dSelected===idx?' selected':''}" onclick="dSelect(${idx})">
+    <div class="d-list-thumb">
+      <div class="tile-watermark">${watermarkSvg(rarity)}</div>
+      <img src="${item.imageUrl}" alt="${item.skinName}" loading="lazy" onerror="this.style.display='none'">
+      ${badge}
+    </div>
+    <div class="d-list-info">
+      <div class="d-list-name">${item.skinName}</div>
+      <div class="d-list-sub">${wear}</div>
+    </div>
+    <div class="d-list-activity">${item.marketActivity}% activity</div>
+    <div class="d-list-price"><span class="coin"></span>${fmtPrice(item.price)}</div>
+  </div>`;
+}
 function dHomeSectionHtml(){
   return `
   <div class="d-home-row">
@@ -1704,11 +1827,19 @@ function dRender(){
     return;
   }
 
+  const isList=dViewMode==='list';
+  const wrapOpen=isList?'<div class="d-list-wrap">':'<div class="d-tile-grid">';
+  const wrapClose='</div>';
+  const itemHtml=isList?dListRowHtml:dTileHtml;
+  const listHeader=`<div class="d-list-header"><span class="lh-name">Item</span><span class="lh-activity">Activity</span><span class="lh-price">Price</span></div>`;
+
   html+='<div class="d-items-wrap">';
   if(isHot){
-    html+=`<div class="d-section-label">🔥 Hot Items <span class="section-count">${items.length}</span></div><div class="d-tile-grid">`;
-    items.forEach(item=>{html+=dTileHtml(item);});
-    html+=`</div>`;
+    html+=`<div class="d-section-label">🔥 Hot Items <span class="section-count">${items.length}</span></div>`;
+    if(isList)html+=listHeader;
+    html+=wrapOpen;
+    items.forEach(item=>{html+=itemHtml(item);});
+    html+=wrapClose;
     html+='</div>';
     grid.innerHTML=html;
     clearInterval(dCarouselTimer);
@@ -1718,9 +1849,11 @@ function dRender(){
   const g=grouped(items);
   CAT_ORDER.forEach(cat=>{
     if(!g[cat])return;
-    html+=`<div class="d-section-label">${cat} <span class="section-count">${g[cat].length}</span></div><div class="d-tile-grid">`;
-    g[cat].forEach(item=>{html+=dTileHtml(item);});
-    html+=`</div>`;
+    html+=`<div class="d-section-label">${cat} <span class="section-count">${g[cat].length}</span></div>`;
+    if(isList)html+=listHeader;
+    html+=wrapOpen;
+    g[cat].forEach(item=>{html+=itemHtml(item);});
+    html+=wrapClose;
     if(cat==='Games & Giftcards'){
       html+=`<div class="terms-notice-d"><strong>Game &amp; Giftcard Terms:</strong> Games may be region-locked. Gift cards convert from USD to the receiver's local currency. Both transaction types require adding <strong>@m9sypher</strong> as a friend for 3 days.</div>`;
     }
@@ -1728,6 +1861,13 @@ function dRender(){
   html+='</div>';
   grid.innerHTML=html;
   if(isHome){dInitCarousel();initCatTileFades('d');}else clearInterval(dCarouselTimer);
+}
+function dSetView(mode){
+  dViewMode=mode;
+  const g=document.getElementById('d-view-grid'),l=document.getElementById('d-view-list');
+  if(g)g.classList.toggle('active',mode==='grid');
+  if(l)l.classList.toggle('active',mode==='list');
+  dRender();
 }
 function dSetFilter(cat){
   dCurrentSection='shop';dFilter=cat;
