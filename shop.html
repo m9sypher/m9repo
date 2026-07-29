@@ -7,18 +7,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg:         #0a0c10;
-  --bg2:        #0f1218;
-  --bg3:        #161a22;
-  --card:       #12151c;
-  --card2:      #1a1e28;
-  --sep:        rgba(255,255,255,0.06);
-  --label:      #f0f2ff;
-  --secondary:  rgba(240,242,255,0.5);
-  --tertiary:   rgba(240,242,255,0.25);
-  --accent:     #4d9fff;
-  --accent2:    #2979ff;
-  --green:      #2ecc71;
+  --bg:         #0e1621;
+  --bg2:        #131c2b;
+  --bg3:        #1b2838;
+  --card:       #16202d;
+  --card2:      #1e2a3a;
+  --sep:        rgba(255,255,255,0.08);
+  --label:      #e5edf5;
+  --secondary:  rgba(198,213,227,0.65);
+  --tertiary:   rgba(150,171,191,0.5);
+  --accent:     #67c1f5;
+  --accent2:    #2a75c9;
+  --green:      #a4d007;
   --orange:     #ff9500;
   --red:        #ff4757;
   --purple:     #9c6cff;
@@ -213,6 +213,25 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
 .m-chat-fab:active{transform:scale(.92)}
 .m-chat-fab svg{width:22px;height:22px;fill:#fff}
 
+.m-view-fab{
+  position:fixed;bottom:196px;right:20px;z-index:200;
+  width:44px;padding:4px;border-radius:22px;
+  background:linear-gradient(160deg,var(--accent) 0%,var(--accent2) 100%);
+  display:flex;flex-direction:column;gap:4px;
+  box-shadow:0 4px 22px rgba(103,193,245,.55),0 0 0 1px rgba(255,255,255,.15) inset;
+  transition:opacity .2s,transform .2s;
+}
+.m-view-fab.hidden{opacity:0;pointer-events:none;transform:scale(.8)}
+.m-view-fab-btn{
+  width:36px;height:36px;border-radius:50%;border:none;cursor:pointer;
+  background:transparent;color:rgba(255,255,255,.75);
+  display:flex;align-items:center;justify-content:center;
+  transition:all .18s cubic-bezier(.34,1.4,.64,1);
+}
+.m-view-fab-btn svg{width:16px;height:16px;fill:currentColor}
+.m-view-fab-btn.active{background:#fff;color:var(--accent2);box-shadow:0 2px 8px rgba(0,0,0,.3);transform:scale(1.04)}
+.m-view-fab-btn:active{transform:scale(.88)}
+
 .m-chat-drawer{position:fixed;inset:0;z-index:300;pointer-events:none;}
 .m-chat-drawer.open{pointer-events:all}
 .m-chat-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.6);opacity:0;transition:opacity .25s;}
@@ -273,19 +292,28 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
 .list-header .lh-price{width:74px;text-align:right;flex-shrink:0}
 .m-list-wrap{padding:0 8px}
 .m-list-row{display:flex;align-items:center;gap:10px;padding:8px 4px;border-bottom:.5px solid var(--sep);cursor:pointer;transition:background .12s;}
-.m-list-row:active{background:rgba(255,255,255,.03)}
+.m-list-row:nth-child(even){background:rgba(255,255,255,.015)}
+.m-list-row:active{background:rgba(103,193,245,.08)}
 .m-list-thumb{position:relative;width:44px;height:44px;flex-shrink:0;border-radius:6px;background:rgba(255,255,255,.03);display:flex;align-items:center;justify-content:center;overflow:hidden}
 .m-list-thumb img{width:82%;height:82%;object-fit:contain;position:relative;z-index:1}
 .m-list-info{flex:1;min-width:0}
 .m-list-name{font-size:12.5px;font-weight:600;color:var(--label);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .m-list-sub{font-size:10.5px;font-weight:500;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .m-list-activity{width:56px;text-align:right;flex-shrink:0;font-size:11px;color:var(--secondary)}
-.m-list-price{width:74px;text-align:right;flex-shrink:0;font-size:12.5px;font-weight:700;color:var(--label);display:flex;align-items:center;justify-content:flex-end;gap:4px}
+.m-list-price-wrap{width:74px;flex-shrink:0;text-align:right}
+.m-list-price-label{font-size:8.5px;color:var(--tertiary);text-transform:uppercase;letter-spacing:.3px;line-height:1.2}
+.m-list-price{width:100%;text-align:right;flex-shrink:0;font-size:12.5px;font-weight:700;color:var(--label);display:flex;align-items:center;justify-content:flex-end;gap:4px}
 .m-list-price .coin{width:10px;height:10px;border-radius:50%;background:var(--gold);flex-shrink:0;display:inline-block;}
 .view-toggle{display:flex;align-items:center;flex-shrink:0;background:rgba(255,255,255,.05);border-radius:8px;padding:2px;gap:2px;border:.5px solid var(--sep)}
 .view-toggle-btn{width:26px;height:22px;display:flex;align-items:center;justify-content:center;border-radius:6px;cursor:pointer;color:var(--secondary);transition:all .12s;background:none;border:none;}
 .view-toggle-btn svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:1.8}
 .view-toggle-btn.active{background:var(--accent2);color:#fff}
+
+.m-pager{display:flex;align-items:center;justify-content:center;gap:12px;padding:14px 12px 18px;}
+.m-pager-btn{background:var(--card2);border:.5px solid var(--sep);color:var(--accent);font-size:12px;font-weight:600;padding:8px 14px;border-radius:18px;cursor:pointer;transition:all .12s;font-family:'Rajdhani',sans-serif;letter-spacing:.3px;}
+.m-pager-btn:active{transform:scale(.94)}
+.m-pager-btn:disabled{opacity:.3;color:var(--secondary);cursor:default}
+.m-pager-info{font-size:11px;color:var(--secondary);font-weight:600;white-space:nowrap}
 
 .m-update-notice{margin:16px 16px 0;background:rgba(255,149,0,.08);border:.5px solid rgba(255,149,0,.2);border-radius:12px;padding:12px 14px;display:flex;align-items:flex-start;gap:10px;}
 .m-update-text{font-size:12px;color:var(--secondary);line-height:1.5}
@@ -458,20 +486,32 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
   .d-tile-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:2px;}
 
   /* ── Steam-style List Row (desktop) ── */
-  .d-view-toggle{display:flex;align-items:center;flex-shrink:0;background:rgba(255,255,255,.05);border-radius:8px;padding:2px;gap:2px;border:.5px solid var(--sep)}
-  .d-view-toggle.hidden{display:none}
-  .d-view-toggle-btn{width:28px;height:24px;display:flex;align-items:center;justify-content:center;border-radius:6px;cursor:pointer;color:var(--secondary);transition:all .12s;background:none;border:none;}
-  .d-view-toggle-btn svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:1.8}
-  .d-view-toggle-btn:hover{color:var(--label)}
-  .d-view-toggle-btn.active{background:var(--accent2);color:#fff}
+  .d-view-fab{
+    position:fixed;bottom:22px;right:calc(var(--detail-w) + var(--chat-w) + 22px);z-index:60;
+    display:flex;gap:4px;padding:5px;border-radius:26px;
+    background:linear-gradient(160deg,var(--accent) 0%,var(--accent2) 100%);
+    box-shadow:0 6px 26px rgba(103,193,245,.5),0 0 0 1px rgba(255,255,255,.15) inset;
+    transition:opacity .2s,transform .2s;
+  }
+  .d-view-fab.hidden{opacity:0;pointer-events:none;transform:scale(.85)}
+  .d-view-fab-btn{
+    display:flex;align-items:center;gap:6px;height:38px;padding:0 15px;border-radius:20px;border:none;cursor:pointer;
+    background:transparent;color:rgba(255,255,255,.75);font-size:12.5px;font-weight:700;
+    font-family:'Rajdhani',sans-serif;letter-spacing:.4px;text-transform:uppercase;
+    transition:all .18s cubic-bezier(.34,1.4,.64,1);
+  }
+  .d-view-fab-btn svg{width:14px;height:14px;fill:currentColor;flex-shrink:0}
+  .d-view-fab-btn.active{background:#fff;color:var(--accent2);box-shadow:0 2px 10px rgba(0,0,0,.3);transform:scale(1.03)}
+  .d-view-fab-btn:hover:not(.active){color:#fff}
   .d-list-header{display:flex;align-items:center;padding:8px 18px 8px;font-size:10.5px;font-weight:700;color:var(--tertiary);text-transform:uppercase;letter-spacing:.6px;border-bottom:.5px solid var(--sep);position:sticky;top:0;background:var(--bg);z-index:5;}
   .d-list-header .lh-name{flex:1;min-width:0}
   .d-list-header .lh-activity{width:110px;text-align:right;flex-shrink:0}
   .d-list-header .lh-price{width:120px;text-align:right;flex-shrink:0}
   .d-list-wrap{padding:0 14px 40px}
   .d-list-row{display:flex;align-items:center;gap:14px;padding:9px 4px;border-bottom:.5px solid var(--sep);cursor:pointer;transition:background .1s;}
-  .d-list-row:hover{background:rgba(255,255,255,.035)}
-  .d-list-row.selected{background:rgba(77,159,255,.06)}
+  .d-list-row:nth-child(even){background:rgba(255,255,255,.015)}
+  .d-list-row:hover{background:rgba(103,193,245,.07)}
+  .d-list-row.selected{background:rgba(103,193,245,.1)}
   .d-list-thumb{position:relative;width:46px;height:46px;flex-shrink:0;border-radius:6px;background:rgba(255,255,255,.03);display:flex;align-items:center;justify-content:center;overflow:hidden}
   .d-list-thumb img{width:82%;height:82%;object-fit:contain;position:relative;z-index:1;transition:transform .15s}
   .d-list-row:hover .d-list-thumb img{transform:scale(1.06)}
@@ -479,8 +519,16 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
   .d-list-name{font-size:13.5px;font-weight:600;color:var(--label);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
   .d-list-sub{font-size:11.5px;font-weight:500;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
   .d-list-activity{width:110px;text-align:right;flex-shrink:0;font-size:12.5px;color:var(--secondary)}
-  .d-list-price{width:120px;text-align:right;flex-shrink:0;font-size:14px;font-weight:700;color:var(--label);display:flex;align-items:center;justify-content:flex-end;gap:5px}
+  .d-list-price-wrap{width:120px;flex-shrink:0;text-align:right}
+  .d-list-price-label{font-size:9.5px;color:var(--tertiary);text-transform:uppercase;letter-spacing:.4px;line-height:1.3}
+  .d-list-price{width:100%;text-align:right;flex-shrink:0;font-size:14px;font-weight:700;color:var(--label);display:flex;align-items:center;justify-content:flex-end;gap:5px}
   .d-list-price .coin{width:11px;height:11px;border-radius:50%;background:var(--gold);flex-shrink:0;display:inline-block;}
+
+  .d-pager{display:flex;align-items:center;justify-content:center;gap:16px;padding:16px 12px 26px;}
+  .d-pager-btn{background:var(--card2);border:.5px solid var(--sep);color:var(--accent);font-size:12.5px;font-weight:600;padding:8px 16px;border-radius:18px;cursor:pointer;transition:all .12s;font-family:'Rajdhani',sans-serif;letter-spacing:.3px;}
+  .d-pager-btn:hover:not(:disabled){background:rgba(103,193,245,.12);border-color:rgba(103,193,245,.3)}
+  .d-pager-btn:disabled{opacity:.3;color:var(--secondary);cursor:default}
+  .d-pager-info{font-size:12px;color:var(--secondary);font-weight:600;white-space:nowrap}
 
   .d-tile{position:relative;cursor:pointer;padding:10px 8px 12px;border-radius:8px;transition:background .12s;outline:1px solid transparent;outline-offset:-1px;}
   .d-tile:hover{background:rgba(255,255,255,.03)}
@@ -625,14 +673,6 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
       <svg viewBox="0 0 14 14" fill="none"><circle cx="6" cy="6" r="4.5" stroke="white" stroke-width="1.5"/><path d="M9.5 9.5L12.5 12.5" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
       <input type="text" id="m-search" placeholder="Search items…" autocomplete="off">
     </div>
-    <div class="view-toggle" style="margin-left:8px">
-      <button class="view-toggle-btn active" id="m-view-grid" onclick="mSetView('grid')" aria-label="Grid view">
-        <svg viewBox="0 0 16 16"><rect x="1" y="1" width="6" height="6" rx="1"/><rect x="9" y="1" width="6" height="6" rx="1"/><rect x="1" y="9" width="6" height="6" rx="1"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg>
-      </button>
-      <button class="view-toggle-btn" id="m-view-list" onclick="mSetView('list')" aria-label="List view">
-        <svg viewBox="0 0 16 16"><rect x="1" y="2" width="14" height="2.5" rx="1"/><rect x="1" y="7" width="14" height="2.5" rx="1"/><rect x="1" y="12" width="14" height="2.5" rx="1"/></svg>
-      </button>
-    </div>
   </div>
 
   <div class="filter-bar" id="m-filters"></div>
@@ -752,6 +792,14 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
   <button class="m-chat-fab" id="m-chat-fab" onclick="openMobileChat()">
     <svg viewBox="0 0 24 24"><path d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714z"/></svg>
   </button>
+  <div class="m-view-fab" id="m-view-fab">
+    <button class="m-view-fab-btn" id="m-view-grid" onclick="mSetView('grid')" aria-label="Grid view">
+      <svg viewBox="0 0 16 16"><rect x="1" y="1" width="6" height="6" rx="1.3"/><rect x="9" y="1" width="6" height="6" rx="1.3"/><rect x="1" y="9" width="6" height="6" rx="1.3"/><rect x="9" y="9" width="6" height="6" rx="1.3"/></svg>
+    </button>
+    <button class="m-view-fab-btn active" id="m-view-list" onclick="mSetView('list')" aria-label="List view">
+      <svg viewBox="0 0 16 16"><rect x="1" y="2" width="14" height="2.8" rx="1.2"/><rect x="1" y="6.6" width="14" height="2.8" rx="1.2"/><rect x="1" y="11.2" width="14" height="2.8" rx="1.2"/></svg>
+    </button>
+  </div>
 
   <!-- Chat Drawer -->
   <div class="m-chat-drawer" id="m-chat-drawer">
@@ -834,14 +882,6 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
         </svg>
         <input type="text" id="d-search" placeholder="Search items…" autocomplete="off">
       </div>
-      <div class="d-view-toggle" id="d-view-toggle">
-        <button class="d-view-toggle-btn active" id="d-view-grid" onclick="dSetView('grid')" aria-label="Grid view">
-          <svg viewBox="0 0 16 16"><rect x="1" y="1" width="6" height="6" rx="1"/><rect x="9" y="1" width="6" height="6" rx="1"/><rect x="1" y="9" width="6" height="6" rx="1"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg>
-        </button>
-        <button class="d-view-toggle-btn" id="d-view-list" onclick="dSetView('list')" aria-label="List view">
-          <svg viewBox="0 0 16 16"><rect x="1" y="2" width="14" height="2.5" rx="1"/><rect x="1" y="7" width="14" height="2.5" rx="1"/><rect x="1" y="12" width="14" height="2.5" rx="1"/></svg>
-        </button>
-      </div>
       <button class="d-refresh-btn" id="d-refresh-btn" onclick="loadItems(true)">
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
           <path d="M13.5 2.5A6.5 6.5 0 1 1 8 1.5"/>
@@ -857,6 +897,17 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
       <div class="d-grid-wrap">
         <!-- Shop grid -->
         <div id="d-grid"></div>
+
+        <div class="d-view-fab" id="d-view-fab">
+          <button class="d-view-fab-btn" id="d-view-grid" onclick="dSetView('grid')" aria-label="Grid view">
+            <svg viewBox="0 0 16 16"><rect x="1" y="1" width="6" height="6" rx="1.3"/><rect x="9" y="1" width="6" height="6" rx="1.3"/><rect x="1" y="9" width="6" height="6" rx="1.3"/><rect x="9" y="9" width="6" height="6" rx="1.3"/></svg>
+            <span>Grid</span>
+          </button>
+          <button class="d-view-fab-btn active" id="d-view-list" onclick="dSetView('list')" aria-label="List view">
+            <svg viewBox="0 0 16 16"><rect x="1" y="2" width="14" height="2.8" rx="1.2"/><rect x="1" y="6.6" width="14" height="2.8" rx="1.2"/><rect x="1" y="11.2" width="14" height="2.8" rx="1.2"/></svg>
+            <span>List</span>
+          </button>
+        </div>
 
         <!-- Desktop Affiliates -->
         <div class="d-affiliates-wrap" id="d-affiliates-wrap">
@@ -1002,7 +1053,9 @@ let mSort = 'name-asc', dSort = 'name-asc';
 let mobileChatLoaded = false;
 let mCurrentTab = 'shop';
 let dCurrentSection = 'shop';
-let mViewMode = 'grid', dViewMode = 'grid';
+let mViewMode = 'list', dViewMode = 'list';
+const PAGE_SIZE = 12;
+let mPages = {}, dPages = {};
 
 const CATS = ['All','Hot Items','Games & Giftcards','Skins','Stickers','Charms','Music Kits'];
 const CAT_ICONS = {All:'🛍️','Hot Items':'🔥','Games & Giftcards':'🎮',Skins:'🔫',Stickers:'🎨',Charms:'🪄','Music Kits':'🎵'};
@@ -1093,6 +1146,7 @@ function mSwitchTab(tab){
   const sortBar=document.getElementById('m-sort-bar');
   const fabR=document.getElementById('m-fab-refresh');
   const fabC=document.getElementById('m-chat-fab');
+  const fabV=document.getElementById('m-view-fab');
   const navTitle=document.getElementById('m-nav-title');
   const countBadge=document.getElementById('m-count');
 
@@ -1107,6 +1161,7 @@ function mSwitchTab(tab){
     sortBar.style.display='';
     fabR.classList.remove('hidden');
     fabC.classList.remove('hidden');
+    if(fabV)fabV.classList.remove('hidden');
     navTitle.textContent='ITEM SHOP';
     countBadge.style.display='';
   } else {
@@ -1117,6 +1172,7 @@ function mSwitchTab(tab){
     sortBar.style.display='none';
     fabR.classList.add('hidden');
     fabC.classList.add('hidden');
+    if(fabV)fabV.classList.add('hidden');
     navTitle.textContent='AFFILIATES';
     countBadge.style.display='none';
   }
@@ -1131,7 +1187,7 @@ function dSwitchSection(section){
   const searchWrap=document.getElementById('d-search-wrap');
   const refreshBtn=document.getElementById('d-refresh-btn');
   const updateNotice=document.getElementById('d-update-notice');
-  const viewToggle=document.getElementById('d-view-toggle');
+  const viewToggle=document.getElementById('d-view-fab');
 
   if(section==='shop'){
     grid.style.display='';
@@ -1367,7 +1423,7 @@ function mBuildSortBar(){
     const b=document.createElement('button');
     b.className='sort-pill'+(s.key===mSort?' active':'');
     b.innerHTML=s.label+(s.arrow?` <span>${s.arrow}</span>`:'');
-    b.onclick=()=>{mSort=s.key;bar.querySelectorAll('.sort-pill').forEach(p=>p.classList.remove('active'));b.classList.add('active');mRender();};
+    b.onclick=()=>{mSort=s.key;mPages={};bar.querySelectorAll('.sort-pill').forEach(p=>p.classList.remove('active'));b.classList.add('active');mRender();};
     bar.appendChild(b);
   });
 }
@@ -1406,7 +1462,10 @@ function mListRowHtml(item){
       <div class="m-list-sub">${wear}</div>
     </div>
     <div class="m-list-activity">${item.marketActivity}%</div>
-    <div class="m-list-price"><span class="coin"></span>${fmtPrice(item.price)}</div>
+    <div class="m-list-price-wrap">
+      <div class="m-list-price-label">Starting at</div>
+      <div class="m-list-price"><span class="coin"></span>${fmtPrice(item.price)}</div>
+    </div>
   </div>`;
 }
 function mHomeSectionHtml(){
@@ -1522,6 +1581,32 @@ function mInitCarousel(){
     dotsWrap.querySelectorAll('.m-carousel-dot').forEach((d,i)=>d.classList.toggle('active',i===mCarouselIdx));
   },4000);
 }
+function mPagerHtml(key,page,totalPages){
+  const k=encodeURIComponent(key);
+  return `<div class="m-pager">
+    <button class="m-pager-btn" ${page<=0?'disabled':''} onclick="mChangePage('${k}',-1)">‹ Prev</button>
+    <span class="m-pager-info">Page ${page+1} of ${totalPages}</span>
+    <button class="m-pager-btn" ${page>=totalPages-1?'disabled':''} onclick="mChangePage('${k}',1)">Next ›</button>
+  </div>`;
+}
+function mChangePage(key,delta){
+  mPages[key]=(mPages[key]||0)+delta;
+  mRender();
+  const anchor=document.querySelector(`[data-cat-anchor="${key}"]`);
+  if(anchor)anchor.scrollIntoView({block:'start',behavior:'smooth'});
+}
+function mSectionItemsHtml(key,items,wrapOpen,wrapClose,itemHtml){
+  const totalPages=Math.max(1,Math.ceil(items.length/PAGE_SIZE));
+  if(mPages[key]===undefined)mPages[key]=0;
+  mPages[key]=Math.min(Math.max(mPages[key],0),totalPages-1);
+  const page=mPages[key];
+  const slice=items.slice(page*PAGE_SIZE,(page+1)*PAGE_SIZE);
+  let html=`<div data-cat-anchor="${encodeURIComponent(key)}"></div>`+wrapOpen;
+  slice.forEach(item=>{html+=itemHtml(item);});
+  html+=wrapClose;
+  if(totalPages>1)html+=mPagerHtml(key,page,totalPages);
+  return html;
+}
 function mRender(){
   const el=document.getElementById('m-content');
   const isHome=mFilter==='All'&&!mSearch;
@@ -1543,9 +1628,7 @@ function mRender(){
   } else if(isHot){
     html+=`<div class="section-header">🔥 Hot Items <span class="section-count">${items.length}</span></div>`;
     if(isList)html+=listHeader;
-    html+=wrapOpen;
-    items.forEach(item=>{html+=itemHtml(item);});
-    html+=wrapClose;
+    html+=mSectionItemsHtml('hot',items,wrapOpen,wrapClose,itemHtml);
   } else {
     const g=grouped(items);
     if(isHome)html+=`<div class="m-cat-section-lbl" style="padding:18px 12px 0 12px">All Items <span class="chev">›</span></div>`;
@@ -1553,9 +1636,7 @@ function mRender(){
       if(!g[cat])return;
       html+=`<div class="section-header">${cat} <span class="section-count">${g[cat].length}</span></div>`;
       if(isList)html+=listHeader;
-      html+=wrapOpen;
-      g[cat].forEach(item=>{html+=itemHtml(item);});
-      html+=wrapClose;
+      html+=mSectionItemsHtml(cat,g[cat],wrapOpen,wrapClose,itemHtml);
       if(cat==='Games & Giftcards'){
         html+=`<div class="terms-notice"><strong>Game &amp; Giftcard Terms:</strong> Games may be region-locked. Gift cards convert from USD to the receiver's local currency. Both transaction types require adding <strong>@m9sypher</strong> as a friend for 3 days.</div>`;
       }
@@ -1571,14 +1652,14 @@ function mRender(){
   else clearInterval(mCarouselTimer);
 }
 function mSetView(mode){
-  mViewMode=mode;
+  mViewMode=mode;mPages={};
   const g=document.getElementById('m-view-grid'),l=document.getElementById('m-view-list');
   if(g)g.classList.toggle('active',mode==='grid');
   if(l)l.classList.toggle('active',mode==='list');
   mRender();
 }
 function mSetFilter(cat){
-  mFilter=cat;mSearch='';
+  mFilter=cat;mSearch='';mPages={};
   const searchInput=document.getElementById('m-search');if(searchInput)searchInput.value='';
   const bar=document.getElementById('m-filters');
   if(bar){
@@ -1705,7 +1786,7 @@ function dBuildSortBar(){
     const b=document.createElement('button');
     b.className='d-sort-pill'+(s.key===dSort?' active':'');
     b.textContent=s.label;
-    b.onclick=()=>{dSort=s.key;bar.querySelectorAll('.d-sort-pill').forEach(p=>p.classList.remove('active'));b.classList.add('active');dRender();};
+    b.onclick=()=>{dSort=s.key;dPages={};bar.querySelectorAll('.d-sort-pill').forEach(p=>p.classList.remove('active'));b.classList.add('active');dRender();};
     bar.appendChild(b);
   });
 }
@@ -1744,7 +1825,10 @@ function dListRowHtml(item){
       <div class="d-list-sub">${wear}</div>
     </div>
     <div class="d-list-activity">${item.marketActivity}% activity</div>
-    <div class="d-list-price"><span class="coin"></span>${fmtPrice(item.price)}</div>
+    <div class="d-list-price-wrap">
+      <div class="d-list-price-label">Starting at</div>
+      <div class="d-list-price"><span class="coin"></span>${fmtPrice(item.price)}</div>
+    </div>
   </div>`;
 }
 function dHomeSectionHtml(){
@@ -1809,6 +1893,32 @@ function dGoToSlide(i){
   wrap.querySelectorAll('.d-promo-card').forEach(c=>c.classList.toggle('active',c.dataset.slide===String(i)));
   wrap.querySelectorAll('.d-carousel-dot').forEach((d,idx)=>d.classList.toggle('active',idx===i));
 }
+function dPagerHtml(key,page,totalPages){
+  const k=encodeURIComponent(key);
+  return `<div class="d-pager">
+    <button class="d-pager-btn" ${page<=0?'disabled':''} onclick="dChangePage('${k}',-1)">‹ Prev</button>
+    <span class="d-pager-info">Page ${page+1} of ${totalPages}</span>
+    <button class="d-pager-btn" ${page>=totalPages-1?'disabled':''} onclick="dChangePage('${k}',1)">Next ›</button>
+  </div>`;
+}
+function dChangePage(key,delta){
+  dPages[key]=(dPages[key]||0)+delta;
+  dRender();
+  const anchor=document.querySelector(`[data-cat-anchor="${key}"]`);
+  if(anchor)anchor.scrollIntoView({block:'start',behavior:'smooth'});
+}
+function dSectionItemsHtml(key,items,wrapOpen,wrapClose,itemHtml){
+  const totalPages=Math.max(1,Math.ceil(items.length/PAGE_SIZE));
+  if(dPages[key]===undefined)dPages[key]=0;
+  dPages[key]=Math.min(Math.max(dPages[key],0),totalPages-1);
+  const page=dPages[key];
+  const slice=items.slice(page*PAGE_SIZE,(page+1)*PAGE_SIZE);
+  let html=`<div data-cat-anchor="${encodeURIComponent(key)}"></div>`+wrapOpen;
+  slice.forEach(item=>{html+=itemHtml(item);});
+  html+=wrapClose;
+  if(totalPages>1)html+=dPagerHtml(key,page,totalPages);
+  return html;
+}
 function dRender(){
   if(dCurrentSection==='affiliates')return;
   const grid=document.getElementById('d-grid');
@@ -1837,9 +1947,7 @@ function dRender(){
   if(isHot){
     html+=`<div class="d-section-label">🔥 Hot Items <span class="section-count">${items.length}</span></div>`;
     if(isList)html+=listHeader;
-    html+=wrapOpen;
-    items.forEach(item=>{html+=itemHtml(item);});
-    html+=wrapClose;
+    html+=dSectionItemsHtml('hot',items,wrapOpen,wrapClose,itemHtml);
     html+='</div>';
     grid.innerHTML=html;
     clearInterval(dCarouselTimer);
@@ -1851,9 +1959,7 @@ function dRender(){
     if(!g[cat])return;
     html+=`<div class="d-section-label">${cat} <span class="section-count">${g[cat].length}</span></div>`;
     if(isList)html+=listHeader;
-    html+=wrapOpen;
-    g[cat].forEach(item=>{html+=itemHtml(item);});
-    html+=wrapClose;
+    html+=dSectionItemsHtml(cat,g[cat],wrapOpen,wrapClose,itemHtml);
     if(cat==='Games & Giftcards'){
       html+=`<div class="terms-notice-d"><strong>Game &amp; Giftcard Terms:</strong> Games may be region-locked. Gift cards convert from USD to the receiver's local currency. Both transaction types require adding <strong>@m9sypher</strong> as a friend for 3 days.</div>`;
     }
@@ -1863,14 +1969,14 @@ function dRender(){
   if(isHome){dInitCarousel();initCatTileFades('d');}else clearInterval(dCarouselTimer);
 }
 function dSetView(mode){
-  dViewMode=mode;
+  dViewMode=mode;dPages={};
   const g=document.getElementById('d-view-grid'),l=document.getElementById('d-view-list');
   if(g)g.classList.toggle('active',mode==='grid');
   if(l)l.classList.toggle('active',mode==='list');
   dRender();
 }
 function dSetFilter(cat){
-  dCurrentSection='shop';dFilter=cat;
+  dCurrentSection='shop';dFilter=cat;dPages={};
   document.getElementById('d-title').textContent=cat.toUpperCase();
   dSelected=null;resetDetail();
   document.querySelectorAll('.d-nav-item').forEach(x=>x.classList.toggle('active',x.textContent.trim().startsWith(cat)&&!x.classList.contains('aff-item')));
@@ -1911,8 +2017,8 @@ function dSelect(idx){
     </div>`;
 }
 
-document.getElementById('d-search').addEventListener('input',e=>{dSearch=e.target.value;dRender();});
-document.getElementById('m-search').addEventListener('input',e=>{mSearch=e.target.value;mRender();});
+document.getElementById('d-search').addEventListener('input',e=>{dSearch=e.target.value;dPages={};dRender();});
+document.getElementById('m-search').addEventListener('input',e=>{mSearch=e.target.value;mPages={};mRender();});
 loadItems(true);
 </script>
 </body>
