@@ -13,7 +13,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "difference": "-0.6688",
-    "assetid": "48356654394"
+    "assetid": "48356654394",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Sticker | Sherry (Holo)",
@@ -29,7 +30,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "difference": "-0.4814",
-    "assetid": "48356660364"
+    "assetid": "48356660364",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Sticker | Martha",
@@ -45,7 +47,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "difference": "-0.005",
-    "assetid": "48356665391"
+    "assetid": "48356665391",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Sticker | Sherry",
@@ -61,7 +64,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "difference": "-0.0648",
-    "assetid": "48356646318"
+    "assetid": "48356646318",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "P250 | Small Game (FN)",
@@ -77,7 +81,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "difference": "-0.149",
-    "assetid": "51463606321"
+    "assetid": "51463606321",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Charm | Lil' Cackle",
@@ -93,7 +98,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "difference": "-0.0325",
-    "assetid": "52900298398"
+    "assetid": "52900298398",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Charm | Lil' Cackle",
@@ -109,7 +115,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "difference": "-0.0001",
-    "assetid": "47658596553"
+    "assetid": "47658596553",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Charm | Lil' Baller",
@@ -125,7 +132,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "difference": "-0.015",
-    "assetid": "47884033234"
+    "assetid": "47884033234",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Sticker | Sherry",
@@ -141,7 +149,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "difference": "-0.0266",
-    "assetid": "48356641054"
+    "assetid": "48356641054",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Souvenir PP-Bizon | Candy Apple (FN)",
@@ -157,7 +166,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "difference": "-0.1861",
-    "assetid": "49281320883"
+    "assetid": "49281320883",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "UMP-45 | Delusion (MW)",
@@ -173,7 +183,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "difference": "-0.255",
-    "assetid": "49281354904"
+    "assetid": "49281354904",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Sticker | Kimberly",
@@ -189,7 +200,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "difference": "-0.135",
-    "assetid": "48356638601"
+    "assetid": "48356638601",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "M4A1-S | Nitro (FT)",
@@ -205,7 +217,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "difference": "-0.0969",
-    "assetid": "47884975989"
+    "assetid": "47884975989",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Five-SeveN | Sky Blue (FN)",
@@ -221,7 +234,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "difference": "+0.0001",
-    "assetid": "49660501619"
+    "assetid": "49660501619",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "P250 | Red Tide (MW)",
@@ -236,11 +250,12 @@
     "marketActivity": 100,
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
-    "difference": "-0.074"
+    "difference": "-0.074",
+    "tradableDate": "9/3/26"
   },
   {
-    "skinName": "StatTrak™ Negev | dev_texture (FT)",
-    "marketHashName": "StatTrak™ Negev | dev_texture (Field-Tested)",
+    "skinName": "StatTrak\u2122 Negev | dev_texture (FT)",
+    "marketHashName": "StatTrak\u2122 Negev | dev_texture (Field-Tested)",
     "price": 26.1052,
     "buyCmd": "!devnegev1",
     "imageUrl": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL_m5Hl6x1Y-s2gbaNoNs-XC3GExPZipfNscCS2kRQyvnPTwtv7InieOFJ1DpZ2F7YCskXultC1MOnktlaI344WxCX62ntB7i46_a9cBrXKNorP/330x192?allow_animated=1",
@@ -252,11 +267,12 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "difference": "-1.5356",
-    "assetid": "49281335207"
+    "assetid": "49281335207",
+    "tradableDate": "9/3/26"
   },
   {
-    "skinName": "StatTrak™ Sawed-Off | Fusion (FN)",
-    "marketHashName": "StatTrak™ Sawed-Off | Fusion (Factory New)",
+    "skinName": "StatTrak\u2122 Sawed-Off | Fusion (FN)",
+    "marketHashName": "StatTrak\u2122 Sawed-Off | Fusion (Factory New)",
     "price": 82.9224,
     "buyCmd": "!fusion1",
     "imageUrl": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLin4Hl-S1d6c29abNoJP-VCFiW1P1_v-9WQyC0nQlp4WiHyY79eHmXOw4mW5JwQ-Jc5hO7koXjML_jsgSK2oJHmyz82ilB7DErvbjU0C2wDw/330x192?allow_animated=1",
@@ -268,7 +284,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "difference": "-0.216",
-    "assetid": "50403512095"
+    "assetid": "50403512095",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "CZ75-Auto | Red Astor (FT)",
@@ -284,7 +301,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "difference": "-0.168",
-    "assetid": "50292000155"
+    "assetid": "50292000155",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "MP9 | Urban Sovereign (FT)",
@@ -300,7 +318,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "difference": "-0.116",
-    "assetid": "50591159638"
+    "assetid": "50591159638",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Sticker | Gold Nova",
@@ -316,7 +335,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "difference": "-0.135",
-    "assetid": "50426988765"
+    "assetid": "50426988765",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "P250 | X-Ray (FN)",
@@ -332,11 +352,12 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "difference": "+0.3839",
-    "assetid": "50147691991"
+    "assetid": "50147691991",
+    "tradableDate": "9/3/26"
   },
   {
-    "skinName": "StatTrak™ Glock-18 | Block-18 (FT)",
-    "marketHashName": "StatTrak™ Glock-18 | Block-18 (Field-Tested)",
+    "skinName": "StatTrak\u2122 Glock-18 | Block-18 (FT)",
+    "marketHashName": "StatTrak\u2122 Glock-18 | Block-18 (Field-Tested)",
     "price": 111.1774,
     "buyCmd": "!gblock1",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL2kpnj9h1c4_2tY5tvMvmQBVidzuByouhoQRa-kBkupjDLmN-rJH3FZgUkWMF2EOVfsUS8lNO1Nrzm4wbY2I9EzCT23StI6Hs4t_FCD_Qg7K1xSg/330x192?allow_animated=1",
@@ -348,7 +369,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "difference": "-0.2896",
-    "assetid": "49281300895"
+    "assetid": "49281300895",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Kilowatt Case",
@@ -364,7 +386,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "difference": "-0.024",
-    "assetid": "52843196765"
+    "assetid": "52843196765",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Kilowatt Case",
@@ -380,7 +403,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "difference": "-0.024",
-    "assetid": "51680557686"
+    "assetid": "51680557686",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Tec-9 | Sultan (FT)",
@@ -396,7 +420,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "difference": "-0.3839",
-    "assetid": "52844328531"
+    "assetid": "52844328531",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Tec-9 | Sultan (FT)",
@@ -412,7 +437,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "difference": "-0.3839",
-    "assetid": "52843199353"
+    "assetid": "52843199353",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Sticker | Neo-Hold (Holo)",
@@ -428,7 +454,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "difference": "-0.014",
-    "assetid": "52869308603"
+    "assetid": "52869308603",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "MAC-10 | Arabesque Mosaic (WW)",
@@ -444,7 +471,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "difference": "-0.027",
-    "assetid": "52771598234"
+    "assetid": "52771598234",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Glock-18 | Ifrit Lattice (FT)",
@@ -460,7 +488,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "difference": "-0.348",
-    "assetid": "52788213414"
+    "assetid": "52788213414",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "P90 | Elite Build (MW)",
@@ -476,7 +505,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "difference": "-0.1452",
-    "assetid": "49066812145"
+    "assetid": "49066812145",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "P250 | Cartel (FT)",
@@ -492,7 +522,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "difference": "-3.2195",
-    "assetid": "52268391848"
+    "assetid": "52268391848",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Glock-18 | Candy Apple (FN)",
@@ -508,7 +539,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "difference": "-1.0557",
-    "assetid": "51843320411"
+    "assetid": "51843320411",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "M4A1-S | Black Lotus (BS)",
@@ -524,11 +556,12 @@
     "isgame": 0,
     "difference": "+0.8216",
     "markupPercent": 114,
-    "assetid": "52303367992"
+    "assetid": "52303367992",
+    "tradableDate": "9/3/26"
   },
   {
-    "skinName": "StatTrak™ M4A1-S | Electrum (FT)",
-    "marketHashName": "StatTrak™ M4A1-S | Electrum (Field-Tested)",
+    "skinName": "StatTrak\u2122 M4A1-S | Electrum (FT)",
+    "marketHashName": "StatTrak\u2122 M4A1-S | Electrum (Field-Tested)",
     "price": 450.8905,
     "buyCmd": "!electrum1",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8ypexwjFS4_ega6F_H_3HDzaD_ut6teJ9XTy-qhAitzSQl8GqcC3FPw8oCsAjFOcMtBXuxoeyZePm5lGK399FmS38hy9Luihr4ecFT-N7rcPUCN_I/330x192?allow_animated=1",
@@ -540,7 +573,8 @@
     "isgame": 0,
     "difference": "+5.1826",
     "markupPercent": 125,
-    "assetid": "52268418710"
+    "assetid": "52268418710",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "AUG | Amber Fade (FN)",
@@ -556,11 +590,12 @@
     "isgame": 0,
     "difference": "-1.611",
     "markupPercent": 125,
-    "assetid": "52787479550"
+    "assetid": "52787479550",
+    "tradableDate": "9/3/26"
   },
   {
-    "skinName": "StatTrak™ P90 | Deathgaze (FT)",
-    "marketHashName": "StatTrak™ P90 | Deathgaze (Field-Tested)",
+    "skinName": "StatTrak\u2122 P90 | Deathgaze (FT)",
+    "marketHashName": "StatTrak\u2122 P90 | Deathgaze (Field-Tested)",
     "price": 866.8692,
     "buyCmd": "!deathgaze1",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLhx8bf7XsL0ParabBlJ_GJC1idxOp_pewnGH3lwUtw5z_Wy9eqdiqUOlAlXpF5R-MCshC7xNDuMO3jtQeP34kWmTK-0H0e9r7eSA/330x192?allow_animated=1",
@@ -572,7 +607,8 @@
     "isgame": 0,
     "difference": "-2.2581",
     "markupPercent": 154,
-    "assetid": "52268640981"
+    "assetid": "52268640981",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "SSG 08 | Ghost Crusader (MW)",
@@ -588,7 +624,8 @@
     "isgame": 0,
     "difference": "+0.8139",
     "markupPercent": 112,
-    "assetid": "52268663309"
+    "assetid": "52268663309",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Tec-9 | Fuel Injector (FT)",
@@ -604,7 +641,8 @@
     "isgame": 0,
     "difference": "-4.1087",
     "markupPercent": 145,
-    "assetid": "52268672730"
+    "assetid": "52268672730",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Soldier | Phoenix",
@@ -620,11 +658,12 @@
     "isgame": 0,
     "difference": "-1.4628",
     "markupPercent": 112,
-    "assetid": "52268683500"
+    "assetid": "52268683500",
+    "tradableDate": "9/3/26"
   },
   {
-    "skinName": "StatTrak™ Nova | Ocular (FT)",
-    "marketHashName": "StatTrak™ Nova | Ocular (Field-Tested)",
+    "skinName": "StatTrak\u2122 Nova | Ocular (FT)",
+    "marketHashName": "StatTrak\u2122 Nova | Ocular (Field-Tested)",
     "price": 145.2063,
     "buyCmd": "!ocular1",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL_kYDhwixU-fORZ6d4LPGBMWqVxedjva89GHzrwhh14jvQm46geC2fOw8hCcF0QeALs0S7lNLjZezj5gWKi94U02yg2ZCbkb4B/330x192?allow_animated=1",
@@ -636,7 +675,8 @@
     "isgame": 0,
     "difference": "-0.0001",
     "markupPercent": 97,
-    "assetid": "52455897443"
+    "assetid": "52455897443",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Glock-18 | Block-18 (BS)",
@@ -652,11 +692,12 @@
     "difference": "-0.0001",
     "markupPercent": 37,
     "cachedAt": "08/04/26, 05:21 PM",
-    "assetid": "52316887254"
+    "assetid": "52316887254",
+    "tradableDate": "9/3/26"
   },
   {
-    "skinName": "StatTrak™ Desert Eagle | Corinthian (FT)",
-    "marketHashName": "StatTrak™ Desert Eagle | Corinthian (Field-Tested)",
+    "skinName": "StatTrak\u2122 Desert Eagle | Corinthian (FT)",
+    "marketHashName": "StatTrak\u2122 Desert Eagle | Corinthian (Field-Tested)",
     "price": 137.1176,
     "buyCmd": "!corin1",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL1m5fn8Sdk7uORbKFsJ_yWMWSf0-d4pOlgTieMmBgjuiiI1NiuJX7Cbw9xXJshR-RY5hO5wNTgNuzn4A3Y2NkXxCv_jHka7y5usOocEf1ykShuajs/330x192?allow_animated=1",
@@ -668,7 +709,8 @@
     "isgame": 0,
     "difference": "+0.0001",
     "markupPercent": 87,
-    "assetid": "49281284035"
+    "assetid": "49281284035",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Revolution Case",
@@ -684,7 +726,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "difference": "-0.036",
-    "assetid": "52958863061"
+    "assetid": "52958863061",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Revolution Case",
@@ -700,7 +743,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "difference": "-0.036",
-    "assetid": "52517931222"
+    "assetid": "52517931222",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Music Kit | Ben Bromfield, Rabbit Hole",
@@ -716,7 +760,8 @@
     "difference": "-0.1439",
     "markupPercent": 37,
     "cachedAt": "08/04/26, 05:21 PM",
-    "assetid": "51828928943"
+    "assetid": "51828928943",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Souvenir Charm | Austin 2025 Highlight | Triple Kill Clutch",
@@ -732,7 +777,8 @@
     "difference": "-0.0171",
     "markupPercent": 114,
     "cachedAt": "08/04/26, 05:21 PM",
-    "assetid": "49709815413"
+    "assetid": "49709815413",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Sticker | Martha",
@@ -748,11 +794,12 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "difference": "-0.005",
-    "assetid": "48356657468"
+    "assetid": "48356657468",
+    "tradableDate": "9/3/26"
   },
   {
-    "skinName": "StatTrak™ Music Kit | Tigercub, The Perfume of Decay",
-    "marketHashName": "StatTrak™ Music Kit | Tigercub, The Perfume of Decay",
+    "skinName": "StatTrak\u2122 Music Kit | Tigercub, The Perfume of Decay",
+    "marketHashName": "StatTrak\u2122 Music Kit | Tigercub, The Perfume of Decay",
     "price": 146.2352,
     "buyCmd": "!decay1",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIijyEKzb_3d19nuIXKQ4ER24YXLugipRUmomJfkrXcKufatPfVsc_XHWD_Bmewg47I9Tn-1kRh_sWqBz4v4d2XXMFFcAYD9tQ/330x192?allow_animated=1",
@@ -764,7 +811,8 @@
     "difference": "-0.3809",
     "markupPercent": 114,
     "cachedAt": "08/04/26, 05:21 PM",
-    "assetid": "49481465803"
+    "assetid": "49481465803",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Charm | Lil' Cackle",
@@ -780,7 +828,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "difference": "-0.026",
-    "assetid": "47166556201"
+    "assetid": "47166556201",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Charm | Lil' Baller",
@@ -795,7 +844,8 @@
     "marketActivity": 100,
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
-    "difference": "-0.015"
+    "difference": "-0.015",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Sticker | Sherry",
@@ -811,7 +861,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "difference": "-0.035",
-    "assetid": "48356628770"
+    "assetid": "48356628770",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Sticker | Martha",
@@ -827,7 +878,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "difference": "-0.005",
-    "assetid": "48356643603"
+    "assetid": "48356643603",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Kilowatt Case",
@@ -843,7 +895,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "difference": "-0.024",
-    "assetid": "51918420223"
+    "assetid": "51918420223",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "AWP | Pit Viper (FT)",
@@ -859,7 +912,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "51847032705",
-    "difference": "-0.227"
+    "difference": "-0.227",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Sticker | Airhorn",
@@ -875,7 +929,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "52771117900",
-    "difference": "-0.004"
+    "difference": "-0.004",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Sticker | Airhorn",
@@ -891,7 +946,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "52771101546",
-    "difference": "-0.004"
+    "difference": "-0.004",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Sticker | Explosives",
@@ -907,7 +963,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "52771116305",
-    "difference": "-0.0135"
+    "difference": "-0.0135",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Sticker | Explosives",
@@ -923,7 +980,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "52771114448",
-    "difference": "-0.0135"
+    "difference": "-0.0135",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Sticker | Assterisk (Glitter)",
@@ -939,7 +997,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "52771106016",
-    "difference": "-0.0108"
+    "difference": "-0.0108",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Sticker | Partyboy",
@@ -955,7 +1014,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "52771094522",
-    "difference": "-0.0054"
+    "difference": "-0.0054",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Sticker | Head In Hands",
@@ -971,7 +1031,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "52771092487",
-    "difference": "-0.0054"
+    "difference": "-0.0054",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "SSG 08 | Dezastre (MW)",
@@ -987,7 +1048,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "52497785433",
-    "difference": "-0.0492"
+    "difference": "-0.0492",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "FAMAS | Byproduct (MW)",
@@ -1003,7 +1065,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "52282787646",
-    "difference": "-0.0038"
+    "difference": "-0.0038",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "USP-S | Tropical Breeze (MW)",
@@ -1019,11 +1082,12 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "51951250503",
-    "difference": "+0.8638"
+    "difference": "+0.8638",
+    "tradableDate": "9/3/26"
   },
   {
-    "skinName": "StatTrak™ MAC-10 | Ultraviolet (FT)",
-    "marketHashName": "StatTrak™ MAC-10 | Ultraviolet (Field-Tested)",
+    "skinName": "StatTrak\u2122 MAC-10 | Ultraviolet (FT)",
+    "marketHashName": "StatTrak\u2122 MAC-10 | Ultraviolet (Field-Tested)",
     "price": 323.4357,
     "buyCmd": "!ultraviolet1",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8n5WxrR1I4M2-fbZ9LPWsA2KUyPt7_uQ9F33nwB526znUw9yhIimQPVMlA5V3FO8K50SwlIXiZOvqs1De3YNbjXKp5YiDbbE/330x192?allow_animated=1",
@@ -1035,7 +1099,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "49860213588",
-    "difference": "-0.0001"
+    "difference": "-0.0001",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Charm | Lil' Ava",
@@ -1051,7 +1116,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "49951097597",
-    "difference": "-0.0248"
+    "difference": "-0.0248",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Sticker | Supreme Master First Class",
@@ -1067,7 +1133,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "50426978428",
-    "difference": "-0.0109"
+    "difference": "-0.0109",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Sticker | Master Guardian Elite",
@@ -1083,11 +1150,12 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "50426974897",
-    "difference": "-0.0201"
+    "difference": "-0.0201",
+    "tradableDate": "9/3/26"
   },
   {
-    "skinName": "StatTrak™ M4A4 | Poly Mag (MW)",
-    "marketHashName": "StatTrak™ M4A4 | Poly Mag (Minimal Wear)",
+    "skinName": "StatTrak\u2122 M4A4 | Poly Mag (MW)",
+    "marketHashName": "StatTrak\u2122 M4A4 | Poly Mag (Minimal Wear)",
     "price": 14.2043,
     "buyCmd": "!polymag1",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8ypexwiFO0P_6afBSJfyaGmKv1e91pOhqTiWMmRQguynLzY2pIi2QawR0CpdwTOdeuhXrw9XjZeq04QLYjIlFxSz9hn9MvCw44vFCD_Q07cip4Q/330x192?allow_animated=1",
@@ -1099,7 +1167,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "53023691640",
-    "difference": "-0.037"
+    "difference": "-0.037",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "FAMAS | Snake Song (WW)",
@@ -1115,7 +1184,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "52902447301",
-    "difference": "-0.0502"
+    "difference": "-0.0502",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "MAC-10 | Poplar Thicket (FT)",
@@ -1131,7 +1201,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "52901834207",
-    "difference": "-0.0211"
+    "difference": "-0.0211",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "MP9 | Spy Prototype (FT)",
@@ -1147,7 +1218,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "52891000883",
-    "difference": "-0.1222"
+    "difference": "-0.1222",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Sticker | Apple A Day (Glitter)",
@@ -1163,7 +1235,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "52888648763",
-    "difference": "-0.005"
+    "difference": "-0.005",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Sticker | Defusal Sprint",
@@ -1179,7 +1252,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "52888647346",
-    "difference": "-0.0093"
+    "difference": "-0.0093",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Sticker | Box Logo",
@@ -1195,7 +1269,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "52869310560",
-    "difference": "-0.0047"
+    "difference": "-0.0047",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Sticker | Radish K",
@@ -1211,7 +1286,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "52869309735",
-    "difference": "-0.0047"
+    "difference": "-0.0047",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Sticker | Sand Dune Baja Tour",
@@ -1227,7 +1303,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "52869307789",
-    "difference": "-0.0047"
+    "difference": "-0.0047",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "XM1014 | Mockingbird (BS)",
@@ -1243,7 +1320,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "52654817330",
-    "difference": "-0.0167"
+    "difference": "-0.0167",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "R8 Revolver | Cobalt Grip (MW)",
@@ -1259,7 +1337,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "52743735918",
-    "difference": "-0.0047"
+    "difference": "-0.0047",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "MAC-10 | Light Box (FT)",
@@ -1275,11 +1354,12 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "52316891410",
-    "difference": "+0.0001"
+    "difference": "+0.0001",
+    "tradableDate": "9/3/26"
   },
   {
-    "skinName": "StatTrak™ SSG 08 | Rapid Transit (FT)",
-    "marketHashName": "StatTrak™ SSG 08 | Rapid Transit (Field-Tested)",
+    "skinName": "StatTrak\u2122 SSG 08 | Rapid Transit (FT)",
+    "marketHashName": "StatTrak\u2122 SSG 08 | Rapid Transit (Field-Tested)",
     "price": 419.5873,
     "buyCmd": "!rapidtransit1",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLijZGwpR1I_PX-MJt5MvGdHW6E_vl-ufVscCS2kRQyvnOHwon4dSqUa1d2W8AkEOALtRG7k4bjZunk5VHeidgTzyr5h3xB63s__a9cBry9ZXNI/330x192?allow_animated=1",
@@ -1291,7 +1371,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "50952646968",
-    "difference": "-1.093"
+    "difference": "-1.093",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "MAC-10 | Light Box (WW)",
@@ -1307,11 +1388,12 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "48687676448",
-    "difference": "-0.0124"
+    "difference": "-0.0124",
+    "tradableDate": "9/3/26"
   },
   {
-    "skinName": "StatTrak™ MAC-10 | Light Box (MW)",
-    "marketHashName": "StatTrak™ MAC-10 | Light Box (Minimal Wear)",
+    "skinName": "StatTrak\u2122 MAC-10 | Light Box (MW)",
+    "marketHashName": "StatTrak\u2122 MAC-10 | Light Box (Minimal Wear)",
     "price": 39.1578,
     "buyCmd": "!lightbox3",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8n5WxrR1W7vH_OJtkLPyGHW6fz9F6ueZhW2e2lBsk4WvXw974diiSblV1DMBxRrEJu0PrwNy1Mruw4gKK3d0TynmskGoXuUBgCcQQ/330x192?allow_animated=1",
@@ -1323,7 +1405,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "49028014686",
-    "difference": "-0.102"
+    "difference": "-0.102",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "R8 Revolver | Inlay (FT)",
@@ -1339,7 +1422,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "48917937565",
-    "difference": "-0.0109"
+    "difference": "-0.0109",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Sticker | Merietta",
@@ -1355,7 +1439,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "48356635848",
-    "difference": "-0.0155"
+    "difference": "-0.0155",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Sticker | Fade Mangos",
@@ -1371,7 +1456,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "47932325292",
-    "difference": "-0.0031"
+    "difference": "-0.0031",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Sticker | Fade Mangos",
@@ -1387,7 +1473,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "47884304651",
-    "difference": "-0.0031"
+    "difference": "-0.0031",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Sticker | Candy Apples",
@@ -1403,7 +1490,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "47884305063",
-    "difference": "-0.0062"
+    "difference": "-0.0062",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Charm | Whittle Guy",
@@ -1419,7 +1507,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "47854054574",
-    "difference": "-0.0186"
+    "difference": "-0.0186",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Charm | Whittle Guy",
@@ -1435,7 +1524,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "47641058326",
-    "difference": "-0.0186"
+    "difference": "-0.0186",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Charm | Fluffy",
@@ -1451,7 +1541,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "47771018643",
-    "difference": "-0.0201"
+    "difference": "-0.0201",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Charm | Lil' Zen",
@@ -1467,7 +1558,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "47350282124",
-    "difference": "-0.0589"
+    "difference": "-0.0589",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Charm | Splatter Cat",
@@ -1483,7 +1575,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "47169933784",
-    "difference": "-0.0341"
+    "difference": "-0.0341",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Sticker | Mimicapsule",
@@ -1499,7 +1592,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "47844816771",
-    "difference": "-0.0047"
+    "difference": "-0.0047",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "FAMAS | Half Sleeve (FT)",
@@ -1515,7 +1609,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "47844813439",
-    "difference": "-0.0093"
+    "difference": "-0.0093",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "USP-S | Tropical Breeze (FT)",
@@ -1531,7 +1626,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "47931460279",
-    "difference": "-0.062"
+    "difference": "-0.062",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "P90 | Vent Rush (FT)",
@@ -1547,11 +1643,12 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "50292048891",
-    "difference": "-0.1107"
+    "difference": "-0.1107",
+    "tradableDate": "9/3/26"
   },
   {
-    "skinName": "StatTrak™ XM1014 | Zombie Offensive (FT)",
-    "marketHashName": "StatTrak™ XM1014 | Zombie Offensive (Field-Tested)",
+    "skinName": "StatTrak\u2122 XM1014 | Zombie Offensive (FT)",
+    "marketHashName": "StatTrak\u2122 XM1014 | Zombie Offensive (Field-Tested)",
     "price": 45.2234,
     "buyCmd": "!zombieoffensive1",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLpk8ewrHZk7v-RcKlSOv-eDG6V_uFwtuRnXCClkCIqtjmMj4K3dHOVbA8mA5okFuYOsBO9kdHnPry3tlHb2NgUyiz_jSJN6ytq47lRAL1lpPMVbUGW2g/330x192?allow_animated=1",
@@ -1563,7 +1660,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "50224617689",
-    "difference": "-0.1178"
+    "difference": "-0.1178",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Charm | Lil' Cap Gun",
@@ -1579,7 +1677,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "48917930816",
-    "difference": "-0.0155"
+    "difference": "-0.0155",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "UMP-45 | Roadblock (MW)",
@@ -1595,7 +1694,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "48356467533",
-    "difference": "-0.0403"
+    "difference": "-0.0403",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Sticker | Mimicapsule",
@@ -1611,7 +1711,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "47932323331",
-    "difference": "-0.0047"
+    "difference": "-0.0047",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Sticker | Mimicapsule",
@@ -1627,7 +1728,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "47884304138",
-    "difference": "-0.0047"
+    "difference": "-0.0047",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Sticker | Mimicapsule",
@@ -1643,7 +1745,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "47801518920",
-    "difference": "-0.0047"
+    "difference": "-0.0047",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Sticker | Mimicapsule",
@@ -1659,11 +1762,12 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "47351261128",
-    "difference": "-0.0047"
+    "difference": "-0.0047",
+    "tradableDate": "9/3/26"
   },
   {
-    "skinName": "StatTrak™ Glock-18 | Winterized (FT)",
-    "marketHashName": "StatTrak™ Glock-18 | Winterized (Field-Tested)",
+    "skinName": "StatTrak\u2122 Glock-18 | Winterized (FT)",
+    "marketHashName": "StatTrak\u2122 Glock-18 | Winterized (Field-Tested)",
     "price": 11.3059,
     "buyCmd": "!winterized1",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL2kpnj9h1c_M2pZKtuK8-WAm6ExNF1sexmcCS2kRQyvnOGzI2uci6ePQ8nDsEhTeIKthS_koazNe234AyM349BmCz_3y0c6nxv_a9cBoed2NN7/330x192?allow_animated=1",
@@ -1675,7 +1779,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "47769480890",
-    "difference": "-0.0294"
+    "difference": "-0.0294",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Sticker | Lock In",
@@ -1691,7 +1796,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "47351263469",
-    "difference": "-0.0047"
+    "difference": "-0.0047",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Charm | Lil' Zen",
@@ -1707,7 +1813,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "47148821351",
-    "difference": "-0.0589"
+    "difference": "-0.0589",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Charm | Gritty",
@@ -1723,11 +1830,12 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "47148420617",
-    "difference": "+0.5951"
+    "difference": "+0.5951",
+    "tradableDate": "9/3/26"
   },
   {
-    "skinName": "StatTrak™ USP-S | PC-GRN (BS)",
-    "marketHashName": "StatTrak™ USP-S | PC-GRN (Battle-Scarred)",
+    "skinName": "StatTrak\u2122 USP-S | PC-GRN (BS)",
+    "marketHashName": "StatTrak\u2122 USP-S | PC-GRN (Battle-Scarred)",
     "price": 21.5944,
     "buyCmd": "!pcgrn1",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLkjYbf7itX6vytbbZSNeODHViS0_titedmXSq2qho1tjiLpYf8ID3ecFciWZslRLEPshi8xIfiMb-2tgyNiYxHzHqt3yIbu31jsrwDUqImrvLJz1aWTfRvAE0/330x192?allow_animated=1",
@@ -1739,7 +1847,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "45761364964",
-    "difference": "+0.8638"
+    "difference": "+0.8638",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "P90 | Straight Dimes (MW)",
@@ -1755,7 +1864,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "43392158349",
-    "difference": "-0.0294"
+    "difference": "-0.0294",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Sticker | Hydro Geyser",
@@ -1771,11 +1881,12 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "44694237144",
-    "difference": "-0.0062"
+    "difference": "-0.0062",
+    "tradableDate": "9/3/26"
   },
   {
-    "skinName": "StatTrak™ CZ75-Auto | Circaetus (BS)",
-    "marketHashName": "StatTrak™ CZ75-Auto | Circaetus (Battle-Scarred)",
+    "skinName": "StatTrak\u2122 CZ75-Auto | Circaetus (BS)",
+    "marketHashName": "StatTrak\u2122 CZ75-Auto | Circaetus (Battle-Scarred)",
     "price": 33.6872,
     "buyCmd": "!circaetus1",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLyhMG1_B1Y-s2tcvM4H-ebB3Wc1ud4tN5hSiiljFMksWmAnN-oJC2Ua1N1DcF1FLFbtRDswYXkYru05wXX394RxC-viXsc8G81tGiIiTWI/330x192?allow_animated=1",
@@ -1787,7 +1898,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "45020048364",
-    "difference": "-0.0878"
+    "difference": "-0.0878",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Sticker | From The Deep",
@@ -1803,7 +1915,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "44832803911",
-    "difference": "-0.0573"
+    "difference": "-0.0573",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "SSG 08 | Zeno (FT)",
@@ -1819,11 +1932,12 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "45759351196",
-    "difference": "-0.0667"
+    "difference": "-0.0667",
+    "tradableDate": "9/3/26"
   },
   {
-    "skinName": "StatTrak™ MAG-7 | Resupply (MW)",
-    "marketHashName": "StatTrak™ MAG-7 | Resupply (Minimal Wear)",
+    "skinName": "StatTrak\u2122 MAG-7 | Resupply (MW)",
+    "marketHashName": "StatTrak\u2122 MAG-7 | Resupply (Minimal Wear)",
     "price": 16.0662,
     "buyCmd": "!resupply1",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8n5G3wi9a6KWRaalgL8-RAX-vzedxuPUnTHjgkxwj52SHyImqcX2fO1AhDMNxEe4I4RWwkIXgMO60sQPeiYgQmTK-0H2GsAjMqQ/330x192?allow_animated=1",
@@ -1835,11 +1949,12 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "43347506838",
-    "difference": "-0.0419"
+    "difference": "-0.0419",
+    "tradableDate": "9/3/26"
   },
   {
-    "skinName": "StatTrak™ MAG-7 | Foresight (FT)",
-    "marketHashName": "StatTrak™ MAG-7 | Foresight (Field-Tested)",
+    "skinName": "StatTrak\u2122 MAG-7 | Foresight (FT)",
+    "marketHashName": "StatTrak\u2122 MAG-7 | Foresight (Field-Tested)",
     "price": 5.9505,
     "buyCmd": "!foresight1",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8n5G3wiFO0P-vb_NSMOKWCm6T1eFkj-xsSyCmmFMjt2iGy9uuJ33CPAUoDZt1R-MKu0Psm4flM-_nslSM2t4Tzi72hyMY8G81tL9psQ_4/330x192?allow_animated=1",
@@ -1851,7 +1966,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "46865251880",
-    "difference": "-0.0155"
+    "difference": "-0.0155",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Desert Eagle | Mecha Industries (MW)",
@@ -1867,7 +1983,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "52268405125",
-    "difference": "+1.1017"
+    "difference": "+1.1017",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Kilowatt Case",
@@ -1883,7 +2000,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "53099463258",
-    "difference": "-0.024"
+    "difference": "-0.024",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Sticker | Bomb On Board",
@@ -1899,7 +2017,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "52900301662",
-    "difference": "-0.005"
+    "difference": "-0.005",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "R8 Revolver | Cobalt Grip (BS)",
@@ -1915,7 +2034,7 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "52843196766",
-    "tradableDate": "9/22/26",
+    "tradableDate": "10/22/26",
     "difference": "-0.0047"
   },
   {
@@ -1932,7 +2051,7 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "52654817331",
-    "tradableDate": "8/30/26",
+    "tradableDate": "9/29/26",
     "difference": "-0.01"
   },
   {
@@ -1949,7 +2068,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "52636860128",
-    "difference": "-0.0034"
+    "difference": "-0.0034",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "MP9 | Pine (BS)",
@@ -1965,7 +2085,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "52344641268",
-    "difference": "-0.0034"
+    "difference": "-0.0034",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "MP5-SD | Necro Jr. (FT)",
@@ -1981,7 +2102,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "52316884148",
-    "difference": "+0.43"
+    "difference": "+0.43",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Nova | Marsh Grass (BS)",
@@ -1997,7 +2119,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "51807573633",
-    "difference": "-0.0034"
+    "difference": "-0.0034",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "P250 | Copper Oxide (MW)",
@@ -2013,7 +2136,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "51680603296",
-    "difference": "-0.0034"
+    "difference": "-0.0034",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Dual Berettas | Polished Malachite (FT)",
@@ -2029,7 +2153,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "51951235861",
-    "difference": "-0.005"
+    "difference": "-0.005",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "MP9 | Buff Blue (FN)",
@@ -2045,7 +2170,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "50591150868",
-    "difference": "-0.0168"
+    "difference": "-0.0168",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Five-SeveN | Sky Blue (FN)",
@@ -2061,7 +2187,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "49660500721",
-    "difference": "+0.0001"
+    "difference": "+0.0001",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "P250 | Cassette (BS)",
@@ -2077,7 +2204,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "50224687058",
-    "difference": "-0.0001"
+    "difference": "-0.0001",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "MP5-SD | Necro Jr. (BS)",
@@ -2093,11 +2221,12 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "50224630832",
-    "difference": "-0.009"
+    "difference": "-0.009",
+    "tradableDate": "9/3/26"
   },
   {
-    "skinName": "StatTrak™ Nova | Dark Sigil (BS)",
-    "marketHashName": "StatTrak™ Nova | Dark Sigil (Battle-Scarred)",
+    "skinName": "StatTrak\u2122 Nova | Dark Sigil (BS)",
+    "marketHashName": "StatTrak\u2122 Nova | Dark Sigil (Battle-Scarred)",
     "price": 5.0675,
     "buyCmd": "!darksigil1",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL_kYDhwixU-fORbLZsK_uSHFiYxO9gqa9sHSy2wk4isD_dzt-rcS3COlB0ApIlTLMDshWwl4GzM7iz5AKLjI8U02yg2TQccRHG/330x192?allow_animated=1",
@@ -2109,7 +2238,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "48687678559",
-    "difference": "-0.5067"
+    "difference": "-0.5067",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Galil AR | Grey Smoke (MW)",
@@ -2125,7 +2255,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "48853145520",
-    "difference": "-0.0026"
+    "difference": "-0.0026",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Nova | Predator (FT)",
@@ -2141,11 +2272,12 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "48715869398",
-    "difference": "-0.004"
+    "difference": "-0.004",
+    "tradableDate": "9/3/26"
   },
   {
-    "skinName": "StatTrak™ M249 | Hypnosis (FT)",
-    "marketHashName": "StatTrak™ M249 | Hypnosis (Field-Tested)",
+    "skinName": "StatTrak\u2122 M249 | Hypnosis (FT)",
+    "marketHashName": "StatTrak\u2122 M249 | Hypnosis (Field-Tested)",
     "price": 28.209,
     "buyCmd": "!hypnosis1",
     "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8zMK5wi8Ju6uRYL19Lv-AB3SvzOtyufRkAXjql0xysjmBzougInnCawUoA5VyEOMKtEWxl9zlNLyz4lOLi4lGmS3gznQeDWNDhvo/330x192?allow_animated=1",
@@ -2157,7 +2289,8 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "42593295840",
-    "difference": "-0.0735"
+    "difference": "-0.0735",
+    "tradableDate": "9/3/26"
   },
   {
     "skinName": "Sticker | Martha",
@@ -2173,18 +2306,19 @@
     "lockAPIscrape": 1785889564861,
     "isgame": 0,
     "assetid": "43170224119",
-    "difference": "-0.005"
+    "difference": "-0.005",
+    "tradableDate": "9/3/26"
   },
   {
-    "skinName": "★ Classic Knife | Stained (FT)",
-    "marketHashName": "★ Classic Knife | Stained (Field-Tested)",
+    "skinName": "\u2605 Classic Knife | Stained (FT)",
+    "marketHashName": "\u2605 Classic Knife | Stained (Field-Tested)",
     "price": 12317.5083,
     "buyCmd": "!ckstained1",
     "imageUrl": "https://community.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL6kJ_m-B1Y_OGRabVSJv-BDWKU_uNztOh8Qmflk0pytWWAzNqodH3DPQ8lDJcjR7QNu0WwkIC0Mrvh71GM2dhDzn72kGoXueUnH78t",
     "markupPercent": 145,
     "markupLock": false,
     "cachedAt": "08/04/26, 05:21 PM",
-    "tradableDate": "8/27/26",
+    "tradableDate": "9/26/26",
     "popularityIndex": 0,
     "marketActivity": 0,
     "lockAPIscrape": 1785889564861,
@@ -2193,15 +2327,15 @@
     "difference": "-32.0852"
   },
   {
-    "skinName": "★ Driver Gloves | Rezan the Red (FT)",
-    "marketHashName": "★ Driver Gloves | Rezan the Red (Field-Tested)",
+    "skinName": "\u2605 Driver Gloves | Rezan the Red (FT)",
+    "marketHashName": "\u2605 Driver Gloves | Rezan the Red (Field-Tested)",
     "price": 8787.6054,
     "buyCmd": "!rezanred1",
     "imageUrl": "https://community.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5T441rsfhr9kYDl7h1I4_utY5t_JeqSAFidxOp_pewnGn23wE126mSAm939JHrCaQInDJR1ReBes0bsk4LgMbvlsQzZ2NkRzjK-0H3x8LWufg",
     "markupPercent": 145,
     "markupLock": false,
     "cachedAt": "08/04/26, 05:21 PM",
-    "tradableDate": "8/27/26",
+    "tradableDate": "9/26/26",
     "popularityIndex": 0,
     "marketActivity": 0,
     "lockAPIscrape": 1785889564861,
