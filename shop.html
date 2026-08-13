@@ -884,21 +884,6 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
     </div>
   </div>
 
-  <!-- Filter Modal (mobile) -->
-  <div class="modal-overlay f-modal-overlay" id="f-modal" onclick="fCloseModal(event)">
-    <div class="f-modal-sheet">
-      <div class="f-modal-header">
-        <div class="f-modal-title" id="f-modal-title">Filters</div>
-        <button class="f-modal-close-x" onclick="fCloseModalDirect()">✕</button>
-      </div>
-      <div class="f-modal-body" id="f-modal-body"></div>
-      <div class="f-modal-footer">
-        <button class="f-reset-btn" onclick="fResetFilters()">Reset</button>
-        <button class="f-apply-btn" onclick="fApplyFilters()">Apply</button>
-      </div>
-    </div>
-  </div>
-
   <!-- Bottom Tab Bar -->
   <div class="m-tab-bar">
     <div class="m-tab active" id="m-tab-shop" onclick="mSwitchTab('shop')">
@@ -1097,6 +1082,21 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
     <div class="d-update-notice" id="d-update-notice">
       <span>⚠️</span>
       <span><strong>Subscribers &amp; VIPs get reduced cooldown.</strong> Prices update when the stream starts — if the latest update hasn't loaded yet, use the Refresh button above to force reload.</span>
+    </div>
+  </div>
+</div>
+
+<!-- Filter Modal (shared: mobile + desktop) -->
+<div class="modal-overlay f-modal-overlay" id="f-modal" onclick="fCloseModal(event)">
+  <div class="f-modal-sheet">
+    <div class="f-modal-header">
+      <div class="f-modal-title" id="f-modal-title">Filters</div>
+      <button class="f-modal-close-x" onclick="fCloseModalDirect()">✕</button>
+    </div>
+    <div class="f-modal-body" id="f-modal-body"></div>
+    <div class="f-modal-footer">
+      <button class="f-reset-btn" onclick="fResetFilters()">Reset</button>
+      <button class="f-apply-btn" onclick="fApplyFilters()">Apply</button>
     </div>
   </div>
 </div>
