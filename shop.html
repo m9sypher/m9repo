@@ -104,12 +104,17 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
   position:fixed;top:48px;left:0;right:0;height:46px;
   background:rgba(10,12,16,0.97);backdrop-filter:blur(20px);
   border-bottom:.5px solid var(--sep);z-index:99;
-  display:flex;align-items:center;padding:0 12px;
+  display:flex;align-items:center;padding:0 12px;gap:8px;
 }
 .m-search-wrap{display:flex;align-items:center;background:rgba(255,255,255,.05);border-radius:9px;padding:0 11px;gap:8px;flex:1;min-width:0;height:32px;border:.5px solid var(--sep)}
 .m-search-wrap svg{width:13px;height:13px;flex-shrink:0;opacity:.4}
 .m-search-wrap input{flex:1;border:none;background:transparent;font-size:13.5px;color:var(--label);outline:none;height:100%}
 .m-search-wrap input::placeholder{color:var(--secondary)}
+.m-filter-btn{position:relative;flex-shrink:0;height:32px;width:32px;border-radius:9px;background:rgba(255,255,255,.05);border:.5px solid var(--sep);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--secondary);transition:all .12s;}
+.m-filter-btn svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.m-filter-btn.has-active{background:rgba(77,159,255,.15);border-color:rgba(77,159,255,.35);color:var(--accent)}
+.m-filter-btn-dot{position:absolute;top:-3px;right:-3px;width:8px;height:8px;border-radius:50%;background:var(--accent);border:1.5px solid var(--bg);display:none;}
+.m-filter-btn.has-active .m-filter-btn-dot{display:block}
 
 .filter-bar{
   position:fixed;top:94px;left:0;right:0;height:40px;
@@ -382,6 +387,29 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
 .modal-copy-btn:active{transform:scale(.95)}
 .modal-close-btn{display:block;width:calc(100% - 40px);margin:16px 20px 0;background:rgba(255,255,255,.07);color:var(--label);border:.5px solid var(--sep);border-radius:12px;padding:14px;font-size:16px;font-weight:600;cursor:pointer;}
 
+/* ── Advanced Filter Modal ── */
+.f-modal-sheet{width:100%;background:var(--bg2);border-radius:18px 18px 0 0;padding:0 0 24px;transform:translateY(100%);transition:transform .28s cubic-bezier(.34,1.1,.64,1);border-top:.5px solid var(--sep);max-height:82vh;display:flex;flex-direction:column;}
+.modal-overlay.open .f-modal-sheet{transform:translateY(0)}
+.f-modal-header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px 4px;flex-shrink:0;}
+.f-modal-title{font-size:17px;font-weight:700;color:var(--label);font-family:'Rajdhani',sans-serif;letter-spacing:.4px}
+.f-modal-close-x{background:rgba(255,255,255,.08);border:none;color:var(--secondary);width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:15px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.f-modal-body{padding:12px 20px 4px;overflow-y:auto;flex:1;}
+.f-group{margin-bottom:18px;}
+.f-group-label{font-size:11px;font-weight:700;color:var(--tertiary);text-transform:uppercase;letter-spacing:.5px;margin-bottom:9px;}
+.f-chip-row{display:flex;flex-wrap:wrap;gap:7px;}
+.f-chip{padding:7px 13px;border-radius:16px;font-size:12.5px;font-weight:500;border:.5px solid var(--sep);background:rgba(255,255,255,.04);color:var(--secondary);cursor:pointer;transition:all .12s;}
+.f-chip.active{background:var(--accent2);color:#fff;border-color:var(--accent2)}
+.f-empty-note{padding:24px 4px;text-align:center;color:var(--secondary);font-size:13px;line-height:1.6;}
+.f-modal-footer{display:flex;gap:10px;padding:14px 20px 0;flex-shrink:0;}
+.f-reset-btn{flex:1;background:rgba(255,255,255,.07);color:var(--label);border:.5px solid var(--sep);border-radius:12px;padding:13px;font-size:14.5px;font-weight:600;cursor:pointer;}
+.f-apply-btn{flex:1.4;background:var(--accent2);color:#fff;border:none;border-radius:12px;padding:13px;font-size:14.5px;font-weight:600;cursor:pointer;}
+
+@media(min-width:768px){
+  .modal-overlay.f-modal-overlay{align-items:center;justify-content:center;}
+  .f-modal-sheet{width:420px;max-width:90vw;border-radius:16px;transform:translateY(24px) scale(.97);max-height:78vh;}
+  .modal-overlay.f-modal-overlay.open .f-modal-sheet{transform:translateY(0) scale(1);}
+}
+
 /* ══════════ DESKTOP ══════════ */
 @media(min-width:768px){
   .mobile-shell{display:none}
@@ -413,6 +441,12 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
   .d-search-wrap input{flex:1;border:none;background:transparent;font-size:14px;color:var(--label);outline:none}
   .d-search-wrap input::placeholder{color:var(--secondary)}
   .d-search-wrap.hidden{display:none}
+  .d-filter-btn{position:relative;background:none;border:.5px solid var(--sep);border-radius:8px;cursor:pointer;padding:6px 12px;color:var(--secondary);font-size:12.5px;font-weight:600;display:flex;align-items:center;gap:5px;transition:all .12s;white-space:nowrap;flex-shrink:0;}
+  .d-filter-btn:hover{background:rgba(255,255,255,.06);color:var(--label)}
+  .d-filter-btn svg{width:13px;height:13px;flex-shrink:0}
+  .d-filter-btn.has-active{background:rgba(77,159,255,.12);border-color:rgba(77,159,255,.35);color:var(--accent)}
+  .d-filter-btn.hidden{display:none}
+  .d-filter-btn-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0;}
   .d-refresh-btn{background:none;border:.5px solid var(--sep);border-radius:8px;cursor:pointer;padding:6px 12px;color:var(--accent);font-size:12.5px;font-weight:600;display:flex;align-items:center;gap:5px;transition:all .12s;white-space:nowrap;flex-shrink:0;}
   .d-refresh-btn:hover{background:rgba(77,159,255,.1)}
   .d-refresh-btn:active{transform:scale(.97)}
@@ -673,6 +707,10 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
       <svg viewBox="0 0 14 14" fill="none"><circle cx="6" cy="6" r="4.5" stroke="white" stroke-width="1.5"/><path d="M9.5 9.5L12.5 12.5" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
       <input type="text" id="m-search" placeholder="Search items…" autocomplete="off">
     </div>
+    <button class="m-filter-btn" id="m-filter-btn" onclick="openFilterModal('m')" aria-label="Filters">
+      <svg viewBox="0 0 16 16"><path d="M2 4h12M4.5 8h7M7 12h2"/></svg>
+      <span class="m-filter-btn-dot"></span>
+    </button>
   </div>
 
   <div class="filter-bar" id="m-filters"></div>
@@ -846,6 +884,21 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
     </div>
   </div>
 
+  <!-- Filter Modal (mobile) -->
+  <div class="modal-overlay f-modal-overlay" id="f-modal" onclick="fCloseModal(event)">
+    <div class="f-modal-sheet">
+      <div class="f-modal-header">
+        <div class="f-modal-title" id="f-modal-title">Filters</div>
+        <button class="f-modal-close-x" onclick="fCloseModalDirect()">✕</button>
+      </div>
+      <div class="f-modal-body" id="f-modal-body"></div>
+      <div class="f-modal-footer">
+        <button class="f-reset-btn" onclick="fResetFilters()">Reset</button>
+        <button class="f-apply-btn" onclick="fApplyFilters()">Apply</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Bottom Tab Bar -->
   <div class="m-tab-bar">
     <div class="m-tab active" id="m-tab-shop" onclick="mSwitchTab('shop')">
@@ -882,6 +935,13 @@ html,body{background:var(--bg);font-family:'Inter',sans-serif;-webkit-font-smoot
         </svg>
         <input type="text" id="d-search" placeholder="Search items…" autocomplete="off">
       </div>
+      <button class="d-filter-btn" id="d-filter-btn" onclick="openFilterModal('d')">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M2 4h12M4.5 8h7M7 12h2"/>
+        </svg>
+        Filters
+        <span class="d-filter-btn-dot" id="d-filter-btn-dot" style="display:none"></span>
+      </button>
       <button class="d-refresh-btn" id="d-refresh-btn" onclick="loadItems(true)">
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
           <path d="M13.5 2.5A6.5 6.5 0 1 1 8 1.5"/>
@@ -1186,6 +1246,7 @@ function dSwitchSection(section){
   const sortBar=document.getElementById('d-sort-bar');
   const searchWrap=document.getElementById('d-search-wrap');
   const refreshBtn=document.getElementById('d-refresh-btn');
+  const filterBtn=document.getElementById('d-filter-btn');
   const updateNotice=document.getElementById('d-update-notice');
   const viewToggle=document.getElementById('d-view-fab');
 
@@ -1195,6 +1256,7 @@ function dSwitchSection(section){
     sortBar.classList.remove('hidden');
     searchWrap.classList.remove('hidden');
     refreshBtn.classList.remove('hidden');
+    if(filterBtn)filterBtn.classList.remove('hidden');
     updateNotice.classList.remove('hidden');
     if(viewToggle)viewToggle.classList.remove('hidden');
   } else {
@@ -1203,6 +1265,7 @@ function dSwitchSection(section){
     sortBar.classList.add('hidden');
     searchWrap.classList.add('hidden');
     refreshBtn.classList.add('hidden');
+    if(filterBtn)filterBtn.classList.add('hidden');
     updateNotice.classList.add('hidden');
     if(viewToggle)viewToggle.classList.add('hidden');
     document.getElementById('d-title').textContent='AFFILIATES';
@@ -1275,6 +1338,7 @@ function noticesHtml(item,wrapClass){
 
 /* ── wear / type line shown above the item name ── */
 const WEAR_MAP = {FN:'Factory New',MW:'Minimal Wear',FT:'Field-Tested',WW:'Well-Worn',BS:'Battle-Scarred'};
+const WEAR_ORDER = ['Factory New','Minimal Wear','Field-Tested','Well-Worn','Battle-Scarred'];
 function getWearLine(item){
   const n=item.skinName;
   const isStat=n.toLowerCase().includes('stattrak');
@@ -1289,6 +1353,44 @@ function getWearLine(item){
   if(n.toLowerCase().includes('case'))return 'Case';
   if(isStat)return 'StatTrak™';
   return 'Collectible';
+}
+
+/* ── raw wear grade only (no StatTrak prefix), used for filtering ── */
+function getWearOnly(item){
+  const n=item.skinName;
+  const abbr=n.match(/\((FN|MW|FT|WW|BS)\)/);
+  if(abbr)return WEAR_MAP[abbr[1]];
+  for(const w of WEAR_ORDER){if(n.includes(w))return w;}
+  return null;
+}
+
+/* ── weapon / item type extracted from the "Weapon | Skin Name" convention ── */
+function getWeaponType(item){
+  let n=item.skinName;
+  n=n.replace(/StatTrak™\s*/gi,'').replace(/Souvenir\s*/gi,'').replace(/★\s*/g,'').trim();
+  const pipeIdx=n.indexOf('|');
+  if(pipeIdx>-1)return n.slice(0,pipeIdx).trim();
+  return n.replace(/\((FN|MW|FT|WW|BS)\)/,'').split('(')[0].trim();
+}
+
+/* ── StatTrak / Souvenir tag ── */
+function getSpecialTag(item){
+  const n=item.skinName;
+  if(/StatTrak™/i.test(n))return 'StatTrak™';
+  if(/Souvenir/i.test(n))return 'Souvenir';
+  return 'Normal';
+}
+
+/* ── sticker variant, e.g. "Sticker | Bob (Holo)" -> "Holo" ── */
+function getStickerVariant(item){
+  const matches=[...item.skinName.matchAll(/\(([^)]+)\)/g)];
+  for(const m of matches){
+    const val=m[1].trim();
+    if(!WEAR_MAP[val] && !WEAR_ORDER.includes(val)){
+      return val;
+    }
+  }
+  return null;
 }
 
 function fmtPrice(p){return p.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});}
@@ -1340,16 +1442,40 @@ function rollCategoryImagePools(){
     catImagePools[cat]=sampleRandom(items,4).map(i=>i.imageUrl);
   });
 }
-function filtered(filter,search){
+
+/* ── Advanced filter state (Skins: weapon/special/wear, Stickers: variant) ── */
+let mAdvFilter={weapon:'All',special:'All',wear:'All',variant:'All'};
+let dAdvFilter={weapon:'All',special:'All',wear:'All',variant:'All'};
+const ADV_FILTER_DEFAULT={weapon:'All',special:'All',wear:'All',variant:'All'};
+
+function advFilterActiveCount(adv){
+  return Object.values(adv).filter(v=>v!=='All').length;
+}
+function matchesAdvFilter(item,category,adv){
+  if(category==='Skins'){
+    if(adv.weapon!=='All'&&getWeaponType(item)!==adv.weapon)return false;
+    if(adv.special!=='All'&&getSpecialTag(item)!==adv.special)return false;
+    if(adv.wear!=='All'&&getWearOnly(item)!==adv.wear)return false;
+  }
+  if(category==='Stickers'){
+    if(adv.variant!=='All'&&(getStickerVariant(item)||'Standard')!==adv.variant)return false;
+  }
+  return true;
+}
+
+function filtered(filter,search,adv){
+  adv=adv||ADV_FILTER_DEFAULT;
   if(filter==='Hot Items'){
     const q=search.toLowerCase();
     return hotItems.filter(i=>!q||i.skinName.toLowerCase().includes(q)||i.buyCmd.toLowerCase().includes(q));
   }
   const q=search.toLowerCase();
   return allItems.filter(i=>{
-    const c=filter==='All'||getCategory(i)===filter;
+    const cat=getCategory(i);
+    const c=filter==='All'||cat===filter;
     const s=!q||i.skinName.toLowerCase().includes(q)||i.buyCmd.toLowerCase().includes(q);
-    return c&&s;
+    const a=filter==='All'?true:matchesAdvFilter(i,cat,adv);
+    return c&&s&&a;
   });
 }
 function sorted(items,key){
@@ -1386,8 +1512,8 @@ function loadItems(force){
     .then(data=>{
       allItems=data;rollHotItems();rollCategoryImagePools();setSpinning(false);
       if(force)showToast('✓  Shop refreshed');
-      mBuildFilters();mBuildSortBar();mRender();
-      dBuildNav();dBuildSortBar();dRender();
+      mBuildFilters();mBuildSortBar();mRender();mUpdateFilterBtn();
+      dBuildNav();dBuildSortBar();dRender();dUpdateFilterBtn();
     })
     .catch(()=>{
       setSpinning(false);
@@ -1413,7 +1539,7 @@ function mBuildFilters(){
     const b=document.createElement('button');
     b.className='filter-pill'+(cat===mFilter?' active':'');
     b.textContent=cat;
-    b.onclick=()=>{mFilter=cat;bar.querySelectorAll('.filter-pill').forEach(p=>p.classList.remove('active'));b.classList.add('active');mRender();};
+    b.onclick=()=>{mFilter=cat;mAdvFilter={...ADV_FILTER_DEFAULT};mPages={};bar.querySelectorAll('.filter-pill').forEach(p=>p.classList.remove('active'));b.classList.add('active');mRender();mUpdateFilterBtn();};
     bar.appendChild(b);
   });
 }
@@ -1611,7 +1737,7 @@ function mRender(){
   const el=document.getElementById('m-content');
   const isHome=mFilter==='All'&&!mSearch;
   const isHot=mFilter==='Hot Items';
-  const items=sorted(filtered(mFilter,mSearch),mSort);
+  const items=sorted(filtered(mFilter,mSearch,mAdvFilter),mSort);
   document.getElementById('m-count').textContent=items.length+' items';
   let html='';
 
@@ -1659,7 +1785,7 @@ function mSetView(mode){
   mRender();
 }
 function mSetFilter(cat){
-  mFilter=cat;mSearch='';mPages={};
+  mFilter=cat;mSearch='';mAdvFilter={...ADV_FILTER_DEFAULT};mPages={};
   const searchInput=document.getElementById('m-search');if(searchInput)searchInput.value='';
   const bar=document.getElementById('m-filters');
   if(bar){
@@ -1671,8 +1797,13 @@ function mSetFilter(cat){
     });
     if(!found)bar.querySelectorAll('.filter-pill').forEach(p=>p.classList.remove('active'));
   }
-  mRender();
+  mRender();mUpdateFilterBtn();
   window.scrollTo({top:0,behavior:'smooth'});
+}
+function mUpdateFilterBtn(){
+  const btn=document.getElementById('m-filter-btn');
+  if(!btn)return;
+  btn.classList.toggle('has-active',advFilterActiveCount(mAdvFilter)>0);
 }
 function mOpenModal(idx){
   const item=allItems[idx];if(!item)return;
@@ -1709,6 +1840,75 @@ function mOpenModal(idx){
 function mCloseModal(e){if(e.target===document.getElementById('m-modal'))mCloseModalDirect();}
 function mCloseModalDirect(){document.getElementById('m-modal').classList.remove('open');document.body.style.overflow='';}
 
+/* ── Advanced Filter Modal (shared by mobile + desktop) ── */
+let fModalCtx='m';
+let fDraft={weapon:'All',special:'All',wear:'All',variant:'All'};
+
+function fCategoryFor(ctx){return ctx==='m'?mFilter:dFilter;}
+function fAdvFor(ctx){return ctx==='m'?mAdvFilter:dAdvFilter;}
+
+function openFilterModal(ctx){
+  fModalCtx=ctx;
+  const cat=fCategoryFor(ctx);
+  fDraft={...fAdvFor(ctx)};
+  const body=document.getElementById('f-modal-body');
+  const title=document.getElementById('f-modal-title');
+
+  if(cat==='Skins'){
+    title.textContent='Filter Skins';
+    const weaponOpts=['All',...new Set(allItems.filter(i=>getCategory(i)==='Skins').map(getWeaponType))].filter(Boolean).sort((a,b)=>a==='All'?-1:b==='All'?1:a.localeCompare(b));
+    const wearOpts=['All',...WEAR_ORDER.filter(w=>allItems.some(i=>getCategory(i)==='Skins'&&getWearOnly(i)===w))];
+    const specialOpts=['All','Normal','StatTrak™','Souvenir'].filter(s=>s==='All'||allItems.some(i=>getCategory(i)==='Skins'&&getSpecialTag(i)===s));
+    body.innerHTML=
+      fChipGroupHtml('Weapon / Item Type','weapon',weaponOpts)+
+      fChipGroupHtml('Special','special',specialOpts)+
+      fChipGroupHtml('Wear','wear',wearOpts);
+  } else if(cat==='Stickers'){
+    title.textContent='Filter Stickers';
+    const variantOpts=['All',...new Set(allItems.filter(i=>getCategory(i)==='Stickers').map(i=>getStickerVariant(i)||'Standard'))].sort((a,b)=>a==='All'?-1:b==='All'?1:a.localeCompare(b));
+    body.innerHTML=fChipGroupHtml('Variant','variant',variantOpts);
+  } else {
+    title.textContent='Filters';
+    const label=cat==='All'||cat==='Hot Items'?'this view':`the ${cat} category`;
+    body.innerHTML=`<div class="f-empty-note">No extra filters for ${label}.<br>Filters are available for Skins and Stickers — pick that category first.</div>`;
+  }
+
+  document.getElementById('f-modal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function fChipGroupHtml(label,key,opts){
+  return `<div class="f-group">
+    <div class="f-group-label">${label}</div>
+    <div class="f-chip-row">${opts.map(o=>`<button class="f-chip${fDraft[key]===o?' active':''}" data-key="${key}" data-val="${o.replace(/"/g,'&quot;')}" onclick="fSelectChip(this)">${o}</button>`).join('')}</div>
+  </div>`;
+}
+function fSelectChip(btn){
+  const key=btn.dataset.key;
+  const val=btn.dataset.val;
+  fDraft[key]=val;
+  btn.parentElement.querySelectorAll('.f-chip').forEach(c=>c.classList.remove('active'));
+  btn.classList.add('active');
+}
+function fResetFilters(){
+  fDraft={...ADV_FILTER_DEFAULT};
+  openFilterModal(fModalCtx);
+}
+function fApplyFilters(){
+  if(fModalCtx==='m'){mAdvFilter={...fDraft};mPages={};mRender();mUpdateFilterBtn();}
+  else{dAdvFilter={...fDraft};dPages={};dRender();dUpdateFilterBtn();}
+  fCloseModalDirect();
+}
+function fCloseModal(e){if(e.target===document.getElementById('f-modal'))fCloseModalDirect();}
+function fCloseModalDirect(){document.getElementById('f-modal').classList.remove('open');document.body.style.overflow='';}
+function dUpdateFilterBtn(){
+  const btn=document.getElementById('d-filter-btn');
+  const dot=document.getElementById('d-filter-btn-dot');
+  if(!btn)return;
+  const active=advFilterActiveCount(dAdvFilter)>0;
+  btn.classList.toggle('has-active',active);
+  if(dot)dot.style.display=active?'inline-block':'none';
+}
+
 function dBuildNav(){
   const nav=document.getElementById('d-nav');nav.innerHTML='';
 
@@ -1718,13 +1918,13 @@ function dBuildNav(){
   home.className='d-nav-item'+(dCurrentSection==='shop'&&dFilter==='All'?' active':'');
   home.innerHTML=`<div class="d-nav-icon">🛍️</div>All Items<span class="d-nav-count">${allItems.length}</span>`;
   home.onclick=()=>{
-    dCurrentSection='shop';dFilter='All';dSearch='';
+    dCurrentSection='shop';dFilter='All';dSearch='';dAdvFilter={...ADV_FILTER_DEFAULT};
     document.getElementById('d-search').value='';
     document.getElementById('d-title').textContent='ALL ITEMS';
     dSelected=null;resetDetail();
     nav.querySelectorAll('.d-nav-item').forEach(x=>x.classList.remove('active'));
     home.classList.add('active');
-    dSwitchSection('shop');dRender();
+    dSwitchSection('shop');dRender();dUpdateFilterBtn();
   };
   nav.appendChild(home);
 
@@ -1736,12 +1936,12 @@ function dBuildNav(){
     el.className='d-nav-item';
     el.innerHTML=`<div class="d-nav-icon">${CAT_ICONS[cat]}</div>${cat}<span class="d-nav-count">${cnt}</span>`;
     el.onclick=()=>{
-      dCurrentSection='shop';dFilter=cat;
+      dCurrentSection='shop';dFilter=cat;dAdvFilter={...ADV_FILTER_DEFAULT};
       document.getElementById('d-title').textContent=cat.toUpperCase();
       dSelected=null;resetDetail();
       nav.querySelectorAll('.d-nav-item').forEach(x=>x.classList.remove('active'));
       el.classList.add('active');
-      dSwitchSection('shop');dRender();
+      dSwitchSection('shop');dRender();dUpdateFilterBtn();
     };
     nav.appendChild(el);
   });
@@ -1751,13 +1951,13 @@ function dBuildNav(){
   hotEl.className='d-nav-item'+(dCurrentSection==='shop'&&dFilter==='Hot Items'?' active':'');
   hotEl.innerHTML=`<div class="d-nav-icon">🔥</div>Hot Items`;
   hotEl.onclick=()=>{
-    dCurrentSection='shop';dFilter='Hot Items';dSearch='';
+    dCurrentSection='shop';dFilter='Hot Items';dSearch='';dAdvFilter={...ADV_FILTER_DEFAULT};
     document.getElementById('d-search').value='';
     document.getElementById('d-title').textContent='HOT ITEMS';
     dSelected=null;resetDetail();
     nav.querySelectorAll('.d-nav-item').forEach(x=>x.classList.remove('active'));
     hotEl.classList.add('active');
-    dSwitchSection('shop');dRender();
+    dSwitchSection('shop');dRender();dUpdateFilterBtn();
   };
   nav.appendChild(hotEl);
 
@@ -1924,7 +2124,7 @@ function dRender(){
   const grid=document.getElementById('d-grid');
   const isHome=dFilter==='All'&&!dSearch;
   const isHot=dFilter==='Hot Items';
-  const items=sorted(filtered(dFilter,dSearch),dSort);
+  const items=sorted(filtered(dFilter,dSearch,dAdvFilter),dSort);
   document.getElementById('d-count').textContent=items.length+' items';
 
   let html='';
@@ -1976,11 +2176,11 @@ function dSetView(mode){
   dRender();
 }
 function dSetFilter(cat){
-  dCurrentSection='shop';dFilter=cat;dPages={};
+  dCurrentSection='shop';dFilter=cat;dAdvFilter={...ADV_FILTER_DEFAULT};dPages={};
   document.getElementById('d-title').textContent=cat.toUpperCase();
   dSelected=null;resetDetail();
   document.querySelectorAll('.d-nav-item').forEach(x=>x.classList.toggle('active',x.textContent.trim().startsWith(cat)&&!x.classList.contains('aff-item')));
-  dSwitchSection('shop');dRender();
+  dSwitchSection('shop');dRender();dUpdateFilterBtn();
 }
 function dSelect(idx){
   dSelected=idx;dRender();
