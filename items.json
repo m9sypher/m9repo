@@ -2123,22 +2123,6 @@
     "tradableDate": "9/3/26"
   },
   {
-    "skinName": "Sticker | Martha",
-    "marketHashName": "Sticker | Martha",
-    "price": 2.814,
-    "buyCmd": "!martha5",
-    "imageUrl": "https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjNqoO26H9ml29Zfn_1XiDhDwjILo_GwO7KOvbaI0caTHDTLAkL1y6bM8Hnrjl0Rxt2_Ry9j6JyiVaAQlWJZ2W6dU5QiW9y87/330x192?allow_animated=1",
-    "markupPercent": 0,
-    "markupLock": false,
-    "cachedAt": "08/27/26, 09:37 AM",
-    "popularityIndex": 0,
-    "marketActivity": 0,
-    "lockAPIscrape": 1787848971753,
-    "isgame": 0,
-    "assetid": "43170224119",
-    "difference": "-0.938"
-  },
-  {
     "skinName": "★ Classic Knife | Stained (FT)",
     "marketHashName": "★ Classic Knife | Stained (Field-Tested)",
     "price": 27129.0705,
